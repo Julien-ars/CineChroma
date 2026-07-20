@@ -1,0 +1,4037 @@
+[
+    {
+        "id": 1368337,
+        "titre": "L'Odyssée",
+        "titre_original": "The Odyssey",
+        "date_sortie": "2026-07-15",
+        "genres": [
+            "Aventure",
+            "Action",
+            "Fantastique"
+        ],
+        "duree_minutes": 173,
+        "realisateur": "Christopher Nolan",
+        "langue_origine": "en",
+        "budget": 250000000,
+        "recettes": 264100000,
+        "note_moyenne": 7.819,
+        "popularite": 746.6132,
+        "certification": "FR: 12",
+        "resume_fr": "Vingt ans après son départ pour la guerre de Troie, le roi Ulysse rentre enfin à Ithaque, mais son voyage est parsemé d'aventures et d'épreuves.",
+        "resume_en": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is forced to confront the whims of gods, mythological monsters, and trials that stretch both his cunning and his humanity to the breaking point.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=9YGuN8sQpL0",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+                "palette": [
+                    {
+                        "hex": "#140e15",
+                        "weight": 43.75
+                    },
+                    {
+                        "hex": "#948d7e",
+                        "weight": 19.32
+                    },
+                    {
+                        "hex": "#d6b78d",
+                        "weight": 16.64
+                    },
+                    {
+                        "hex": "#592b29",
+                        "weight": 11.1
+                    },
+                    {
+                        "hex": "#4a4f55",
+                        "weight": 9.19
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/pe5cCoX5iIb5IWKPsbPkCwjLFHt.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/pe5cCoX5iIb5IWKPsbPkCwjLFHt.jpg",
+                "palette": [
+                    {
+                        "hex": "#03030a",
+                        "weight": 36.79
+                    },
+                    {
+                        "hex": "#467d9c",
+                        "weight": 31.54
+                    },
+                    {
+                        "hex": "#061934",
+                        "weight": 17.21
+                    },
+                    {
+                        "hex": "#244d6f",
+                        "weight": 10.75
+                    },
+                    {
+                        "hex": "#433928",
+                        "weight": 3.71
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg",
+                "palette": [
+                    {
+                        "hex": "#191211",
+                        "weight": 48.41
+                    },
+                    {
+                        "hex": "#371a13",
+                        "weight": 22.57
+                    },
+                    {
+                        "hex": "#77341e",
+                        "weight": 15.45
+                    },
+                    {
+                        "hex": "#c26132",
+                        "weight": 10.27
+                    },
+                    {
+                        "hex": "#f6c56f",
+                        "weight": 3.3
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1108427,
+        "titre": "Vaiana, la légende du bout du monde",
+        "titre_original": "Moana",
+        "date_sortie": "2026-07-08",
+        "genres": [
+            "Familial",
+            "Fantastique",
+            "Comédie",
+            "Aventure"
+        ],
+        "duree_minutes": 115,
+        "realisateur": "Thomas Kail",
+        "langue_origine": "en",
+        "budget": 250000000,
+        "recettes": 115510565,
+        "note_moyenne": 5.788,
+        "popularite": 601.7817,
+        "certification": "FR: TP",
+        "resume_fr": "Dans l'ancienne Polynésie, lorsqu'une terrible malédiction lancée par Maui atteint l'île d'un chef impétueux, sa fille obstinée répond à l'appel de l'océan et part à la recherche du demi-dieu pour rétablir la situation. Live-Action du film Vaiana, la Légende du bout du monde de Disney en 2016.",
+        "resume_en": "Teenage Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with infamous demigod Maui on an unforgettable journey to restore prosperity to her people.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=gC4H01RlSdQ",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
+                "palette": [
+                    {
+                        "hex": "#b3c7d2",
+                        "weight": 53.41
+                    },
+                    {
+                        "hex": "#25201d",
+                        "weight": 15.22
+                    },
+                    {
+                        "hex": "#774e37",
+                        "weight": 11.95
+                    },
+                    {
+                        "hex": "#6a757c",
+                        "weight": 9.95
+                    },
+                    {
+                        "hex": "#c19f7e",
+                        "weight": 9.47
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/h2pQmZJDTGoiPaQVJku37he1upm.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/h2pQmZJDTGoiPaQVJku37he1upm.jpg",
+                "palette": [
+                    {
+                        "hex": "#a7cde9",
+                        "weight": 31.47
+                    },
+                    {
+                        "hex": "#cee4f6",
+                        "weight": 28.29
+                    },
+                    {
+                        "hex": "#4ac7df",
+                        "weight": 20.47
+                    },
+                    {
+                        "hex": "#2889a3",
+                        "weight": 11.99
+                    },
+                    {
+                        "hex": "#5e403b",
+                        "weight": 7.78
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/etJXeoQovaAcQD8gG0vebtoIlMH.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/etJXeoQovaAcQD8gG0vebtoIlMH.jpg",
+                "palette": [
+                    {
+                        "hex": "#cad0d1",
+                        "weight": 35.75
+                    },
+                    {
+                        "hex": "#89b3cb",
+                        "weight": 21.96
+                    },
+                    {
+                        "hex": "#2b211d",
+                        "weight": 17.28
+                    },
+                    {
+                        "hex": "#996c4e",
+                        "weight": 14.47
+                    },
+                    {
+                        "hex": "#696e72",
+                        "weight": 10.53
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1339713,
+        "titre": "Obsession",
+        "titre_original": "Obsession",
+        "date_sortie": "2026-05-13",
+        "genres": [
+            "Horreur",
+            "Thriller"
+        ],
+        "duree_minutes": 108,
+        "realisateur": "Curry Barker",
+        "langue_origine": "en",
+        "budget": 750000,
+        "recettes": 442700000,
+        "note_moyenne": 8.2,
+        "popularite": 573.6836,
+        "certification": "FR: 16",
+        "resume_fr": "Et si vous pouviez réaliser votre rêve le plus fou ? Un jeune introverti met la main sur un objet magique capable d’exaucer n’importe quel souhait. Son crush de toujours tombe alors raide dingue de lui… jusqu’à l’obsession la plus totale. Faites attention à ce que vous souhaitez !",
+        "resume_en": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=eM4P03Zw9C4",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+                "palette": [
+                    {
+                        "hex": "#0e0909",
+                        "weight": 53.12
+                    },
+                    {
+                        "hex": "#29201e",
+                        "weight": 32.37
+                    },
+                    {
+                        "hex": "#eceeeb",
+                        "weight": 6.66
+                    },
+                    {
+                        "hex": "#54555d",
+                        "weight": 5.29
+                    },
+                    {
+                        "hex": "#7e5635",
+                        "weight": 2.55
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/mDCR1frpUvGfIKksuM440VLb7X9.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/mDCR1frpUvGfIKksuM440VLb7X9.jpg",
+                "palette": [
+                    {
+                        "hex": "#090605",
+                        "weight": 53.85
+                    },
+                    {
+                        "hex": "#611b0f",
+                        "weight": 14.78
+                    },
+                    {
+                        "hex": "#3a1915",
+                        "weight": 14.11
+                    },
+                    {
+                        "hex": "#f0e7e3",
+                        "weight": 10.75
+                    },
+                    {
+                        "hex": "#ca4e33",
+                        "weight": 6.51
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/qukypUmPwd21UnNTRvUdZHd4pNJ.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/qukypUmPwd21UnNTRvUdZHd4pNJ.jpg",
+                "palette": [
+                    {
+                        "hex": "#15100f",
+                        "weight": 72.17
+                    },
+                    {
+                        "hex": "#32241d",
+                        "weight": 13.92
+                    },
+                    {
+                        "hex": "#f7f6f1",
+                        "weight": 6.06
+                    },
+                    {
+                        "hex": "#656466",
+                        "weight": 4.67
+                    },
+                    {
+                        "hex": "#976434",
+                        "weight": 3.18
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1083381,
+        "titre": "Backrooms",
+        "titre_original": "Backrooms",
+        "date_sortie": "2026-05-27",
+        "genres": [
+            "Horreur",
+            "Mystère",
+            "Science-Fiction"
+        ],
+        "duree_minutes": 105,
+        "realisateur": "Kane Parsons",
+        "langue_origine": "en",
+        "budget": 10000000,
+        "recettes": 384382240,
+        "note_moyenne": 7.047,
+        "popularite": 453.2348,
+        "certification": "FR: 12",
+        "resume_fr": "Une étrange porte apparaît dans le sous-sol d'un magasin de meubles.",
+        "resume_en": "A strange doorway appears in the basement of a furniture showroom.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=mTPEEk55gZo",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+                "palette": [
+                    {
+                        "hex": "#99882c",
+                        "weight": 47.66
+                    },
+                    {
+                        "hex": "#816b22",
+                        "weight": 37.05
+                    },
+                    {
+                        "hex": "#5c4012",
+                        "weight": 7.73
+                    },
+                    {
+                        "hex": "#150e03",
+                        "weight": 6.09
+                    },
+                    {
+                        "hex": "#c8bf8f",
+                        "weight": 1.48
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/7NVnp7XHiW99nYLqEH5A63uPSJN.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/7NVnp7XHiW99nYLqEH5A63uPSJN.jpg",
+                "palette": [
+                    {
+                        "hex": "#8c874d",
+                        "weight": 32.28
+                    },
+                    {
+                        "hex": "#6c6735",
+                        "weight": 25.73
+                    },
+                    {
+                        "hex": "#976634",
+                        "weight": 19.01
+                    },
+                    {
+                        "hex": "#100b04",
+                        "weight": 13.28
+                    },
+                    {
+                        "hex": "#513815",
+                        "weight": 9.69
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/qCOwFIkbt0fUBgHRaCCf742C4tu.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/qCOwFIkbt0fUBgHRaCCf742C4tu.jpg",
+                "palette": [
+                    {
+                        "hex": "#99882b",
+                        "weight": 42.11
+                    },
+                    {
+                        "hex": "#7c6a24",
+                        "weight": 30.71
+                    },
+                    {
+                        "hex": "#976632",
+                        "weight": 9.82
+                    },
+                    {
+                        "hex": "#563d11",
+                        "weight": 9.67
+                    },
+                    {
+                        "hex": "#150e05",
+                        "weight": 7.69
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1275779,
+        "titre": "Disclosure Day",
+        "titre_original": "Disclosure Day",
+        "date_sortie": "2026-06-10",
+        "genres": [
+            "Science-Fiction",
+            "Thriller"
+        ],
+        "duree_minutes": 145,
+        "realisateur": "Steven Spielberg",
+        "langue_origine": "en",
+        "budget": 115000000,
+        "recettes": 232932501,
+        "note_moyenne": 6.7,
+        "popularite": 452.1308,
+        "certification": "FR: TP",
+        "resume_fr": "Si vous découvriez que nous ne sommes pas seuls, si quelqu'un vous le montrait, vous le prouvait, cela vous effraierait-il ?",
+        "resume_en": "A cybersecurity expert becomes a whistleblower after uncovering secrets about aliens, putting him on the run from a corporation. Meanwhile, a meteorologist experiencing strange phenomena joins forces with him to prove there's life beyond our understanding.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=h_-SiP-6J54",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/pmff1wjKrgJi92PPr346lAifzlg.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/pmff1wjKrgJi92PPr346lAifzlg.jpg",
+                "palette": [
+                    {
+                        "hex": "#e1eae1",
+                        "weight": 44.77
+                    },
+                    {
+                        "hex": "#b3c3bf",
+                        "weight": 37.15
+                    },
+                    {
+                        "hex": "#8b8f88",
+                        "weight": 7.35
+                    },
+                    {
+                        "hex": "#4b504e",
+                        "weight": 6.11
+                    },
+                    {
+                        "hex": "#212728",
+                        "weight": 4.61
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/qU2bnZhJhIr4scdqu7l2oSwVUED.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/qU2bnZhJhIr4scdqu7l2oSwVUED.jpg",
+                "palette": [
+                    {
+                        "hex": "#e2eae0",
+                        "weight": 30.82
+                    },
+                    {
+                        "hex": "#c1cdc6",
+                        "weight": 28.18
+                    },
+                    {
+                        "hex": "#a3b7b5",
+                        "weight": 21.5
+                    },
+                    {
+                        "hex": "#363d3d",
+                        "weight": 10.75
+                    },
+                    {
+                        "hex": "#898b82",
+                        "weight": 8.75
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/AnJ8IQJI23hNpYXVNaythu061Ru.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/AnJ8IQJI23hNpYXVNaythu061Ru.jpg",
+                "palette": [
+                    {
+                        "hex": "#e5ede4",
+                        "weight": 38.46
+                    },
+                    {
+                        "hex": "#bfcdc7",
+                        "weight": 31.19
+                    },
+                    {
+                        "hex": "#a0ada9",
+                        "weight": 17.75
+                    },
+                    {
+                        "hex": "#303737",
+                        "weight": 6.88
+                    },
+                    {
+                        "hex": "#666c68",
+                        "weight": 5.72
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1084244,
+        "titre": "Toy Story 5",
+        "titre_original": "Toy Story 5",
+        "date_sortie": "2026-06-17",
+        "genres": [
+            "Animation",
+            "Familial",
+            "Comédie",
+            "Aventure"
+        ],
+        "duree_minutes": 102,
+        "realisateur": "Andrew Stanton",
+        "langue_origine": "en",
+        "budget": 250000000,
+        "recettes": 958418566,
+        "note_moyenne": 7.421,
+        "popularite": 384.513,
+        "certification": "FR: TP",
+        "resume_fr": "Buzz, Woody, Jessie et le reste de la bande verront leur travail remis en question lorsqu'ils découvriront que ce qui obsède les enfants d'aujourd'hui s’appelle… l'électronique !",
+        "resume_en": "When Bonnie receives a Lilypad tablet as a gift and becomes obsessed, Buzz, Woody, Jessie and the rest of the gang's jobs become exponentially harder when they have to go head to head with the all-new threat to playtime.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=R7xZRSgmqw4",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/sfQtVlIHljToOwYjhe21KPGzZWK.jpg",
+                "palette": [
+                    {
+                        "hex": "#7e4b50",
+                        "weight": 27.21
+                    },
+                    {
+                        "hex": "#cdaba5",
+                        "weight": 24.0
+                    },
+                    {
+                        "hex": "#5b95c8",
+                        "weight": 19.87
+                    },
+                    {
+                        "hex": "#487744",
+                        "weight": 15.33
+                    },
+                    {
+                        "hex": "#c09a50",
+                        "weight": 13.59
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/to5PIWJXXOmatYepPRTLGWENLJf.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/to5PIWJXXOmatYepPRTLGWENLJf.jpg",
+                "palette": [
+                    {
+                        "hex": "#603b42",
+                        "weight": 35.63
+                    },
+                    {
+                        "hex": "#c4a2aa",
+                        "weight": 18.83
+                    },
+                    {
+                        "hex": "#5691c7",
+                        "weight": 16.45
+                    },
+                    {
+                        "hex": "#c79d6b",
+                        "weight": 16.22
+                    },
+                    {
+                        "hex": "#4d7742",
+                        "weight": 12.88
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/4qr9cjN9iiC8TF0Uhpp2Qaib72O.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/4qr9cjN9iiC8TF0Uhpp2Qaib72O.jpg",
+                "palette": [
+                    {
+                        "hex": "#e1ccb4",
+                        "weight": 37.55
+                    },
+                    {
+                        "hex": "#634a3e",
+                        "weight": 27.28
+                    },
+                    {
+                        "hex": "#b5824d",
+                        "weight": 16.64
+                    },
+                    {
+                        "hex": "#48526c",
+                        "weight": 10.73
+                    },
+                    {
+                        "hex": "#3b5f29",
+                        "weight": 7.81
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1273221,
+        "titre": "Scary Movie",
+        "titre_original": "Scary Movie",
+        "date_sortie": "2026-06-03",
+        "genres": [
+            "Comédie",
+            "Horreur"
+        ],
+        "duree_minutes": 96,
+        "realisateur": "Michael Tiddes",
+        "langue_origine": "en",
+        "budget": 30000000,
+        "recettes": 228436956,
+        "note_moyenne": 6.0,
+        "popularite": 348.624,
+        "certification": "FR: 12",
+        "resume_fr": "Vingt-six ans après avoir échappé à un tueur masqué étrangement familier, les héros emblématiques de la saga sont de nouveau dans la ligne de mire du meurtrier, et aucune franchise de film d’horreur n’est à l’abri.",
+        "resume_en": "Twenty-six years after outrunning a suspiciously familiar masked killer, the Core Four are back in the killer's crosshairs and no horror movie IP is safe.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=DflB7yaf5_o",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/1KlYdWoOrbL5ux357rW9LC155qw.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/1KlYdWoOrbL5ux357rW9LC155qw.jpg",
+                "palette": [
+                    {
+                        "hex": "#14111e",
+                        "weight": 42.29
+                    },
+                    {
+                        "hex": "#294660",
+                        "weight": 24.31
+                    },
+                    {
+                        "hex": "#906252",
+                        "weight": 14.26
+                    },
+                    {
+                        "hex": "#bf1124",
+                        "weight": 10.9
+                    },
+                    {
+                        "hex": "#cac4bc",
+                        "weight": 8.25
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/vUPE82BWRZwq6M5Xc9UNuf8AffK.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/vUPE82BWRZwq6M5Xc9UNuf8AffK.jpg",
+                "palette": [
+                    {
+                        "hex": "#131618",
+                        "weight": 39.56
+                    },
+                    {
+                        "hex": "#b8c5c7",
+                        "weight": 17.65
+                    },
+                    {
+                        "hex": "#573420",
+                        "weight": 16.52
+                    },
+                    {
+                        "hex": "#aa7f58",
+                        "weight": 14.25
+                    },
+                    {
+                        "hex": "#476068",
+                        "weight": 12.01
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/qhGf7btEU9hcGz3A0lneNptJKL7.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/qhGf7btEU9hcGz3A0lneNptJKL7.jpg",
+                "palette": [
+                    {
+                        "hex": "#1d1a2a",
+                        "weight": 38.81
+                    },
+                    {
+                        "hex": "#305268",
+                        "weight": 25.13
+                    },
+                    {
+                        "hex": "#836d60",
+                        "weight": 17.14
+                    },
+                    {
+                        "hex": "#e3e1dc",
+                        "weight": 12.37
+                    },
+                    {
+                        "hex": "#933734",
+                        "weight": 6.56
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1315772,
+        "titre": "Des Minions et des monstres",
+        "titre_original": "Minions & Monsters",
+        "date_sortie": "2026-06-24",
+        "genres": [
+            "Aventure",
+            "Animation",
+            "Comédie",
+            "Familial",
+            "Fantastique"
+        ],
+        "duree_minutes": 90,
+        "realisateur": "Pierre Coffin",
+        "langue_origine": "en",
+        "budget": 85000000,
+        "recettes": 357900000,
+        "note_moyenne": 6.456,
+        "popularite": 332.1634,
+        "certification": "FR: TP",
+        "resume_fr": "L’histoire turbulente, absurde et évidemment vraie des Minions et la manière dont ils ont conquis Hollywood, sont devenus de véritables stars de cinéma, ont tout perdu, ont libéré des monstres dans notre monde, puis ont tenté de sauver la planète du chaos qu’ils avaient créé.",
+        "resume_en": "This is the rambunctious, ridiculous and totally true story of how the Minions conquered Hollywood, became movie stars, lost everything, unleashed monsters onto the world and then banded together to try and save the planet from the mayhem they had just created.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=JgFFh6z9vEY",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/hTowtXrkCY7FJyoj4p91JckrJSE.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/hTowtXrkCY7FJyoj4p91JckrJSE.jpg",
+                "palette": [
+                    {
+                        "hex": "#e1350d",
+                        "weight": 39.59
+                    },
+                    {
+                        "hex": "#3a6371",
+                        "weight": 20.87
+                    },
+                    {
+                        "hex": "#f8c628",
+                        "weight": 16.11
+                    },
+                    {
+                        "hex": "#dab89c",
+                        "weight": 11.82
+                    },
+                    {
+                        "hex": "#9e321b",
+                        "weight": 11.62
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/nz7i42yhLIJ4ve9JKgM6NthoLHO.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/nz7i42yhLIJ4ve9JKgM6NthoLHO.jpg",
+                "palette": [
+                    {
+                        "hex": "#db370b",
+                        "weight": 53.01
+                    },
+                    {
+                        "hex": "#edc6ad",
+                        "weight": 17.37
+                    },
+                    {
+                        "hex": "#f8b624",
+                        "weight": 12.26
+                    },
+                    {
+                        "hex": "#308aa7",
+                        "weight": 9.03
+                    },
+                    {
+                        "hex": "#572820",
+                        "weight": 8.33
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/vrTlRYPhnf107vbTiDf6DRrdV3r.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/vrTlRYPhnf107vbTiDf6DRrdV3r.jpg",
+                "palette": [
+                    {
+                        "hex": "#f4eae9",
+                        "weight": 42.56
+                    },
+                    {
+                        "hex": "#e68097",
+                        "weight": 20.13
+                    },
+                    {
+                        "hex": "#e5c646",
+                        "weight": 16.19
+                    },
+                    {
+                        "hex": "#558fbf",
+                        "weight": 11.01
+                    },
+                    {
+                        "hex": "#434338",
+                        "weight": 10.11
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1081003,
+        "titre": "Supergirl",
+        "titre_original": "Supergirl",
+        "date_sortie": "2026-06-24",
+        "genres": [
+            "Action",
+            "Aventure",
+            "Science-Fiction"
+        ],
+        "duree_minutes": 108,
+        "realisateur": "Craig Gillespie",
+        "langue_origine": "en",
+        "budget": 175000000,
+        "recettes": 120067228,
+        "note_moyenne": 6.157,
+        "popularite": 316.6461,
+        "certification": "FR: TP",
+        "resume_fr": "Lorsqu’un ennemi inattendu et impitoyable surgit, Kara Zor-El est forcée, malgré elle, de faire équipe avec un compagnon improbable. Ensemble, ils se lancent dans une épopée cosmique où la vengeance et la justice sont en jeu, et où Kara doit affronter ses origines pour trouver sa propre voie en tant qu’héroïne.",
+        "resume_en": "When an unexpected and ruthless adversary strikes too close to home, Kara Zor-El, aka Supergirl, reluctantly joins forces with an unlikely companion on an epic, interstellar journey of vengeance and justice.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=ORQa-D2D3jw",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/1BcPlUEB0WmjaE7wkaxndXfDFh3.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/1BcPlUEB0WmjaE7wkaxndXfDFh3.jpg",
+                "palette": [
+                    {
+                        "hex": "#1f5daa",
+                        "weight": 45.45
+                    },
+                    {
+                        "hex": "#cf230e",
+                        "weight": 16.93
+                    },
+                    {
+                        "hex": "#391615",
+                        "weight": 14.51
+                    },
+                    {
+                        "hex": "#914416",
+                        "weight": 13.55
+                    },
+                    {
+                        "hex": "#e2ae21",
+                        "weight": 9.57
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/pu1HUNDeqn3q0Llcpn9dq1GesBj.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/pu1HUNDeqn3q0Llcpn9dq1GesBj.jpg",
+                "palette": [
+                    {
+                        "hex": "#175a99",
+                        "weight": 26.41
+                    },
+                    {
+                        "hex": "#54140e",
+                        "weight": 22.67
+                    },
+                    {
+                        "hex": "#1c151a",
+                        "weight": 17.27
+                    },
+                    {
+                        "hex": "#c21c11",
+                        "weight": 17.15
+                    },
+                    {
+                        "hex": "#c98e40",
+                        "weight": 16.51
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/jHTd4qddi7PikMX7Un4C2wZzWim.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/jHTd4qddi7PikMX7Un4C2wZzWim.jpg",
+                "palette": [
+                    {
+                        "hex": "#192035",
+                        "weight": 21.85
+                    },
+                    {
+                        "hex": "#8f4427",
+                        "weight": 21.61
+                    },
+                    {
+                        "hex": "#bea449",
+                        "weight": 20.81
+                    },
+                    {
+                        "hex": "#3c221f",
+                        "weight": 19.09
+                    },
+                    {
+                        "hex": "#39567d",
+                        "weight": 16.65
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1280738,
+        "titre": "The Furious",
+        "titre_original": "火遮眼",
+        "date_sortie": "2026-06-10",
+        "genres": [
+            "Action",
+            "Crime",
+            "Thriller"
+        ],
+        "duree_minutes": 113,
+        "realisateur": "Kenji Tanigaki",
+        "langue_origine": "zh",
+        "budget": 20000000,
+        "recettes": 36653413,
+        "note_moyenne": 7.44,
+        "popularite": 197.4266,
+        "certification": "FR: 12",
+        "resume_fr": "Après l’enlèvement de sa fille par un réseau criminel et face à l’inaction de la police, Wang Wei se lance dans une traque implacable pour la retrouver. Son seul allié, Navin, est un journaliste tenace dont la femme a mystérieusement disparu. Unis par un même désir de vengeance, ces deux hommes que tout oppose affrontent les ravisseurs dans un face-à-face explosif mêlant arts martiaux et justice sans merci.",
+        "resume_en": "After a criminal network kidnaps Wang Wei's daughter and the corrupt police refuse to assist him, Wei sets out on his own to locate her. Navin, a tenacious journalist whose wife has mysteriously vanished, is his only ally. In this explosive martial arts showdown, the unlikely duo fights the kidnappers ruthlessly driven by a furious vengeance.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=gkyp5UTeQMU",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/zP19YO60jwEsfKd5Qf1UvA5uJu8.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/zP19YO60jwEsfKd5Qf1UvA5uJu8.jpg",
+                "palette": [
+                    {
+                        "hex": "#273621",
+                        "weight": 43.79
+                    },
+                    {
+                        "hex": "#1b5b5d",
+                        "weight": 32.57
+                    },
+                    {
+                        "hex": "#279896",
+                        "weight": 13.69
+                    },
+                    {
+                        "hex": "#e60606",
+                        "weight": 6.68
+                    },
+                    {
+                        "hex": "#98261e",
+                        "weight": 3.28
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/k334z7zxOJlJvOsOwyRF6HClCvi.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/k334z7zxOJlJvOsOwyRF6HClCvi.jpg",
+                "palette": [
+                    {
+                        "hex": "#cdcdcd",
+                        "weight": 30.95
+                    },
+                    {
+                        "hex": "#222020",
+                        "weight": 26.01
+                    },
+                    {
+                        "hex": "#534c4c",
+                        "weight": 23.33
+                    },
+                    {
+                        "hex": "#908a8a",
+                        "weight": 16.22
+                    },
+                    {
+                        "hex": "#b12b24",
+                        "weight": 3.49
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/o4HLyElxG8KX1MHUeIDLfe8StAD.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/o4HLyElxG8KX1MHUeIDLfe8StAD.jpg",
+                "palette": [
+                    {
+                        "hex": "#27321f",
+                        "weight": 38.13
+                    },
+                    {
+                        "hex": "#245c55",
+                        "weight": 36.79
+                    },
+                    {
+                        "hex": "#4d9d94",
+                        "weight": 16.45
+                    },
+                    {
+                        "hex": "#de0c0a",
+                        "weight": 6.19
+                    },
+                    {
+                        "hex": "#833126",
+                        "weight": 2.43
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 687163,
+        "titre": "Projet Dernière Chance",
+        "titre_original": "Project Hail Mary",
+        "date_sortie": "2026-03-15",
+        "genres": [
+            "Science-Fiction",
+            "Aventure"
+        ],
+        "duree_minutes": 155,
+        "realisateur": "Phil Lord",
+        "langue_origine": "en",
+        "budget": 200000000,
+        "recettes": 683349773,
+        "note_moyenne": 8.663,
+        "popularite": 193.0243,
+        "certification": "FR: TP",
+        "resume_fr": "Le professeur de sciences Ryland Grace se réveille à bord d’un vaisseau spatial, à des années-lumière de la Terre, sans aucun souvenir de qui il est ni de la façon dont il est arrivé là. À mesure que sa mémoire lui revient, il commence à découvrir sa mission : résoudre l’énigme d’une mystérieuse substance qui provoque l’extinction du Soleil. Il doit faire appel à ses connaissances scientifiques et ses idées peu orthodoxes pour sauver toute vie sur Terre mais une amitié inattendue pourrait signifier qu’il n’aura pas à accomplir cette tâche seul.",
+        "resume_en": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=rFY7iTqk3UA",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
+                "palette": [
+                    {
+                        "hex": "#29474f",
+                        "weight": 34.17
+                    },
+                    {
+                        "hex": "#142329",
+                        "weight": 30.95
+                    },
+                    {
+                        "hex": "#8a9996",
+                        "weight": 17.31
+                    },
+                    {
+                        "hex": "#705744",
+                        "weight": 12.72
+                    },
+                    {
+                        "hex": "#d29f6b",
+                        "weight": 4.85
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/cdGVNiyUt289DgopWUdImNVVDaw.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/cdGVNiyUt289DgopWUdImNVVDaw.jpg",
+                "palette": [
+                    {
+                        "hex": "#1d1e13",
+                        "weight": 42.45
+                    },
+                    {
+                        "hex": "#cfd451",
+                        "weight": 24.56
+                    },
+                    {
+                        "hex": "#535b27",
+                        "weight": 14.52
+                    },
+                    {
+                        "hex": "#e3e0b2",
+                        "weight": 11.37
+                    },
+                    {
+                        "hex": "#793c29",
+                        "weight": 7.1
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/qf8HaEGNUFXU6nVAq9BVEk4Tiqb.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/qf8HaEGNUFXU6nVAq9BVEk4Tiqb.jpg",
+                "palette": [
+                    {
+                        "hex": "#753c29",
+                        "weight": 27.87
+                    },
+                    {
+                        "hex": "#32261f",
+                        "weight": 20.82
+                    },
+                    {
+                        "hex": "#b75636",
+                        "weight": 19.95
+                    },
+                    {
+                        "hex": "#d9c08d",
+                        "weight": 17.09
+                    },
+                    {
+                        "hex": "#3e6d45",
+                        "weight": 14.27
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1368314,
+        "titre": "Passenger",
+        "titre_original": "Passenger",
+        "date_sortie": "2026-05-20",
+        "genres": [
+            "Horreur",
+            "Thriller"
+        ],
+        "duree_minutes": 94,
+        "realisateur": "André Øvredal",
+        "langue_origine": "en",
+        "budget": 15000000,
+        "recettes": 31620508,
+        "note_moyenne": 7.229,
+        "popularite": 190.3619,
+        "certification": "FR: 12",
+        "resume_fr": "Après s’être arrêté sur la scène d’un terrible accident sur une autoroute isolée, un jeune couple se rend compte qu’ils ne sont pas seuls. Une présence démoniaque connue sous le nom de Passager s’est jointe au voyage, transformant leur virée en van en cauchemar dont ils ne peuvent pas fuir.",
+        "resume_en": "After a young couple witnesses a gruesome highway accident, they soon realize they did not leave the crash scene alone, as a demonic presence called the Passenger that won't stop until it claims them both turns their van life adventure into a nightmare.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=B3_iL5ZP0jc",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/2sOEJzhPzjTkZSlPbGxOJ7xgIyS.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/2sOEJzhPzjTkZSlPbGxOJ7xgIyS.jpg",
+                "palette": [
+                    {
+                        "hex": "#03080c",
+                        "weight": 73.91
+                    },
+                    {
+                        "hex": "#1b2a32",
+                        "weight": 12.02
+                    },
+                    {
+                        "hex": "#455960",
+                        "weight": 8.53
+                    },
+                    {
+                        "hex": "#848f90",
+                        "weight": 3.93
+                    },
+                    {
+                        "hex": "#7b080a",
+                        "weight": 1.61
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/iDIGdbeV055ToFcEanyeGN3frMx.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/iDIGdbeV055ToFcEanyeGN3frMx.jpg",
+                "palette": [
+                    {
+                        "hex": "#030305",
+                        "weight": 59.89
+                    },
+                    {
+                        "hex": "#0b151d",
+                        "weight": 19.02
+                    },
+                    {
+                        "hex": "#2e3c44",
+                        "weight": 11.19
+                    },
+                    {
+                        "hex": "#6b7980",
+                        "weight": 6.98
+                    },
+                    {
+                        "hex": "#601517",
+                        "weight": 2.92
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/dctnX3g1Y37bTYiZZUROXFUZbU2.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/dctnX3g1Y37bTYiZZUROXFUZbU2.jpg",
+                "palette": [
+                    {
+                        "hex": "#02060b",
+                        "weight": 71.88
+                    },
+                    {
+                        "hex": "#19272e",
+                        "weight": 12.31
+                    },
+                    {
+                        "hex": "#42575e",
+                        "weight": 9.28
+                    },
+                    {
+                        "hex": "#828e8e",
+                        "weight": 4.7
+                    },
+                    {
+                        "hex": "#900406",
+                        "weight": 1.83
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1314481,
+        "titre": "Le Diable s'habille en Prada 2",
+        "titre_original": "The Devil Wears Prada 2",
+        "date_sortie": "2026-04-29",
+        "genres": [
+            "Comédie",
+            "Drame"
+        ],
+        "duree_minutes": 119,
+        "realisateur": "David Frankel",
+        "langue_origine": "en",
+        "budget": 100000000,
+        "recettes": 689469075,
+        "note_moyenne": 7.127,
+        "popularite": 184.1851,
+        "certification": "FR: TP",
+        "resume_fr": "Près de vingt ans après, Meryl Streep, Anne Hathaway, Emily Blunt et Stanley Tucci reprennent leurs rôles emblématiques de Miranda, Andy, Emily et Nigel, et nous replongent dans l’univers impitoyable et glamour du magazine Runway et des rues new-yorkaises où l’élégance est une arme redoutable.",
+        "resume_en": "Andy Sachs returns to Runway as Miranda Priestly navigates a new media landscape and Runway's position within. The duo reconnect with former assistant Emily Charlton, now the head of a luxury brand that possesses funding which could ensure Runway's survival.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=N8VuVMl9xq4",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/50yWyY981TyUHhoxxSEKwO70FmQ.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/50yWyY981TyUHhoxxSEKwO70FmQ.jpg",
+                "palette": [
+                    {
+                        "hex": "#e4dfd9",
+                        "weight": 34.74
+                    },
+                    {
+                        "hex": "#c1b6af",
+                        "weight": 26.57
+                    },
+                    {
+                        "hex": "#191514",
+                        "weight": 17.44
+                    },
+                    {
+                        "hex": "#9f171e",
+                        "weight": 13.31
+                    },
+                    {
+                        "hex": "#876c67",
+                        "weight": 7.93
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/fCAURTUx3YfsJ8k9I0UamjSILiR.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/fCAURTUx3YfsJ8k9I0UamjSILiR.jpg",
+                "palette": [
+                    {
+                        "hex": "#e3ded8",
+                        "weight": 36.4
+                    },
+                    {
+                        "hex": "#bfb3ab",
+                        "weight": 26.14
+                    },
+                    {
+                        "hex": "#161211",
+                        "weight": 16.99
+                    },
+                    {
+                        "hex": "#a2121c",
+                        "weight": 12.93
+                    },
+                    {
+                        "hex": "#7a5f5b",
+                        "weight": 7.55
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/xTI42pmsP5EDnvsNJPEDubwWBQO.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/xTI42pmsP5EDnvsNJPEDubwWBQO.jpg",
+                "palette": [
+                    {
+                        "hex": "#fdfcfc",
+                        "weight": 59.73
+                    },
+                    {
+                        "hex": "#6f1616",
+                        "weight": 18.41
+                    },
+                    {
+                        "hex": "#b62f2b",
+                        "weight": 8.92
+                    },
+                    {
+                        "hex": "#371513",
+                        "weight": 7.61
+                    },
+                    {
+                        "hex": "#c99894",
+                        "weight": 5.34
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1318621,
+        "titre": "Descendants : La Malédiction du Pays des Merveilles",
+        "titre_original": "Descendants: Wicked Wonderland",
+        "date_sortie": "2026-07-16",
+        "genres": [
+            "Fantastique",
+            "Familial",
+            "Téléfilm"
+        ],
+        "duree_minutes": 98,
+        "realisateur": "Kimmy Gatewood",
+        "langue_origine": "en",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 7.6,
+        "popularite": 169.3593,
+        "certification": "US: G",
+        "resume_fr": "Maintenant que la Reine de cœur est devenue gentille et que Cendrillon est en sécurité, tout semble parfait pour Red et Chloe. Mais elles ignorent qu'en changeant le passé, elles ont créé un nouveau méchant : le Chapelier fou. Quand ce dernier capture la Reine de cœur, Red et Chloe doivent faire équipe avec Pink, la nouvelle sœur de Red, Luis, le fils de Luisa Madrigal, et Max, le fils du Chapelier fou, pour la sauver et secourir le Pays des Merveilles.",
+        "resume_en": "Now that the Queen of Hearts is nice and Cinderella is safe, things seem perfect for Red and Chloe… But little do they know that changing the past created a new villain — Maddox Hatter. When Maddox captures the Queen of Hearts, Red and Chloe must work alongside Red’s new sister Pink, Luisa Madrigal’s son Luis, and Maddox’s son Max to save her and Wonderland.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=NflDHtBfPus",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/xdhLAADGSse8KCrsDLBuM5b68Cg.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/xdhLAADGSse8KCrsDLBuM5b68Cg.jpg",
+                "palette": [
+                    {
+                        "hex": "#dba796",
+                        "weight": 24.68
+                    },
+                    {
+                        "hex": "#ab3130",
+                        "weight": 23.8
+                    },
+                    {
+                        "hex": "#291d23",
+                        "weight": 22.66
+                    },
+                    {
+                        "hex": "#6776a7",
+                        "weight": 16.7
+                    },
+                    {
+                        "hex": "#4b543a",
+                        "weight": 12.16
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/y29AadGlANHW1GXbeXV8c0QHa0c.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/y29AadGlANHW1GXbeXV8c0QHa0c.jpg",
+                "palette": [
+                    {
+                        "hex": "#252727",
+                        "weight": 26.13
+                    },
+                    {
+                        "hex": "#ddac99",
+                        "weight": 23.64
+                    },
+                    {
+                        "hex": "#b63132",
+                        "weight": 19.58
+                    },
+                    {
+                        "hex": "#6b7aa9",
+                        "weight": 16.9
+                    },
+                    {
+                        "hex": "#774336",
+                        "weight": 13.75
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/k1LmAWHv63zpFJQ0o4v2pnOPMyu.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/k1LmAWHv63zpFJQ0o4v2pnOPMyu.jpg",
+                "palette": [
+                    {
+                        "hex": "#1d1719",
+                        "weight": 33.13
+                    },
+                    {
+                        "hex": "#3b3f2a",
+                        "weight": 22.09
+                    },
+                    {
+                        "hex": "#873126",
+                        "weight": 20.44
+                    },
+                    {
+                        "hex": "#a07f4a",
+                        "weight": 12.72
+                    },
+                    {
+                        "hex": "#bcab9b",
+                        "weight": 11.63
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 261639,
+        "titre": "尼寺の情事　極楽ＳＥＸ",
+        "titre_original": "尼寺の情事　極楽ＳＥＸ",
+        "date_sortie": "1998-02-06",
+        "genres": [],
+        "duree_minutes": 59,
+        "realisateur": "Yukio Kitazawa",
+        "langue_origine": "ja",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 1.667,
+        "popularite": 168.6222,
+        "certification": "Tout public / Non spécifié",
+        "resume_fr": "",
+        "resume_en": "Japanese nunsplitation movie from 1998",
+        "bande_annonce_url": null,
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/fDKjelHpsbpv4tmdKf8cXQknc5K.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/fDKjelHpsbpv4tmdKf8cXQknc5K.jpg",
+                "palette": [
+                    {
+                        "hex": "#2e2729",
+                        "weight": 38.1
+                    },
+                    {
+                        "hex": "#cdccc5",
+                        "weight": 30.91
+                    },
+                    {
+                        "hex": "#b87f53",
+                        "weight": 15.81
+                    },
+                    {
+                        "hex": "#9e2539",
+                        "weight": 10.67
+                    },
+                    {
+                        "hex": "#e4c51a",
+                        "weight": 4.51
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/nth8G0m835nk1xWsV6Ga95FT2na.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/nth8G0m835nk1xWsV6Ga95FT2na.jpg",
+                "palette": [
+                    {
+                        "hex": "#ece8e6",
+                        "weight": 28.65
+                    },
+                    {
+                        "hex": "#9a6e50",
+                        "weight": 27.76
+                    },
+                    {
+                        "hex": "#c7a494",
+                        "weight": 22.51
+                    },
+                    {
+                        "hex": "#472d33",
+                        "weight": 15.45
+                    },
+                    {
+                        "hex": "#e2df42",
+                        "weight": 5.63
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1668364,
+        "titre": "Le Désir",
+        "titre_original": "Deseo",
+        "date_sortie": "2026-05-07",
+        "genres": [
+            "Mystère",
+            "Drame"
+        ],
+        "duree_minutes": 97,
+        "realisateur": "Teresa Simone",
+        "langue_origine": "es",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 6.831,
+        "popularite": 161.2545,
+        "certification": "US: R",
+        "resume_fr": "Lucero, une brillante avocate qui mène une vie en apparence parfaite, se laisse emporter par une relation intense avec le jeune entraîneur de natation de sa fille. Ce qui commence comme un désir interdit menace bientôt l'équilibre fragile de son mariage et de sa carrière. Alors que son monde s'effondre avec des conséquences tragiques et que son amour pour sa famille est mis à l'épreuve, Lucero découvre jusqu'où elle est prête à aller pour protéger les siens.",
+        "resume_en": "Lucero’s life appears immaculate: a wealthy household, a devoted husband, and two children who embody the promise of a perfect family. Yet beneath this surface simmers a quiet dissatisfaction. When Matías, a young swimming coach hired by her husband, enters their lives, Lucero finds herself pulled into a risky and consuming relationship. As secrecy, desire, and jealousy tighten their grip, the boundaries within the family begin to collapse, placing mother and daughter in a dangerous emotional triangle that threatens to shatter everything Lucero has built.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=siUPiUaSWvc",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/5lJPvf7cJ2r2EiNrnvBVYpusKFM.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/5lJPvf7cJ2r2EiNrnvBVYpusKFM.jpg",
+                "palette": [
+                    {
+                        "hex": "#141214",
+                        "weight": 38.41
+                    },
+                    {
+                        "hex": "#294447",
+                        "weight": 20.43
+                    },
+                    {
+                        "hex": "#62362d",
+                        "weight": 17.07
+                    },
+                    {
+                        "hex": "#999e8d",
+                        "weight": 12.47
+                    },
+                    {
+                        "hex": "#c06247",
+                        "weight": 11.61
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/9yBdXBRoOFGr0I52WZkeR2ibI9Y.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/9yBdXBRoOFGr0I52WZkeR2ibI9Y.jpg",
+                "palette": [
+                    {
+                        "hex": "#131114",
+                        "weight": 38.01
+                    },
+                    {
+                        "hex": "#254347",
+                        "weight": 20.07
+                    },
+                    {
+                        "hex": "#59332c",
+                        "weight": 19.17
+                    },
+                    {
+                        "hex": "#999a89",
+                        "weight": 11.58
+                    },
+                    {
+                        "hex": "#bc5f45",
+                        "weight": 11.17
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/6iToFU4GaJz4OlLMx34v3VWV7JE.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/6iToFU4GaJz4OlLMx34v3VWV7JE.jpg",
+                "palette": [
+                    {
+                        "hex": "#161316",
+                        "weight": 32.81
+                    },
+                    {
+                        "hex": "#314849",
+                        "weight": 21.15
+                    },
+                    {
+                        "hex": "#582f28",
+                        "weight": 19.45
+                    },
+                    {
+                        "hex": "#ba5f44",
+                        "weight": 14.53
+                    },
+                    {
+                        "hex": "#a9a999",
+                        "weight": 12.07
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1523145,
+        "titre": "Your Heart Will Be Broken",
+        "titre_original": "Твоё сердце будет разбито",
+        "date_sortie": "2026-03-26",
+        "genres": [
+            "Romance"
+        ],
+        "duree_minutes": 134,
+        "realisateur": "Mikhail Vaynberg",
+        "langue_origine": "ru",
+        "budget": 3716000,
+        "recettes": 7578000,
+        "note_moyenne": 7.1,
+        "popularite": 136.8197,
+        "certification": "Tout public / Non spécifié",
+        "resume_fr": "Polina, une lycéenne, est sauvée du harcèlement dans son nouveau lycée et conclut un pacte avec Bars, le principal harceleur : il doit faire semblant d'être son petit ami et la protéger, et elle doit obéir à tout ce qu'il lui dit. Au fil de ce jeu, le couple développe de véritables sentiments, mais sa famille et ses camarades de classe ont de bonnes raisons de vouloir séparer les amoureux.",
+        "resume_en": "High school student Polina is saved from bullying at her new school and makes a deal with the main bully Bars: he must pretend to be her boyfriend and protect her, and she must do everything he says. During this game, the couple develops real feelings, but her family and classmates have reasons to separate the lovers.",
+        "bande_annonce_url": null,
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/7wIBfBl2gejt6xHxNSK0reVIm7E.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/7wIBfBl2gejt6xHxNSK0reVIm7E.jpg",
+                "palette": [
+                    {
+                        "hex": "#1f1314",
+                        "weight": 42.36
+                    },
+                    {
+                        "hex": "#69362d",
+                        "weight": 18.47
+                    },
+                    {
+                        "hex": "#bcc6c6",
+                        "weight": 14.4
+                    },
+                    {
+                        "hex": "#d09178",
+                        "weight": 13.4
+                    },
+                    {
+                        "hex": "#c9635e",
+                        "weight": 11.37
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/naOC89qeEygU44xM9EIot1m5AUQ.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/naOC89qeEygU44xM9EIot1m5AUQ.jpg",
+                "palette": [
+                    {
+                        "hex": "#231515",
+                        "weight": 43.83
+                    },
+                    {
+                        "hex": "#daad7e",
+                        "weight": 16.31
+                    },
+                    {
+                        "hex": "#8a5746",
+                        "weight": 16.25
+                    },
+                    {
+                        "hex": "#475279",
+                        "weight": 12.95
+                    },
+                    {
+                        "hex": "#8f97a7",
+                        "weight": 10.67
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/cRjhfyb4S1GMXJW0yPZbe3B6ISq.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/cRjhfyb4S1GMXJW0yPZbe3B6ISq.jpg",
+                "palette": [
+                    {
+                        "hex": "#1c1318",
+                        "weight": 40.23
+                    },
+                    {
+                        "hex": "#e6af80",
+                        "weight": 18.65
+                    },
+                    {
+                        "hex": "#4b557b",
+                        "weight": 16.6
+                    },
+                    {
+                        "hex": "#804a3b",
+                        "weight": 13.55
+                    },
+                    {
+                        "hex": "#b4a7a6",
+                        "weight": 10.97
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 936075,
+        "titre": "Michael",
+        "titre_original": "Michael",
+        "date_sortie": "2026-04-22",
+        "genres": [
+            "Musique",
+            "Drame"
+        ],
+        "duree_minutes": 127,
+        "realisateur": "Antoine Fuqua",
+        "langue_origine": "en",
+        "budget": 250000000,
+        "recettes": 1001897734,
+        "note_moyenne": 8.704,
+        "popularite": 134.6749,
+        "certification": "FR: TP",
+        "resume_fr": "Michael dresse le portrait cinématographique de la vie et de l’héritage de l’un des artistes les plus influents de notre époque.  Le film raconte l’histoire de Michael Jackson au-delà de la musique, depuis la découverte d’un talent hors du commun en tant que leader des Jackson Five, jusqu’à l’artiste visionnaire dont l’ambition créative a alimenté une quête incessante pour devenir le plus grand artiste au monde.  Mettant en lumière sa vie hors scène et ses performances les plus emblématiques de ses débuts en solo, le film offre au public une place au premier rang pour découvrir Michael Jackson comme jamais auparavant.",
+        "resume_en": "The story of Michael Jackson, one of the most influential artists the world has ever known, and his life beyond the music. His journey from the discovery of his extraordinary talent as the lead of the Jackson Five, to the visionary artist whose creative ambition fueled a relentless pursuit to become the biggest entertainer in the world, highlighting both his life off-stage and some of the most iconic performances from his early solo career.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=YEVKelFejsU",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/2sDgNilJGVFpl1x4DMzYHjk0L0f.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/2sDgNilJGVFpl1x4DMzYHjk0L0f.jpg",
+                "palette": [
+                    {
+                        "hex": "#261514",
+                        "weight": 33.77
+                    },
+                    {
+                        "hex": "#c29761",
+                        "weight": 18.89
+                    },
+                    {
+                        "hex": "#573425",
+                        "weight": 18.16
+                    },
+                    {
+                        "hex": "#976338",
+                        "weight": 17.18
+                    },
+                    {
+                        "hex": "#ebd9b7",
+                        "weight": 12.0
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/zm0KAbOjlt9eR5y7vDiL2dEOwMl.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/zm0KAbOjlt9eR5y7vDiL2dEOwMl.jpg",
+                "palette": [
+                    {
+                        "hex": "#665741",
+                        "weight": 23.66
+                    },
+                    {
+                        "hex": "#342c1f",
+                        "weight": 22.8
+                    },
+                    {
+                        "hex": "#f2e2c1",
+                        "weight": 20.55
+                    },
+                    {
+                        "hex": "#6e3524",
+                        "weight": 19.81
+                    },
+                    {
+                        "hex": "#c69a64",
+                        "weight": 13.18
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/1qA0Lvqgj6KuHi562GBybwfCKYH.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/1qA0Lvqgj6KuHi562GBybwfCKYH.jpg",
+                "palette": [
+                    {
+                        "hex": "#271614",
+                        "weight": 35.07
+                    },
+                    {
+                        "hex": "#ac7a4c",
+                        "weight": 21.09
+                    },
+                    {
+                        "hex": "#5c3523",
+                        "weight": 20.25
+                    },
+                    {
+                        "hex": "#dbb981",
+                        "weight": 16.47
+                    },
+                    {
+                        "hex": "#f3ebd6",
+                        "weight": 7.11
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1127384,
+        "titre": "Deep Water",
+        "titre_original": "Deep Water",
+        "date_sortie": "2026-04-30",
+        "genres": [
+            "Horreur",
+            "Thriller"
+        ],
+        "duree_minutes": 107,
+        "realisateur": "Renny Harlin",
+        "langue_origine": "en",
+        "budget": 0,
+        "recettes": 2286163,
+        "note_moyenne": 7.498,
+        "popularite": 130.8946,
+        "certification": "FR: 12",
+        "resume_fr": "Un groupe de passagers internationaux en route de Los Angeles à Shanghai est contraint d'effectuer un atterrissage d'urgence dans des eaux infestées de requins. Ils doivent alors surmonter la frénésie des requins en maraude.",
+        "resume_en": "A group of international passengers on a flight from Los Angeles to Shanghai is forced to make an emergency landing in shark-infested waters. The terrified group is forced to work together and overcome their differences if they hope to escape their sinking plane and the frenzy of sharks drawn to the wreckage.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=f0ptq0Lzdh8",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/lbvFuzlgheQmX9aZaVIOwe6SFbt.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/lbvFuzlgheQmX9aZaVIOwe6SFbt.jpg",
+                "palette": [
+                    {
+                        "hex": "#13242a",
+                        "weight": 49.09
+                    },
+                    {
+                        "hex": "#295457",
+                        "weight": 25.95
+                    },
+                    {
+                        "hex": "#816a6e",
+                        "weight": 11.87
+                    },
+                    {
+                        "hex": "#e2b8a7",
+                        "weight": 7.83
+                    },
+                    {
+                        "hex": "#b31a0d",
+                        "weight": 5.26
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/iknk02je90giOkKXtDqkBDJnRMj.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/iknk02je90giOkKXtDqkBDJnRMj.jpg",
+                "palette": [
+                    {
+                        "hex": "#7bb7c1",
+                        "weight": 36.9
+                    },
+                    {
+                        "hex": "#57939a",
+                        "weight": 24.23
+                    },
+                    {
+                        "hex": "#336c72",
+                        "weight": 22.17
+                    },
+                    {
+                        "hex": "#aac3c2",
+                        "weight": 13.75
+                    },
+                    {
+                        "hex": "#10232d",
+                        "weight": 2.96
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/kjcuS7xaRyqRjVaVcH4t0qHshuX.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/kjcuS7xaRyqRjVaVcH4t0qHshuX.jpg",
+                "palette": [
+                    {
+                        "hex": "#2c5150",
+                        "weight": 35.25
+                    },
+                    {
+                        "hex": "#111e20",
+                        "weight": 35.21
+                    },
+                    {
+                        "hex": "#ce0803",
+                        "weight": 10.03
+                    },
+                    {
+                        "hex": "#7c5147",
+                        "weight": 9.85
+                    },
+                    {
+                        "hex": "#dda587",
+                        "weight": 9.66
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1285366,
+        "titre": "愛のぬくもり",
+        "titre_original": "愛のぬくもり",
+        "date_sortie": "2024-07-06",
+        "genres": [
+            "Romance"
+        ],
+        "duree_minutes": 91,
+        "realisateur": "Shinji Imaoka",
+        "langue_origine": "ja",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 6.2,
+        "popularite": 125.6353,
+        "certification": "Tout public / Non spécifié",
+        "resume_fr": "",
+        "resume_en": "A romance about a man and a woman who, due to an unexpected event, end up switching bodies. Despite coming from completely different backgrounds and environments, the two try to overcome the various difficulties that arise from their body swap.",
+        "bande_annonce_url": null,
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/3r0O6BW9USoZ9mteCVyNKMQriRL.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/3r0O6BW9USoZ9mteCVyNKMQriRL.jpg",
+                "palette": [
+                    {
+                        "hex": "#191207",
+                        "weight": 33.18
+                    },
+                    {
+                        "hex": "#b8e0e9",
+                        "weight": 31.75
+                    },
+                    {
+                        "hex": "#4a3a22",
+                        "weight": 23.07
+                    },
+                    {
+                        "hex": "#dfab7c",
+                        "weight": 6.29
+                    },
+                    {
+                        "hex": "#9d513d",
+                        "weight": 5.71
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/oeCzME5oxy9nauVtnHD8Eg9fJhq.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/oeCzME5oxy9nauVtnHD8Eg9fJhq.jpg",
+                "palette": [
+                    {
+                        "hex": "#f1dcc3",
+                        "weight": 37.62
+                    },
+                    {
+                        "hex": "#d6a078",
+                        "weight": 25.21
+                    },
+                    {
+                        "hex": "#191008",
+                        "weight": 19.08
+                    },
+                    {
+                        "hex": "#af5336",
+                        "weight": 10.78
+                    },
+                    {
+                        "hex": "#6d4d39",
+                        "weight": 7.31
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/vTtq8iqEQlmgDTec9oe3YzjkOGT.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/vTtq8iqEQlmgDTec9oe3YzjkOGT.jpg",
+                "palette": [
+                    {
+                        "hex": "#fbe9d3",
+                        "weight": 40.32
+                    },
+                    {
+                        "hex": "#deaf90",
+                        "weight": 26.59
+                    },
+                    {
+                        "hex": "#332717",
+                        "weight": 18.03
+                    },
+                    {
+                        "hex": "#b76343",
+                        "weight": 10.65
+                    },
+                    {
+                        "hex": "#f552af",
+                        "weight": 4.4
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 83533,
+        "titre": "Avatar : De feu et de cendres",
+        "titre_original": "Avatar: Fire and Ash",
+        "date_sortie": "2025-12-17",
+        "genres": [
+            "Science-Fiction",
+            "Aventure",
+            "Fantastique"
+        ],
+        "duree_minutes": 198,
+        "realisateur": "James Cameron",
+        "langue_origine": "en",
+        "budget": 350000000,
+        "recettes": 1490477656,
+        "note_moyenne": 7.637,
+        "popularite": 122.1417,
+        "certification": "FR: TP",
+        "resume_fr": "Après la mort de Neteyam, Jake et Neytiri affrontent leur chagrin tout en faisant face au Peuple des Cendres, une tribu Na’vi redoutable menée par la fougueuse Varang, alors que le conflit sur Pandora s’intensifie et qu’une nouvelle quête morale s’amorce.",
+        "resume_en": "In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri face a new threat on Pandora: the Ash People, a violent and power-hungry Na'vi tribe led by the ruthless Varang. Jake's family must fight for their survival and the future of Pandora in a conflict that pushes them to their emotional and physical limits.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=Zegl3vxOPjM",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/8kknNk7PbOcDUXynUZYZ7EHnKAA.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/8kknNk7PbOcDUXynUZYZ7EHnKAA.jpg",
+                "palette": [
+                    {
+                        "hex": "#5e5663",
+                        "weight": 24.25
+                    },
+                    {
+                        "hex": "#a98579",
+                        "weight": 22.47
+                    },
+                    {
+                        "hex": "#271d27",
+                        "weight": 22.33
+                    },
+                    {
+                        "hex": "#a45035",
+                        "weight": 15.95
+                    },
+                    {
+                        "hex": "#f3d5ab",
+                        "weight": 15.0
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/w23g9sNNDxhzjUYWTZZYqa4cNiJ.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/w23g9sNNDxhzjUYWTZZYqa4cNiJ.jpg",
+                "palette": [
+                    {
+                        "hex": "#2d2b2c",
+                        "weight": 27.25
+                    },
+                    {
+                        "hex": "#cd9e77",
+                        "weight": 20.91
+                    },
+                    {
+                        "hex": "#645f6a",
+                        "weight": 20.13
+                    },
+                    {
+                        "hex": "#8b6758",
+                        "weight": 17.44
+                    },
+                    {
+                        "hex": "#f9de9c",
+                        "weight": 14.26
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/3almrQT8GnrDjnQeWotdExjJhZm.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/3almrQT8GnrDjnQeWotdExjJhZm.jpg",
+                "palette": [
+                    {
+                        "hex": "#8d6d67",
+                        "weight": 25.89
+                    },
+                    {
+                        "hex": "#2b2833",
+                        "weight": 25.53
+                    },
+                    {
+                        "hex": "#eeca9c",
+                        "weight": 18.61
+                    },
+                    {
+                        "hex": "#532621",
+                        "weight": 16.61
+                    },
+                    {
+                        "hex": "#b44f2e",
+                        "weight": 13.36
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 931285,
+        "titre": "Mortal Kombat II",
+        "titre_original": "Mortal Kombat II",
+        "date_sortie": "2026-05-06",
+        "genres": [
+            "Action",
+            "Fantastique",
+            "Aventure"
+        ],
+        "duree_minutes": 116,
+        "realisateur": "Simon McQuoid",
+        "langue_origine": "en",
+        "budget": 80000000,
+        "recettes": 129470012,
+        "note_moyenne": 8.0,
+        "popularite": 119.9569,
+        "certification": "FR: 12",
+        "resume_fr": "Les champions en arts martiaux de l'Earthrealm, secondés par le héros de films d'action Johnny Cage, s'affrontent dans un tournoi ultime. Leur but: renverser Shao Kahn, un tyran qui menace l'existence même de leur monde. L'arrivée fracassante de Kitana, princesse d'Outworld aux loyautés troubles, vient brouiller davantage les lignes séparant ennemis et alliés. Tandis que de nouvelles alliances se forment, les combattants découvrent que les règles du tournoi ont changé. Entre affrontements spectaculaires et révélations mystiques, ils devront repousser leurs limites.",
+        "resume_en": "The fan favorite champions—now joined by Johnny Cage himself—are pitted against one another in the ultimate, no-holds barred, gory battle to defeat the dark rule of Shao Kahn that threatens the very existence of the Earthrealm and its defenders.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=I54TQ4oC07E",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/iILiJSRViTEcF23MHhGCbVm3mfW.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/iILiJSRViTEcF23MHhGCbVm3mfW.jpg",
+                "palette": [
+                    {
+                        "hex": "#140a0e",
+                        "weight": 59.41
+                    },
+                    {
+                        "hex": "#665e5f",
+                        "weight": 11.55
+                    },
+                    {
+                        "hex": "#783a35",
+                        "weight": 10.75
+                    },
+                    {
+                        "hex": "#303754",
+                        "weight": 9.63
+                    },
+                    {
+                        "hex": "#c4ab9c",
+                        "weight": 8.65
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/hwRdDFIhaEmpRgoki805YvyyjZf.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/hwRdDFIhaEmpRgoki805YvyyjZf.jpg",
+                "palette": [
+                    {
+                        "hex": "#0f090c",
+                        "weight": 57.04
+                    },
+                    {
+                        "hex": "#492020",
+                        "weight": 13.67
+                    },
+                    {
+                        "hex": "#716866",
+                        "weight": 11.13
+                    },
+                    {
+                        "hex": "#c5826b",
+                        "weight": 9.32
+                    },
+                    {
+                        "hex": "#313952",
+                        "weight": 8.85
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/z84KLjats6KufsizbeLh1xJ6a2w.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/z84KLjats6KufsizbeLh1xJ6a2w.jpg",
+                "palette": [
+                    {
+                        "hex": "#121014",
+                        "weight": 27.41
+                    },
+                    {
+                        "hex": "#421912",
+                        "weight": 25.45
+                    },
+                    {
+                        "hex": "#1a3c53",
+                        "weight": 24.41
+                    },
+                    {
+                        "hex": "#5095b4",
+                        "weight": 12.55
+                    },
+                    {
+                        "hex": "#a7442a",
+                        "weight": 10.17
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1228710,
+        "titre": "The Mandalorian and Grogu",
+        "titre_original": "The Mandalorian and Grogu",
+        "date_sortie": "2026-05-20",
+        "genres": [
+            "Action",
+            "Aventure",
+            "Science-Fiction"
+        ],
+        "duree_minutes": 132,
+        "realisateur": "Jon Favreau",
+        "langue_origine": "en",
+        "budget": 165000000,
+        "recettes": 342263695,
+        "note_moyenne": 6.7,
+        "popularite": 117.6462,
+        "certification": "FR: TP",
+        "resume_fr": "L'Empire maléfique est tombé et les seigneurs de guerre impériaux restent dispersés dans toute la galaxie. Alors que la nouvelle République naissante travaille pour protéger tout ce que la rébellion s'est battue, ils ont fait appel à Din Djarin et à son jeune apprenti Grogu.",
+        "resume_en": "The evil Empire has fallen, and Imperial warlords remain scattered throughout the galaxy. As the fledgling New Republic works to protect everything the Rebellion fought for, they have enlisted the help of legendary Mandalorian bounty hunter Din Djarin and his young apprentice Grogu.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=HaApBe5-Dng",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/dNwaS0tnwgQRaQFPY5MbGxdmYXr.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/dNwaS0tnwgQRaQFPY5MbGxdmYXr.jpg",
+                "palette": [
+                    {
+                        "hex": "#5c5d97",
+                        "weight": 26.51
+                    },
+                    {
+                        "hex": "#221e2d",
+                        "weight": 24.94
+                    },
+                    {
+                        "hex": "#d5d2c7",
+                        "weight": 23.24
+                    },
+                    {
+                        "hex": "#694c46",
+                        "weight": 16.52
+                    },
+                    {
+                        "hex": "#b2483d",
+                        "weight": 8.79
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/5Vi8dSauVwH1HOsiZceDMbRr1Ca.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/5Vi8dSauVwH1HOsiZceDMbRr1Ca.jpg",
+                "palette": [
+                    {
+                        "hex": "#231718",
+                        "weight": 25.13
+                    },
+                    {
+                        "hex": "#e5861f",
+                        "weight": 22.37
+                    },
+                    {
+                        "hex": "#525554",
+                        "weight": 18.9
+                    },
+                    {
+                        "hex": "#632715",
+                        "weight": 17.8
+                    },
+                    {
+                        "hex": "#aea38e",
+                        "weight": 15.81
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/fsSMj6TJ6qtMnpg6UIw8TzUeEyE.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/fsSMj6TJ6qtMnpg6UIw8TzUeEyE.jpg",
+                "palette": [
+                    {
+                        "hex": "#462a1c",
+                        "weight": 26.75
+                    },
+                    {
+                        "hex": "#a6451a",
+                        "weight": 25.45
+                    },
+                    {
+                        "hex": "#8f6d4a",
+                        "weight": 16.6
+                    },
+                    {
+                        "hex": "#cfcba2",
+                        "weight": 16.5
+                    },
+                    {
+                        "hex": "#ecaa35",
+                        "weight": 14.69
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1413976,
+        "titre": "Citizen Vigilante",
+        "titre_original": "Citizen Vigilante",
+        "date_sortie": "2026-06-19",
+        "genres": [
+            "Thriller",
+            "Action"
+        ],
+        "duree_minutes": 89,
+        "realisateur": "Uwe Boll",
+        "langue_origine": "en",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 6.4,
+        "popularite": 116.9518,
+        "certification": "US: NR",
+        "resume_fr": "Frustré par l'absence de justice publique, Sanders décide de prendre les choses en main en devenant un justicier. Il se met alors en tête de punir à la fois les criminels et les fonctionnaires corrompus. À mesure que ses actions de justicier s'intensifient, sa notoriété grandit : il gagne le soutien du public, qui le considère comme un héros, mais attire également l'attention d'Henry, un responsable d'Interpol, qui le perçoit comme une menace pour la société.",
+        "resume_en": "A man takes justice into his own hands, hunting down criminals. His vigilante crusade makes him a social media star but puts him at odds with the local police chief.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=0ww8snVKe0A",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/nQ1gfSneL8WkdfvFEZ2DFLt4ZzZ.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/nQ1gfSneL8WkdfvFEZ2DFLt4ZzZ.jpg",
+                "palette": [
+                    {
+                        "hex": "#1b1d1f",
+                        "weight": 33.51
+                    },
+                    {
+                        "hex": "#abaaa9",
+                        "weight": 23.79
+                    },
+                    {
+                        "hex": "#c72429",
+                        "weight": 18.22
+                    },
+                    {
+                        "hex": "#4a383b",
+                        "weight": 15.78
+                    },
+                    {
+                        "hex": "#6c2a2c",
+                        "weight": 8.69
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/6LmJD3Wohe0g4U62wgi7RyJqfE4.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/6LmJD3Wohe0g4U62wgi7RyJqfE4.jpg",
+                "palette": [
+                    {
+                        "hex": "#1c2123",
+                        "weight": 34.98
+                    },
+                    {
+                        "hex": "#b5b4b4",
+                        "weight": 22.03
+                    },
+                    {
+                        "hex": "#e13034",
+                        "weight": 18.19
+                    },
+                    {
+                        "hex": "#543d41",
+                        "weight": 15.98
+                    },
+                    {
+                        "hex": "#813435",
+                        "weight": 8.83
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/d7flcqCOeJK4lrwc2HrFb3eH1hl.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/d7flcqCOeJK4lrwc2HrFb3eH1hl.jpg",
+                "palette": [
+                    {
+                        "hex": "#2c2b2d",
+                        "weight": 42.36
+                    },
+                    {
+                        "hex": "#c13436",
+                        "weight": 17.96
+                    },
+                    {
+                        "hex": "#643638",
+                        "weight": 15.67
+                    },
+                    {
+                        "hex": "#9b9999",
+                        "weight": 12.54
+                    },
+                    {
+                        "hex": "#c8c7c6",
+                        "weight": 11.47
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1321008,
+        "titre": "Black Box",
+        "titre_original": "Black Box",
+        "date_sortie": "2026-06-25",
+        "genres": [
+            "Horreur",
+            "Thriller",
+            "Science-Fiction"
+        ],
+        "duree_minutes": 85,
+        "realisateur": "Steven Quale",
+        "langue_origine": "en",
+        "budget": 1000000,
+        "recettes": 224611,
+        "note_moyenne": 6.375,
+        "popularite": 104.0445,
+        "certification": "US: R",
+        "resume_fr": "Des événements surnaturels entourent le vol 298 de Vero Airlines entre la Nouvelle-Orléans et Seattle.",
+        "resume_en": "A routine domestic flight turns into the flight from hell through a series of inexplicable phenomena and raw terror. Surreal encounters blur the boundaries between reality and nightmare. Passengers fight against all the odds in an attempt to survive while combating bizarre technological malfunctions, accelerating supernatural events and alien influences.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=y-nf8hUFd98",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/O7vJPEWsnLrKqPYHIHKG8zlEK1.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/O7vJPEWsnLrKqPYHIHKG8zlEK1.jpg",
+                "palette": [
+                    {
+                        "hex": "#c80303",
+                        "weight": 48.74
+                    },
+                    {
+                        "hex": "#b40805",
+                        "weight": 30.53
+                    },
+                    {
+                        "hex": "#7a120f",
+                        "weight": 8.15
+                    },
+                    {
+                        "hex": "#400808",
+                        "weight": 6.35
+                    },
+                    {
+                        "hex": "#170303",
+                        "weight": 6.23
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/j1zjmXXXcGlDGv8JTaNWLoHsiEF.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/j1zjmXXXcGlDGv8JTaNWLoHsiEF.jpg",
+                "palette": [
+                    {
+                        "hex": "#c50202",
+                        "weight": 62.35
+                    },
+                    {
+                        "hex": "#a20b08",
+                        "weight": 14.33
+                    },
+                    {
+                        "hex": "#7e100d",
+                        "weight": 8.43
+                    },
+                    {
+                        "hex": "#490809",
+                        "weight": 7.7
+                    },
+                    {
+                        "hex": "#1a0303",
+                        "weight": 7.19
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/b0wxyWnZqQ0SYjFqBNU4cnSodVU.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/b0wxyWnZqQ0SYjFqBNU4cnSodVU.jpg",
+                "palette": [
+                    {
+                        "hex": "#c40403",
+                        "weight": 63.89
+                    },
+                    {
+                        "hex": "#9d0d0a",
+                        "weight": 17.65
+                    },
+                    {
+                        "hex": "#6b0e0d",
+                        "weight": 7.01
+                    },
+                    {
+                        "hex": "#160203",
+                        "weight": 5.97
+                    },
+                    {
+                        "hex": "#3c0707",
+                        "weight": 5.47
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1226863,
+        "titre": "Super Mario Galaxy, le film",
+        "titre_original": "The Super Mario Galaxy Movie",
+        "date_sortie": "2026-04-01",
+        "genres": [
+            "Familial",
+            "Comédie",
+            "Aventure",
+            "Fantastique",
+            "Animation"
+        ],
+        "duree_minutes": 100,
+        "realisateur": "Aaron Horvath",
+        "langue_origine": "en",
+        "budget": 110000000,
+        "recettes": 1009214136,
+        "note_moyenne": 8.253,
+        "popularite": 103.1324,
+        "certification": "FR: TP",
+        "resume_fr": "Mario et Luigi gèrent les tracas du royaume Champignon, se lient d'amitié avec Yoshi, tentent de réhabiliter mini-Bowser et se préparent pour l'anniversaire de Peach. Mais quand un appel à l'aide arrive de l'autre bout de la galaxie, l'équipe part découvrir des mondes nouveaux, des menaces inattendues et des personnages emblématiques, comme Rosalina et Bowser Jr.",
+        "resume_en": "Having thwarted Bowser's previous plot to marry Princess Peach, Mario and Luigi now face a fresh threat in Bowser Jr., who is determined to liberate his father from captivity and restore the family legacy. Alongside companions new and old, the brothers travel across the stars to stop the young heir's crusade.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=wOhwellmCFo",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/b3WeTp42eJSRuE4UZfyPCOJW4c.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/b3WeTp42eJSRuE4UZfyPCOJW4c.jpg",
+                "palette": [
+                    {
+                        "hex": "#465374",
+                        "weight": 30.05
+                    },
+                    {
+                        "hex": "#715cb7",
+                        "weight": 22.47
+                    },
+                    {
+                        "hex": "#c15a7c",
+                        "weight": 17.94
+                    },
+                    {
+                        "hex": "#5dab97",
+                        "weight": 16.01
+                    },
+                    {
+                        "hex": "#db8d61",
+                        "weight": 13.53
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/aSQktALDmbunDbwkuZbZFMEWVFr.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/aSQktALDmbunDbwkuZbZFMEWVFr.jpg",
+                "palette": [
+                    {
+                        "hex": "#5c819b",
+                        "weight": 25.75
+                    },
+                    {
+                        "hex": "#47417a",
+                        "weight": 23.69
+                    },
+                    {
+                        "hex": "#b75882",
+                        "weight": 23.19
+                    },
+                    {
+                        "hex": "#d1734d",
+                        "weight": 14.93
+                    },
+                    {
+                        "hex": "#71a97c",
+                        "weight": 12.45
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/79EVB4qhyfrdlMgT8GIRAikdzsQ.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/79EVB4qhyfrdlMgT8GIRAikdzsQ.jpg",
+                "palette": [
+                    {
+                        "hex": "#5d5978",
+                        "weight": 29.17
+                    },
+                    {
+                        "hex": "#4d4ea8",
+                        "weight": 25.7
+                    },
+                    {
+                        "hex": "#cf795f",
+                        "weight": 15.9
+                    },
+                    {
+                        "hex": "#65ad94",
+                        "weight": 15.9
+                    },
+                    {
+                        "hex": "#cc59a3",
+                        "weight": 13.33
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 969681,
+        "titre": "Spider-Man: Brand New Day",
+        "titre_original": "Spider-Man: Brand New Day",
+        "date_sortie": "2026-07-28",
+        "genres": [
+            "Science-Fiction",
+            "Action",
+            "Aventure"
+        ],
+        "duree_minutes": 150,
+        "realisateur": "Destin Daniel Cretton",
+        "langue_origine": "en",
+        "budget": 275000000,
+        "recettes": 0,
+        "note_moyenne": 0.0,
+        "popularite": 100.3431,
+        "certification": "US: PG-13",
+        "resume_fr": "Quatre ans se sont écoulés, Peter, désormais adulte, vit seul, s'est volontairement effacé de la vie et des souvenirs de ses proches. Luttant contre le crime dans un New York qui ne le reconnaît plus, il se consacre entièrement à la protection de la ville - un Spider-Man à plein temps - mais à mesure que les responsabilités s'intensifient, la pression provoque une transformation physique surprenante qui menace son existence, tandis qu'une étrange nouvelle vague de crimes donne naissance à l'une des menaces les plus redoutables qu'il ait jamais affrontées.",
+        "resume_en": "Fighting crime full-time as Spider-Man in a world that doesn't remember him—and the pressure of seeing his old friends move on without him—sparks a change in Peter Parker he may not have the power to control. But that transformation might also be the only thing that can stop a shocking new threat to the city and those he loves - a powerful villain no one can even see.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=x07thQi2vqw",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/x0nvYzQpyJc5pdT9lMnkMuYAg0O.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/x0nvYzQpyJc5pdT9lMnkMuYAg0O.jpg",
+                "palette": [
+                    {
+                        "hex": "#221a1c",
+                        "weight": 37.08
+                    },
+                    {
+                        "hex": "#51191a",
+                        "weight": 24.68
+                    },
+                    {
+                        "hex": "#8c6448",
+                        "weight": 18.95
+                    },
+                    {
+                        "hex": "#971b24",
+                        "weight": 10.88
+                    },
+                    {
+                        "hex": "#dbc295",
+                        "weight": 8.41
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/x19dchU8e38vQfW4epzOsQNLuZ2.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/x19dchU8e38vQfW4epzOsQNLuZ2.jpg",
+                "palette": [
+                    {
+                        "hex": "#f5da9f",
+                        "weight": 32.25
+                    },
+                    {
+                        "hex": "#595b51",
+                        "weight": 22.55
+                    },
+                    {
+                        "hex": "#b5976f",
+                        "weight": 22.34
+                    },
+                    {
+                        "hex": "#2f2322",
+                        "weight": 16.33
+                    },
+                    {
+                        "hex": "#8d372b",
+                        "weight": 6.53
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/pspkSVP39NGa6G2rvK5KlMjvYUe.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/pspkSVP39NGa6G2rvK5KlMjvYUe.jpg",
+                "palette": [
+                    {
+                        "hex": "#4a0c0d",
+                        "weight": 27.98
+                    },
+                    {
+                        "hex": "#1b1212",
+                        "weight": 23.89
+                    },
+                    {
+                        "hex": "#881217",
+                        "weight": 21.13
+                    },
+                    {
+                        "hex": "#586073",
+                        "weight": 14.86
+                    },
+                    {
+                        "hex": "#b58c6a",
+                        "weight": 12.13
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1304313,
+        "titre": "Le Réveil de la Momie",
+        "titre_original": "Lee Cronin's The Mummy",
+        "date_sortie": "2026-04-15",
+        "genres": [
+            "Horreur",
+            "Mystère"
+        ],
+        "duree_minutes": 133,
+        "realisateur": "Lee Cronin",
+        "langue_origine": "en",
+        "budget": 22000000,
+        "recettes": 90552113,
+        "note_moyenne": 7.967,
+        "popularite": 98.2575,
+        "certification": "FR: 16",
+        "resume_fr": "Une jeune fille disparue dans le désert égyptien réapparaît mystérieusement huit ans plus tard. Mais les retrouvailles tournent vite au cauchemar. Alors que son comportement devient de plus en plus inquiétant, sa famille se lance dans une course contre la montre pour comprendre l’origine du mal. Ce qu’ils vont découvrir dépasse tout ce qu’ils imaginaient.",
+        "resume_en": "The young daughter of a journalist disappears into the desert without a trace—eight years later, the broken family is shocked when she is returned to them, as what should be a joyful reunion turns into a living nightmare.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=_7-uiBFTZN8",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/1q308iixueCU4pFtSYugNOevtNx.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/1q308iixueCU4pFtSYugNOevtNx.jpg",
+                "palette": [
+                    {
+                        "hex": "#050201",
+                        "weight": 59.46
+                    },
+                    {
+                        "hex": "#2d1f15",
+                        "weight": 17.81
+                    },
+                    {
+                        "hex": "#533d2b",
+                        "weight": 13.18
+                    },
+                    {
+                        "hex": "#8a6b50",
+                        "weight": 7.15
+                    },
+                    {
+                        "hex": "#d0b593",
+                        "weight": 2.39
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/uIb9Tvae5haF0XcQBaPyufmxbb0.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/uIb9Tvae5haF0XcQBaPyufmxbb0.jpg",
+                "palette": [
+                    {
+                        "hex": "#040201",
+                        "weight": 55.08
+                    },
+                    {
+                        "hex": "#2a1c13",
+                        "weight": 17.79
+                    },
+                    {
+                        "hex": "#4b3727",
+                        "weight": 15.97
+                    },
+                    {
+                        "hex": "#7c624b",
+                        "weight": 8.41
+                    },
+                    {
+                        "hex": "#c4a784",
+                        "weight": 2.75
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/8L8efNkz8rUmwR7sV0g3vnC9yjn.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/8L8efNkz8rUmwR7sV0g3vnC9yjn.jpg",
+                "palette": [
+                    {
+                        "hex": "#1f1b16",
+                        "weight": 35.07
+                    },
+                    {
+                        "hex": "#29231f",
+                        "weight": 29.77
+                    },
+                    {
+                        "hex": "#332c27",
+                        "weight": 19.73
+                    },
+                    {
+                        "hex": "#433a34",
+                        "weight": 14.53
+                    },
+                    {
+                        "hex": "#806140",
+                        "weight": 0.9
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1491920,
+        "titre": "功夫女足",
+        "titre_original": "功夫女足",
+        "date_sortie": "2026-07-11",
+        "genres": [
+            "Drame",
+            "Comédie",
+            "Action"
+        ],
+        "duree_minutes": 106,
+        "realisateur": "Stephen Chow",
+        "langue_origine": "zh",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 6.273,
+        "popularite": 93.8788,
+        "certification": "Tout public / Non spécifié",
+        "resume_fr": "",
+        "resume_en": "The \"Supreme Invincible Cup\" is about to begin, and a host of top teams are about to engage in an unprecedented showdown! But the Kung Fu Women's Soccer Team has been dealt a hellish script right from the start?! Their opponents are all highly skilled, and external pressure is mounting. The schemes on the field are one after another... Can they use their kung fu to turn the tide on the green field?",
+        "bande_annonce_url": null,
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/6QgJQrClh9ej357yzLWgCxrjAmJ.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/6QgJQrClh9ej357yzLWgCxrjAmJ.jpg",
+                "palette": [
+                    {
+                        "hex": "#9b8d5f",
+                        "weight": 29.56
+                    },
+                    {
+                        "hex": "#755432",
+                        "weight": 29.07
+                    },
+                    {
+                        "hex": "#2f292f",
+                        "weight": 19.51
+                    },
+                    {
+                        "hex": "#bcccc6",
+                        "weight": 14.17
+                    },
+                    {
+                        "hex": "#d7b54e",
+                        "weight": 7.69
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/7H9Gkdr9V5KMM6STtCRdTuRD2Zd.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/7H9Gkdr9V5KMM6STtCRdTuRD2Zd.jpg",
+                "palette": [
+                    {
+                        "hex": "#fbed2e",
+                        "weight": 30.17
+                    },
+                    {
+                        "hex": "#e4961b",
+                        "weight": 21.19
+                    },
+                    {
+                        "hex": "#be3205",
+                        "weight": 19.59
+                    },
+                    {
+                        "hex": "#2a1009",
+                        "weight": 18.48
+                    },
+                    {
+                        "hex": "#f4eec1",
+                        "weight": 10.56
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/9LS8pPrqKa3CaFM2YeEkThTw25.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/9LS8pPrqKa3CaFM2YeEkThTw25.jpg",
+                "palette": [
+                    {
+                        "hex": "#223040",
+                        "weight": 31.47
+                    },
+                    {
+                        "hex": "#1a1a12",
+                        "weight": 31.31
+                    },
+                    {
+                        "hex": "#656e71",
+                        "weight": 20.03
+                    },
+                    {
+                        "hex": "#845c2f",
+                        "weight": 9.19
+                    },
+                    {
+                        "hex": "#d2a047",
+                        "weight": 7.99
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1321491,
+        "titre": "The Banished",
+        "titre_original": "The Banished",
+        "date_sortie": "2025-07-18",
+        "genres": [
+            "Horreur"
+        ],
+        "duree_minutes": 97,
+        "realisateur": "Joseph Sims-Dennett",
+        "langue_origine": "en",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 4.1,
+        "popularite": 92.3475,
+        "certification": "Tout public / Non spécifié",
+        "resume_fr": "",
+        "resume_en": "Grace has nowhere to turn when she finds herself lost in the wilderness with a dark presence threatening to consume her in this twisted folk horror.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=qbnkCXtkpLE",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/pBlTYknphiODxIQQrei030MSvdT.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/pBlTYknphiODxIQQrei030MSvdT.jpg",
+                "palette": [
+                    {
+                        "hex": "#c20704",
+                        "weight": 28.87
+                    },
+                    {
+                        "hex": "#080106",
+                        "weight": 28.63
+                    },
+                    {
+                        "hex": "#940c07",
+                        "weight": 19.19
+                    },
+                    {
+                        "hex": "#5f0807",
+                        "weight": 13.24
+                    },
+                    {
+                        "hex": "#320606",
+                        "weight": 10.06
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/wJLxynToyvomCX2Q4gBkXcYDxxK.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/wJLxynToyvomCX2Q4gBkXcYDxxK.jpg",
+                "palette": [
+                    {
+                        "hex": "#080505",
+                        "weight": 59.19
+                    },
+                    {
+                        "hex": "#42181a",
+                        "weight": 12.51
+                    },
+                    {
+                        "hex": "#7b181e",
+                        "weight": 12.29
+                    },
+                    {
+                        "hex": "#c42b30",
+                        "weight": 10.58
+                    },
+                    {
+                        "hex": "#e6bcb7",
+                        "weight": 5.43
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/v7QtRan0NDGLtXsVG3tHGGXYGwX.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/v7QtRan0NDGLtXsVG3tHGGXYGwX.jpg",
+                "palette": [
+                    {
+                        "hex": "#05050b",
+                        "weight": 74.55
+                    },
+                    {
+                        "hex": "#202934",
+                        "weight": 15.15
+                    },
+                    {
+                        "hex": "#7b5454",
+                        "weight": 5.15
+                    },
+                    {
+                        "hex": "#3f4f5e",
+                        "weight": 4.29
+                    },
+                    {
+                        "hex": "#4b3435",
+                        "weight": 0.87
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1645603,
+        "titre": "Night of the Living Dead",
+        "titre_original": "Night of the Living Dead",
+        "date_sortie": "2026-07-03",
+        "genres": [
+            "Horreur"
+        ],
+        "duree_minutes": 87,
+        "realisateur": "Christopher Ray",
+        "langue_origine": "en",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 4.982,
+        "popularite": 88.6282,
+        "certification": "Tout public / Non spécifié",
+        "resume_fr": "",
+        "resume_en": "A ragtag group barricade themselves in an old Pennsylvania farmhouse to remain safe from a horde of flesh-eating ghouls ravaging the Northeast.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=3ZfsKIKtYaA",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/9MQDHgtd9Tv2Jws1Ox357chtMYK.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/9MQDHgtd9Tv2Jws1Ox357chtMYK.jpg",
+                "palette": [
+                    {
+                        "hex": "#0b0303",
+                        "weight": 45.81
+                    },
+                    {
+                        "hex": "#ed0102",
+                        "weight": 24.31
+                    },
+                    {
+                        "hex": "#611712",
+                        "weight": 13.88
+                    },
+                    {
+                        "hex": "#b6160e",
+                        "weight": 8.95
+                    },
+                    {
+                        "hex": "#df9e89",
+                        "weight": 7.06
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/syzk7gmBkhU4REf0ZO9HBrVsiFs.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/syzk7gmBkhU4REf0ZO9HBrVsiFs.jpg",
+                "palette": [
+                    {
+                        "hex": "#0a0202",
+                        "weight": 44.99
+                    },
+                    {
+                        "hex": "#f80202",
+                        "weight": 25.97
+                    },
+                    {
+                        "hex": "#5f1410",
+                        "weight": 12.68
+                    },
+                    {
+                        "hex": "#b82316",
+                        "weight": 10.15
+                    },
+                    {
+                        "hex": "#eda68f",
+                        "weight": 6.22
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/5l0klDtj2v4FMFOGGCEH23AQb30.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/5l0klDtj2v4FMFOGGCEH23AQb30.jpg",
+                "palette": [
+                    {
+                        "hex": "#171919",
+                        "weight": 60.19
+                    },
+                    {
+                        "hex": "#ba7b5d",
+                        "weight": 11.47
+                    },
+                    {
+                        "hex": "#71433c",
+                        "weight": 10.41
+                    },
+                    {
+                        "hex": "#f25f40",
+                        "weight": 10.02
+                    },
+                    {
+                        "hex": "#25385c",
+                        "weight": 7.91
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1311031,
+        "titre": "Demon Slayer : Kimetsu no Yaiba - Le film : La Forteresse infinie",
+        "titre_original": "劇場版「鬼滅の刃」無限城編 第一章 猗窩座再来",
+        "date_sortie": "2025-07-18",
+        "genres": [
+            "Animation",
+            "Action",
+            "Fantastique"
+        ],
+        "duree_minutes": 155,
+        "realisateur": "Haruo Sotozaki",
+        "langue_origine": "ja",
+        "budget": 20000000,
+        "recettes": 733030221,
+        "note_moyenne": 7.745,
+        "popularite": 88.5061,
+        "certification": "FR: 12",
+        "resume_fr": "L'armée des pourfendeurs de démons est attirée dans la Forteresse Infinie, où Tanjiro, Zenitsu et Inosuke  affrontent de terrifiants démons de rang supérieur dans un combat désespéré alors que la bataille finale contre Kibutsuji Muzan commence.",
+        "resume_en": "The Demon Slayer Corps are drawn into the Infinity Castle, where Tanjiro, Nezuko, and the Hashira face terrifying Upper Rank demons in a desperate fight as the final battle against Muzan Kibutsuji begins.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=lQOThMKUxg8",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/fWVSwgjpT2D78VUh6X8UBd2rorW.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/fWVSwgjpT2D78VUh6X8UBd2rorW.jpg",
+                "palette": [
+                    {
+                        "hex": "#412b2d",
+                        "weight": 28.45
+                    },
+                    {
+                        "hex": "#b54728",
+                        "weight": 22.18
+                    },
+                    {
+                        "hex": "#d8c69b",
+                        "weight": 19.43
+                    },
+                    {
+                        "hex": "#4847b7",
+                        "weight": 15.07
+                    },
+                    {
+                        "hex": "#57b1d9",
+                        "weight": 14.88
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/sUsVimPdA1l162FvdBIlmKBlWHx.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/sUsVimPdA1l162FvdBIlmKBlWHx.jpg",
+                "palette": [
+                    {
+                        "hex": "#5f321a",
+                        "weight": 29.06
+                    },
+                    {
+                        "hex": "#33211b",
+                        "weight": 25.83
+                    },
+                    {
+                        "hex": "#8aa5b4",
+                        "weight": 19.96
+                    },
+                    {
+                        "hex": "#bb7d31",
+                        "weight": 16.05
+                    },
+                    {
+                        "hex": "#a93f29",
+                        "weight": 9.11
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/aFRDH3P7TX61FVGpaLhKr6QiOC1.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/aFRDH3P7TX61FVGpaLhKr6QiOC1.jpg",
+                "palette": [
+                    {
+                        "hex": "#1c1618",
+                        "weight": 31.41
+                    },
+                    {
+                        "hex": "#4d2518",
+                        "weight": 25.48
+                    },
+                    {
+                        "hex": "#9c4e24",
+                        "weight": 17.75
+                    },
+                    {
+                        "hex": "#53545d",
+                        "weight": 14.87
+                    },
+                    {
+                        "hex": "#bfb19b",
+                        "weight": 10.49
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1110034,
+        "titre": "Kraken",
+        "titre_original": "Kraken",
+        "date_sortie": "2026-02-06",
+        "genres": [
+            "Horreur",
+            "Action",
+            "Thriller"
+        ],
+        "duree_minutes": 94,
+        "realisateur": "Pål Øie",
+        "langue_origine": "no",
+        "budget": 1000000,
+        "recettes": 14329678,
+        "note_moyenne": 6.459,
+        "popularite": 87.2495,
+        "certification": "US: NR",
+        "resume_fr": "Johanne, biologiste marine, mène des recherches dans une ferme piscicole à Vangsnes, un petit village situé au bord de l'un des fjords les plus profonds de Norvège, suite à une série de morts mystérieuses.",
+        "resume_en": "A marine biologist is doing research on a fish farm when she encounters several strange occurrences. Along with the brutal deaths of two teenagers, all signs point to the deep fjord; can there be more to the depths than the eye can see?",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=EUTatY1-oBI",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/zn9l8NRjqW4MP1ErNuquM3VZrcX.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/zn9l8NRjqW4MP1ErNuquM3VZrcX.jpg",
+                "palette": [
+                    {
+                        "hex": "#07333e",
+                        "weight": 47.96
+                    },
+                    {
+                        "hex": "#031e28",
+                        "weight": 28.26
+                    },
+                    {
+                        "hex": "#2b4b4c",
+                        "weight": 14.91
+                    },
+                    {
+                        "hex": "#ccd4c8",
+                        "weight": 4.53
+                    },
+                    {
+                        "hex": "#7c8f8b",
+                        "weight": 4.35
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/uUCVGVWnBgIf6NV3AqHpJcCBC8T.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/uUCVGVWnBgIf6NV3AqHpJcCBC8T.jpg",
+                "palette": [
+                    {
+                        "hex": "#151d1e",
+                        "weight": 28.75
+                    },
+                    {
+                        "hex": "#385656",
+                        "weight": 28.33
+                    },
+                    {
+                        "hex": "#dfd7c2",
+                        "weight": 26.95
+                    },
+                    {
+                        "hex": "#8ca094",
+                        "weight": 8.88
+                    },
+                    {
+                        "hex": "#8e8e55",
+                        "weight": 7.09
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/xdZ8k5s8DTwWyPBMIcflrYLgcAK.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/xdZ8k5s8DTwWyPBMIcflrYLgcAK.jpg",
+                "palette": [
+                    {
+                        "hex": "#05252e",
+                        "weight": 36.44
+                    },
+                    {
+                        "hex": "#02151d",
+                        "weight": 30.82
+                    },
+                    {
+                        "hex": "#143539",
+                        "weight": 25.81
+                    },
+                    {
+                        "hex": "#b2baa8",
+                        "weight": 3.79
+                    },
+                    {
+                        "hex": "#3d5a59",
+                        "weight": 3.14
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 980431,
+        "titre": "La Légende de Aang - le dernier maître de l'air",
+        "titre_original": "Avatar Aang: The Last Airbender",
+        "date_sortie": "2026-07-24",
+        "genres": [
+            "Animation",
+            "Action",
+            "Aventure",
+            "Fantastique"
+        ],
+        "duree_minutes": 99,
+        "realisateur": "Lauren Montgomery",
+        "langue_origine": "en",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 0.0,
+        "popularite": 78.1108,
+        "certification": "US: PG",
+        "resume_fr": "Les aventures du successeur du dernier Avatar qui doit empêcher la nation du Feu d’asservir les nations de la Terre, de l’Eau et de l’Air...",
+        "resume_en": "Avatar Aang, the world's last Airbender, learns of an ancient power that could save his culture from extinction. With the help of his friends, he embarks on a global quest to find it before it falls into the wrong hands and threatens to upend the peace they sacrificed everything to achieve.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=9sg6pJK3jNc",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/3sgnSfNT27Bx5O5ukr7B26mhEQq.jpg",
+                "palette": [
+                    {
+                        "hex": "#152d49",
+                        "weight": 47.15
+                    },
+                    {
+                        "hex": "#396075",
+                        "weight": 17.57
+                    },
+                    {
+                        "hex": "#bfcbc3",
+                        "weight": 14.83
+                    },
+                    {
+                        "hex": "#744f49",
+                        "weight": 14.53
+                    },
+                    {
+                        "hex": "#d89740",
+                        "weight": 5.92
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/fyFOzo65OrdsiAGW012J9l0yCFa.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/fyFOzo65OrdsiAGW012J9l0yCFa.jpg",
+                "palette": [
+                    {
+                        "hex": "#886b77",
+                        "weight": 23.93
+                    },
+                    {
+                        "hex": "#d29465",
+                        "weight": 22.35
+                    },
+                    {
+                        "hex": "#f6d694",
+                        "weight": 20.42
+                    },
+                    {
+                        "hex": "#924322",
+                        "weight": 18.65
+                    },
+                    {
+                        "hex": "#f4eed4",
+                        "weight": 14.65
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/AbUa37L0mRs4RtMLvSD6cWZcPJP.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/AbUa37L0mRs4RtMLvSD6cWZcPJP.jpg",
+                "palette": [
+                    {
+                        "hex": "#070507",
+                        "weight": 36.24
+                    },
+                    {
+                        "hex": "#a36550",
+                        "weight": 24.73
+                    },
+                    {
+                        "hex": "#403f51",
+                        "weight": 20.12
+                    },
+                    {
+                        "hex": "#629fbe",
+                        "weight": 12.77
+                    },
+                    {
+                        "hex": "#e59229",
+                        "weight": 6.15
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 200066,
+        "titre": "Il frullo del passero",
+        "titre_original": "Il frullo del passero",
+        "date_sortie": "1988-01-01",
+        "genres": [
+            "Drame",
+            "Romance"
+        ],
+        "duree_minutes": 95,
+        "realisateur": "Gianfranco Mingozzi",
+        "langue_origine": "it",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 4.167,
+        "popularite": 76.8733,
+        "certification": "Tout public / Non spécifié",
+        "resume_fr": "",
+        "resume_en": "A woman, who has been the mistress of a man who has just died, thinks about leaving the little Italian village where they lived and moving to another place. An old and rich man offers her a place in his house, however, she will have to listen to him telling his past love stories.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=whDnog-Biwo",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/8Q5INiyhPf7QxCIcXFWF8QXLPuN.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/8Q5INiyhPf7QxCIcXFWF8QXLPuN.jpg",
+                "palette": [
+                    {
+                        "hex": "#f0f0f1",
+                        "weight": 59.41
+                    },
+                    {
+                        "hex": "#493b23",
+                        "weight": 17.73
+                    },
+                    {
+                        "hex": "#aba6a8",
+                        "weight": 9.77
+                    },
+                    {
+                        "hex": "#cd863f",
+                        "weight": 9.65
+                    },
+                    {
+                        "hex": "#eb69ac",
+                        "weight": 3.43
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/gRvBDIpfjeU53gUxX7GfQ9Pmxpc.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/gRvBDIpfjeU53gUxX7GfQ9Pmxpc.jpg",
+                "palette": [
+                    {
+                        "hex": "#e9e8ee",
+                        "weight": 56.65
+                    },
+                    {
+                        "hex": "#2b2324",
+                        "weight": 13.43
+                    },
+                    {
+                        "hex": "#7d4a36",
+                        "weight": 12.17
+                    },
+                    {
+                        "hex": "#d48840",
+                        "weight": 11.47
+                    },
+                    {
+                        "hex": "#d34d8d",
+                        "weight": 6.28
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/4rQd1hS5gc0tJTNjY6pXxPEAKpm.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/4rQd1hS5gc0tJTNjY6pXxPEAKpm.jpg",
+                "palette": [
+                    {
+                        "hex": "#edecee",
+                        "weight": 67.39
+                    },
+                    {
+                        "hex": "#6d5033",
+                        "weight": 11.47
+                    },
+                    {
+                        "hex": "#2b2d1b",
+                        "weight": 9.05
+                    },
+                    {
+                        "hex": "#d48b42",
+                        "weight": 8.43
+                    },
+                    {
+                        "hex": "#ea6dad",
+                        "weight": 3.67
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 976912,
+        "titre": "Graphic Designs",
+        "titre_original": "Graphic Desires",
+        "date_sortie": "2023-08-31",
+        "genres": [
+            "Thriller",
+            "Crime"
+        ],
+        "duree_minutes": 90,
+        "realisateur": "Andy Edwards",
+        "langue_origine": "en",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 7.095,
+        "popularite": 74.9414,
+        "certification": "Tout public / Non spécifié",
+        "resume_fr": "Graphic Desires suit le parcours d'une jeune femme nommée Charlie, qui est une artiste numérique en pleine ascension. Elle commence à ressentir une forte attirance pour un mystérieux inconnu qu'elle découvre à travers une série d'illustrations graphiques sensuelles et troublantes.  Au fil du temps, elle se retrouve de plus en plus obsédée par cet inconnu, au point de ne plus pouvoir distinguer la réalité de l'imaginaire. Charlie se retrouve alors plongée dans un monde de désirs inavoués et de sombres secrets, où chaque nouvelle illustration semble la rapprocher d'une vérité inquiétante sur sa propre vie.  \"Graphic Desires\" explore les thèmes de l'obsession, de la dualité entre l'art et la vie, et de la fine frontière entre la réalité et la fiction. Au fur et à mesure que l'intrigue se déroule, Charlie doit faire face à des révélations choquantes qui la poussent à remettre en question sa propre identité et la nature de son désir.",
+        "resume_en": "When reclusive Franklin cheats on his partner with a mysterious girl he meets on a dating app, it becomes the start of a deadly obsession.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=hK21ALZussc",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/3BjLdTWRiHc1ISIZMFvToOmghOM.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/3BjLdTWRiHc1ISIZMFvToOmghOM.jpg",
+                "palette": [
+                    {
+                        "hex": "#1a2c35",
+                        "weight": 32.85
+                    },
+                    {
+                        "hex": "#5a5451",
+                        "weight": 24.2
+                    },
+                    {
+                        "hex": "#8d7157",
+                        "weight": 18.78
+                    },
+                    {
+                        "hex": "#eeeded",
+                        "weight": 13.43
+                    },
+                    {
+                        "hex": "#a7a09e",
+                        "weight": 10.75
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/bx0DEnRRDfyI6KWK9KAjflFqjCl.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/bx0DEnRRDfyI6KWK9KAjflFqjCl.jpg",
+                "palette": [
+                    {
+                        "hex": "#131f34",
+                        "weight": 39.31
+                    },
+                    {
+                        "hex": "#1c3c81",
+                        "weight": 25.41
+                    },
+                    {
+                        "hex": "#dcf8ee",
+                        "weight": 18.86
+                    },
+                    {
+                        "hex": "#2c89d0",
+                        "weight": 9.47
+                    },
+                    {
+                        "hex": "#a87eac",
+                        "weight": 6.95
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/fmLQaEPC9uRCbjPs1NI4S90qimH.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/fmLQaEPC9uRCbjPs1NI4S90qimH.jpg",
+                "palette": [
+                    {
+                        "hex": "#291021",
+                        "weight": 58.24
+                    },
+                    {
+                        "hex": "#521627",
+                        "weight": 22.33
+                    },
+                    {
+                        "hex": "#9d6567",
+                        "weight": 9.7
+                    },
+                    {
+                        "hex": "#f5e7d7",
+                        "weight": 6.99
+                    },
+                    {
+                        "hex": "#cc083f",
+                        "weight": 2.73
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1318447,
+        "titre": "Apex",
+        "titre_original": "Apex",
+        "date_sortie": "2026-04-24",
+        "genres": [
+            "Action",
+            "Thriller"
+        ],
+        "duree_minutes": 96,
+        "realisateur": "Baltasar Kormákur",
+        "langue_origine": "en",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 6.858,
+        "popularite": 72.7371,
+        "certification": "FR: 16",
+        "resume_fr": "Alors qu'elle teste ses limites en solo dans la nature sauvage australienne, une femme en deuil se retrouve prise au piège d'un jeu tordu avec un tueur qui a fait d'elle sa proie.",
+        "resume_en": "A grieving woman pushing her limits on a solo adventure in the Australian wild is ensnared in a twisted game with a cunning killer who thinks she's prey.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=uQUyXgQhbzI",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/eTp7gSPkSF3Aw79mNx1NkBP1PZT.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/eTp7gSPkSF3Aw79mNx1NkBP1PZT.jpg",
+                "palette": [
+                    {
+                        "hex": "#0b0904",
+                        "weight": 63.26
+                    },
+                    {
+                        "hex": "#25210e",
+                        "weight": 15.99
+                    },
+                    {
+                        "hex": "#df0505",
+                        "weight": 8.97
+                    },
+                    {
+                        "hex": "#6b3b1b",
+                        "weight": 6.24
+                    },
+                    {
+                        "hex": "#c39968",
+                        "weight": 5.54
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/9iuGBLJBRuGKR6nRL4SxUV1tIdt.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/9iuGBLJBRuGKR6nRL4SxUV1tIdt.jpg",
+                "palette": [
+                    {
+                        "hex": "#070604",
+                        "weight": 71.92
+                    },
+                    {
+                        "hex": "#302817",
+                        "weight": 14.47
+                    },
+                    {
+                        "hex": "#d90506",
+                        "weight": 6.01
+                    },
+                    {
+                        "hex": "#716b39",
+                        "weight": 5.95
+                    },
+                    {
+                        "hex": "#d7ddd2",
+                        "weight": 1.65
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/gqpXIE9fQNqMgEza73nOZy3aVMR.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/gqpXIE9fQNqMgEza73nOZy3aVMR.jpg",
+                "palette": [
+                    {
+                        "hex": "#080603",
+                        "weight": 74.09
+                    },
+                    {
+                        "hex": "#38311b",
+                        "weight": 14.19
+                    },
+                    {
+                        "hex": "#78723d",
+                        "weight": 5.77
+                    },
+                    {
+                        "hex": "#d10506",
+                        "weight": 3.21
+                    },
+                    {
+                        "hex": "#c1c2b4",
+                        "weight": 2.74
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1212763,
+        "titre": "Evil Dead Burn",
+        "titre_original": "Evil Dead Burn",
+        "date_sortie": "2026-07-07",
+        "genres": [
+            "Horreur",
+            "Thriller"
+        ],
+        "duree_minutes": 110,
+        "realisateur": "Sébastien Vaniček",
+        "langue_origine": "en",
+        "budget": 20000000,
+        "recettes": 35482978,
+        "note_moyenne": 6.782,
+        "popularite": 72.3815,
+        "certification": "FR: 16",
+        "resume_fr": "Après l’enterrement de son mari, Alice se rend dans la maison isolée de sa belle-famille pour partager un dernier repas à sa mémoire. Mais la réunion familiale bascule dans l’horreur lorsque ses proches se transforment, l’un après l’autre, en créatures démoniaques. Confrontée à cet enfer, Alice découvre que les vœux prononcés autrefois continuent de la lier à son mari… bien au-delà de la mort.",
+        "resume_en": "After her husband's abrupt death, Alice seeks solace with his remaining family — descendants of a leading researcher on demonic possession. As her in-laws transform one by one into creatures that feed on fear, she comes to discover that the vows she took in life survive even in death.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=x_mPdvdAKk8",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/ztadKzIIR0ERYqpHteaPFtk7inP.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/ztadKzIIR0ERYqpHteaPFtk7inP.jpg",
+                "palette": [
+                    {
+                        "hex": "#17100e",
+                        "weight": 44.81
+                    },
+                    {
+                        "hex": "#351711",
+                        "weight": 23.41
+                    },
+                    {
+                        "hex": "#622212",
+                        "weight": 18.19
+                    },
+                    {
+                        "hex": "#a94c1b",
+                        "weight": 11.07
+                    },
+                    {
+                        "hex": "#d00a08",
+                        "weight": 2.53
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/syGSQh7bqPHCFRhwHewHdR5EqjD.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/syGSQh7bqPHCFRhwHewHdR5EqjD.jpg",
+                "palette": [
+                    {
+                        "hex": "#17100e",
+                        "weight": 44.23
+                    },
+                    {
+                        "hex": "#36170f",
+                        "weight": 25.59
+                    },
+                    {
+                        "hex": "#642310",
+                        "weight": 17.72
+                    },
+                    {
+                        "hex": "#ab4d19",
+                        "weight": 9.6
+                    },
+                    {
+                        "hex": "#cc0c08",
+                        "weight": 2.86
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/yAtHcEJdoIjV2BJUvZz89A88pAB.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/yAtHcEJdoIjV2BJUvZz89A88pAB.jpg",
+                "palette": [
+                    {
+                        "hex": "#100907",
+                        "weight": 47.96
+                    },
+                    {
+                        "hex": "#47190b",
+                        "weight": 19.07
+                    },
+                    {
+                        "hex": "#8e350e",
+                        "weight": 15.76
+                    },
+                    {
+                        "hex": "#d5221f",
+                        "weight": 9.55
+                    },
+                    {
+                        "hex": "#d27e21",
+                        "weight": 7.66
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1327819,
+        "titre": "Jumpers",
+        "titre_original": "Hoppers",
+        "date_sortie": "2026-03-04",
+        "genres": [
+            "Aventure",
+            "Animation",
+            "Comédie",
+            "Familial",
+            "Science-Fiction"
+        ],
+        "duree_minutes": 104,
+        "realisateur": "Daniel Chong",
+        "langue_origine": "en",
+        "budget": 150000000,
+        "recettes": 372038602,
+        "note_moyenne": 8.2,
+        "popularite": 72.3035,
+        "certification": "FR: TP",
+        "resume_fr": "Mabel, une amoureuse des animaux, utilise une nouvelle technologie pour \"transférer\" sa conscience dans un robot-castor réaliste et communiquer directement avec les animaux. Alors qu'elle découvre des mystères du monde animal dépassant tout ce qu'elle aurait pu imaginer, Mabel se lie d'amitié avec Roi Georges, un charismatique castor, et doit rallier tout le règne animal pour faire face à une menace humaine majeure et imminente : le maire Jerry Generazzo, un beau parleur.",
+        "resume_en": "Scientists have discovered how to 'hop' human consciousness into lifelike robotic animals, allowing people to communicate with animals as animals. Animal lover Mabel seizes an opportunity to use the technology, uncovering mysteries within the animal world beyond anything she could have imagined.",
+        "bande_annonce_url": "https://www.youtube.com/watch?v=wTW0aTUsQCQ",
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/xjtWQ2CL1mpmMNwuU5HeS4Iuwuu.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/xjtWQ2CL1mpmMNwuU5HeS4Iuwuu.jpg",
+                "palette": [
+                    {
+                        "hex": "#f5c110",
+                        "weight": 54.33
+                    },
+                    {
+                        "hex": "#291f1c",
+                        "weight": 17.83
+                    },
+                    {
+                        "hex": "#784937",
+                        "weight": 11.92
+                    },
+                    {
+                        "hex": "#b18c3e",
+                        "weight": 8.37
+                    },
+                    {
+                        "hex": "#94a194",
+                        "weight": 7.54
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/6U7trziDEBVwfAcwlDbtGF3zjRN.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/6U7trziDEBVwfAcwlDbtGF3zjRN.jpg",
+                "palette": [
+                    {
+                        "hex": "#211614",
+                        "weight": 44.58
+                    },
+                    {
+                        "hex": "#643d2d",
+                        "weight": 28.26
+                    },
+                    {
+                        "hex": "#f6c517",
+                        "weight": 12.04
+                    },
+                    {
+                        "hex": "#ad7241",
+                        "weight": 11.62
+                    },
+                    {
+                        "hex": "#377189",
+                        "weight": 3.5
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/12tvpCv413QvvJlZGf4lRq446tT.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/12tvpCv413QvvJlZGf4lRq446tT.jpg",
+                "palette": [
+                    {
+                        "hex": "#201615",
+                        "weight": 44.11
+                    },
+                    {
+                        "hex": "#603a2e",
+                        "weight": 27.89
+                    },
+                    {
+                        "hex": "#ab7042",
+                        "weight": 12.57
+                    },
+                    {
+                        "hex": "#f5c517",
+                        "weight": 12.09
+                    },
+                    {
+                        "hex": "#38748d",
+                        "weight": 3.35
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 47612,
+        "titre": "Au Bonheur des Dames",
+        "titre_original": "Au Bonheur des Dames",
+        "date_sortie": "1930-07-03",
+        "genres": [
+            "Drame",
+            "Romance"
+        ],
+        "duree_minutes": 95,
+        "realisateur": "Julien Duvivier",
+        "langue_origine": "fr",
+        "budget": 0,
+        "recettes": 0,
+        "note_moyenne": 6.3,
+        "popularite": 72.1462,
+        "certification": "Tout public / Non spécifié",
+        "resume_fr": "L'essor des grands magasins au XIXème siècle à travers l'histoire d'une orpheline qui monte à Paris pour travailler chez son oncle marchand de draps, transposée dans le Paris de la fin des années 1920.",
+        "resume_en": "Denise, an orphaned girl, moves to Paris where she hopes to find work at her uncle's store. But the glamorous department store 'Aux Bonheur des Dames' across the street crushes all the little businesses around. She finds a position there.",
+        "bande_annonce_url": null,
+        "affiches": [
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/lcshMRxDFWDtT2W9ImBeyuYnbg4.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/lcshMRxDFWDtT2W9ImBeyuYnbg4.jpg",
+                "palette": [
+                    {
+                        "hex": "#140706",
+                        "weight": 26.48
+                    },
+                    {
+                        "hex": "#b83122",
+                        "weight": 20.17
+                    },
+                    {
+                        "hex": "#d9ac63",
+                        "weight": 19.35
+                    },
+                    {
+                        "hex": "#6b2c24",
+                        "weight": 17.59
+                    },
+                    {
+                        "hex": "#e5dbca",
+                        "weight": 16.41
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/gFNBSuLaj6xhYPsqZm1jlcJiX8o.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/gFNBSuLaj6xhYPsqZm1jlcJiX8o.jpg",
+                "palette": [
+                    {
+                        "hex": "#1e0c0a",
+                        "weight": 34.21
+                    },
+                    {
+                        "hex": "#a41f17",
+                        "weight": 25.15
+                    },
+                    {
+                        "hex": "#eee3cd",
+                        "weight": 15.23
+                    },
+                    {
+                        "hex": "#a77353",
+                        "weight": 13.75
+                    },
+                    {
+                        "hex": "#ebbb58",
+                        "weight": 11.66
+                    }
+                ]
+            },
+            {
+                "affiche_w500": "https://image.tmdb.org/t/p/w500/Ai22bJiZGenUaFEm5LSvtnb9oZi.jpg",
+                "affiche_original": "https://image.tmdb.org/t/p/original/Ai22bJiZGenUaFEm5LSvtnb9oZi.jpg",
+                "palette": [
+                    {
+                        "hex": "#1c1c1c",
+                        "weight": 37.96
+                    },
+                    {
+                        "hex": "#bebebe",
+                        "weight": 24.18
+                    },
+                    {
+                        "hex": "#383838",
+                        "weight": 12.79
+                    },
+                    {
+                        "hex": "#929292",
+                        "weight": 12.63
+                    },
+                    {
+                        "hex": "#616161",
+                        "weight": 12.44
+                    }
+                ]
+            }
+        ]
+    }
+]
