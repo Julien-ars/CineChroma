@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineChroma — Recherche de Films par Couleur</title>
+  <meta name="description" content="Découvrez des films par leur identité visuelle. Moteur de recherche cinématographique basé sur l'analyse colorimétrique des affiches." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       AMBIENT BACKGROUND
+  ============================================================ -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header id="app-header">
+    <div class="header-inner">
+
+      <!-- Brand -->
+      <a class="brand" href="#" aria-label="CineChroma — Accueil">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="22" cy="22" r="20" stroke="url(#brandGrad)" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <circle cx="15" cy="18" r="6"  fill="url(#c1)" />
+            <circle cx="29" cy="15" r="5"  fill="url(#c2)" />
+            <circle cx="25" cy="28" r="5.5" fill="url(#c3)" />
+            <circle cx="14" cy="29" r="3.5" fill="url(#c4)" />
+            <defs>
+              <linearGradient id="brandGrad" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#f43f5e"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#06b6d4"/>
+              </linearGradient>
+              <radialGradient id="c1"><stop stop-color="#f43f5e"/><stop offset="1" stop-color="#8b5cf6"/></radialGradient>
+              <radialGradient id="c2"><stop stop-color="#818cf8"/><stop offset="1" stop-color="#06b6d4"/></radialGradient>
+              <radialGradient id="c3"><stop stop-color="#f59e0b"/><stop offset="1" stop-color="#f97316"/></radialGradient>
+              <radialGradient id="c4"><stop stop-color="#10b981"/><stop offset="1" stop-color="#06b6d4"/></radialGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">CineChroma</span>
+          <span class="brand-sub" data-i18n="brand_sub">Moteur cinématographique par couleur</span>
+        </div>
+      </a>
+
+      <!-- Search bar -->
+      <div class="search-container">
+        <div class="search-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input
+            type="text"
+            id="search-input"
+            data-i18n-placeholder="search_placeholder"
+            placeholder="Rechercher par titre ou réalisateur…"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Rechercher un film"
+          />
+          <button id="search-clear" class="search-clear" aria-label="Effacer la recherche" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right cluster -->
+      <div class="header-right">
+        <!-- Film counter -->
+        <div class="film-counter" aria-live="polite" aria-label="Nombre de films affichés">
+          <span id="visible-count">0</span>
+          <span class="counter-sep" aria-hidden="true">/</span>
+          <span id="total-count">0</span>
+          <span class="counter-label" data-i18n="counter_label">films</span>
+        </div>
+
+        <!-- Lang toggle -->
+        <div class="lang-toggle" data-active="fr" role="group" aria-label="Langue / Language">
+          <button class="lang-btn active" data-lang-switch="fr" aria-pressed="true">FR</button>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <button class="lang-btn" data-lang-switch="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       COLOR FILTER PANEL
+  ============================================================ -->
+  <section id="color-filter-panel">
+    <div class="filter-panel-inner">
+
+      <!-- Left: label + active pills -->
+      <div class="filter-left">
+        <div class="filter-label-row">
+          <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.85 0 3-.5 3-2 0-.54-.1-.73-.28-1.06-.18-.34-.29-.55-.29-.94 0-1.1.9-2 2-2h2.35C20.73 15.65 22 13.93 22 12c0-5.52-4.48-10-10-10z"/>
+            <circle cx="6.5" cy="11.5" r="1.5" fill="currentColor"/><circle cx="9.5" cy="7.5" r="1.5" fill="currentColor"/>
+            <circle cx="14.5" cy="7.5" r="1.5" fill="currentColor"/><circle cx="17.5" cy="11.5" r="1.5" fill="currentColor"/>
+          </svg>
+          <span data-i18n="filter_by_color">Filtrer par couleur</span>
+          <button class="filter-mode-badge" id="filter-mode-badge" style="display:none" aria-label="Changer le mode de filtre" data-i18n="filter_mode_or">OU</button>
+        </div>
+        <!-- Active color pills -->
+        <div id="active-color-pills" class="active-color-pills"></div>
+      </div>
+
+      <!-- Center: 6 preset swatches -->
+      <div class="preset-swatches" id="preset-swatches" role="group" aria-label="Couleurs prédéfinies">
+        <!-- injected by JS from PRESET_COLORS -->
+      </div>
+
+      <!-- Right: + Add color button + tolerance + clear -->
+      <div class="filter-right">
+        <!-- Add color trigger -->
+        <button class="add-color-btn" id="add-color-btn" aria-label="Ajouter une couleur personnalisée" aria-expanded="false" aria-controls="color-popover">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14" aria-hidden="true">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          <span data-i18n="add_color">Couleur</span>
+        </button>
+
+        <!-- Tolerance control -->
+        <div class="tolerance-wrap">
+          <label class="tolerance-label" for="similarity-threshold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+            </svg>
+            <span data-i18n="tolerance">Tolérance</span>
+            <strong id="threshold-display">30</strong>
+          </label>
+          <input type="range" id="similarity-threshold" min="5" max="80" value="30" step="5" aria-label="Tolérance colorimétrique" />
+        </div>
+
+        <!-- Clear all -->
+        <button id="clear-color-filter" class="clear-all-btn" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="12" height="12" aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+          <span data-i18n="reset">Réinitialiser</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COLOR POPOVER (advanced picker)
+  ============================================================ -->
+  <div id="color-popover" class="color-popover" hidden role="dialog" aria-label="Sélecteur de couleur avancé">
+    <div class="popover-arrow" aria-hidden="true"></div>
+    <div class="popover-inner">
+      <p class="popover-title" data-i18n="custom_color">Couleur personnalisée</p>
+      <!-- Color wheel input + hex display -->
+      <div class="popover-picker-row">
+        <div class="color-wheel-wrap">
+          <input type="color" id="custom-color-input" value="#8b5cf6" aria-label="Sélecteur de couleur" />
+          <div class="wheel-ring" aria-hidden="true"></div>
+        </div>
+        <div class="popover-hex-col">
+          <input type="text" id="hex-text-input" value="#8b5cf6" maxlength="7" placeholder="#rrggbb" class="hex-text" aria-label="Code hexadécimal" spellcheck="false" />
+          <div id="hex-preview" class="hex-preview" style="background:#8b5cf6" aria-hidden="true"></div>
+        </div>
+      </div>
+      <!-- HSL sliders -->
+      <div class="hsl-sliders">
+        <div class="hsl-row">
+          <label class="hsl-label" for="hsl-h" data-i18n="hue">Teinte</label>
+          <div class="slider-track hue-track">
+            <input type="range" id="hsl-h" min="0" max="360" value="263" class="hsl-slider hue-slider" aria-label="Teinte" />
+          </div>
+          <span class="hsl-val" id="hsl-h-val">263°</span>
+        </div>
+        <div class="hsl-row">
+          <label class="hsl-label" for="hsl-s" data-i18n="saturation">Saturation</label>
+          <div class="slider-track sat-track">
+            <input type="range" id="hsl-s" min="0" max="100" value="70" class="hsl-slider sat-slider" aria-label="Saturation" />
+          </div>
+          <span class="hsl-val" id="hsl-s-val">70%</span>
+        </div>
+        <div class="hsl-row">
+          <label class="hsl-label" for="hsl-l" data-i18n="lightness">Luminosité</label>
+          <div class="slider-track lum-track">
+            <input type="range" id="hsl-l" min="0" max="100" value="61" class="hsl-slider lum-slider" aria-label="Luminosité" />
+          </div>
+          <span class="hsl-val" id="hsl-l-val">61%</span>
+        </div>
+      </div>
+      <!-- Quick palette from extracted global swatches -->
+      <div class="popover-palette-section">
+        <p class="popover-section-title" data-i18n="from_films">Depuis les films</p>
+        <div id="popover-swatches" class="popover-swatches"></div>
+      </div>
+      <!-- Actions -->
+      <div class="popover-actions">
+        <button id="popover-cancel" class="btn-ghost-sm" data-i18n="cancel">Annuler</button>
+        <button id="popover-apply" class="btn-apply" data-i18n="apply">Appliquer</button>
+      </div>
+    </div>
+  </div>
+  <div id="popover-backdrop" class="popover-backdrop" hidden></div>
+
+  <!-- ============================================================
+       SECONDARY FILTERS (genres + sort)
+  ============================================================ -->
+  <section id="secondary-filters">
+    <div class="secondary-inner">
+      <div class="genre-filters" id="genre-chips" role="group" aria-label="Filtres par genre"></div>
+      <div class="sort-container">
+        <label for="sort-select" class="sort-label" data-i18n="sort_by">Trier par :</label>
+        <div class="select-wrap">
+          <select id="sort-select" class="sort-select" aria-label="Trier les films">
+            <option value="popularity" data-i18n="sort_popularity">Popularité</option>
+            <option value="rating"     data-i18n="sort_rating">Note</option>
+            <option value="date"       data-i18n="sort_date">Date de sortie</option>
+            <option value="title"      data-i18n="sort_title">Titre (A-Z)</option>
+            <option value="revenue"    data-i18n="sort_revenue">Recettes</option>
+          </select>
+          <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MAIN GRID
+  ============================================================ -->
+  <main id="app-main">
+    <!-- Loading -->
+    <div id="loading-state" class="loading-state" aria-live="polite">
+      <div class="loading-spinner" aria-hidden="true">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+      </div>
+      <p data-i18n="loading">Chargement de la cinémathèque…</p>
+    </div>
+
+    <!-- Error -->
+    <div id="error-state" class="error-state" hidden>
+      <div class="error-icon" aria-hidden="true">⚠️</div>
+      <h2 data-i18n="error_title">Impossible de charger la base de données</h2>
+      <p id="error-message"></p>
+      <button id="retry-btn" class="btn-accent" data-i18n="retry">Réessayer</button>
+    </div>
+
+    <!-- Empty -->
+    <div id="empty-state" class="empty-state" hidden>
+      <div class="empty-icon" aria-hidden="true">🎬</div>
+      <h2 data-i18n="no_results">Aucun film trouvé</h2>
+      <p data-i18n="no_results_hint">Essayez d'ajuster vos filtres ou votre recherche.</p>
+      <button id="reset-filters-btn" class="btn-ghost" data-i18n="reset_filters">Réinitialiser les filtres</button>
+    </div>
+
+    <!-- Grid -->
+    <div id="film-grid" class="film-grid" hidden></div>
+
+    <!-- Load more -->
+    <div id="load-more-container" class="load-more-container" hidden>
+      <button id="load-more-btn" class="btn-load-more">
+        <span data-i18n="load_more">Charger plus de films</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </button>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FILM DETAIL MODAL
+  ============================================================ -->
+  <div id="film-modal" class="film-modal" role="dialog" aria-modal="true" hidden>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-container" role="document">
+      <button class="modal-close" id="modal-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="modal-inner">
+        <!-- LEFT col -->
+        <div class="modal-poster-col">
+          <div class="modal-poster-wrap">
+            <img id="modal-poster-img" src="" alt="" class="modal-poster" />
+            <div class="modal-poster-glow" id="modal-poster-glow" aria-hidden="true"></div>
+          </div>
+          <div id="modal-poster-selector" class="modal-poster-selector"></div>
+
+          <a id="modal-trailer-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-trailer" hidden>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="watch_trailer">Voir la bande-annonce</span>
+          </a>
+
+          <div class="modal-palette-section">
+            <h4 class="modal-palette-title" data-i18n="chromatic_palette">Palette chromatique</h4>
+            <div id="modal-palette" class="modal-palette"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT col -->
+        <div class="modal-details-col">
+          <div class="modal-top-badges">
+            <span id="modal-certification" class="badge-certification" hidden></span>
+            <div id="modal-genres" class="modal-genres"></div>
+          </div>
+
+          <h2 id="modal-title" class="modal-title"></h2>
+          <p id="modal-original-title" class="modal-original-title"></p>
+
+          <div class="modal-stats">
+            <div class="stat-item">
+              <div class="stat-stars" id="modal-stars"></div>
+              <span id="modal-rating" class="stat-value"></span>
+              <span class="stat-label">/10</span>
+            </div>
+            <div class="stat-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15" aria-hidden="true">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              <span id="modal-popularity" class="stat-value"></span>
+              <span class="stat-label" data-i18n="popularity">popularité</span>
+            </div>
+          </div>
+
+          <div class="modal-info-grid">
+            <div class="info-item">
+              <span class="info-label" data-i18n="director">Réalisateur</span>
+              <span id="modal-director" class="info-value"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label" data-i18n="release">Sortie</span>
+              <span id="modal-date" class="info-value"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label" data-i18n="runtime">Durée</span>
+              <span id="modal-runtime" class="info-value"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label" data-i18n="language">Langue</span>
+              <span id="modal-language" class="info-value"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label" data-i18n="budget">Budget</span>
+              <span id="modal-budget" class="info-value"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label" data-i18n="revenue">Recettes</span>
+              <span id="modal-revenue" class="info-value"></span>
+            </div>
+          </div>
+
+          <hr class="modal-divider" />
+
+          <div class="modal-summaries">
+            <div class="summary-tab-bar" role="tablist">
+              <button class="summary-tab active" data-lang="fr" role="tab" aria-selected="true">🇫🇷 Français</button>
+              <button class="summary-tab" data-lang="en" role="tab" aria-selected="false">🇬🇧 English</button>
+            </div>
+            <div id="summary-fr" class="summary-content active" role="tabpanel"></div>
+            <div id="summary-en" class="summary-content" role="tabpanel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
