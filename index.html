@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineChroma — Galerie d'affiches par couleur</title>
+  <meta name="description" content="Explorez des affiches de cinéma par leur identité chromatique. Galerie visuelle filtrée par l'analyse colorimétrique." />
+  
+  <!-- SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230f0f0f'/%3E%3Cpath d='M50 15 A35 35 0 0 1 85 50 C85 68 70 85 50 85 C30 85 15 68 15 50 A35 35 0 0 1 50 15 Z' fill='%23e53e3e'/%3E%3Ccircle cx='50' cy='50' r='18' fill='%23ffffff'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER — COSMOS STYLE (Ultra Minimal & Centered Search)
+  ============================================================ -->
+  <header id="app-header">
+    <div class="header-inner">
+
+      <!-- Logo without icon, styled with Emynam Crew / Cinzel -->
+      <a class="brand" href="#" aria-label="CineChroma — Accueil">
+        <span class="brand-title">CineChroma</span>
+      </a>
+
+      <!-- Centered Pill Search Bar -->
+      <div class="search-container">
+        <div class="search-pill" id="search-pill">
+          <!-- Active Color Dot Indicator inside search bar -->
+          <div id="search-color-dot" class="search-color-dot" hidden></div>
+
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Essayez une couleur…"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Rechercher"
+          />
+
+          <!-- Clear text button (hidden by default, shown only when text entered) -->
+          <button id="search-clear" class="search-action-btn search-clear" aria-label="Effacer" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+
+          <!-- Prominent Color Picker Trigger Button -->
+          <button id="color-picker-trigger" class="color-trigger-btn-large" aria-label="Choisir une couleur" title="Choisir une couleur">
+            <svg class="color-wheel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 3a9 9 0 0 1 9 9c0 2.5-2 4.5-4.5 4.5H14a2 2 0 0 0-2 2v.5c0 1.1-.9 2-2 2A9 9 0 0 1 12 3z"/>
+              <circle cx="7.5" cy="9.5" r="1.2" fill="currentColor"/>
+              <circle cx="12" cy="7.5" r="1.2" fill="currentColor"/>
+              <circle cx="16.5" cy="9.5" r="1.2" fill="currentColor"/>
+            </svg>
+            <span class="color-btn-text" data-i18n="pick_color">Couleur</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Header Actions -->
+      <div class="header-right">
+        <!-- Invert Theme Toggle (Light / Dark) -->
+        <button id="theme-toggle" class="header-icon-btn" aria-label="Inverser les couleurs" title="Inverser les couleurs">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3v18a9 9 0 0 0 0-18z" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <!-- Burger Menu Trigger -->
+        <button id="burger-trigger" class="header-icon-btn" aria-label="Menu et filtres" title="Menu et filtres">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="19" height="19">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+
+        <!-- Global Lang Switch -->
+        <button id="lang-switch" class="lang-pill-btn" aria-label="Changer de langue">FR</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ============================================================
+       ACTIVE FILTER HEADER (Shown when color, search or genre active)
+  ============================================================ -->
+  <section id="active-filter-bar" class="active-filter-bar" hidden>
+    <div class="filter-bar-inner">
+      <div class="filter-bar-left">
+        <div id="filter-color-dots" class="filter-color-dots"></div>
+        <h1 id="filter-heading-text" class="filter-heading-text">#D70000</h1>
+        <span id="active-count-badge" class="active-count-badge">0 affiches</span>
+      </div>
+
+      <div class="filter-bar-right">
+        <button id="quick-sort-btn" class="icon-round-btn" aria-label="Trier" title="Trier">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+            <path d="m7 15 5 5 5-5M7 9l5-5 5 5"/>
+          </svg>
+        </button>
+        <button id="reset-active-filter-btn" class="icon-round-btn" aria-label="Réinitialiser" title="Réinitialiser les filtres">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COSMOS COLOR PICKER MODAL (CENTERED POPUP)
+  ============================================================ -->
+  <div id="cosmos-color-modal" class="cosmos-modal" hidden role="dialog" aria-modal="true" aria-label="Sélecteur de couleur">
+    <div class="cosmos-modal-backdrop" id="color-modal-backdrop"></div>
+    
+    <div class="cosmos-modal-card" role="document">
+      <button class="cosmos-modal-close" id="color-modal-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- 2D Color Saturation/Value Picker Box -->
+      <div class="picker-2d-container" id="picker-2d-box">
+        <div class="picker-2d-bg" id="picker-2d-bg"></div>
+        <div class="picker-2d-white"></div>
+        <div class="picker-2d-black"></div>
+        <div class="picker-2d-cursor" id="picker-2d-cursor"></div>
+      </div>
+
+      <!-- Hue Slider Bar -->
+      <div class="picker-hue-container">
+        <input type="range" id="picker-hue-slider" min="0" max="360" value="0" aria-label="Teinte" />
+      </div>
+
+      <!-- Bottom Actions Bar -->
+      <div class="picker-bottom-bar">
+        <div class="picker-swatch-hex">
+          <div id="picker-swatch-dot" class="picker-swatch-dot" style="background:#ff0000"></div>
+          <input type="text" id="picker-hex-input" value="#FF0000" maxlength="7" spellcheck="false" aria-label="Code hexadécimal" />
+        </div>
+
+        <div class="picker-actions-right">
+          <!-- Explicit "+ Ajouter" button -->
+          <button id="picker-add-color-btn" class="picker-btn-add" title="Ajouter cette couleur au filtre">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="13" height="13">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+            <span data-i18n="add_color_btn">+ Ajouter</span>
+          </button>
+
+          <!-- Search Pill Button (Shown ONLY when at least 1 color is added) -->
+          <button id="picker-search-btn" class="picker-search-pill" hidden>
+            <span data-i18n="search">Rechercher</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Active colors list inside modal -->
+      <div id="modal-active-colors-row" class="modal-active-colors-row" hidden></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       BURGER DRAWER / SLIDE-OVER FILTERS DRAWER
+  ============================================================ -->
+  <div id="burger-drawer" class="burger-drawer" hidden role="dialog" aria-modal="true" aria-label="Filtres et genres">
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h3 class="drawer-title" data-i18n="filters_menu">Filtres & Navigation</h3>
+        <button id="drawer-close" class="drawer-close-btn" aria-label="Fermer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drawer-body">
+
+        <!-- Sort Section -->
+        <div class="drawer-section">
+          <h4 class="drawer-section-title" data-i18n="sort_by">Trier par</h4>
+          <div class="drawer-options-grid" id="drawer-sort-options">
+            <button class="drawer-option-btn active" data-sort="popularity" data-i18n="sort_popularity">Popularité</button>
+            <button class="drawer-option-btn" data-sort="relevance" data-i18n="sort_relevance">Pertinence colorimétrique</button>
+            <button class="drawer-option-btn" data-sort="rating" data-i18n="sort_rating">Note moyenne</button>
+            <button class="drawer-option-btn" data-sort="date" data-i18n="sort_date">Date de sortie</button>
+            <button class="drawer-option-btn" data-sort="title" data-i18n="sort_title">Ordre alphabétique</button>
+          </div>
+        </div>
+
+        <!-- Color Tolerance Section (human readable unit) -->
+        <div class="drawer-section">
+          <div class="drawer-section-header">
+            <h4 class="drawer-section-title" data-i18n="tolerance">Précision des nuances</h4>
+            <span id="drawer-tol-value" class="drawer-value-tag">Correspondance exacte (95%)</span>
+          </div>
+          <input type="range" id="drawer-tolerance-slider" min="5" max="80" value="30" step="5" class="drawer-range-input" />
+        </div>
+
+        <!-- Filter Mode Section (OR / AND) -->
+        <div class="drawer-section">
+          <h4 class="drawer-section-title" data-i18n="filter_mode">Mode de filtre couleur</h4>
+          <div class="drawer-toggle-group">
+            <button class="drawer-toggle-btn active" data-mode="or" data-i18n="filter_mode_or_desc">OU (au moins 1 couleur)</button>
+            <button class="drawer-toggle-btn" data-mode="and" data-i18n="filter_mode_and_desc">ET (toutes les couleurs)</button>
+          </div>
+        </div>
+
+        <!-- Multi-Genre Selection Section -->
+        <div class="drawer-section">
+          <h4 class="drawer-section-title" data-i18n="genres">Genres cinématographiques (multi-sélection)</h4>
+          <div class="drawer-chips-grid" id="drawer-genre-chips"></div>
+        </div>
+
+      </div>
+
+      <div class="drawer-footer">
+        <button id="drawer-reset-btn" class="drawer-btn-outline" data-i18n="reset_all">Tout réinitialiser</button>
+        <button id="drawer-apply-btn" class="drawer-btn-primary" data-i18n="apply">Appliquer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MAIN GALLERY
+  ============================================================ -->
+  <main id="app-main">
+
+    <!-- Skeleton -->
+    <div id="skeleton-grid" class="cosmos-masonry-grid skeleton-grid" aria-hidden="true">
+      <div class="skeleton-card card-tall"></div>
+      <div class="skeleton-card card-square"></div>
+      <div class="skeleton-card card-wide"></div>
+      <div class="skeleton-card card-tall"></div>
+      <div class="skeleton-card card-medium"></div>
+      <div class="skeleton-card card-square"></div>
+      <div class="skeleton-card card-wide"></div>
+      <div class="skeleton-card card-tall"></div>
+      <div class="skeleton-card card-medium"></div>
+      <div class="skeleton-card card-square"></div>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-state" class="empty-state" hidden>
+      <div class="state-icon">⚠</div>
+      <h2 data-i18n="error_title">Impossible de charger la base</h2>
+      <p id="error-message"></p>
+      <button id="retry-btn" class="btn-primary-pill" data-i18n="retry">Réessayer</button>
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="empty-state" hidden>
+      <div class="state-icon">◻</div>
+      <h2 data-i18n="no_results">Aucune affiche trouvée</h2>
+      <p data-i18n="no_results_hint">Essayez de modifier votre recherche ou vos filtres.</p>
+      <button id="reset-filters-btn" class="btn-outline-pill" data-i18n="reset_filters">Réinitialiser</button>
+    </div>
+
+    <!-- Film Masonry Grid -->
+    <div id="film-grid" class="cosmos-masonry-grid" hidden></div>
+
+    <!-- Infinite Scroll Sentinel -->
+    <div id="scroll-sentinel" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- Scroll to top -->
+  <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Retour en haut" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <!-- ============================================================
+       FILM DETAIL MODAL (No inner lang tabs, auto-translated by global lang)
+  ============================================================ -->
+  <div id="film-modal" class="film-modal" role="dialog" aria-modal="true" hidden>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-container" role="document">
+      <button class="modal-close" id="modal-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="modal-inner">
+        <!-- LEFT: poster + palette -->
+        <div class="modal-poster-col">
+          <div class="modal-poster-wrap">
+            <img id="modal-poster-img" src="" alt="" class="modal-poster" />
+          </div>
+          <div id="modal-poster-selector" class="modal-poster-selector"></div>
+
+          <a id="modal-trailer-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-trailer" hidden>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="watch_trailer">Bande-annonce</span>
+          </a>
+
+          <div class="modal-palette-section">
+            <div class="modal-palette-header">
+              <span class="modal-palette-title" data-i18n="chromatic_palette">Palette</span>
+              <span class="modal-palette-hint" data-i18n="palette_hint">cliquer pour filtrer</span>
+            </div>
+            <div id="modal-palette" class="modal-palette"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: details -->
+        <div class="modal-details-col">
+          <div class="modal-top-badges">
+            <span id="modal-certification" class="badge-cert" hidden></span>
+            <div id="modal-genres" class="modal-genres"></div>
+          </div>
+
+          <h2 id="modal-title" class="modal-title"></h2>
+          <p id="modal-original-title" class="modal-original-title"></p>
+
+          <div class="modal-stats">
+            <div class="stat-item">
+              <div id="modal-stars" class="stat-stars"></div>
+              <span id="modal-rating" class="stat-value"></span>
+              <span class="stat-unit">/10</span>
+            </div>
+            <div class="stat-item">
+              <span id="modal-popularity" class="stat-value"></span>
+              <span class="stat-unit" data-i18n="popularity">popularité</span>
+            </div>
+          </div>
+
+          <dl class="modal-info-grid">
+            <dt data-i18n="director">Réalisateur</dt><dd id="modal-director"></dd>
+            <dt data-i18n="release">Sortie</dt><dd id="modal-date"></dd>
+            <dt data-i18n="runtime">Durée</dt><dd id="modal-runtime"></dd>
+            <dt data-i18n="language">Langue</dt><dd id="modal-language"></dd>
+            <dt data-i18n="budget">Budget</dt><dd id="modal-budget"></dd>
+            <dt data-i18n="revenue">Recettes</dt><dd id="modal-revenue"></dd>
+          </dl>
+
+          <hr class="modal-divider" />
+
+          <!-- Synopsis section (auto-translated, no local lang tabs) -->
+          <div class="modal-summaries">
+            <p id="modal-summary" class="summary-single-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
