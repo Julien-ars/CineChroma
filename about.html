@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineChroma — En savoir plus &amp; Coulisses techniques</title>
+  <meta name="description" content="Découvrez l'histoire, la science des couleurs et l'architecture technique derrière le moteur de recherche colorimétrique CineChroma." />
+  
+  <link rel="icon" type="image/png" href="../favicon.png" />
+
+  <!-- Fonts Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Shrikhand&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header id="app-header">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a class="brand" href="../index.html" aria-label="CineChroma — Accueil">
+        <div class="brand-logo-svg-wrap" title="CineChroma">
+          <svg class="brand-logo-svg" viewBox="0 0 380 70" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="52" class="logo-text-groovy">CINE CHROMA</text>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Subtitle badge placeholder (hidden on mobile via patch) -->
+      <div class="header-badge-container" style="flex:1; display:flex; justify-content:center;">
+        <span class="about-pill-badge" style="margin-bottom:0;">
+          <span class="about-badge-dot"></span> <span data-i18n="about_badge_text">Version 1.0 — Atlas Colorimétrique</span>
+        </span>
+      </div>
+
+      <!-- Right Header Actions -->
+      <div class="header-right">
+        <button id="theme-toggle" class="header-icon-btn" aria-label="Inverser les couleurs" title="Changer le thème">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3v18a9 9 0 0 1 0-18z" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <!-- User Profile Trigger Button -->
+        <button id="user-profile-trigger" class="header-avatar-btn" aria-label="Compte utilisateur" title="Mon Profil / Connexion">
+          <img id="header-avatar-img" src="" alt="Avatar" class="header-avatar-img" hidden />
+          <div id="header-avatar-placeholder" class="header-avatar-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+        </button>
+
+        <button id="burger-trigger" class="header-icon-btn burger-trigger-lines" aria-label="Menu de navigation" title="Navigation">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO SECTION ABOUT
+  ============================================================ -->
+  <section class="about-page-hero">
+    <div class="about-hero-glow"></div>
+    <div class="about-hero-content">
+      <h1 class="about-hero-title" data-i18n="about_hero_title">Révéler l'âme chromatique du 7e art.</h1>
+      <p class="about-hero-subtitle" data-i18n="about_hero_subtitle">
+        CineChroma est une expérience interactive de Data Science et de Design Web qui décompose les affiches du cinéma mondial sous le spectre de la couleur.
+      </p>
+
+      <!-- Key Metrics -->
+      <div class="about-stats-bar">
+        <div class="stat-card">
+          <div class="stat-value" data-i18n="stat_posters_val">20 000+</div>
+          <div class="stat-label" data-i18n="stat_posters_lbl">Affiches HD</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-i18n="stat_space_val">LAB</div>
+          <div class="stat-label" data-i18n="stat_space_lbl">Espace Perceptuel</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-i18n="stat_kmeans_val">K-Means</div>
+          <div class="stat-label" data-i18n="stat_kmeans_lbl">Extraction Local</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-i18n="stat_clientside_val">100%</div>
+          <div class="stat-label" data-i18n="stat_clientside_lbl">Gratuit &amp; Libre</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MAIN CONTENT CONTAINER
+  ============================================================ -->
+  <main class="about-tabs-container">
+
+    <!-- Back to Gallery Link -->
+    <div class="back-nav-row">
+      <a href="../index.html" class="btn-back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span data-i18n="back_gallery">Retourner à la galerie d'affiches</span>
+      </a>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="about-custom-tabs">
+      <button id="about-tab-project" class="about-tab-btn active" data-i18n="about_project_tab">Le Projet</button>
+      <button id="about-tab-tech" class="about-tab-btn" data-i18n="about_tech_tab">Science &amp; Algorithme</button>
+      <button id="about-tab-features" class="about-tab-btn" data-i18n="about_features_tab">Fonctionnalités</button>
+      <button id="about-tab-legal" class="about-tab-btn" data-i18n="about_legal_tab">Mentions Légales</button>
+    </div>
+
+    <!-- ============================================================
+         TAB 1 : LE PROJET
+    ============================================================ -->
+    <div id="about-project-view" class="about-tab-view">
+      <section class="about-card-section">
+        <h2 class="section-heading">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span data-i18n="project_heading">Une Nouvelle Façon d'Explorer le Cinéma</span>
+        </h2>
+        <p class="section-intro" data-i18n="project_intro">
+          Chaque œuvre cinématographique possède une empreinte visuelle unique. Avant même que le premier plan ne s'affiche à l'écran, l'affiche de film transmet l'émotion, le genre et la tension psychologique à travers sa palette de couleurs. CineChroma a été créé pour offrir aux cinéphiles, aux designers et aux curieux un moteur de recherche visuel fondé sur cette signature chromatique.
+        </p>
+
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <!-- Clapperboard / Filmstrip SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                <line x1="7" y1="2" x2="7" y2="22"/>
+                <line x1="17" y1="2" x2="17" y2="22"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <line x1="2" y1="7" x2="7" y2="7"/>
+                <line x1="2" y1="17" x2="7" y2="17"/>
+                <line x1="17" y1="17" x2="22" y2="17"/>
+                <line x1="17" y1="7" x2="22" y2="7"/>
+              </svg>
+            </div>
+            <h3 class="tech-card-title" data-i18n="project_feat1_title">Curation Cinématographique</h3>
+            <p class="tech-card-desc" data-i18n="project_feat1_desc">
+              Une sélection constante de chefs-d'œuvre du cinéma classique et contemporain, enrichie avec des métadonnées précises issues de l'API TMDb.
+            </p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <!-- Artist Palette SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.35123 19.5 5.23938 20.0664 4.85857 20.5C4.22572 21.2205 5.09032 22 6 22H12Z"/>
+                <circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"/>
+                <circle cx="11.5" cy="7.5" r="1.5" fill="currentColor"/>
+                <circle cx="16.5" cy="9.5" r="1.5" fill="currentColor"/>
+                <circle cx="15.5" cy="14.5" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="tech-card-title" data-i18n="project_feat2_title">Analyse LAB Haute Fidélité</h3>
+            <p class="tech-card-desc" data-i18n="project_feat2_desc">
+              Les palettes ne sont pas extraites à l'œil nu : elles sont calculées à partir de la densité des pixels pour isoler les 5 teintes dominantes véritables.
+            </p>
+          </div>
+        </div>
+
+        <!-- Dynamic Palette Visualizer Sample (With Poster Image) -->
+        <div class="demo-visualizer-box">
+          <div class="visualizer-body-wrapper">
+            <img src="https://image.tmdb.org/t/p/w185/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg" alt="Blade Runner 2049" style="width: 100px; height: 150px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-mid); flex-shrink: 0;" />
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 14px;">
+              <div class="visualizer-header" style="margin-bottom: 0;">
+                <span class="visualizer-title" data-i18n="visualizer_title">Exemple de Palette Extraite (Blade Runner 2049)</span>
+                <span style="font-size:0.72rem; color:var(--text-3);" data-i18n="visualizer_sub">5 Clusters K-Means</span>
+              </div>
+              <div class="visualizer-palette-row">
+                <div class="palette-swatch-seg" style="background:#140e15;">#140E15 (43%)</div>
+                <div class="palette-swatch-seg" style="background:#948d7e;">#948D7E (19%)</div>
+                <div class="palette-swatch-seg" style="background:#d6b78d;">#D6B78D (16%)</div>
+                <div class="palette-swatch-seg" style="background:#592b29;">#592B29 (11%)</div>
+                <div class="palette-swatch-seg" style="background:#4a4f55;">#4A4F55 (9%)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================================
+         TAB 2 : SCIENCE & ALGORITHME
+    ============================================================ -->
+    <div id="about-tech-view" class="about-tab-view">
+      <section class="about-card-section">
+        <h2 class="section-heading">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M18 16L22 12L18 8"/><path d="M6 8L2 12L6 16"/><path d="M14 4L10 20"/></svg>
+          <span data-i18n="tech_heading">Sous le Capot : Traitement Colorimétrique</span>
+        </h2>
+        <p class="section-intro" data-i18n="tech_intro">
+          Pour comparer des couleurs de manière humaine et réaliste, l'espace RVB (Red, Green, Blue) traditionnel ne suffit pas. CineChroma utilise la conversion dans l'espace **CIELAB (LAB)** et l'algorithme de clustering **K-Means**.
+        </p>
+
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <!-- Flask / Science SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <path d="M10 2h4M12 2v7M7 21h10a2 2 0 0 0 2-2.3L15 9H9L5 18.7A2 2 0 0 0 7 21z"/>
+              </svg>
+            </div>
+            <h3 class="tech-card-title" data-i18n="tech_feat1_title">1. L'Espace Perceptuel CIELAB</h3>
+            <p class="tech-card-desc" data-i18n="tech_feat1_desc">
+              Contrairement au RGB, l'espace LAB sépare la clarté (L) des axes de couleurs chromatiques (a et b). La distance euclidienne delta E calculée dans cet espace correspond fidèlement à la façon dont l'œil humain perçoit la proximité entre deux nuances.
+            </p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <!-- Microchip / Local CPU SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                <line x1="9" y1="1" x2="9" y2="4"/>
+                <line x1="15" y1="1" x2="15" y2="4"/>
+                <line x1="9" y1="20" x2="9" y2="23"/>
+                <line x1="15" y1="20" x2="15" y2="23"/>
+                <line x1="20" y1="9" x2="23" y2="9"/>
+                <line x1="20" y1="15" x2="23" y2="15"/>
+                <line x1="1" y1="9" x2="4" y2="9"/>
+                <line x1="1" y1="15" x2="4" y2="15"/>
+              </svg>
+            </div>
+            <h3 class="tech-card-title" data-i18n="tech_feat2_title">2. Clustering K-Means In-Browser</h3>
+            <p class="tech-card-desc" data-i18n="tech_feat2_desc">
+              Lorsque vous déposez une image dans le module de recherche, un script Canvas natif traite les pixels en temps réel dans votre navigateur. Les centroids sont ajustés de façon itérative sans envoyer votre fichier sur un serveur externe.
+            </p>
+          </div>
+        </div>
+
+        <div class="code-snippet-box">
+          <span class="code-comment" data-i18n="code_comment">// Calcul de distance Delta E dans l'espace CIELAB</span><br/>
+          <span class="code-keyword">function</span> <span class="code-func">colorDistanceLAB</span>(labA, labB) {<br/>
+          &nbsp;&nbsp;<span class="code-keyword">const</span> dL = labA.L - labB.L;<br/>
+          &nbsp;&nbsp;<span class="code-keyword">const</span> da = labA.a - labB.a;<br/>
+          &nbsp;&nbsp;<span class="code-keyword">const</span> db = labA.b - labB.b;<br/>
+          &nbsp;&nbsp;<span class="code-keyword">return</span> Math.<span class="code-func">sqrt</span>(dL*dL + da*da + db*db);<br/>
+          }
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================================
+         TAB 3 : FONCTIONNALITÉS (Elements integrate flat into page)
+    ============================================================ -->
+    <div id="about-features-view" class="about-tab-view">
+      <section class="about-card-section">
+        <h2 class="section-heading">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span data-i18n="features_heading">Fonctionnalités Clés de CineChroma</span>
+        </h2>
+        <p class="section-intro" data-i18n="features_intro">
+          Pensé pour une utilisation fluide sur mobile comme sur grand écran, le site regorge d'attentions UX pour rendre l'exploration visuelle agréable.
+        </p>
+
+        <div class="tech-grid">
+          <div class="feature-card-flat">
+            <div class="tech-card-icon">
+              <!-- Color Picker / Saturation Target SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a10 10 0 0 1 10 10"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <h3 class="tech-card-title" data-i18n="features_feat1_title">Sélecteur 2D Style Cosmos.so</h3>
+            <p class="tech-card-desc" data-i18n="features_feat1_desc">
+              Choisissez précisément votre teinte cible via notre nuanceur 2D en deux dimensions (Saturation x Clarté) et combinez jusqu'à 5 teintes simultanées.
+            </p>
+          </div>
+          <div class="feature-card-flat">
+            <div class="tech-card-icon">
+              <!-- Camera / Photo SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+            </div>
+            <h3 class="tech-card-title" data-i18n="features_feat2_title">Recherche par Image (Dropzone)</h3>
+            <p class="tech-card-desc" data-i18n="features_feat2_desc">
+              Glissez-déposez n'importe quel visuel ou photo pour en extraire la palette instantanément et trouver les affiches au style similaire.
+            </p>
+          </div>
+          <div class="feature-card-flat">
+            <div class="tech-card-icon">
+              <!-- Link SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+            </div>
+            <h3 class="tech-card-title" data-i18n="features_feat3_title">Deep Linking par URL</h3>
+            <p class="tech-card-desc" data-i18n="features_feat3_desc">
+              Chaque recherche génère des paramètres URL (`?colors=%23E50914&amp;tol=15`). Vous pouvez copier et partager votre sélection exacte directement.
+            </p>
+          </div>
+          <div class="feature-card-flat">
+            <div class="tech-card-icon">
+              <!-- Bookmark / Local Disk SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                <polyline points="17 21 17 13 7 13 7 21"/>
+                <polyline points="7 3 7 8 15 8"/>
+              </svg>
+            </div>
+            <h3 class="tech-card-title" data-i18n="features_feat4_title">Favoris &amp; Collections Locales</h3>
+            <p class="tech-card-desc" data-i18n="features_feat4_desc">
+              Aucune inscription obligatoire pour commencer ! Vos coups de cœur sont conservés de façon fluide dans le `localStorage` de votre navigateur.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================================
+         TAB 4 : MENTIONS LÉGALES & CRÉDITS (Amplified content)
+    ============================================================ -->
+    <div id="about-legal-view" class="about-tab-view">
+      <section class="about-card-section">
+        <h2 class="section-heading" data-i18n="about_legal_title">Mentions Légales</h2>
+        
+        <div class="legal-section">
+          <h4 data-i18n="legal_section_editor">Édition du site</h4>
+          <p data-i18n="legal_editor_desc">Le site internet CineChroma est édité et géré par un collectif indépendant d'artistes numériques et de concepteurs logiciels...</p>
+        </div>
+
+        <div class="legal-section">
+          <h4 data-i18n="legal_section_host">Hébergement</h4>
+          <p data-i18n="legal_host_desc">Le site CineChroma est hébergé de manière statique et sécurisée sur les serveurs d'infrastructure cloud mondialisés...</p>
+        </div>
+
+        <div class="legal-section">
+          <h4 data-i18n="legal_section_data">Données et API</h4>
+          <p data-i18n="legal_data_desc">CineChroma utilise l'API publique de TMDb (The Movie Database) pour récupérer les métadonnées...</p>
+        </div>
+
+        <div class="legal-section">
+          <h4 data-i18n="legal_section_cookies">Données Personnelles &amp; Confidentialité</h4>
+          <p data-i18n="legal_cookies_desc">Conformément au Règlement Général sur la Protection des Données (RGPD), CineChroma adopte une politique stricte...</p>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       NAV MENU
+  ============================================================ -->
+  <div id="nav-menu" class="nav-menu" hidden role="dialog" aria-modal="true" aria-label="Navigation">
+    <div class="nav-menu-backdrop" id="nav-menu-backdrop"></div>
+    <div class="nav-menu-content">
+      <div class="nav-menu-header">
+        <span class="nav-menu-logo">CINE CHROMA</span>
+        <button id="nav-menu-close" class="drawer-close-btn" aria-label="Fermer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="nav-menu-links">
+        <a href="../index.html" class="nav-menu-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+          <span data-i18n="nav_gallery">Explorer</span>
+        </a>
+        <a href="../index.html?genre=__favorites__" id="nav-link-favorites" class="nav-menu-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span data-i18n="favorites">Favoris</span>
+        </a>
+        <a href="../index.html" id="nav-link-collections" class="nav-menu-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span data-i18n="nav_collections">Collections</span>
+        </a>
+        <a href="../index.html" id="nav-link-profile" class="nav-menu-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span data-i18n="nav_profile">Mon Profil</span>
+        </a>
+
+        <div class="nav-menu-separator"></div>
+
+        <button id="lang-switch-drawer" class="nav-menu-link nav-menu-link-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span id="drawer-lang-label">Langue : Français (FR)</span>
+        </button>
+
+        <a href="contact.html" class="nav-menu-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span data-i18n="nav_contact">Contact</span>
+        </a>
+        <a href="about.html" class="nav-menu-link nav-menu-link--active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4M12 8h.01"/>
+          </svg>
+          <span data-i18n="nav_about">En savoir plus</span>
+        </a>
+      </nav>
+
+      <div class="nav-menu-footer">
+        <span class="nav-menu-version">CineChroma v1.0</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="../pages.js"></script>
+</body>
+</html>
