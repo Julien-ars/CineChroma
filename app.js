@@ -85,6 +85,8 @@ const I18N = {
     no_results_hint:     'Essayez de modifier votre recherche ou vos filtres.',
     reset_filters:       'Réinitialiser',
     download_poster:     'Télécharger',
+    share_card:          '📸 Partager la carte',
+    generating_card:     'Génération de la carte...',
     watch_trailer:       'Bande-annonce',
     chromatic_palette:   'Palette',
     palette_hint:        'cliquer pour filtrer',
@@ -196,6 +198,8 @@ const I18N = {
     no_results_hint:     'Try adjusting your search or filters.',
     reset_filters:       'Reset',
     download_poster:     'Download',
+    share_card:          '📸 Share Card',
+    generating_card:     'Generating card...',
     watch_trailer:       'Trailer',
     chromatic_palette:   'Palette',
     palette_hint:        'click to filter',
@@ -477,6 +481,7 @@ const dom = {
   modalPosterImg:       $('#modal-poster-img'),
   modalPosterSelector:  $('#modal-poster-selector'),
   modalDownloadBtn:     $('#modal-download-btn'),
+  modalShareCardBtn:    $('#modal-share-card-btn'),
   modalLikeBtn:         $('#modal-like-btn'),
   modalColBtn:          $('#modal-col-btn'),
   
@@ -2129,6 +2134,12 @@ function populateModal(film) {
     downloadPosterImage(film);
   };
 
+  // Share Card Button
+  dom.modalShareCardBtn.onclick = (e) => {
+    e.preventDefault();
+    shareCardImage(film);
+  };
+
   // Details Modal actions row (Like & Collection)
   const filmId = getFilmId(film);
   const isFav = state.favorites.has(filmId);
@@ -2263,6 +2274,178 @@ function downloadPosterImage(film) {
       window.open(src, '_blank');
       showToast(t('download_error'));
     });
+}
+
+// Generate and Share Card
+async function shareCardImage(film) {
+  showToast(t('generating_card') || 'Génération de la carte...');
+  
+  try {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 1080;
+    canvas.height = 1350;
+
+    // 1. Fond sombre mat premium
+    ctx.fillStyle = '#0B0B0E';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Get image src
+    const affiches = film.affiches || [];
+    const currentPoster = affiches[state.modalPosterIndex] || affiches[0] || {};
+    const src = currentPoster.affiche_original || currentPoster.affiche_w500;
+
+    if (src) {
+      // Create image with anonymous crossOrigin and cache-buster
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      
+      await new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = () => reject(new Error('Erreur de chargement de l\'image (CORS/Réseau)'));
+        const sep = src.includes('?') ? '&' : '?';
+        img.src = src + sep + 'cb=' + Date.now();
+      });
+
+      // 2. Affiche du film (Zone haute)
+      const dy = 70;
+      const imgHeight = 660;
+      const imgWidth = (img.naturalWidth / img.naturalHeight) * imgHeight;
+      const dx = (1080 - imgWidth) / 2;
+
+      ctx.save();
+      ctx.beginPath();
+      if (ctx.roundRect) {
+        ctx.roundRect(dx, dy, imgWidth, imgHeight, 16);
+      } else {
+        // Fallback round rect just in case
+        const r = 16;
+        ctx.moveTo(dx + r, dy);
+        ctx.lineTo(dx + imgWidth - r, dy);
+        ctx.quadraticCurveTo(dx + imgWidth, dy, dx + imgWidth, dy + r);
+        ctx.lineTo(dx + imgWidth, dy + imgHeight - r);
+        ctx.quadraticCurveTo(dx + imgWidth, dy + imgHeight, dx + imgWidth - r, dy + imgHeight);
+        ctx.lineTo(dx + r, dy + imgHeight);
+        ctx.quadraticCurveTo(dx, dy + imgHeight, dx, dy + imgHeight - r);
+        ctx.lineTo(dx, dy + r);
+        ctx.quadraticCurveTo(dx, dy, dx + r, dy);
+      }
+      ctx.clip();
+      ctx.drawImage(img, dx, dy, imgWidth, imgHeight);
+      ctx.restore();
+
+      // 3. Typographie & Métadonnées (Zone centrale)
+      const textStartY = dy + imgHeight + 40; // 70 + 660 + 40 = 770 (espacement)
+      ctx.textAlign = 'center';
+      
+      // Title
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'bold 44px "Plus Jakarta Sans", sans-serif';
+      const title = (film.titre || film.titre_original || 'FILM').toUpperCase();
+      ctx.fillText(title, 540, textStartY + 44);
+
+      // Subtitle
+      ctx.fillStyle = '#8E8E93';
+      ctx.font = '22px "Plus Jakarta Sans", sans-serif';
+      const director = (film.realisateur || 'INCONNU').toUpperCase();
+      const year = film.date_sortie ? new Date(film.date_sortie).getFullYear() : '';
+      ctx.fillText(`${director}  •  ${year}`, 540, textStartY + 44 + 35);
+
+      // 4. Palette de Couleurs (Zone basse)
+      const palette = currentPoster.palette || [];
+      if (palette.length > 0) {
+        const swatchWidth = 170;
+        const swatchHeight = 90;
+        const gap = 15;
+        const totalWidth = (palette.length * swatchWidth) + ((palette.length - 1) * gap);
+        let startX = (1080 - totalWidth) / 2;
+        const startY = 1010; // Fixé par la spec
+
+        palette.forEach(p => {
+          const hex = (p.hex.startsWith('#') ? p.hex : '#' + p.hex).toUpperCase();
+          
+          ctx.fillStyle = hex;
+          ctx.beginPath();
+          if (ctx.roundRect) {
+            ctx.roundRect(startX, startY, swatchWidth, swatchHeight, 25);
+          } else {
+            ctx.rect(startX, startY, swatchWidth, swatchHeight);
+          }
+          ctx.fill();
+          
+          // Codes HEX
+          ctx.textAlign = 'center';
+          ctx.font = '16px monospace, sans-serif';
+          ctx.fillStyle = '#A1A1AA';
+          ctx.fillText(hex, startX + (swatchWidth / 2), startY + swatchHeight + 25);
+          
+          startX += swatchWidth + gap;
+        });
+      }
+
+      // 5. Branding Footer (Tout en bas)
+      // Ligne de séparation
+      const lineY = 1230;
+      ctx.strokeStyle = '#1E1E24';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(80, lineY);
+      ctx.lineTo(1000, lineY);
+      ctx.stroke();
+      
+      const footerTextY = 1280;
+      
+      // Logo (Gauche)
+      ctx.textAlign = 'left';
+      ctx.font = 'bold 22px "Shrikhand", cursive';
+      ctx.fillStyle = '#E00909';
+      ctx.fillText('C I N E C H R O M A', 80, footerTextY);
+      
+      // URL (Droite)
+      ctx.textAlign = 'right';
+      ctx.font = '20px "Plus Jakarta Sans", sans-serif';
+      ctx.fillStyle = '#636366';
+      ctx.fillText('cinechroma.vercel.app', 1000, footerTextY);
+
+      // Convert to blob properly wrapped in Promise
+      const blob = await new Promise((resolve) => {
+        canvas.toBlob(resolve, 'image/png', 1.0);
+      });
+      
+      if (!blob) throw new Error('Le canvas n\'a pas pu générer le fichier (Tainted)');
+
+      const filename = `cinechroma-${title.toLowerCase().replace(/[^a-z0-9]/g, '_')}.png`;
+      
+      // Try using the native Web Share API
+      try {
+        const file = new File([blob], filename, { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: title,
+            text: 'Découvrez les couleurs de ce film sur CineChroma !'
+          });
+          return; // Stop here if share API worked
+        }
+      } catch (shareErr) {
+        console.error('Share annulé ou échoué:', shareErr);
+        if (shareErr.name === 'AbortError') return; // User cancelled
+      }
+      
+      // Fallback download if share API is unavailable or failed
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+  } catch (err) {
+    console.error('Erreur génération carte:', err);
+    showToast('Erreur lors de la génération de la carte');
+  }
 }
 
 function renderModalPalette(palette) {
