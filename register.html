@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineChroma — Créer un compte</title>
+  <meta name="description" content="Rejoignez la communauté CineChroma et organisez vos collections d'affiches." />
+  <link rel="icon" type="image/png" href="./favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Shrikhand&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    /* Premium Split Layout Design */
+    .register-page {
+      display: flex;
+      min-height: 100vh;
+      width: 100%;
+      background: var(--bg);
+      color: var(--text-1);
+    }
+    
+    /* Left Panel: Aesthetic looping vector posters background */
+    .register-hero {
+      flex: 1;
+      position: relative;
+      background: var(--bg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; /* Repositionné en bas */
+      align-items: center; /* Centré horizontalement */
+      padding: 48px;
+      border-right: 1px solid var(--border);
+    }
+    .poster-wall {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 24px;
+      opacity: 0.45;
+      filter: blur(1px);
+      pointer-events: none;
+      background: var(--bg);
+    }
+    [data-theme="light"] .register-hero {
+      background: #eaedf2;
+    }
+    [data-theme="light"] .poster-wall {
+      background: #eaedf2;
+      opacity: 0.65;
+    }
+    .poster-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .poster-card-img {
+      width: 100%;
+      aspect-ratio: 2/3;
+      border-radius: 0px !important;
+      object-fit: cover;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+      background: #1a1a24;
+      display: block;
+    }
+    
+    /* Looping animation styles */
+    .col-up {
+      animation: scroll-up 42s linear infinite;
+    }
+    .col-down {
+      animation: scroll-down 42s linear infinite;
+    }
+    @keyframes scroll-up {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+    @keyframes scroll-down {
+      0% { transform: translateY(-50%); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Hero Text Overlay — Compact Cadre Bas Gauche */
+    .hero-text-overlay {
+      position: relative;
+      z-index: 10;
+      max-width: 360px;
+      background: rgba(13, 13, 16, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+      text-align: left;
+    }
+    [data-theme="light"] .hero-text-overlay {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+    }
+    .hero-text-brand {
+      font-family: 'Shrikhand', cursive;
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+      color: var(--text-1);
+      margin-bottom: 12px;
+    }
+    .hero-text-desc {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text-2);
+    }
+
+    /* Right Panel: Highly spacious borderless wizard */
+    .register-wizard {
+      flex: 1.35;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 70px 80px 40px; /* Plus compact pour éviter le scroll */
+      position: relative;
+      background: var(--bg);
+    }
+    
+    /* Uncentered top navigation bar */
+    .wizard-header-nav {
+      position: absolute;
+      top: 36px;
+      left: 48px;
+      right: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .wizard-card-clean {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .step-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .step-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--border-strong);
+      transition: var(--transition);
+    }
+    .step-dot.active {
+      background: var(--text-1);
+      transform: scale(1.3);
+    }
+    .step-dot.completed {
+      background: var(--text-1);
+      opacity: 0.5;
+    }
+    .step-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-3);
+    }
+
+    /* Bug-free smooth step container */
+    .wizard-steps-container {
+      position: relative;
+      min-height: 310px;
+    }
+
+    /* Bug-free smooth step transitions */
+    .wizard-step {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .wizard-step.active {
+      position: relative;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    
+    .wizard-title {
+      font-size: 1.7rem; /* Taille réduite pour tout faire tenir sur une ligne */
+      font-weight: 800;
+      color: var(--text-1);
+      margin-bottom: 12px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .wizard-desc {
+      font-size: 1rem;
+      color: var(--text-2);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    
+    .wizard-field {
+      margin-top: 16px;
+      margin-bottom: 36px;
+    }
+    .wizard-input {
+      width: 100%;
+      padding: 18px 20px;
+      border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface);
+      color: var(--text-1);
+      font-size: 1.05rem;
+      font-weight: 600;
+      outline: none;
+      transition: var(--transition);
+    }
+    .wizard-input::placeholder {
+      font-weight: 400;
+      color: var(--text-3);
+    }
+    .wizard-input:focus {
+      border-color: var(--text-1);
+      background: var(--bg);
+      box-shadow: 0 0 0 3px var(--border);
+    }
+    .wizard-error {
+      color: #ff5566;
+      font-size: 0.8rem;
+      margin-top: 10px;
+      font-weight: 600;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .wizard-error.show {
+      opacity: 1;
+    }
+
+    .wizard-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .wizard-btn-prev {
+      padding: 16px 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-2);
+      transition: var(--transition);
+      cursor: pointer;
+      background: transparent;
+    }
+    .wizard-btn-prev:hover {
+      background: var(--bg-surface);
+      color: var(--text-1);
+    }
+    .wizard-btn-next {
+      flex: 1;
+      padding: 16px 32px;
+      border-radius: 10px;
+      background: var(--text-1);
+      color: var(--bg);
+      border: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .wizard-btn-next:hover {
+      opacity: 0.9;
+    }
+
+    /* Suggestions tags */
+    .suggestions-container {
+      margin-top: 16px;
+    }
+    .suggestions-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-3);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .suggestions-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .suggestion-pill {
+      background: var(--bg-surface);
+      color: var(--text-2);
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .suggestion-pill:hover {
+      background: var(--border);
+      color: var(--text-1);
+    }
+
+    /* Avatar select styling */
+    .avatar-select-grid {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .avatar-select-item {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.58;
+      transition: var(--transition);
+    }
+    .avatar-select-item:hover {
+      opacity: 0.9;
+      transform: scale(1.08);
+    }
+    .avatar-select-item.selected {
+      opacity: 1;
+      border-color: var(--text-1);
+      transform: scale(1.08);
+      box-shadow: 0 0 12px rgba(0,0,0,0.18);
+    }
+
+    .back-to-login {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-2);
+      white-space: nowrap; /* Empêche tout retour à la ligne accidentel */
+    }
+    .back-to-login a {
+      color: var(--text-1);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* Mobile Adaptations */
+    @media (max-width: 900px) {
+      .register-hero {
+        display: none;
+      }
+      .register-wizard {
+        padding: 100px 24px 40px;
+      }
+      .wizard-header-nav {
+        left: 24px;
+        right: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-page">
+    
+    <!-- LEFT PANEL: Esthetic Scrolling Vector Poster wall -->
+    <div class="register-hero">
+      <div class="poster-wall" id="poster-wall-container">
+        <div class="poster-col col-up" id="col-1"></div>
+        <div class="poster-col col-down" id="col-2"></div>
+        <div class="poster-col col-up" id="col-3"></div>
+      </div>
+      <div class="hero-text-overlay">
+        <h1 class="hero-text-brand">CINECHROMA</h1>
+        <p class="hero-text-desc">Analysez, filtrez et organisez vos œuvres cinématographiques préférées par identités chromatiques et palettes visuelles.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Clean borderless wizard column -->
+    <div class="register-wizard">
+      
+      <!-- Minimal navigation header (Pinned to top-left and top-right) -->
+      <div class="wizard-header-nav">
+        <a class="brand" href="./index.html" aria-label="CineChroma — Accueil">
+          <div class="brand-logo-svg-wrap" title="CineChroma">
+            <svg class="brand-logo-svg" viewBox="0 0 380 70" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="52" class="logo-text-groovy">CINE CHROMA</text>
+            </svg>
+          </div>
+        </a>
+        <div style="display: flex; gap: 10px;">
+          <button id="theme-toggle" class="header-icon-btn" aria-label="Inverser les couleurs" title="Changer le thème">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 1 0-18z" fill="currentColor"/>
+            </svg>
+          </button>
+          <button id="burger-trigger" class="header-icon-btn burger-trigger-lines" aria-label="Menu de navigation" title="Navigation">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="wizard-card-clean">
+        <div class="step-indicator">
+          <span class="step-label" id="step-label">Étape 1 sur 5</span>
+          <div class="step-dots" id="step-dots">
+            <div class="step-dot active"></div>
+            <div class="step-dot"></div>
+            <div class="step-dot"></div>
+            <div class="step-dot"></div>
+            <div class="step-dot"></div>
+          </div>
+        </div>
+
+        <div class="wizard-steps-container">
+          <!-- Step 1: Email -->
+          <div class="wizard-step active" id="step-1">
+            <h2 class="contact-hero-title">Créer un compte</h2>
+            <h3 class="wizard-title" style="margin-top: 24px;">Quelle est votre adresse e-mail&nbsp;?</h3>
+            <p class="wizard-desc">Nous utiliserons cette adresse pour sécuriser votre compte et synchroniser vos collections.</p>
+            <div class="wizard-field">
+              <input type="email" id="input-email" class="wizard-input" placeholder="alexandre@exemple.com" autocomplete="email" required />
+              <div class="wizard-error" id="error-email">Veuillez entrer une adresse e-mail valide.</div>
+            </div>
+            <div class="wizard-buttons">
+              <div></div> <!-- Empty spacer -->
+              <button type="button" class="wizard-btn-next" onclick="nextStep(1)">Suivant</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Password -->
+          <div class="wizard-step" id="step-2">
+            <h2 class="wizard-title">Choisissez un mot de passe</h2>
+            <p class="wizard-desc">Créez un mot de passe sécurisé comportant au moins 6 caractères.</p>
+            <div class="wizard-field">
+              <input type="password" id="input-password" class="wizard-input" placeholder="••••••••" required />
+              <div class="wizard-error" id="error-password">Le mot de passe doit contenir au moins 6 caractères.</div>
+            </div>
+            <div class="wizard-buttons">
+              <button type="button" class="wizard-btn-prev" onclick="prevStep(2)">Retour</button>
+              <button type="button" class="wizard-btn-next" onclick="nextStep(2)">Suivant</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Name -->
+          <div class="wizard-step" id="step-3">
+            <h2 class="wizard-title">Quel est votre nom&nbsp;?</h2>
+            <p class="wizard-desc">Comment devrions-nous vous appeler ? Entrez votre nom complet.</p>
+            <div class="wizard-field">
+              <input type="text" id="input-name" class="wizard-input" placeholder="Alexandre Dupont" autocomplete="name" required />
+              <div class="wizard-error" id="error-name">Veuillez entrer votre nom.</div>
+            </div>
+            <div class="wizard-buttons">
+              <button type="button" class="wizard-btn-prev" onclick="prevStep(3)">Retour</button>
+              <button type="button" class="wizard-btn-next" onclick="nextStep(3)">Suivant</button>
+            </div>
+          </div>
+
+          <!-- Step 4: Age -->
+          <div class="wizard-step" id="step-4">
+            <h2 class="wizard-title">Quel âge avez-vous&nbsp;?</h2>
+            <p class="wizard-desc">Cette information nous aide à personnaliser votre expérience (doit être supérieur ou égal à 13 ans).</p>
+            <div class="wizard-field">
+              <input type="number" id="input-age" class="wizard-input" placeholder="25" min="13" max="120" required />
+              <div class="wizard-error" id="error-age">Veuillez entrer un âge valide (minimum 13 ans).</div>
+            </div>
+            <div class="wizard-buttons">
+              <button type="button" class="wizard-btn-prev" onclick="prevStep(4)">Retour</button>
+              <button type="button" class="wizard-btn-next" onclick="nextStep(4)">Suivant</button>
+            </div>
+          </div>
+
+          <!-- Step 5: Username & Avatar -->
+          <div class="wizard-step" id="step-5">
+            <h2 class="wizard-title">Pseudo &amp; Avatar</h2>
+            <p class="wizard-desc">Choisissez votre pseudonyme unique et votre avatar d'animal coloré pour finaliser la création.</p>
+            <div class="wizard-field">
+              <input type="text" id="input-username" class="wizard-input" placeholder="alex_chroma" required style="margin-bottom: 8px;" />
+              <div class="wizard-error" id="error-username" style="margin-bottom: 12px;">Veuillez entrer un nom d'utilisateur.</div>
+              
+              <!-- Dynamic Username suggestions row -->
+              <div class="suggestions-container" id="suggestions-container">
+                <span class="suggestions-label">Suggestions :</span>
+                <div class="suggestions-list" id="suggestions-list"></div>
+              </div>
+              
+              <label style="font-size: 0.76rem; font-weight: 700; color: var(--text-3); text-transform: uppercase; margin-top: 24px; display: block;">Choisissez votre avatar :</label>
+              <div class="avatar-select-grid" id="avatar-select-grid"></div>
+            </div>
+            <div class="wizard-buttons">
+              <button type="button" class="wizard-btn-prev" onclick="prevStep(5)">Retour</button>
+              <button type="button" class="wizard-btn-next" onclick="submitRegister()">Finaliser la création</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="back-to-login">
+          Déjà inscrit&nbsp;? <a href="./index.html?profile=open">Se connecter</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NAV MENU (Aligned with index.html drawer) -->
+  <div id="nav-menu" class="nav-menu" hidden role="dialog" aria-modal="true" aria-label="Navigation">
+    <div class="nav-menu-backdrop" id="nav-menu-backdrop"></div>
+    <div class="nav-menu-content">
+      <div class="nav-menu-header">
+        <span class="nav-menu-logo">CINE CHROMA</span>
+        <button id="nav-menu-close" class="drawer-close-btn" aria-label="Fermer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="nav-menu-links">
+        <a href="./index.html" class="nav-menu-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Explorer</span>
+        </a>
+        <a href="./contact.html" class="nav-menu-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Contact</span>
+        </a>
+        <a href="./about.html" class="nav-menu-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span>En savoir plus</span>
+        </a>
+        <div class="nav-menu-separator"></div>
+        <button id="lang-switch-drawer" class="nav-menu-link nav-menu-link-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="drawer-lang-label">Langue : Français (FR)</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./pages.js"></script>
+  <script>
+    // 12 High quality Base64 Vector Film Posters for 100% offline reliable rendering
+    const rawPosters = [
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450"><defs><linearGradient id="p1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#110e2e"/><stop offset="100%" stop-color="#3a0d5c"/></linearGradient></defs><rect width="300" height="450" fill="url(#p1)"/><circle cx="150" cy="180" r="80" fill="#ff0055" opacity="0.8"/><circle cx="150" cy="180" r="50" fill="#ffcc00"/><polygon points="150,80 200,240 100,240" fill="#09090b"/><text x="150" y="380" font-family="sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="4">ODYSSEY</text><text x="150" y="405" font-family="sans-serif" font-size="10" font-weight="600" fill="#ff0055" text-anchor="middle" letter-spacing="2">A CHROMATIC JOURNEY</text></svg>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450"><defs><linearGradient id="p2" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#0f2027"/><stop offset="100%" stop-color="#2c5364"/></linearGradient></defs><rect width="300" height="450" fill="url(#p2)"/><path d="M0 300 L150 150 L300 300 L300 450 L0 450 Z" fill="#00d2ff" opacity="0.3"/><circle cx="150" cy="150" r="40" fill="#00d2ff"/><text x="150" y="380" font-family="sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="4">VERTIGO</text><text x="150" y="405" font-family="sans-serif" font-size="10" font-weight="600" fill="#00d2ff" text-anchor="middle" letter-spacing="2">CINEMA NOIR</text></svg>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450"><defs><linearGradient id="p3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#833ab4"/><stop offset="50%" stop-color="#fd1d1d"/><stop offset="100%" stop-color="#fcb045"/></linearGradient></defs><rect width="300" height="450" fill="url(#p3)"/><circle cx="150" cy="200" r="90" fill="#ffffff" opacity="0.2"/><text x="150" y="380" font-family="sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="4">SOLARIS</text><text x="150" y="405" font-family="sans-serif" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">RETRO HORIZON</text></svg>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450"><defs><linearGradient id="p4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#134e5e"/><stop offset="100%" stop-color="#71b280"/></linearGradient></defs><rect width="300" height="450" fill="url(#p4)"/><rect x="50" y="80" width="200" height="240" rx="100" fill="none" stroke="#71b280" stroke-width="4"/><circle cx="150" cy="200" r="50" fill="#71b280"/><text x="150" y="380" font-family="sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="4">EMERALD</text><text x="150" y="405" font-family="sans-serif" font-size="10" font-weight="600" fill="#71b280" text-anchor="middle" letter-spacing="2">THE GREEN RAY</text></svg>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450"><defs><linearGradient id="p5" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff4e50"/><stop offset="100%" stop-color="#f9d423"/></linearGradient></defs><rect width="300" height="450" fill="url(#p5)"/><polygon points="150,60 260,280 40,280" fill="#111111"/><text x="150" y="380" font-family="sans-serif" font-size="22" font-weight="900" fill="#111111" text-anchor="middle" letter-spacing="4">DUNE</text><text x="150" y="405" font-family="sans-serif" font-size="10" font-weight="600" fill="#111111" text-anchor="middle" letter-spacing="2">DESERT TALES</text></svg>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450"><defs><linearGradient id="p6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1e130c"/><stop offset="100%" stop-color="#9a8478"/></linearGradient></defs><rect width="300" height="450" fill="url(#p6)"/><circle cx="150" cy="190" r="70" stroke="#ffffff" stroke-width="2" fill="none"/><text x="150" y="380" font-family="sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="4">MONOCHROME</text><text x="150" y="405" font-family="sans-serif" font-size="10" font-weight="600" fill="#9a8478" text-anchor="middle" letter-spacing="2">CLASSIC ERA</text></svg>`
+    ];
+
+    const posterBase64s = rawPosters.map(svg => 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg))));
+
+    // Populate Poster columns
+    function populatePosterCols() {
+      const col1 = document.getElementById('col-1');
+      const col2 = document.getElementById('col-2');
+      const col3 = document.getElementById('col-3');
+
+      if (!col1 || !col2 || !col3) return;
+
+      const items1 = [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5];
+      const items2 = [3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2];
+      const items3 = [1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0];
+
+      col1.innerHTML = items1.map(i => `<img src="${posterBase64s[i]}" class="poster-card-img" alt="" />`).join('');
+      col2.innerHTML = items2.map(i => `<img src="${posterBase64s[i]}" class="poster-card-img" alt="" />`).join('');
+      col3.innerHTML = items3.map(i => `<img src="${posterBase64s[i]}" class="poster-card-img" alt="" />`).join('');
+    }
+    populatePosterCols();
+
+    // Animal Avatars
+    const rawSvgs = [
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="50" fill="url(#fox-grad)"/><linearGradient id="fox-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FF5E3A"/><stop offset="100%" stop-color="#FF2A68"/></linearGradient><polygon points="50,75 25,45 75,45" fill="#FFFFFF" opacity="0.9"/><polygon points="50,75 40,45 60,45" fill="#FF5E3A"/><polygon points="25,45 15,20 40,38" fill="#FFFFFF" opacity="0.9"/><polygon points="75,45 85,20 60,38" fill="#FFFFFF" opacity="0.9"/><polygon points="25,45 15,20 30,45" fill="#FF2A68" opacity="0.3"/><polygon points="75,45 85,20 70,45" fill="#FF2A68" opacity="0.3"/><circle cx="38" cy="48" r="3" fill="#1A1A1A"/><circle cx="62" cy="48" r="3" fill="#1A1A1A"/><polygon points="50,75 46,70 54,70" fill="#1A1A1A"/></svg>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="50" fill="url(#panda-grad)"/><linearGradient id="panda-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#87F1FF"/><stop offset="100%" stop-color="#0078FF"/></linearGradient><circle cx="30" cy="30" r="14" fill="#2C3E50"/><circle cx="70" cy="30" r="14" fill="#2C3E50"/><circle cx="50" cy="55" r="30" fill="#FFFFFF"/><ellipse cx="38" cy="52" rx="9" ry="12" fill="#2C3E50" transform="rotate(-15 38 52)"/><ellipse cx="62" cy="52" rx="9" ry="12" fill="#2C3E50" transform="rotate(15 62 52)"/><circle cx="38" cy="50" r="3" fill="#FFFFFF"/><circle cx="62" cy="50" r="3" fill="#FFFFFF"/><polygon points="50,65 44,60 56,60" fill="#2C3E50"/></svg>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="50" fill="url(#owl-grad)"/><linearGradient id="owl-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#B388FF"/><stop offset="100%" stop-color="#651FFF"/></linearGradient><polygon points="50,45 25,25 35,45" fill="#FFFFFF" opacity="0.8"/><polygon points="50,45 75,25 65,45" fill="#FFFFFF" opacity="0.8"/><circle cx="35" cy="50" r="12" fill="#FFFFFF"/><circle cx="65" cy="50" r="12" fill="#FFFFFF"/><circle cx="35" cy="50" r="6" fill="#2D3748"/><circle cx="65" cy="50" r="6" fill="#2D3748"/><circle cx="37" cy="48" r="2.5" fill="#FFFFFF"/><circle cx="67" cy="48" r="2.5" fill="#FFFFFF"/><polygon points="50,50 45,62 55,62" fill="#FFC107"/></svg>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="50" fill="url(#lion-grad)"/><linearGradient id="lion-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FAD961"/><stop offset="100%" stop-color="#F76B1C"/></linearGradient><polygon points="50,15 62,30 78,25 72,42 88,48 74,58 78,75 60,70 50,85 40,70 22,75 26,58 12,48 28,42 22,25 38,30" fill="#D84B16"/><polygon points="50,30 65,48 60,68 40,68 35,48" fill="#FFFFFF" opacity="0.95"/><polygon points="50,30 45,48 55,48" fill="#FAD961"/><polygon points="50,56 46,50 54,50" fill="#2D3748"/><circle cx="42" cy="44" r="2.5" fill="#2D3748"/><circle cx="58" cy="44" r="2.5" fill="#2D3748"/></svg>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="50" fill="url(#koala-grad)"/><linearGradient id="koala-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E2E8F0"/><stop offset="100%" stop-color="#94A3B8"/></linearGradient><circle cx="28" cy="38" r="16" fill="#64748B"/><circle cx="28" cy="38" r="10" fill="#FFD2D2"/><circle cx="72" cy="38" r="16" fill="#64748B"/><circle cx="72" cy="38" r="10" fill="#FFD2D2"/><circle cx="50" cy="56" r="26" fill="#64748B"/><circle cx="41" cy="50" r="2.5" fill="#1E293B"/><circle cx="59" cy="50" r="2.5" fill="#1E293B"/><ellipse cx="50" cy="58" rx="6" ry="10" fill="#1E293B"/></svg>`
+    ];
+    
+    const ANIMAL_AVATARS = rawSvgs.map(svg => 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg))));
+
+    let currentStep = 1;
+    let selectedAvatar = ANIMAL_AVATARS[0];
+
+    const grid = document.getElementById('avatar-select-grid');
+    grid.innerHTML = ANIMAL_AVATARS.map((svg, idx) => `
+      <img src="${svg}" class="avatar-select-item${idx === 0 ? ' selected' : ''}" data-index="${idx}" alt="Avatar ${idx + 1}" />
+    `).join('');
+
+    grid.querySelectorAll('.avatar-select-item').forEach(item => {
+      item.addEventListener('click', () => {
+        grid.querySelectorAll('.avatar-select-item').forEach(el => el.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedAvatar = ANIMAL_AVATARS[item.dataset.index];
+      });
+    });
+
+    function updateStepIndicator() {
+      document.getElementById('step-label').textContent = `Étape ${currentStep} sur 5`;
+      const dots = document.getElementById('step-dots').children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = 'step-dot';
+        if (i + 1 === currentStep) {
+          dots[i].classList.add('active');
+        } else if (i + 1 < currentStep) {
+          dots[i].classList.add('completed');
+        }
+      }
+    }
+
+    function showStep(stepNumber) {
+      document.querySelectorAll('.wizard-step').forEach(step => {
+        step.classList.remove('active');
+      });
+      
+      const targetStep = document.getElementById(`step-${stepNumber}`);
+      if (targetStep) {
+        targetStep.classList.add('active');
+      }
+      
+      currentStep = stepNumber;
+      updateStepIndicator();
+      
+      if (stepNumber === 5) {
+        setupUsernameSuggestions();
+      }
+    }
+
+    function generateUsernames(fullName) {
+      if (!fullName) return [];
+      const clean = fullName.toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9\s]/g, '')
+        .trim();
+      
+      const parts = clean.split(/\s+/).filter(Boolean);
+      const suggestions = [];
+      
+      if (parts.length === 1) {
+        const name = parts[0];
+        suggestions.push(`${name}_chroma`);
+        suggestions.push(`${name}${Math.floor(Math.random() * 90 + 10)}`);
+        suggestions.push(`cine_${name}`);
+      } else if (parts.length >= 2) {
+        const first = parts[0];
+        const last = parts[1];
+        suggestions.push(`${first}_${last}`);
+        suggestions.push(`${first}.${last}`);
+        suggestions.push(`${first.charAt(0)}${last}_chroma`);
+      } else {
+        suggestions.push(`cineaste_${Math.floor(Math.random() * 900 + 100)}`);
+        suggestions.push(`chroma_fan`);
+      }
+      return suggestions;
+    }
+
+    function setupUsernameSuggestions() {
+      const nameVal = document.getElementById('input-name').value.trim();
+      const suggestions = generateUsernames(nameVal);
+      
+      const input = document.getElementById('input-username');
+      const container = document.getElementById('suggestions-container');
+      const listDiv = document.getElementById('suggestions-list');
+      
+      if (suggestions.length > 0) {
+        input.value = suggestions[0];
+        listDiv.innerHTML = suggestions.map(sug => `
+          <button type="button" class="suggestion-pill" onclick="selectUsername('${sug}')">${sug}</button>
+        `).join('');
+        container.style.display = 'block';
+      } else {
+        container.style.display = 'none';
+      }
+    }
+
+    window.selectUsername = function(val) {
+      const input = document.getElementById('input-username');
+      if (input) {
+        input.value = val;
+        const err = document.getElementById('error-username');
+        if (err) err.classList.remove('show');
+      }
+    };
+
+    function nextStep(step) {
+      if (step === 1) {
+        const val = document.getElementById('input-email').value.trim();
+        const err = document.getElementById('error-email');
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!regex.test(val)) {
+          err.classList.add('show');
+          return;
+        }
+        err.classList.remove('show');
+      } else if (step === 2) {
+        const val = document.getElementById('input-password').value;
+        const err = document.getElementById('error-password');
+        if (val.length < 6) {
+          err.classList.add('show');
+          return;
+        }
+        err.classList.remove('show');
+      } else if (step === 3) {
+        const val = document.getElementById('input-name').value.trim();
+        const err = document.getElementById('error-name');
+        if (!val) {
+          err.classList.add('show');
+          return;
+        }
+        err.classList.remove('show');
+      } else if (step === 4) {
+        const val = parseInt(document.getElementById('input-age').value, 10);
+        const err = document.getElementById('error-age');
+        if (isNaN(val) || val < 13) {
+          err.classList.add('show');
+          return;
+        }
+        err.classList.remove('show');
+      }
+
+      showStep(step + 1);
+    }
+
+    function prevStep(step) {
+      showStep(step - 1);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function submitRegister() {
+      const username = document.getElementById('input-username').value.trim();
+      const err = document.getElementById('error-username');
+      if (!username) {
+        err.classList.add('show');
+        return;
+      }
+      err.classList.remove('show');
+
+      const email = document.getElementById('input-email').value.trim();
+      const name = document.getElementById('input-name').value.trim();
+      const age = parseInt(document.getElementById('input-age').value, 10);
+
+      const user = {
+        username,
+        email,
+        name,
+        age,
+        avatar: selectedAvatar,
+        joinedDate: new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })
+      };
+
+      localStorage.setItem('cinechroma_user', JSON.stringify(user));
+      showToast('Compte créé avec succès !');
+
+      setTimeout(() => {
+        document.body.classList.add('page-exit');
+        setTimeout(() => {
+          window.location.href = './index.html';
+        }, 300);
+      }, 1000);
+    }
+
+    document.querySelectorAll('.wizard-input').forEach(input => {
+      input.addEventListener('input', () => {
+        const err = input.parentElement.querySelector('.wizard-error');
+        if (err) err.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>
