@@ -111,6 +111,16 @@
 
       <!-- Right Header Actions -->
       <div class="header-right">
+        <!-- Elegant Header Language Dropdown -->
+        <div class="header-lang-switcher">
+          <button id="header-lang-btn" class="header-lang-btn" aria-haspopup="true" aria-expanded="false" title="Changer la langue">FR</button>
+          <div id="header-lang-dropdown" class="header-lang-dropdown" hidden>
+            <button class="lang-dropdown-item" data-lang-val="fr">Français</button>
+            <button class="lang-dropdown-item" data-lang-val="en">English</button>
+            <button class="lang-dropdown-item" data-lang-val="ja">日本語</button>
+          </div>
+        </div>
+
         <!-- Invert Theme Toggle -->
         <button id="theme-toggle" class="header-icon-btn" aria-label="Inverser les couleurs" title="Inverser les couleurs">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
@@ -350,6 +360,16 @@
           <div id="drawer-language-chips" hidden></div>
         </div>
 
+        <!-- Poster Style Section -->
+        <div class="drawer-section">
+          <h4 class="drawer-section-title" data-i18n="poster_style">Style d'affiche</h4>
+          <div class="drawer-chips-grid" id="drawer-poster-style-chips">
+            <button class="drawer-chip active" data-style-val="textless" data-i18n="style_textless">Sans texte</button>
+            <button class="drawer-chip" data-style-val="origine" data-i18n="style_origine">Langue d'origine</button>
+            <button class="drawer-chip" data-style-val="monde" data-i18n="style_monde">Du monde</button>
+          </div>
+        </div>
+
         <!-- Genre Section -->
         <div class="drawer-section">
           <h4 class="drawer-section-title" data-i18n="genres">Genres</h4>
@@ -420,13 +440,23 @@
         <div class="nav-menu-separator"></div>
 
         <!-- Language switch inside drawer -->
-        <button id="lang-switch-drawer" class="nav-menu-link nav-menu-link-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+        <div class="nav-menu-lang-section" style="padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.75rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18" style="color: var(--text-2); flex-shrink: 0;">
             <circle cx="12" cy="12" r="10"/>
             <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
-          <span id="drawer-lang-label">Langue : Français (FR)</span>
-        </button>
+          <div class="lang-switch-buttons">
+            <button class="lang-switch-btn" data-lang-val="fr">FR</button>
+            <button class="lang-switch-btn" data-lang-val="en">EN</button>
+            <button class="lang-switch-btn" data-lang-val="ja">JA</button>
+          </div>
+          <!-- Keep hidden select for compatibility with legacy events -->
+          <select id="lang-switch-drawer" aria-label="Changer la langue" style="display: none;">
+            <option value="fr">FR</option>
+            <option value="en">EN</option>
+            <option value="ja">JA</option>
+          </select>
+        </div>
 
         <a href="./contact.html" id="nav-link-contact" class="nav-menu-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
@@ -555,7 +585,9 @@
         <!-- LEFT: Frameless poster -->
         <div class="modal-poster-col">
           <img id="modal-poster-img" src="" alt="" class="modal-poster-img" />
-          <div id="modal-poster-selector" class="modal-poster-selector"></div>
+          <div id="modal-poster-selector" class="modal-poster-selector" style="display: none;"></div>
+          <div id="modal-poster-cats" class="modal-poster-cats"></div>
+          <div id="modal-poster-dots" class="modal-poster-dots"></div>
           <button id="modal-download-btn" class="modal-download-btn-minimal" title="Télécharger l'affiche">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>

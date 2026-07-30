@@ -13,7 +13,7 @@
    CONFIGURATION
 ============================================================ */
 const CONFIG = {
-  DATA_URLS:         ['./films_part1.json', './films_part2.json'],
+  DATA_URLS:         ['./films_part1.json', './films_part2.json', './films_part3.json'],
   PAGE_SIZE:         60,
   DEFAULT_SORT:      'popularity',
   DEFAULT_THRESHOLD: 30,
@@ -34,18 +34,18 @@ const PRESET_AVATARS = rawSvgs.map(svg => 'data:image/svg+xml;base64,' + btoa(un
    GENRE DICTIONARY (FR / EN)
 ============================================================ */
 const GENRE_I18N = {
-  'Science-Fiction': { fr: 'Science-Fiction', en: 'Sci-Fi' },
-  'Action':           { fr: 'Action',          en: 'Action' },
-  'Thriller':         { fr: 'Thriller',        en: 'Thriller' },
-  'Drame':            { fr: 'Drame',           en: 'Drama' },
-  'Aventure':         { fr: 'Aventure',        en: 'Adventure' },
-  'Crime':            { fr: 'Crime',           en: 'Crime' },
-  'Comédie':          { fr: 'Comédie',         en: 'Comedy' },
-  'Comédie musicale': { fr: 'Comédie musicale',en: 'Musical' },
-  'Biographie':       { fr: 'Biographie',      en: 'Biography' },
-  'Histoire':         { fr: 'Histoire',        en: 'History' },
-  'Romance':          { fr: 'Romance',         en: 'Romance' },
-  'Fantastique':      { fr: 'Fantastique',     en: 'Fantasy' },
+  'Science-Fiction': { fr: 'Science-Fiction', en: 'Sci-Fi', ja: 'SF' },
+  'Action': { fr: 'Action', en: 'Action', ja: 'アクション' },
+  'Thriller': { fr: 'Thriller', en: 'Thriller', ja: 'スリラー' },
+  'Drame': { fr: 'Drame', en: 'Drama', ja: 'ドラマ' },
+  'Aventure': { fr: 'Aventure', en: 'Adventure', ja: 'アドベンチャー' },
+  'Crime': { fr: 'Crime', en: 'Crime', ja: '犯罪' },
+  'Comédie': { fr: 'Comédie', en: 'Comedy', ja: 'コメディ' },
+  'Comédie musicale': { fr: 'Comédie musicale', en: 'Musical', ja: 'ミュージカル' },
+  'Biographie': { fr: 'Biographie', en: 'Biography', ja: '伝記' },
+  'Histoire': { fr: 'Histoire', en: 'History', ja: '歴史' },
+  'Romance': { fr: 'Romance', en: 'Romance', ja: 'ロマンス' },
+  'Fantastique': { fr: 'Fantastique', en: 'Fantasy', ja: 'ファンタジー' },
 };
 
 function translateGenre(g, lang) {
@@ -107,6 +107,7 @@ const I18N = {
     downloading:         'Téléchargement de l\'affiche...',
     download_error:      'Impossible de télécharger directement (clic droit pour enregistrer)',
     nav_gallery:         'Explorer',
+      nav_game:            'Le Jeu',
     nav_collections:     'Collections',
     collections_title:   'Collections thématiques',
     nav_profile:         'Mon Profil',
@@ -220,6 +221,7 @@ const I18N = {
     downloading:         'Downloading poster...',
     download_error:      'Direct download failed (right-click to save)',
     nav_gallery:         'Explore',
+      nav_game:            'The Game',
     nav_collections:     'Collections',
     collections_title:   'Thematic Collections',
     nav_profile:         'My Profile',
@@ -283,6 +285,120 @@ const I18N = {
     legal_section_cookies:'Privacy & GDPR',
     legal_cookies_desc:  'No third-party trackers are used. Your favorites and collections are stored exclusively in your browser\'s local storage.',
   },
+  ja: {
+      search_placeholder:  '色を試す...',
+      search:              '検索',
+      validate:            '確認',
+      pick_color:          '色',
+      add_color_btn:       '+ 色',
+      clear_selection:     '選択をクリア',
+      tolerance:           '許容範囲',
+      filter_mode:         'カラーフィルターモード',
+      filter_mode_or_desc: 'OR (少なくとも1つに一致)',
+      filter_mode_and_desc:'AND (すべての色に一致)',
+      filters_menu:        'フィルターとナビゲーション',
+      filters_menu_short:  'フィルター',
+      sort_by:             '並べ替え',
+      sort_relevance:      '色の関連性',
+      sort_popularity:     '人気度',
+      sort_rating:         '平均評価',
+      sort_date:           '公開日',
+      sort_title:          'アルファベット順',
+      genres:              '映画のジャンル (複数選択可)',
+      reset_all:           'すべてリセット',
+      apply:               '適用',
+      error_title:         'データベースの読み込みに失敗しました',
+      retry:               '再試行',
+      no_results:          'ポスターが見つかりません',
+      no_results_hint:     '検索やフィルターを調整してください。',
+      reset_filters:       'リセット',
+      download_poster:     'ダウンロード',
+      share_card:          'カードを共有',
+      generating_card:     'カードを生成中...',
+      watch_trailer:       '予告編',
+      chromatic_palette:   'パレット',
+      palette_hint:        'クリックしてフィルタリング',
+      director:            '監督',
+      release:             '公開',
+      runtime:             '上映時間',
+      language:            '言語',
+      budget:              '予算',
+      revenue:             '興行収入',
+      popularity:          '人気度',
+      color_added:         '色が追加されました',
+      color_max:           '最大5色',
+      color_removed:       '色が削除されました',
+      favorites:           'お気に入り',
+      fav_added:           'お気に入りに追加しました',
+      fav_removed:         'お気に入りから削除しました',
+      copied_hex:          '16進数コードがクリップボードにコピーされました！',
+      downloading:         'ポスターをダウンロード中...',
+      download_error:      '直接ダウンロードに失敗しました (右クリックで保存)',
+      nav_gallery:         '探検',
+      nav_game:            'クイズ',
+      nav_collections:     'コレクション',
+      collections_title:   'テーマ別コレクション',
+      nav_profile:         'プロフィール',
+      guest_like_prompt:   'アカウントなしでも「いいね」できます！無料アカウントを作成して、すべてのデバイスでお気に入りを同期しましょう。',
+      login:               'ログイン',
+      register:            '登録',
+      logout:              'ログアウト',
+      tab_likes:           'お気に入り',
+      tab_collections:     'コレクション',
+      create_collection:   '+ コレクションを作成',
+      new_collection:      '新しいコレクション',
+      collection_name:     'コレクション名',
+      collection_desc:     '説明（任意）',
+      create_collection_btn:'コレクションを作成',
+      auth_username:       'ユーザー名',
+      auth_email:          'メールアドレス',
+      auth_username_email: 'メールまたはユーザー名',
+      auth_password:       'パスワード',
+      auth_choose_avatar:  'アバターを選択',
+      register_btn:        'アカウントを作成',
+      login_success:       'ログイン成功！ようこそ',
+      register_success:    'アカウントが正常に作成されました！',
+      collection_created:  'コレクションが正常に作成されました！',
+      collection_deleted:  'コレクションが削除されました',
+      hero_tagline:        '視覚的かつ映画的な体験',
+      hero_title:          '色彩で明らかになる映画の芸術',
+      hero_subtitle:       '20,000以上の映画ポスターを新しい視点から探求。色合いを選び、同じ美的シグネチャを共有するポスターを瞬時に発見します。',
+      hero_try_colors:     '色合いを探る:',
+      hero_btn_explore:    'ギャラリーを見る',
+      hero_btn_picker:     'カラーチャートをテスト',
+      hero_btn_signup:     'アカウントを作成',
+      hero_scroll_hint:    'ポスターを発見',
+      learn_more:          'ソース: TMDb',
+      languages:           'オリジナル言語',
+      filter_mode_or_short:'少なくとも1つ',
+      filter_mode_and_short:'すべて',
+      nav_contact:         'お問い合わせ',
+      nav_about:           'もっと詳しく',
+      contact_title:       'お問い合わせ',
+      contact_name:        '名前 / ニックネーム',
+      contact_email:       'メールアドレス',
+      contact_message:     'メッセージ',
+      contact_send:        'メッセージを送信',
+      contact_success:     'メッセージが正常に送信されました！(デモモード)',
+      about_project_tab:   'プロジェクト',
+      about_legal_tab:     '法的通知',
+      about_project_title: 'CineChromaについて',
+      about_project_p1:    'CineChromaは色彩による映画探求ギャラリーです。映画ファンやデザイナー向けに設計されており、色彩スペクトルを通じて映画ポスターのセレクションをナビゲートできます。',
+      about_project_p2:    'ローカル解析ツール(K-Means)を使用すると、任意の画像をアップロードして主要なカラーパレットを抽出し、類似した色彩シグネチャを持つポスターを即座に見つけることができます。',
+      about_feat1_title:   '色彩検索',
+      about_feat1_desc:    '1つまたは複数の色を選択してデータベースをフィルタリングします。',
+      about_feat2_title:   'インテリジェント抽出',
+      about_feat2_desc:    'K-Meansアルゴリズムがブラウザで100%実行されます。',
+      about_legal_title:   '法的通知',
+      legal_section_editor:'サイト編集',
+      legal_editor_desc:   'CineChromaサイトは技術的および芸術的なデモンストレーションを目的として公開されています。',
+      legal_section_host:  'ホスティング',
+      legal_host_desc:     'ローカルまたは安全な静的ホスティングプラットフォームでホストされています。',
+      legal_section_data:  'データとAPI',
+      legal_data_desc:     '映画とポスターのデータはTMDb (The Movie Database)の公開APIから提供されています。ポスターは各プロデューサーとスタジオの独占的な財産です。',
+      legal_section_cookies:'個人データ',
+      legal_cookies_desc:  'サードパーティのトラッキングクッキーは使用されていません。お気に入りやコレクションは、ブラウザ(localStorage)にローカルにのみ保存されます。'
+    }
 };
 
 function safeGetJSON(key, fallback) {
@@ -537,8 +653,20 @@ function applyLang(lang) {
   state.lang = lang;
   localStorage.setItem('cinechroma_lang', lang);
   document.documentElement.lang = lang;
-  if (dom.langSwitch) dom.langSwitch.textContent = lang.toUpperCase();
-  if (dom.drawerLangLabel) dom.drawerLangLabel.textContent = lang === 'fr' ? 'Langue : Français (FR)' : 'Language: English (EN)';
+  if (dom.langSwitch) dom.langSwitch.value = lang;
+  if (dom.langSwitchDrawer) dom.langSwitchDrawer.value = lang;
+
+  // Sync drawer pill buttons active state
+  $$('.lang-switch-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.langVal === lang);
+  });
+
+  // Sync header dropdown items active state + button label
+  $$('.lang-dropdown-item').forEach(item => {
+    item.classList.toggle('active', item.dataset.langVal === lang);
+  });
+  const headerLangBtn = $('#header-lang-btn');
+  if (headerLangBtn) headerLangBtn.textContent = lang.toUpperCase();
 
   $$('[data-i18n]').forEach(el => {
     el.textContent = t(el.getAttribute('data-i18n'));
@@ -547,9 +675,7 @@ function applyLang(lang) {
   dom.drawerTolValue.textContent = getToleranceLabel(state.colorThreshold, state.lang);
 
   if (state.modalFilm) {
-    dom.modalSummary.textContent = state.lang === 'en'
-      ? (state.modalFilm.resume_en || state.modalFilm.resume_fr || '')
-      : (state.modalFilm.resume_fr || state.modalFilm.resume_en || '');
+    dom.modalSummary.textContent = state.lang === 'ja' ? (state.modalFilm.resume_ja || state.modalFilm.resume_en || state.modalFilm.resume_fr || '') : (state.lang === 'en' ? (state.modalFilm.resume_en || state.modalFilm.resume_fr || '') : (state.modalFilm.resume_fr || state.modalFilm.resume_en || ''));
     dom.modalGenres.innerHTML = (state.modalFilm.genres || [])
       .map(g => `<span class="genre-tag">${esc(translateGenre(g, state.lang))}</span>`).join('');
   }
@@ -570,6 +696,9 @@ function toggleTheme() {
 
 function getToleranceLabel(val, lang) {
   const precisionPct = Math.round(100 - ((val - 5) / 75) * 60);
+  if (lang === 'ja') {
+    return val === 15 ? '厳格' : (val === 25 ? '中程度' : '広範');
+  }
   if (lang === 'en') {
     if (val <= 15) return `Exact match (${precisionPct}%)`;
     if (val <= 35) return `High precision (${precisionPct}%)`;
@@ -882,7 +1011,7 @@ function renderActiveFilterBar() {
   const hasGenres = state.activeGenres.size > 0;
   const hasImage = !!state.activeImageSrc;
 
-  dom.activeCountBadge.textContent = `${state.filtered.length} ${state.lang === 'en' ? 'movies' : 'films'}`;
+  dom.activeCountBadge.textContent = `${state.filtered.length} ${state.lang === 'en' ? 'movies' : (state.lang === 'ja' ? '映画' : 'films')}`;
 
   if (!hasColors && !hasGenres && !state.searchQuery && !hasImage) {
     dom.activeFilterBar.hidden = true;
@@ -899,9 +1028,9 @@ function renderActiveFilterBar() {
     imgRow.innerHTML = `
       <div class="cosmos-image-thumbnail-left">
         <img src="${state.activeImageSrc}" class="cosmos-image-thumbnail-img" alt="Analyse" />
-        <span class="cosmos-image-thumbnail-title">${state.lang === 'en' ? 'Analyzed Image' : 'Image analysée'}</span>
+        <span class="cosmos-image-thumbnail-title">${state.lang === 'en' ? 'Analyzed Image' : (state.lang === 'ja' ? '解析された画像' : 'Image analysée')}</span>
       </div>
-      <button class="cosmos-icon-action-btn btn-delete-image" title="${state.lang === 'en' ? 'Remove Image' : 'Supprimer l\'image'}" aria-label="Delete image">
+      <button class="cosmos-icon-action-btn btn-delete-image" title="${state.lang === 'en' ? 'Remove Image' : (state.lang === 'ja' ? '画像を削除' : 'Supprimer l\'image')}" aria-label="Delete image">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
           <path d="M18 6 6 18M6 6l12 12"/>
         </svg>
@@ -969,7 +1098,7 @@ function renderActiveFilterBar() {
     }
   }
 
-  dom.activeCountBadge.textContent = `${state.filtered.length} ${state.lang === 'en' ? 'movies' : 'films'}`;
+  dom.activeCountBadge.textContent = `${state.filtered.length} ${state.lang === 'en' ? 'movies' : (state.lang === 'ja' ? '映画' : 'films')}`;
 }
 
 function copyToClipboard(text) {
@@ -1468,7 +1597,7 @@ function buildCard(film, ratioClass) {
   card.className = `film-card ${ratioClass}`;
   card.setAttribute('tabindex', '0');
   card.setAttribute('role', 'button');
-  card.setAttribute('aria-label', film.titre || film.titre_original || 'Film');
+  card.setAttribute('aria-label', (state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || 'Film');
 
   const filmId  = getFilmId(film);
   card.setAttribute('data-id', filmId);
@@ -1506,7 +1635,7 @@ function buildCard(film, ratioClass) {
     </button>
     ${colButtonHtml}
     <div class="card-overlay" aria-hidden="true">
-      <div class="card-title">${esc(film.titre || film.titre_original || '')}</div>
+      <div class="card-title">${esc((state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || '')}</div>
       <div class="card-meta">${[film.realisateur, year].filter(Boolean).join(' · ')}</div>
     </div>
   `;
@@ -1655,10 +1784,10 @@ function closeAuthModal() {
 
 function switchAuthTab(tab) {
   const isLogin = (tab === 'login');
-  dom.authTabLogin.classList.toggle('active', isLogin);
-  dom.authTabRegister.classList.toggle('active', !isLogin);
-  dom.authFormLogin.hidden = !isLogin;
-  dom.authFormRegister.hidden = isLogin;
+  if (dom.authTabLogin) dom.authTabLogin.classList.toggle('active', isLogin);
+  if (dom.authTabRegister) dom.authTabRegister.classList.toggle('active', !isLogin);
+  if (dom.authFormLogin) dom.authFormLogin.hidden = !isLogin;
+  if (dom.authFormRegister) dom.authFormRegister.hidden = isLogin;
 }
 
 function renderPresetAvatars() {
@@ -2166,27 +2295,86 @@ function closeModal() {
 }
 
 function populateModal(film, startingPosterIndex = 0) {
-  updateModalPoster(film, startingPosterIndex);
-
-  // Poster Thumbnails
-  dom.modalPosterSelector.innerHTML = '';
+  // Poster Categories and Dots Selector
   const affiches = film.affiches || [];
-  if (affiches.length > 1) {
-    affiches.forEach((a, i) => {
-      const src = a.affiche_w500 || a.affiche_original;
-      if (!src) return;
-      const img = document.createElement('img');
-      img.src = src; img.alt = `Affiche ${i+1}`;
-      img.className = `poster-thumb${i === startingPosterIndex ? ' active' : ''}`;
-      img.loading = 'lazy';
-      img.addEventListener('click', () => {
-        updateModalPoster(film, i);
-        $$('.poster-thumb').forEach(t => t.classList.remove('active'));
-        img.classList.add('active');
-      });
-      dom.modalPosterSelector.appendChild(img);
-    });
+  const grouped = {
+    textless: affiches.filter(a => a.categorie === 'textless'),
+    origine: affiches.filter(a => a.categorie === 'origine'),
+    monde: affiches.filter(a => a.categorie === 'monde')
+  };
+
+  const startingPoster = affiches[startingPosterIndex] || affiches[0];
+  let activeCat = startingPoster ? (startingPoster.categorie || 'textless') : 'textless';
+  
+  if (!grouped[activeCat] || grouped[activeCat].length === 0) {
+    if (grouped.textless.length > 0) activeCat = 'textless';
+    else if (grouped.origine.length > 0) activeCat = 'origine';
+    else if (grouped.monde.length > 0) activeCat = 'monde';
   }
+
+  let activeIndexInCat = 0;
+  if (grouped[activeCat]) {
+    const activeUrl = startingPoster ? (startingPoster.affiche_w500 || startingPoster.affiche_original) : '';
+    const idx = grouped[activeCat].findIndex(a => (a.affiche_w500 || a.affiche_original) === activeUrl);
+    if (idx !== -1) activeIndexInCat = idx;
+  }
+
+  function renderPosterSection() {
+    const catPosters = (grouped[activeCat] || []).slice(0, 3);
+    const poster = catPosters[activeIndexInCat] || catPosters[0] || affiches[0];
+    
+    if (poster) {
+      const idxInGlobal = affiches.indexOf(poster);
+      state.modalPosterIndex = idxInGlobal !== -1 ? idxInGlobal : 0;
+      updateModalPoster(film, state.modalPosterIndex);
+    }
+
+    const catsContainer = $('#modal-poster-cats');
+    if (catsContainer) {
+      catsContainer.innerHTML = '';
+      const catLabels = {
+        textless: state.lang === 'ja' ? '文字なし' : (state.lang === 'en' ? 'Textless' : 'Sans texte'),
+        origine: state.lang === 'ja' ? 'オリジナル' : (state.lang === 'en' ? 'Original' : "Langue d'origine"),
+        monde: state.lang === 'ja' ? 'インターナショナル' : (state.lang === 'en' ? 'World' : 'Du monde')
+      };
+
+      ['textless', 'origine', 'monde'].forEach(cat => {
+        if (grouped[cat] && grouped[cat].length > 0) {
+          const btn = document.createElement('button');
+          btn.className = `modal-poster-cat-btn${cat === activeCat ? ' active' : ''}`;
+          btn.textContent = catLabels[cat];
+          btn.addEventListener('click', () => {
+            activeCat = cat;
+            activeIndexInCat = 0;
+            renderPosterSection();
+          });
+          catsContainer.appendChild(btn);
+        }
+      });
+    }
+
+    const dotsContainer = $('#modal-poster-dots');
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      const catPosters = (grouped[activeCat] || []).slice(0, 3);
+      if (catPosters.length > 1) {
+        catPosters.forEach((p, i) => {
+          const dot = document.createElement('button');
+          dot.className = `modal-poster-dot${i === activeIndexInCat ? ' active' : ''}`;
+          dot.setAttribute('aria-label', `Poster ${i+1}`);
+          dot.addEventListener('click', () => {
+            activeIndexInCat = i;
+            renderPosterSection();
+          });
+          dotsContainer.appendChild(dot);
+        });
+      }
+    }
+  }
+
+  renderPosterSection();
+  dom.modalPosterSelector.innerHTML = ''; // Keep cleared for compat
+
 
   // Point 1: Direct Download Button for Poster Image
   dom.modalDownloadBtn.onclick = (e) => {
@@ -2247,7 +2435,7 @@ function populateModal(film, startingPosterIndex = 0) {
   dom.modalGenres.innerHTML = (film.genres || [])
     .map(g => `<span class="genre-tag">${esc(translateGenre(g, state.lang))}</span>`).join('');
 
-  dom.modalTitle.textContent = film.titre || film.titre_original || 'Titre inconnu';
+  dom.modalTitle.textContent = (state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || 'Titre inconnu';
   dom.modalOriginalTitle.textContent =
     film.titre_original && film.titre_original !== film.titre ? film.titre_original : '';
 
@@ -2267,9 +2455,7 @@ function populateModal(film, startingPosterIndex = 0) {
   dom.modalBudget.textContent   = formatCurrency(film.budget);
   dom.modalRevenue.textContent  = formatCurrency(film.recettes);
 
-  dom.modalSummary.textContent = state.lang === 'en'
-    ? (film.resume_en || film.resume_fr || 'Summary not available.')
-    : (film.resume_fr || film.resume_en || 'Résumé non disponible.');
+  dom.modalSummary.textContent = state.lang === 'ja' ? (film.resume_ja || film.resume_en || film.resume_fr || '概要はありません。') : (state.lang === 'en' ? (film.resume_en || film.resume_fr || 'Summary not available.') : (film.resume_fr || film.resume_en || 'Résumé non disponible.'));
 }
 
 function updateModalAmbientGlowColor(film, idx) {
@@ -2401,7 +2587,7 @@ async function shareCardImage(film) {
       // Title
       ctx.fillStyle = '#FFFFFF';
       ctx.font = 'bold 44px "Plus Jakarta Sans", sans-serif';
-      const title = (film.titre || film.titre_original || 'FILM').toUpperCase();
+      const title = ((state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || 'FILM').toUpperCase();
       ctx.fillText(title, 540, textStartY + 44);
 
       // Subtitle
@@ -2612,7 +2798,7 @@ function starsHtml(r) {
   return html;
 }
 function getFilmId(film) {
-  const t = (film.titre || film.titre_original || 'x').toLowerCase().replace(/[^a-z0-9]/g,'_');
+  const t = ((state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || 'x').toLowerCase().replace(/[^a-z0-9]/g,'_');
   return `${t}_${film.date_sortie||'?'}`;
 }
 function esc(s) {
@@ -2755,9 +2941,7 @@ function bindEvents() {
   dom.themeToggle.addEventListener('click', toggleTheme);
   dom.burgerTrigger.addEventListener('click', openNavMenu);
   if (dom.langSwitch) {
-    dom.langSwitch.addEventListener('click', () => {
-      applyLang(state.lang === 'fr' ? 'en' : 'fr');
-    });
+    dom.langSwitch.addEventListener('change', (e) => { applyLang(e.target.value); });
   }
 
   // Profile Header Trigger
@@ -2790,12 +2974,46 @@ function bindEvents() {
     });
   }
 
-  // Drawer Language Switch
+  // Drawer Language Switch (legacy select - kept for URL compat)
   if (dom.langSwitchDrawer) {
-    dom.langSwitchDrawer.addEventListener('click', () => {
-      applyLang(state.lang === 'fr' ? 'en' : 'fr');
+    dom.langSwitchDrawer.addEventListener('change', (e) => { applyLang(e.target.value); });
+  }
+
+  // Drawer pill language buttons
+  $$('.lang-switch-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyLang(btn.dataset.langVal);
+    });
+  });
+
+  // Header dropdown language picker
+  const headerLangBtn = $('#header-lang-btn');
+  const headerLangDropdown = $('#header-lang-dropdown');
+  if (headerLangBtn && headerLangDropdown) {
+    headerLangBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = !headerLangDropdown.hasAttribute('hidden');
+      if (isOpen) {
+        headerLangDropdown.setAttribute('hidden', '');
+        headerLangBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        headerLangDropdown.removeAttribute('hidden');
+        headerLangBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+    document.addEventListener('click', () => {
+      headerLangDropdown.setAttribute('hidden', '');
+      headerLangBtn.setAttribute('aria-expanded', 'false');
     });
   }
+  $$('.lang-dropdown-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyLang(item.dataset.langVal);
+      if (headerLangDropdown) headerLangDropdown.setAttribute('hidden', '');
+      if (headerLangBtn) headerLangBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
 
   // Nav Menu Links
   if (dom.navLinkGallery) {

@@ -62,9 +62,18 @@ function bindGameEvents() {
 
 async function loadData() {
   try {
-    const res = await fetch('./database_films_tmdb_riche.json');
-    const data = await res.json();
+    const urls = ['./films_part1.json', './films_part2.json', './films_part3.json'];
+    const responses = await Promise.all(urls.map(url => fetch(url)));
+    const dataParts = await Promise.all(responses.map(res => res.json()));
+    const data = dataParts.flat();
     
+    // Map affiches_globales to affiches for compatibility first!
+    data.forEach(f => {
+      if (!f.affiches && f.affiches_globales) {
+        f.affiches = f.affiches_globales;
+      }
+    });
+
     // Filtrer les films valides avec une palette de 5 couleurs et une affiche, sans caractères asiatiques
     const cjkRegex = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uac00-\ud7af]/;
     const validFilms = data.filter(f => 
@@ -209,11 +218,11 @@ function updateTopBar() {
   dom.scoreCurrent.textContent = gameState.score;
   
   if (gameState.currentRound <= 2) {
-    dom.difficulty.textContent = 'Facile';
+    dom.difficulty.textContent = t('game_difficulty_easy');
   } else if (gameState.currentRound <= 4) {
-    dom.difficulty.textContent = 'Moyen';
+    dom.difficulty.textContent = t('game_difficulty_medium');
   } else {
-    dom.difficulty.textContent = 'Difficile';
+    dom.difficulty.textContent = t('game_difficulty_hard');
   }
   
   const progress = ((gameState.currentRound - 1) / gameState.totalRounds) * 100;
@@ -229,18 +238,40 @@ function useHint() {
   
   const film = gameState.currentFilm;
   
+  const prefix = t('game_hint_prefix') + ` ${gameState.hintsUsed} :`;
+  
   if (gameState.hintsUsed === 1) {
-    const year = film.date_sortie ? new Date(film.date_sortie).getFullYear() : 'Année inconnue';
-    const dir = film.realisateur || 'Réalisateur inconnu';
-    dom.hintDisplay.innerHTML += `<div><b>Indice 1 :</b> Sorti en ${year} • De : ${dir}</div>`;
+    const year = film.date_sortie ? new Date(film.date_sortie).getFullYear() : (state.lang === 'ja' ? '不明' : 'Inconnue');
+    const dir = film.realisateur || (state.lang === 'ja' ? '不明' : 'Inconnu');
+    
+    let hintText = '';
+    if (state.lang === 'ja') {
+      hintText = `${year}年公開 • 監督: ${dir}`;
+    } else if (state.lang === 'en') {
+      hintText = `Released in ${year} • Directed by: ${dir}`;
+    } else {
+      hintText = `Sorti en ${year} • De : ${dir}`;
+    }
+    
+    dom.hintDisplay.innerHTML += `<div><b>${prefix}</b> ${hintText}</div>`;
   }
   else if (gameState.hintsUsed === 2) {
-    const genres = film.genres ? film.genres.join(', ') : 'Film mystère';
-    dom.hintDisplay.innerHTML += `<div><b>Indice 2 :</b> Genres : ${genres}</div>`;
+    const genres = film.genres ? film.genres.join(', ') : (state.lang === 'ja' ? 'ミステリー映画' : 'Mystère');
+    
+    let hintText = '';
+    if (state.lang === 'ja') {
+      hintText = `ジャンル: ${genres}`;
+    } else if (state.lang === 'en') {
+      hintText = `Genres: ${genres}`;
+    } else {
+      hintText = `Genres : ${genres}`;
+    }
+    
+    dom.hintDisplay.innerHTML += `<div><b>${prefix}</b> ${hintText}</div>`;
   }
   else if (gameState.hintsUsed === 3) {
     dom.hintBtn.disabled = true;
-    dom.hintDisplay.innerHTML += `<div><b>Indice 3 :</b> L'affiche devient plus nette...</div>`;
+    dom.hintDisplay.innerHTML += `<div><b>${prefix}</b> ${t('game_hint_3_text')}</div>`;
     dom.bgPoster.style.setProperty('filter', 'blur(6px) brightness(0.7)', 'important');
   }
 }
@@ -293,9 +324,9 @@ function handleAnswer(btnElement, chosenFilm) {
   
   // Bouton suivant (ou terminer)
   if (gameState.currentRound < gameState.totalRounds) {
-    dom.nextBtn.textContent = 'Manche Suivante ➔';
+    dom.nextBtn.textContent = t('game_next_round');
   } else {
-    dom.nextBtn.textContent = 'Voir le Résultat 🏆';
+    dom.nextBtn.textContent = t('game_see_results');
   }
   dom.nextBtn.hidden = false;
 }
@@ -343,7 +374,7 @@ function showEndScreen() {
       <div class="recap-info">
         <div class="recap-title ${statusClass}">${title}</div>
         <div class="recap-palette">${paletteHtml}</div>
-        <div class="recap-hints">Indices utilisés : ${round.hints}</div>
+        <div class="recap-hints">${t('game_hints_used_label')}${round.hints}</div>
       </div>
     `;
     

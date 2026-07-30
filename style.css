@@ -253,6 +253,113 @@ body {
   transform: rotate(180deg);
 }
 
+/* Header Language Switcher Dropdown */
+.header-lang-switcher {
+  position: relative;
+  display: inline-block;
+  z-index: 99;
+}
+.header-lang-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-1);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+}
+.header-lang-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-strong);
+  transform: scale(1.05);
+}
+.header-lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 100px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: slideDropdownIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(-8px);
+}
+.header-lang-dropdown[hidden] {
+  display: none !important;
+}
+.lang-dropdown-item {
+  background: transparent;
+  border: none;
+  color: var(--text-2);
+  padding: 6px 12px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition);
+}
+.lang-dropdown-item:hover {
+  background: var(--bg-elevated);
+  color: var(--text-1);
+}
+.lang-dropdown-item.active {
+  background: var(--accent);
+  color: var(--accent-inverse);
+  font-weight: 600;
+}
+@keyframes slideDropdownIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Drawer Language Switcher Button Pills */
+.lang-switch-buttons {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.lang-switch-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  padding: 5px 12px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.lang-switch-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text-1);
+  background: var(--bg-elevated);
+}
+.lang-switch-btn.active {
+  background: var(--text-1);
+  border-color: var(--text-1);
+  color: var(--bg);
+  font-weight: 800;
+}
+
 /* Burger lines morphing menu */
 .burger-trigger-lines {
   display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px;
@@ -903,6 +1010,64 @@ body {
   margin-left: 0;
   z-index: 2;
   position: relative;
+}
+
+/* Minimalist Modal Poster Category Tabs */
+.modal-poster-cats {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 14px;
+  z-index: 2;
+  position: relative;
+  flex-wrap: wrap;
+}
+.modal-poster-cat-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-3);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
+}
+.modal-poster-cat-btn:hover {
+  color: var(--text-2);
+}
+.modal-poster-cat-btn.active {
+  color: var(--text-1);
+  border-bottom-color: var(--text-1);
+}
+
+/* Minimalist navigation dots for multiple posters inside category */
+.modal-poster-dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 8px;
+  z-index: 2;
+  position: relative;
+}
+.modal-poster-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.modal-poster-dot:hover {
+  background: var(--text-3);
+}
+.modal-poster-dot.active {
+  background: var(--text-1);
+  transform: scale(1.2);
 }
 .poster-thumb {
   width: 36px; height: 50px; object-fit: cover; border-radius: 0px !important;

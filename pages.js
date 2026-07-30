@@ -228,7 +228,122 @@ const I18N = {
     game_end_title:      'Game Over',
     game_end_score:      'Final score:',
     game_btn_replay:     'Play Again'
-  }
+  },
+  ja: {
+      nav_gallery:         'ギャラリー',
+      favorites:           'お気に入り',
+      nav_collections:     'コレクション',
+      nav_profile:         'プロフィール',
+      login:               'ログイン',
+      register:            '登録',
+      logout:              'ログアウト',
+      nav_contact:         'お問い合わせ',
+      nav_about:           '詳細情報',
+      nav_game:            'クイズ',
+      tab_likes:           'お気に入り',
+      tab_collections:     'コレクション',
+      
+      // Contact translations
+      contact_badge_text:  'CineChroma 公式チャンネル',
+      contact_title:       'お問い合わせ',
+      contact_hero_title:  'つながりを保つ',
+      contact_subtitle:    'CineChromaに関するご質問、フィードバック、ご提案がございましたら、メッセージをお送りください。できる限り早く返信いたします。',
+      contact_name:        '名前 / ニックネーム',
+      contact_email:       'メールアドレス',
+      contact_message:     'メッセージ',
+      contact_send:        'メッセージを送信',
+      contact_success:     'メッセージが正常に送信されました！(デモモード - contact.htmlでFormspree IDを設定してください)',
+      contact_error:       'メッセージの送信中にエラーが発生しました。もう一度お試しください。',
+      
+      // About headers and badge
+      about_badge_text:    'バージョン 1.0 — 色彩地図',
+      about_hero_title:    '映画の色彩豊かな魂を明らかにする',
+      about_hero_subtitle: 'CineChromaは、世界の映画ポスターを色彩スペクトルを通じて分解する、インタラクティブなウェブデザインとデータサイエンスの実験です。',
+      
+      // Metrics
+      stat_posters_val:    '20,000+',
+      stat_posters_lbl:    'HDポスター',
+      stat_space_val:      'LAB',
+      stat_space_lbl:      '知覚空間',
+      stat_kmeans_val:     'K-Means',
+      stat_kmeans_lbl:     'ローカル抽出',
+      stat_clientside_val: '100%',
+      stat_clientside_lbl: '無料＆オープン',
+      
+      back_gallery:        'ポスターギャラリーに戻る',
+      
+      // Tabs
+      about_project_tab:   'プロジェクト',
+      about_tech_tab:      '科学とアルゴリズム',
+      about_features_tab:  '機能',
+      about_legal_tab:     '法的通知',
+      
+      // Tab 1: Project
+      project_heading:     '映画を探索する新しい方法',
+      project_intro:       'すべての映画作品には、独自の視覚的刻印があります。スクリーンに最初のカットが表示される前から、映画ポスターは色のパレットを通じて感情、ジャンル、心理的緊張感を伝えています。グラフィックデザイナーやアートディレクターが選ぶ主要な色は、決して偶然ではありません。CineChromaは、映画ファン、デザイナー、そして知的好奇心旺盛な人々に、この色彩シグネチャに基づく視覚的な検索エンジンを提供し、色彩という角度から映画の歴史を再発見してもらうために作成されました。カタログを閲覧すると、魅力的な相関関係に気づくでしょう。心理スリラーの鮮やかな赤、メランコリックなドラマの冷たく不飽和な青、あるいはウェス・アンダーソン、スタンリー・キューブリック、デニス・ヴィルヌーヴといった強い視覚的アイデンティティを持つ監督に特徴的な、飽和した高コントラスト of パレットなどです。',
+      project_feat1_title: '映画のキュレーション',
+      project_feat1_desc:  '世界の映画遺産から厳選され、常に充実している20,000枚以上のポスターセレクション。白黒のクラシックから現代のブロックバスターまで、各映画は公式のTMDbメタデータで詳細に索引付けされており、視覚パレットをジャンル、公開年、監督などの基準に即座に関連付けることができます。',
+      project_feat2_title: '高精度LAB分析',
+      project_feat2_desc:  '主要なカラーパレットはおおよそで推定されているわけではありません。オリジナルポスターの色彩分布と密度をピクセルごとに分析して計算されています。抽出された色合いは、映画の視覚クリエイターが意図した美的構造を忠実に再現するために、相対的な重要度順にソートされています。',
+      visualizer_title:    '抽出パレット例 (ブレードランナー 2049)',
+      visualizer_sub:      '5つのK-Meansクラスター',
+      
+      // Tab 2: Science & Algorithm
+      tech_heading:        '仕組み：色彩処理',
+      tech_intro:          '人間的で現実的な方法で色を比較するために、従来のRGB（赤、緑、青）空間だけでは不十分です。CineChromaは、CIELAB（LAB）空間変換とK-Meansクラスタリングアルゴリズムを使用しています。この数学的組み合わせにより、画面に表示される色の近接性が、人間の目が物理世界で実際に色を知覚する方法と密接に一致します。',
+      tech_feat1_title:    '1. CIELAB知覚空間',
+      tech_feat1_desc:     '各画面の技術的特性に直接依存するRGBストレージ形式とは異なり、CIELAB空間は明度（L）を色彩色軸a（緑-赤軸）およびb（青-黄軸）から分離します。この3次元空間における2つの色間のデルタEユークリッド距離（CIE76）を計算することにより、実際の知覚距離を測定します。これにより、厳密な16進コードがわずかに異なる場合でも、同じ色の雰囲気を共有するポスターを見つけることができます。',
+      tech_feat2_title:    '2. ブラウザ内K-Meansクラスタリング',
+      tech_feat2_desc:     '独自の画像をインポートすると、ローカル計算スクリプトがパレットを即座に抽出します。K-Meansは、カラーセントロイドの座標を反復的に調整することにより、ピクセルを5つの明確なクラスターにグループ化する非監視クラスタリングアルゴリズムです。このプロセスは、ブラウザのネイティブHTML5 Canvas APIを使用してクライアント側で100%実行されるため、ファイルがサーバーに送信されることはありません。',
+      code_comment:        '// CIELAB空間でのデルタE距離計算',
+      
+      // Tab 3: Features
+      features_heading:    'CineChromaの主な機能',
+      features_intro:      'モバイルとデスクトップ画面の両方でスムーズにナビゲーションできるように設計されており、視覚的な探索を楽しいものにするためのUXの工夫が満載です。グラフィックデザインのインスピレーションを得て、アイデアを整理するためのプロフェッショナルなツールが揃っています。',
+      features_feat1_title:'Cosmos.so風2Dピッカー',
+      features_feat1_desc: '2次元シェーダー（彩度 x 明度）を介してターゲットの色合いを正確に選択し、最大5色を同時に組み合わせることができます。このピッカーにより、複雑な色彩調和に従って映画データベースを細かくフィルタリングできます。',
+      features_feat2_title:'画像検索 (ドロップゾーン)',
+      features_feat2_desc: '画像、スクリーンショット、または写真をドロップゾーンにドラッグ＆ドロップします。内蔵のK-Meansアルゴリズムがミリ秒単位でパレットを抽出し、同じ美的シグネチャを持つポスターを即座に特定します。',
+      features_feat3_title:'URLディープリンク',
+      features_feat3_desc: 'ワンクリックで探索を共有。フィルターの組み合わせ、ソートオプション、または色の許容基準のしきい値はすべて、アドレスバーのパラメータにリアルタイムでエンコードされます（ディープリンク）。リンクを開いた人は、まったく同じポスターの選択を目にすることになります。',
+      features_feat4_title:'お気に入りとローカルコレクション',
+      features_feat4_desc: '登録なしですぐに開始できます！カスタムテーマ別コレクションを作成したり、お気に入りに映画を追加してアイデアを整理できます。リストはブラウザのlocalStorageにローカルに保存されます。',
+      features_coming_soon:'近日公開',
+      features_feat5_title:'3D色彩クラウド',
+      features_feat5_desc: '各ポスターがCIELAB空間 of カラーポイントとして表される3次元空間に飛び込みましょう。WebGL (Three.js)でリアルタイムに描画されるこのインタラクティブなクラウドにより、世界映画の色彩マップを物理的にナビゲートできます。',
+      features_feat6_title:'ゲーム — 色彩クイズ',
+      features_feat6_desc: '色彩パレットだけで映画を特定できますか？この映画ミニゲームでは、難易度が上がる5つのラウンドで挑戦します。行き詰まった場合は3つのヒントが利用可能で、スコアは速度と使用したヒントによって決まります。',
+      features_feat7_title:'ユニバーサルポスターカタログ',
+      features_feat7_desc: 'データセットは間もなく、テキストなしポスター（純粋な色彩探索のための文字なしポスター）、原産国別のポスター、およびアジア、アフリカ、ラテンアメリカ、ヨーロッパの映画をカバーするグローバルカタログに拡張されます。',
+      features_feat8_title:'アカウントシステムとプロフィール',
+      features_feat8_desc: 'CineChromaアカウントを作成して体験をパーソナライズ。アバターを選択し、お気に入りを名前付きコレクションに整理し、ゲーム統計を追跡します。すべてローカルに保存され、プライバシーは完全に守られます。',
+      
+      // Tab 4: Legal (Amplified)
+      about_legal_title:   '法的通知とクレジット',
+      legal_section_editor:'サイト編集',
+      legal_editor_desc:   'CineChromaウェブサイトは、デジタルアーティストやソフトウェアデザイナーの独立したコレクティブによって運営・管理されています。このプロジェクトは、歴史的な色彩科学と世界映画との密接な結びつきを探求することを目的とした、非営利の技術的なデモンストレーション用ショーケースです。公開に関するご質問や、発行責任者へのご連絡は、専用のお問い合わせフォームからメッセージを送信してください。デザインと映画の愛好家に向けて、常に最新のデータと安定したサイト環境を提供するよう努めております。',
+      legal_section_host:  'ホスティング',
+      legal_host_desc:     'CineChromaウェブサイトは、グローバルなクラウドインフラサーバー上で静的かつ安全にホストされており、高い可用性と最適な読み込み速度を保証します。ホスティングは標準的なエンドツーエンドの暗号化プロトコル（SSL/TLS）に準拠しています。お使いのブラウザで情報を表示する際、サードパーティの動的なアプリケーションサーバーは使用されないため、セキュリティリスクが最小限に抑えられ、データの整合性が保護されます。',
+      legal_section_data:  'データとAPI',
+      legal_data_desc:     'CineChromaは、映画のメタデータ（タイトル、監督、公開日、ジャンル）およびポスターパスを取得するために、TMDb (The Movie Database)の公開APIを使用しています。本サイトはTMDbとは提携しておらず、公式認定も受けていません。映画のポスターおよびオリジナルのビジュアルは、それぞれの制作スタジオ、配給会社、権利所有者の独占的な知的財産です。その表示は、引用権およびフェアユース（公正利用）の規定に基づき、イラストレーション、芸術的レビュー、および非商業的な色彩分析のみを目的として行われています。もし作品の権利所有者であり、掲載の取り消しをご希望される場合は、お問い合わせフォームよりご連絡ください。',
+      legal_section_cookies:'個人データ、クッキー、およびRGPD (GDPR)',
+      legal_cookies_desc:  '一般データ保護規則（GDPR）に従い、CineChromaは厳格なプライバシーポリシーを採用しています。お使いの端末には、トラッキングクッキー、広告追跡、サードパーティの行動分析ツールなどは一切配置されません。インタラクティブな機能（お気に入りポスターの保存、ローカルコレクションの作成）は、すべてお使いのブラウザのローカルストレージ（localStorage）のみを使用しています。個人データや閲覧情報がお客様の端末の外に送信されたり収集されたりすることは一切ありません。ご自身のデータを完全に管理することができます。',
+      
+      // Game translations
+      game_start_title:    'CINECHROMA クイズ',
+      game_btn_start:      'プレイ',
+      game_round:          'ラウンド',
+      game_score:          'スコア:',
+      game_hint_left:      'ヒント残り:',
+      game_use_hint:       'ヒントを使用',
+      game_no_hint:        'ヒントなし',
+      game_hint_director:  '監督:',
+      game_hint_year:      '公開年:',
+      game_hint_actor:     '出演:',
+      game_game_over:      'ゲームオーバー',
+      game_final_score:    '最終スコア:',
+      game_btn_replay:     'もう一度プレイ'
+    }
 };
 
 const state = {
@@ -348,9 +463,21 @@ function applyLang(lang) {
   localStorage.setItem('cinechroma_lang', lang);
   document.documentElement.lang = lang;
 
+  // Sync drawer pill buttons
+  $$('.lang-switch-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.langVal === lang);
+  });
+
+  // Sync header dropdown items + label
+  $$('.lang-dropdown-item').forEach(item => {
+    item.classList.toggle('active', item.dataset.langVal === lang);
+  });
+  const headerLangBtn = $('#header-lang-btn');
+  if (headerLangBtn) headerLangBtn.textContent = lang.toUpperCase();
+
   const drawerLangLabel = $('#drawer-lang-label');
   if (drawerLangLabel) {
-    drawerLangLabel.textContent = lang === 'fr' ? 'Langue : Français (FR)' : 'Language: English (EN)';
+    drawerLangLabel.textContent = lang === 'fr' ? 'Langue : Fran\u00e7ais (FR)' : (lang === 'en' ? 'Language: English (EN)' : '\u8a00\u8a9e: \u65e5\u672c\u8a9e (JA)');
   }
 
   $$('[data-i18n]').forEach(el => {
@@ -360,9 +487,9 @@ function applyLang(lang) {
   const contactName = $('#contact-name');
   const contactEmail = $('#contact-email');
   const contactMessage = $('#contact-message');
-  if (contactName) contactName.placeholder = lang === 'en' ? 'Your name' : 'Votre nom';
-  if (contactEmail) contactEmail.placeholder = lang === 'en' ? 'name@example.com' : 'nom@exemple.com';
-  if (contactMessage) contactMessage.placeholder = lang === 'en' ? 'Your message...' : 'Votre message...';
+  if (contactName) contactName.placeholder = lang === 'en' ? 'Your name' : (lang === 'ja' ? '\u304a\u540d\u524d' : 'Votre nom');
+  if (contactEmail) contactEmail.placeholder = lang === 'en' ? 'name@example.com' : (lang === 'ja' ? 'name@example.com' : 'nom@exemple.com');
+  if (contactMessage) contactMessage.placeholder = lang === 'en' ? 'Your message...' : (lang === 'ja' ? '\u30e1\u30c3\u30bb\u30fc\u30b8...' : 'Votre message...');
 
   // Initialize/rebuild letters hover effects on current translated titles
   initTitleLetters();
@@ -526,10 +653,44 @@ function bindEvents() {
 
   const langDrawer = $('#lang-switch-drawer');
   if (langDrawer) {
-    langDrawer.addEventListener('click', () => {
-      applyLang(state.lang === 'fr' ? 'en' : 'fr');
+    langDrawer.addEventListener('change', (e) => { applyLang(e.target.value); });
+  }
+
+  // Drawer pill language buttons
+  $$('.lang-switch-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyLang(btn.dataset.langVal);
+    });
+  });
+
+  // Header dropdown language picker
+  const headerLangBtn = $('#header-lang-btn');
+  const headerLangDropdown = $('#header-lang-dropdown');
+  if (headerLangBtn && headerLangDropdown) {
+    headerLangBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = !headerLangDropdown.hasAttribute('hidden');
+      if (isOpen) {
+        headerLangDropdown.setAttribute('hidden', '');
+        headerLangBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        headerLangDropdown.removeAttribute('hidden');
+        headerLangBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+    document.addEventListener('click', () => {
+      headerLangDropdown.setAttribute('hidden', '');
+      headerLangBtn.setAttribute('aria-expanded', 'false');
     });
   }
+  $$('.lang-dropdown-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyLang(item.dataset.langVal);
+      if (headerLangDropdown) headerLangDropdown.setAttribute('hidden', '');
+      if (headerLangBtn) headerLangBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
 
   // Bind 4-tab click events
   ABOUT_TABS.forEach(tab => {

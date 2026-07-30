@@ -9,7 +9,7 @@
 
 // Configuration
 const CONFIG = {
-  DATA_URLS: ['./films_part1.json', './films_part2.json'],
+  DATA_URLS: ['./films_part1.json', './films_part2.json', './films_part3.json'],
 };
 
 // SVG Preset Avatars
