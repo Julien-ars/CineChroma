@@ -347,16 +347,18 @@
           </div>
         </div>
 
-        <!-- Language Filter — select stylé -->
+        <!-- Language Filter — recherche par frappe -->
         <div class="drawer-section">
           <h4 class="drawer-section-title" data-i18n="languages">Langue d'origine</h4>
-          <div class="drawer-select-wrap">
+          <div id="drawer-language-container" class="drawer-lang-container">
+            <!-- Built dynamically by buildDrawerLanguageChips() -->
+          </div>
+          <!-- Legacy compat elements (hidden) -->
+          <div class="drawer-select-wrap" style="display:none">
             <select id="drawer-language-select" class="drawer-select">
               <option value="">Toutes les langues</option>
             </select>
-            <svg class="drawer-select-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg>
           </div>
-          <!-- Référence cachée pour la compat JS -->
           <div id="drawer-language-chips" hidden></div>
         </div>
 
@@ -364,9 +366,7 @@
         <div class="drawer-section">
           <h4 class="drawer-section-title" data-i18n="poster_style">Style d'affiche</h4>
           <div class="drawer-chips-grid" id="drawer-poster-style-chips">
-            <button class="drawer-chip active" data-style-val="textless" data-i18n="style_textless">Sans texte</button>
-            <button class="drawer-chip" data-style-val="origine" data-i18n="style_origine">Langue d'origine</button>
-            <button class="drawer-chip" data-style-val="monde" data-i18n="style_monde">Du monde</button>
+            <!-- Built dynamically by buildPosterStyleChips() -->
           </div>
         </div>
 

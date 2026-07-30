@@ -142,6 +142,11 @@ const I18N = {
     hero_scroll_hint:    'Découvrir les affiches',
     learn_more:          'Source : TMDb',
     languages:           'Langue d\'origine',
+    lang_search_placeholder: 'Rechercher une langue…',
+    poster_style:        'Style d\'affiche',
+    style_textless:      'Sans texte',
+    style_origine:       'Langue d\'origine',
+    style_monde:         'International',
     filter_mode_or_short:'AU MOINS 1',
     filter_mode_and_short:'TOUTES',
     nav_contact:         'Contact',
@@ -256,6 +261,11 @@ const I18N = {
     hero_scroll_hint:    'Discover posters',
     learn_more:          'Source: TMDb',
     languages:           'Original language',
+    lang_search_placeholder: 'Search a language…',
+    poster_style:        'Poster style',
+    style_textless:      'Textless',
+    style_origine:       'Original language',
+    style_monde:         'International',
     filter_mode_or_short:'AT LEAST 1',
     filter_mode_and_short:'ALL',
     nav_contact:         'Contact',
@@ -370,6 +380,11 @@ const I18N = {
       hero_scroll_hint:    'ポスターを発見',
       learn_more:          'ソース: TMDb',
       languages:           'オリジナル言語',
+      lang_search_placeholder: '言語を検索…',
+      poster_style:        'ポスタースタイル',
+      style_textless:      'テキストなし',
+      style_origine:       'オリジナル言語',
+      style_monde:         '国際版',
       filter_mode_or_short:'少なくとも1つ',
       filter_mode_and_short:'すべて',
       nav_contact:         'お問い合わせ',
@@ -421,6 +436,7 @@ const state = {
   searchQuery:     '',
   activeGenres:    new Set(),
   activeLanguages: new Set(),
+  activePosterStyles: new Set(['textless']),
   activeColors:    [],
   filterMode:      'or',
   colorThreshold:  CONFIG.DEFAULT_THRESHOLD,
@@ -836,15 +852,21 @@ function filmMatchesColors(film, colors, mode, threshold) {
 function getMatchingPosterUrl(film) {
   if (!film.affiches || !film.affiches.length) return null;
 
+  // Filter by active poster style if any
+  const styleFiltered = state.activePosterStyles.size > 0
+    ? film.affiches.filter(a => state.activePosterStyles.has(a.categorie))
+    : film.affiches;
+  const candidates = styleFiltered.length > 0 ? styleFiltered : film.affiches;
+
   if (!state.activeColors.length) {
-    const defaultPoster = film.affiches[0];
+    const defaultPoster = candidates[0];
     return defaultPoster.affiche_w500 || defaultPoster.affiche_original || null;
   }
 
-  let bestPoster = film.affiches[0];
+  let bestPoster = candidates[0];
   let maxScore = -1;
 
-  for (const affiche of film.affiches) {
+  for (const affiche of candidates) {
     let posterScore = 0;
     for (const targetHex of state.activeColors) {
       posterScore += getSingleColorScoreForPoster(affiche, targetHex, state.colorThreshold);
@@ -925,6 +947,7 @@ function initApp() {
   applyTheme(state.theme);
   buildDrawerGenreChips();
   buildDrawerLanguageChips();
+  buildPosterStyleChips();
   setupCosmosColorPicker();
   setupImageSearchDragAndDrop();
   renderHeaderUserAvatar();
@@ -986,6 +1009,8 @@ function syncUIFromState() {
   } else {
     dom.activeFilterBadge.hidden = true;
   }
+
+  syncPosterStyleChips();
 
   // Clear selections button inside sub-navbar
   dom.clearAllColorsBtn.hidden = (state.activeColors.length === 0 && state.activeGenres.size === 0 && state.activeLanguages.size === 0 && !state.activeImageSrc);
@@ -1197,6 +1222,8 @@ function setupCosmosColorPicker() {
       state.activeColors.push(state.pickerHex);
     }
     if (state.activeColors.length > 0) {
+      // When validating a color, activate all 3 poster styles
+      state.activePosterStyles = new Set(['textless', 'origine', 'monde']);
       closeColorModal();
       if (state.sort !== 'relevance') state.sort = 'relevance';
       applyFiltersAndRender();
@@ -1343,59 +1370,209 @@ function toggleDrawerGenre(genre, chipEl) {
   }
 }
 
-function buildDrawerLanguageChips() {
-  // Populate the select element with unique language options
-  const languages = [...new Set(state.allFilms.map(f => (f.langue_origine || f.langue_originale || '').toLowerCase()).filter(Boolean))].sort();
+/* Language names for display — keyed by ISO code */
+const LANG_NAMES_FR = {
+  fr: 'Français', en: 'Anglais', es: 'Espagnol', de: 'Allemand',
+  it: 'Italien', ja: 'Japonais', ko: 'Coréen', zh: 'Chinois',
+  pt: 'Portugais', ru: 'Russe', ar: 'Arabe', hi: 'Hindi',
+  sv: 'Suédois', da: 'Danois', nl: 'Néerlandais', pl: 'Polonais',
+  tr: 'Turc', cs: 'Tchèque', ro: 'Roumain', hu: 'Hongrois',
+  no: 'Norvégien', fi: 'Finnois', he: 'Hébreu', el: 'Grec',
+  th: 'Thaï', uk: 'Ukrainien', vi: 'Vietnamien', id: 'Indonésien',
+  nb: 'Norvégien', sk: 'Slovaque', hr: 'Croate', bg: 'Bulgare',
+  sr: 'Serbe', lt: 'Lituanien', lv: 'Letton', sl: 'Slovène',
+  ca: 'Catalan', eu: 'Basque', gl: 'Galicien', is: 'Islandais',
+  ms: 'Malais', tl: 'Philippin', ta: 'Tamoul', te: 'Télougou',
+  bn: 'Bengali', fa: 'Persan', ur: 'Ourdou', sw: 'Swahili',
+  af: 'Afrikaans', sq: 'Albanais', hy: 'Arménien', ka: 'Géorgien',
+  mk: 'Macédonien', mn: 'Mongol', az: 'Azerbaïdjanais',
+};
+const LANG_NAMES_EN = {
+  fr: 'French', en: 'English', es: 'Spanish', de: 'German',
+  it: 'Italian', ja: 'Japanese', ko: 'Korean', zh: 'Chinese',
+  pt: 'Portuguese', ru: 'Russian', ar: 'Arabic', hi: 'Hindi',
+  sv: 'Swedish', da: 'Danish', nl: 'Dutch', pl: 'Polish',
+  tr: 'Turkish', cs: 'Czech', ro: 'Romanian', hu: 'Hungarian',
+  no: 'Norwegian', fi: 'Finnish', he: 'Hebrew', el: 'Greek',
+  th: 'Thai', uk: 'Ukrainian', vi: 'Vietnamese', id: 'Indonesian',
+  nb: 'Norwegian', sk: 'Slovak', hr: 'Croatian', bg: 'Bulgarian',
+  sr: 'Serbian', lt: 'Lithuanian', lv: 'Latvian', sl: 'Slovenian',
+  ca: 'Catalan', eu: 'Basque', gl: 'Galician', is: 'Icelandic',
+  ms: 'Malay', tl: 'Filipino', ta: 'Tamil', te: 'Telugu',
+  bn: 'Bengali', fa: 'Persian', ur: 'Urdu', sw: 'Swahili',
+  af: 'Afrikaans', sq: 'Albanian', hy: 'Armenian', ka: 'Georgian',
+  mk: 'Macedonian', mn: 'Mongolian', az: 'Azerbaijani',
+};
+const LANG_NAMES_JA = {
+  fr: 'フランス語', en: '英語', es: 'スペイン語', de: 'ドイツ語',
+  it: 'イタリア語', ja: '日本語', ko: '韓国語', zh: '中国語',
+  pt: 'ポルトガル語', ru: 'ロシア語', ar: 'アラビア語', hi: 'ヒンディー語',
+  sv: 'スウェーデン語', da: 'デンマーク語', nl: 'オランダ語', pl: 'ポーランド語',
+  tr: 'トルコ語', cs: 'チェコ語', ro: 'ルーマニア語', hu: 'ハンガリー語',
+};
 
-  const LANG_NAMES = {
-    fr: 'Français', en: 'Anglais', es: 'Espagnol', de: 'Allemand',
-    it: 'Italien', ja: 'Japonais', ko: 'Coréen', zh: 'Chinois',
-    pt: 'Portugais', ru: 'Russe', ar: 'Arabe', hi: 'Hindi',
-    sv: 'Suédois', da: 'Danois', nl: 'Néerlandais', pl: 'Polonais',
-    tr: 'Turc', cs: 'Tchèque', ro: 'Roumain', hu: 'Hongrois',
-    no: 'Norvégien', fi: 'Finnois', he: 'Hébreu', el: 'Grec',
-    th: 'Thaï', uk: 'Ukrainien', vi: 'Vietnamien', id: 'Indonésien',
-  };
-
-  if (!dom.drawerLanguageSelect) return;
-  // Keep first option (Toutes les langues)
-  while (dom.drawerLanguageSelect.options.length > 1) {
-    dom.drawerLanguageSelect.remove(1);
-  }
-  for (const code of languages) {
-    const opt = document.createElement('option');
-    opt.value = code;
-    opt.textContent = LANG_NAMES[code] ? `${LANG_NAMES[code]} (${code.toUpperCase()})` : code.toUpperCase();
-    dom.drawerLanguageSelect.appendChild(opt);
-  }
-
-  dom.drawerLanguageSelect.value = state.activeLanguages.size === 1
-    ? [...state.activeLanguages][0]
-    : '';
-
-  dom.drawerLanguageSelect.addEventListener('change', () => {
-    state.activeLanguages.clear();
-    if (dom.drawerLanguageSelect.value) {
-      state.activeLanguages.add(dom.drawerLanguageSelect.value);
-    }
-  });
+function getLangName(code) {
+  const names = state.lang === 'en' ? LANG_NAMES_EN : state.lang === 'ja' ? LANG_NAMES_JA : LANG_NAMES_FR;
+  return names[code] || code.toUpperCase();
 }
 
-function toggleDrawerLanguage(langCode) {
-  if (state.activeLanguages.has(langCode)) {
-    state.activeLanguages.delete(langCode);
-  } else {
-    state.activeLanguages.clear();
-    state.activeLanguages.add(langCode);
+function buildDrawerLanguageChips() {
+  const allLangCodes = [...new Set(state.allFilms.map(f => (f.langue_origine || f.langue_originale || '').toLowerCase()).filter(Boolean))].sort();
+
+  // Build the search input UI replacing the old select
+  const container = $('#drawer-language-container');
+  if (!container) return;
+  container.innerHTML = '';
+
+  // --- Search input ---
+  const searchWrap = document.createElement('div');
+  searchWrap.className = 'lang-search-wrap';
+
+  const searchInput = document.createElement('input');
+  searchInput.type = 'text';
+  searchInput.id = 'drawer-lang-search-input';
+  searchInput.className = 'lang-search-input';
+  searchInput.placeholder = t('lang_search_placeholder');
+  searchInput.autocomplete = 'off';
+  searchInput.setAttribute('aria-label', t('languages'));
+
+  const searchIcon = document.createElement('span');
+  searchIcon.className = 'lang-search-icon';
+  searchIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>`;
+
+  searchWrap.appendChild(searchIcon);
+  searchWrap.appendChild(searchInput);
+  container.appendChild(searchWrap);
+
+  // --- Active selection chips row ---
+  const activeRow = document.createElement('div');
+  activeRow.id = 'lang-active-chips';
+  activeRow.className = 'lang-active-chips';
+  container.appendChild(activeRow);
+
+  // --- Suggestions dropdown ---
+  const dropdown = document.createElement('div');
+  dropdown.id = 'lang-dropdown';
+  dropdown.className = 'lang-dropdown';
+  dropdown.setAttribute('hidden', '');
+  container.appendChild(dropdown);
+
+  function renderActiveChips() {
+    activeRow.innerHTML = '';
+    state.activeLanguages.forEach(code => {
+      const chip = document.createElement('button');
+      chip.className = 'lang-chip-active';
+      chip.innerHTML = `<span>${getLangName(code)}</span><span class="lang-chip-del" aria-label="Retirer">×</span>`;
+      chip.querySelector('.lang-chip-del').addEventListener('click', (e) => {
+        e.stopPropagation();
+        state.activeLanguages.delete(code);
+        renderActiveChips();
+        renderDropdown(searchInput.value);
+      });
+      activeRow.appendChild(chip);
+    });
+    activeRow.hidden = state.activeLanguages.size === 0;
   }
-  syncDrawerLanguageChips();
+
+  function renderDropdown(query) {
+    const q = query.trim().toLowerCase();
+    const filtered = allLangCodes.filter(code => {
+      if (state.activeLanguages.has(code)) return false;
+      if (!q) return true;
+      const name = getLangName(code).toLowerCase();
+      return name.includes(q) || code.includes(q);
+    }).slice(0, 8);
+
+    dropdown.innerHTML = '';
+    if (filtered.length === 0 || !q) {
+      dropdown.setAttribute('hidden', '');
+      return;
+    }
+    dropdown.removeAttribute('hidden');
+    filtered.forEach(code => {
+      const item = document.createElement('button');
+      item.className = 'lang-dropdown-item';
+      item.innerHTML = `<span class="lang-item-name">${getLangName(code)}</span><span class="lang-item-code">${code.toUpperCase()}</span>`;
+      item.addEventListener('click', () => {
+        state.activeLanguages.add(code);
+        searchInput.value = '';
+        dropdown.setAttribute('hidden', '');
+        renderActiveChips();
+        renderDropdown('');
+      });
+      dropdown.appendChild(item);
+    });
+  }
+
+  searchInput.addEventListener('input', () => renderDropdown(searchInput.value));
+  searchInput.addEventListener('focus', () => { if (searchInput.value) renderDropdown(searchInput.value); });
+  document.addEventListener('click', (e) => {
+    if (!container.contains(e.target)) dropdown.setAttribute('hidden', '');
+  }, { capture: false });
+
+  renderActiveChips();
+
+  // Legacy compat — keep old elements non-blocking
+  if (dom.drawerLanguageSelect) dom.drawerLanguageSelect.style.display = 'none';
+  if (dom.drawerLanguageChips) dom.drawerLanguageChips.hidden = true;
 }
 
 function syncDrawerLanguageChips() {
-  if (!dom.drawerLanguageSelect) return;
-  dom.drawerLanguageSelect.value = state.activeLanguages.size === 1
-    ? [...state.activeLanguages][0]
-    : '';
+  // Sync active chips display in the new UI
+  const activeRow = $('#lang-active-chips');
+  if (!activeRow) return;
+  // Trigger re-render by calling buildDrawerLanguageChips if container exists
+  const container = $('#drawer-language-container');
+  if (container && container.querySelector('#drawer-lang-search-input')) {
+    // Already built, just refresh the active chips
+    activeRow.innerHTML = '';
+    state.activeLanguages.forEach(code => {
+      const chip = document.createElement('button');
+      chip.className = 'lang-chip-active';
+      chip.innerHTML = `<span>${getLangName(code)}</span><span class="lang-chip-del" aria-label="Retirer">×</span>`;
+      chip.querySelector('.lang-chip-del').addEventListener('click', (e) => {
+        e.stopPropagation();
+        state.activeLanguages.delete(code);
+        syncDrawerLanguageChips();
+      });
+      activeRow.appendChild(chip);
+    });
+    activeRow.hidden = state.activeLanguages.size === 0;
+  }
+}
+
+function buildPosterStyleChips() {
+  const container = $('#drawer-poster-style-chips');
+  if (!container) return;
+  container.innerHTML = '';
+  const styles = [
+    { val: 'textless', key: 'style_textless' },
+    { val: 'origine',  key: 'style_origine' },
+    { val: 'monde',    key: 'style_monde' },
+  ];
+  styles.forEach(({ val, key }) => {
+    const btn = document.createElement('button');
+    btn.className = `drawer-chip poster-style-chip${state.activePosterStyles.has(val) ? ' active' : ''}`;
+    btn.dataset.styleVal = val;
+    btn.textContent = t(key);
+    btn.addEventListener('click', () => {
+      if (state.activePosterStyles.has(val)) {
+        // Don't deselect if it's the last one
+        if (state.activePosterStyles.size > 1) state.activePosterStyles.delete(val);
+      } else {
+        state.activePosterStyles.add(val);
+      }
+      btn.classList.toggle('active', state.activePosterStyles.has(val));
+    });
+    container.appendChild(btn);
+  });
+}
+
+function syncPosterStyleChips() {
+  $$('.poster-style-chip').forEach(btn => {
+    const val = btn.dataset.styleVal;
+    btn.classList.toggle('active', state.activePosterStyles.has(val));
+  });
 }
 
 function syncDirectorButtons() {
@@ -1494,6 +1671,7 @@ function applyFiltersAndRender() {
     }
   }
 
+  // NOTE: poster style filter applies in getMatchingPosterUrl (card display), not in film-level filter
   if (state.activeLanguages.size > 0) {
     films = films.filter(f => {
       const flang = (f.langue_origine || f.langue_originale || '').toLowerCase();
@@ -3188,6 +3366,10 @@ function bindEvents() {
     state.sort = CONFIG.DEFAULT_SORT;
     state.colorThreshold = CONFIG.DEFAULT_THRESHOLD;
     state.filterMode = 'or';
+    // Reset poster styles to default (textless only)
+    state.activePosterStyles = new Set(['textless']);
+    buildPosterStyleChips();
+    buildDrawerLanguageChips();
     closeDrawer();
     applyFiltersAndRender();
     updateURL();
