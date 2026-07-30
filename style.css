@@ -3528,6 +3528,7 @@ body.page-exit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   padding: 8px 16px;
   border-radius: var(--radius-pill);
   font-size: 0.75rem;

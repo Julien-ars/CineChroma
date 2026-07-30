@@ -64,6 +64,7 @@ const I18N = {
     pick_color:          'Couleur',
     add_color_btn:       '+ Couleur',
     clear_selection:     'Effacer la sélection',
+    add_color_btn_short: 'Ajouter',
     tolerance:           'Précision des nuances',
     filter_mode:         'Mode de filtre couleur',
     filter_mode_or_desc: 'OU (au moins 1 couleur)',
@@ -183,6 +184,7 @@ const I18N = {
     pick_color:          'Color',
     add_color_btn:       '+ Color',
     clear_selection:     'Clear selection',
+    add_color_btn_short: 'Add',
     tolerance:           'Shade Precision',
     filter_mode:         'Color Filter Mode',
     filter_mode_or_desc: 'OR (matches at least 1)',
@@ -302,6 +304,7 @@ const I18N = {
       pick_color:          '色',
       add_color_btn:       '+ 色',
       clear_selection:     '選択をクリア',
+      add_color_btn_short: '追加',
       tolerance:           '許容範囲',
       filter_mode:         'カラーフィルターモード',
       filter_mode_or_desc: 'OR (少なくとも1つに一致)',
@@ -666,37 +669,13 @@ const dom = {
 function t(key) { return (I18N[state.lang] || I18N.fr)[key] || key; }
 
 function applyLang(lang) {
-  state.lang = lang;
+  const current = localStorage.getItem('cinechroma_lang') || 'fr';
   localStorage.setItem('cinechroma_lang', lang);
-  document.documentElement.lang = lang;
-  if (dom.langSwitch) dom.langSwitch.value = lang;
-  if (dom.langSwitchDrawer) dom.langSwitchDrawer.value = lang;
-
-  // Sync drawer pill buttons active state
-  $$('.lang-switch-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.langVal === lang);
-  });
-
-  // Sync header dropdown items active state + button label
-  $$('.lang-dropdown-item').forEach(item => {
-    item.classList.toggle('active', item.dataset.langVal === lang);
-  });
-  const headerLangBtn = $('#header-lang-btn');
-  if (headerLangBtn) headerLangBtn.textContent = lang.toUpperCase();
-
-  $$('[data-i18n]').forEach(el => {
-    el.textContent = t(el.getAttribute('data-i18n'));
-  });
-  dom.searchInput.placeholder = t('search_placeholder');
-  dom.drawerTolValue.textContent = getToleranceLabel(state.colorThreshold, state.lang);
-
-  if (state.modalFilm) {
-    dom.modalSummary.textContent = state.lang === 'ja' ? (state.modalFilm.resume_ja || state.modalFilm.resume_en || state.modalFilm.resume_fr || '') : (state.lang === 'en' ? (state.modalFilm.resume_en || state.modalFilm.resume_fr || '') : (state.modalFilm.resume_fr || state.modalFilm.resume_en || ''));
-    dom.modalGenres.innerHTML = (state.modalFilm.genres || [])
-      .map(g => `<span class="genre-tag">${esc(translateGenre(g, state.lang))}</span>`).join('');
+  state.lang = lang;
+  if (lang !== current) {
+    location.reload();
+    return;
   }
-
-  buildDrawerGenreChips();
 }
 
 function applyTheme(theme) {
