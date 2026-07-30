@@ -65,6 +65,15 @@ const I18N = {
     add_color_btn:       '+ Couleur',
     clear_selection:     'Effacer la sélection',
     add_color_btn_short: 'Ajouter',
+    search_by_image:     'Rechercher par image',
+    pick_color_btn_title: 'Choisir une couleur',
+    change_language:     'Changer la langue',
+    toggle_theme:        'Inverser les couleurs',
+    user_profile_title:  'Mon Profil / Connexion',
+    navigation:          'Navigation',
+    filter_mode_or_desc_short: 'une couleur suffit',
+    filter_mode_and_desc_short: 'toutes requises',
+    filters_menu_short:  'Filtres',
     tolerance:           'Précision des nuances',
     filter_mode:         'Mode de filtre couleur',
     filter_mode_or_desc: 'OU (au moins 1 couleur)',
@@ -185,6 +194,15 @@ const I18N = {
     add_color_btn:       '+ Color',
     clear_selection:     'Clear selection',
     add_color_btn_short: 'Add',
+    search_by_image:     'Search by image',
+    pick_color_btn_title: 'Choose a color',
+    change_language:     'Change language',
+    toggle_theme:        'Toggle theme',
+    user_profile_title:  'My Profile / Login',
+    navigation:          'Navigation',
+    filter_mode_or_desc_short: 'one color is enough',
+    filter_mode_and_desc_short: 'all colors required',
+    filters_menu_short:  'Filters',
     tolerance:           'Shade Precision',
     filter_mode:         'Color Filter Mode',
     filter_mode_or_desc: 'OR (matches at least 1)',
@@ -298,13 +316,22 @@ const I18N = {
     legal_cookies_desc:  'No third-party trackers are used. Your favorites and collections are stored exclusively in your browser\'s local storage.',
   },
   ja: {
-      search_placeholder:  '色を試す...',
+      search_placeholder:  '映画や監督を検索…',
       search:              '検索',
       validate:            '確認',
       pick_color:          '色',
       add_color_btn:       '+ 色',
       clear_selection:     '選択をクリア',
       add_color_btn_short: '追加',
+      search_by_image:     '画像で検索',
+      pick_color_btn_title: '色を選択',
+      change_language:     '言語を変更',
+      toggle_theme:        'テーマを切り替え',
+      user_profile_title:  'プロフィール / ログイン',
+      navigation:          'ナビゲーション',
+      filter_mode_or_desc_short: 'いずれかの色に一致',
+      filter_mode_and_desc_short: 'すべての色に一致',
+      filters_menu_short:  'フィルター',
       tolerance:           '許容範囲',
       filter_mode:         'カラーフィルターモード',
       filter_mode_or_desc: 'OR (少なくとも1つに一致)',
@@ -670,12 +697,60 @@ function t(key) { return (I18N[state.lang] || I18N.fr)[key] || key; }
 
 function applyLang(lang) {
   const current = localStorage.getItem('cinechroma_lang') || 'fr';
+  const isInitialLoad = !document.documentElement.lang;
   localStorage.setItem('cinechroma_lang', lang);
   state.lang = lang;
-  if (lang !== current) {
+  
+  if (lang !== current && !isInitialLoad) {
     location.reload();
     return;
   }
+
+  document.documentElement.lang = lang;
+  if (dom.langSwitch) dom.langSwitch.value = lang;
+  if (dom.langSwitchDrawer) dom.langSwitchDrawer.value = lang;
+
+  // Sync drawer pill buttons active state
+  $$('.lang-switch-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.langVal === lang);
+  });
+
+  // Sync header dropdown items active state + button label
+  $$('.lang-dropdown-item').forEach(item => {
+    item.classList.toggle('active', item.dataset.langVal === lang);
+  });
+  const headerLangBtn = $('#header-lang-btn');
+  if (headerLangBtn) headerLangBtn.textContent = lang.toUpperCase();
+
+  $$('[data-i18n]').forEach(el => {
+    el.textContent = t(el.getAttribute('data-i18n'));
+  });
+  $$('[data-i18n-title]').forEach(el => {
+    el.setAttribute('title', t(el.getAttribute('data-i18n-title')));
+  });
+  $$('[data-i18n-placeholder]').forEach(el => {
+    el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+  });
+  $$('[data-i18n-aria-label]').forEach(el => {
+    el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria-label')));
+  });
+
+  if (dom.searchInput) {
+    dom.searchInput.placeholder = t('search_placeholder');
+  }
+  if (dom.drawerTolValue) {
+    dom.drawerTolValue.textContent = getToleranceLabel(state.colorThreshold, state.lang);
+  }
+
+  if (state.modalFilm && dom.modalSummary) {
+    dom.modalSummary.textContent = state.lang === 'ja' ? (state.modalFilm.resume_ja || state.modalFilm.resume_en || state.modalFilm.resume_fr || '') : (state.lang === 'en' ? (state.modalFilm.resume_en || state.modalFilm.resume_fr || '') : (state.modalFilm.resume_fr || state.modalFilm.resume_en || ''));
+    if (dom.modalGenres) {
+      dom.modalGenres.innerHTML = (state.modalFilm.genres || [])
+        .map(g => `<span class="genre-tag">${esc(translateGenre(g, state.lang))}</span>`).join('');
+    }
+  }
+
+  buildDrawerGenreChips();
 }
 
 function applyTheme(theme) {

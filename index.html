@@ -78,10 +78,10 @@
           <input
             type="text"
             id="search-input"
-            placeholder="Titre, réalisateur…"
+            data-i18n-placeholder="search_placeholder"
             autocomplete="off"
             spellcheck="false"
-            aria-label="Rechercher"
+            data-i18n-aria-label="search"
           />
 
           <!-- Clear text button (hidden when no text) -->
@@ -90,7 +90,7 @@
           </button>
 
           <!-- Prominent Image Search Trigger Button -->
-          <button id="image-search-trigger" class="search-action-btn search-camera-btn" aria-label="Rechercher par image" title="Rechercher par image">
+          <button id="image-search-trigger" class="search-action-btn search-camera-btn" data-i18n-aria-label="search_by_image" data-i18n-title="search_by_image">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
               <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
               <circle cx="12" cy="13" r="4"/>
@@ -98,7 +98,7 @@
           </button>
 
           <!-- Prominent Color Picker Trigger Button -->
-          <button id="color-picker-trigger" class="color-trigger-btn-large" aria-label="Choisir une couleur" title="Choisir une couleur">
+          <button id="color-picker-trigger" class="color-trigger-btn-large" data-i18n-aria-label="pick_color_btn_title" data-i18n-title="pick_color_btn_title">
             <svg class="color-wheel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="9"/>
               <path d="M12 3a9 9 0 0 1 9 9c0 2.5-2 4.5-4.5 4.5H14a2 2 0 0 0-2 2v.5c0 1.1-.9 2-2 2A9 9 0 0 1 12 3z"/>
@@ -115,7 +115,7 @@
       <div class="header-right">
         <!-- Elegant Header Language Dropdown -->
         <div class="header-lang-switcher">
-          <button id="header-lang-btn" class="header-lang-btn" aria-haspopup="true" aria-expanded="false" title="Changer la langue">FR</button>
+          <button id="header-lang-btn" class="header-lang-btn" aria-haspopup="true" aria-expanded="false" data-i18n-title="change_language">FR</button>
           <div id="header-lang-dropdown" class="header-lang-dropdown" hidden>
             <button class="lang-dropdown-item" data-lang-val="fr">Français</button>
             <button class="lang-dropdown-item" data-lang-val="en">English</button>
@@ -124,7 +124,7 @@
         </div>
 
         <!-- Invert Theme Toggle -->
-        <button id="theme-toggle" class="header-icon-btn" aria-label="Inverser les couleurs" title="Inverser les couleurs">
+        <button id="theme-toggle" class="header-icon-btn" data-i18n-aria-label="toggle_theme" data-i18n-title="toggle_theme">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
             <circle cx="12" cy="12" r="9"/>
             <path d="M12 3v18a9 9 0 0 1 0-18z" fill="currentColor"/>
@@ -132,7 +132,7 @@
         </button>
 
         <!-- User Profile / Auth Trigger Button (Replaces FR/EN) -->
-        <button id="user-profile-trigger" class="header-avatar-btn" aria-label="Compte utilisateur" title="Mon Profil / Connexion">
+        <button id="user-profile-trigger" class="header-avatar-btn" data-i18n-aria-label="user_profile_title" data-i18n-title="user_profile_title">
           <img id="header-avatar-img" src="" alt="Avatar" class="header-avatar-img" hidden />
           <div id="header-avatar-placeholder" class="header-avatar-placeholder">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
@@ -143,7 +143,7 @@
         </button>
 
         <!-- Nav Menu Trigger -->
-        <button id="burger-trigger" class="header-icon-btn burger-trigger-lines" aria-label="Menu de navigation" title="Navigation">
+        <button id="burger-trigger" class="header-icon-btn burger-trigger-lines" data-i18n-aria-label="navigation" data-i18n-title="navigation">
           <span class="burger-line"></span>
           <span class="burger-line"></span>
           <span class="burger-line"></span>
@@ -302,11 +302,11 @@
   <!-- ============================================================
        FILTERS DRAWER (slide-over from right) — Contains Sort + Filters
   ============================================================ -->
-  <div id="burger-drawer" class="burger-drawer" hidden role="dialog" aria-modal="true" aria-label="Filtres et tri">
+  <div id="burger-drawer" class="burger-drawer" hidden role="dialog" data-i18n-aria-label="filters_menu" aria-label="Filtres et tri">
     <div class="drawer-backdrop" id="drawer-backdrop"></div>
     <div class="drawer-content">
       <div class="drawer-header">
-        <h3 class="drawer-title">Filtres</h3>
+        <h3 class="drawer-title" data-i18n="filters_menu_short">Filtres</h3>
         <button id="drawer-close" class="drawer-close-btn" aria-label="Fermer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
             <path d="M18 6 6 18M6 6l12 12"/>
@@ -341,11 +341,11 @@
           <div class="drawer-mode-toggle">
             <button class="drawer-mode-btn active" data-mode="or">
               <span class="drawer-mode-label" data-i18n="filter_mode_or_short">AU MOINS 1</span>
-              <span class="drawer-mode-desc">une couleur suffit</span>
+              <span class="drawer-mode-desc" data-i18n="filter_mode_or_desc_short">une couleur suffit</span>
             </button>
             <button class="drawer-mode-btn" data-mode="and">
               <span class="drawer-mode-label" data-i18n="filter_mode_and_short">TOUTES</span>
-              <span class="drawer-mode-desc">toutes requises</span>
+              <span class="drawer-mode-desc" data-i18n="filter_mode_and_desc_short">toutes requises</span>
             </button>
           </div>
         </div>

@@ -27,7 +27,7 @@
       <div class="header-right" style="margin-left: auto;">
         <!-- Elegant Header Language Dropdown -->
         <div class="header-lang-switcher">
-          <button id="header-lang-btn" class="header-lang-btn" aria-haspopup="true" aria-expanded="false" title="Changer la langue">FR</button>
+          <button id="header-lang-btn" class="header-lang-btn" aria-haspopup="true" aria-expanded="false" data-i18n-title="change_language">FR</button>
           <div id="header-lang-dropdown" class="header-lang-dropdown" hidden>
             <button class="lang-dropdown-item" data-lang-val="fr">Français</button>
             <button class="lang-dropdown-item" data-lang-val="en">English</button>
@@ -35,13 +35,13 @@
           </div>
         </div>
 
-        <button id="theme-toggle" class="header-icon-btn" aria-label="Inverser les couleurs" title="Changer le thème">
+        <button id="theme-toggle" class="header-icon-btn" data-i18n-aria-label="toggle_theme" data-i18n-title="toggle_theme">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
             <circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 1 0-18z" fill="currentColor"/>
           </svg>
         </button>
 
-        <button id="user-profile-trigger" class="header-avatar-btn" aria-label="Compte utilisateur" title="Mon Profil / Connexion">
+        <button id="user-profile-trigger" class="header-avatar-btn" data-i18n-aria-label="user_profile_title" data-i18n-title="user_profile_title">
           <img id="header-avatar-img" src="" alt="Avatar" class="header-avatar-img" hidden />
           <div id="header-avatar-placeholder" class="header-avatar-placeholder">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
@@ -50,7 +50,7 @@
             </svg>
           </div>
         </button>
-        <button id="burger-trigger" class="header-icon-btn burger-trigger-lines" aria-label="Menu de navigation" title="Navigation">
+        <button id="burger-trigger" class="header-icon-btn burger-trigger-lines" data-i18n-aria-label="navigation" data-i18n-title="navigation">
           <span class="burger-line"></span>
           <span class="burger-line"></span>
           <span class="burger-line"></span>

@@ -29,7 +29,7 @@
       <div class="header-right" style="margin-left: auto;">
         <!-- Elegant Header Language Dropdown -->
         <div class="header-lang-switcher">
-          <button id="header-lang-btn" class="header-lang-btn" aria-haspopup="true" aria-expanded="false" title="Changer la langue">FR</button>
+          <button id="header-lang-btn" class="header-lang-btn" aria-haspopup="true" aria-expanded="false" data-i18n-title="change_language">FR</button>
           <div id="header-lang-dropdown" class="header-lang-dropdown" hidden>
             <button class="lang-dropdown-item" data-lang-val="fr">Français</button>
             <button class="lang-dropdown-item" data-lang-val="en">English</button>
@@ -37,12 +37,12 @@
           </div>
         </div>
 
-        <button id="theme-toggle" class="header-icon-btn" aria-label="Inverser les couleurs" title="Changer le thème">
+        <button id="theme-toggle" class="header-icon-btn" data-i18n-aria-label="toggle_theme" data-i18n-title="toggle_theme">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
             <circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 1 0-18z" fill="currentColor"/>
           </svg>
         </button>
-        <button id="user-profile-trigger" class="header-avatar-btn" aria-label="Compte utilisateur" title="Mon Profil / Connexion">
+        <button id="user-profile-trigger" class="header-avatar-btn" data-i18n-aria-label="user_profile_title" data-i18n-title="user_profile_title">
           <img id="header-avatar-img" src="" alt="Avatar" class="header-avatar-img" hidden />
           <div id="header-avatar-placeholder" class="header-avatar-placeholder">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
@@ -50,7 +50,7 @@
             </svg>
           </div>
         </button>
-        <button id="burger-trigger" class="header-icon-btn burger-trigger-lines" aria-label="Menu de navigation" title="Navigation">
+        <button id="burger-trigger" class="header-icon-btn burger-trigger-lines" data-i18n-aria-label="navigation" data-i18n-title="navigation">
           <span class="burger-line"></span>
           <span class="burger-line"></span>
           <span class="burger-line"></span>
@@ -65,22 +65,22 @@
     <!-- 1. Logged Out State (Premium Card Form) -->
     <div id="logged-out-container" class="logged-out-container" hidden>
       <div class="auth-card">
-        <h2 class="auth-card-title">Connexion à votre espace</h2>
-        <p class="auth-card-subtitle">Connectez-vous pour retrouver vos favoris et vos collections d'affiches.</p>
+        <h2 class="auth-card-title" data-i18n="profile_login_title">Connexion à votre espace</h2>
+        <p class="auth-card-subtitle" data-i18n="profile_login_subtitle">Connectez-vous pour retrouver vos favoris et vos collections d'affiches.</p>
         <form id="profile-login-form" class="profile-login-form">
           <div class="form-group">
-            <label for="login-username">Nom d'utilisateur ou Adresse Email</label>
+            <label for="login-username" data-i18n="auth_username_email">Nom d'utilisateur ou Adresse Email</label>
             <input type="text" id="login-username" required placeholder="Ex: alexandre" class="form-input" />
           </div>
           <div class="form-group">
-            <label for="login-pwd">Mot de passe</label>
+            <label for="login-pwd" data-i18n="auth_password">Mot de passe</label>
             <input type="password" id="login-pwd" required placeholder="••••••••" class="form-input" />
           </div>
-          <button type="submit" class="auth-submit-btn">Se connecter</button>
+          <button type="submit" class="auth-submit-btn" data-i18n="login">Se connecter</button>
         </form>
         <div class="auth-switch-prompt">
-          <span>Pas encore de compte ?</span>
-          <a href="./register.html" class="auth-register-link">Créer un compte</a>
+          <span data-i18n="profile_no_account">Pas encore de compte ?</span>
+          <a href="./register.html" class="auth-register-link" data-i18n="register">Créer un compte</a>
         </div>
       </div>
     </div>
@@ -109,25 +109,25 @@
           </div>
           <div class="profile-sidebar-info">
             <div class="info-item">
-              <span class="info-label">Nom complet :</span>
+              <span class="info-label" data-i18n="profile_info_name">Nom complet :</span>
               <span id="info-val-name" class="info-val">N/A</span>
             </div>
             <div class="info-item">
-              <span class="info-label">Âge :</span>
+              <span class="info-label" data-i18n="profile_info_age">Âge :</span>
               <span id="info-val-age" class="info-val">N/A</span>
             </div>
             <div class="info-item">
-              <span class="info-label">Rejoint le :</span>
+              <span class="info-label" data-i18n="profile_info_joined">Rejoint le :</span>
               <span id="info-val-joined" class="info-val">N/A</span>
             </div>
           </div>
           <div class="profile-sidebar-actions">
-            <button id="btn-edit-profile" class="btn-sidebar-edit">Modifier mon profil</button>
+            <button id="btn-edit-profile" class="btn-sidebar-edit" data-i18n="profile_btn_edit">Modifier mon profil</button>
             <button id="btn-logout" class="btn-sidebar-logout">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
               </svg>
-              Se déconnecter
+              <span data-i18n="logout">Se déconnecter</span>
             </button>
           </div>
         </aside>
@@ -137,10 +137,10 @@
           <!-- Navigation Tabs -->
           <div class="profile-tabs-bar">
             <button id="tab-likes" class="profile-tab-btn active">
-              <span>Mes Favoris</span>
+              <span data-i18n="tab_likes">Mes Favoris</span>
             </button>
             <button id="tab-collections" class="profile-tab-btn">
-              <span>Mes Collections</span>
+              <span data-i18n="tab_collections">Mes Collections</span>
             </button>
           </div>
 
@@ -152,24 +152,24 @@
               <div id="likes-grid" class="profile-posters-masonry"></div>
               <div id="likes-empty" class="view-empty-state" hidden>
                 <div class="empty-icon">❤️</div>
-                <h3>Aucun favori pour le moment</h3>
-                <p>Explorez le catalogue et ajoutez des affiches à vos favoris en cliquant sur l'icône de cœur.</p>
-                <a href="./index.html" class="btn-empty-action">Explorer la galerie</a>
+                <h3 data-i18n="profile_empty_likes_title">Aucun favori pour le moment</h3>
+                <p data-i18n="profile_empty_likes_desc">Explorez le catalogue et ajoutez des affiches à vos favoris en cliquant sur l'icône de cœur.</p>
+                <a href="./index.html" class="btn-empty-action" data-i18n="profile_btn_explore_gallery">Explorer la galerie</a>
               </div>
             </div>
 
             <!-- B. Collections List -->
             <div id="view-collections" class="profile-tab-content-view" hidden>
               <div class="collections-action-row">
-                <h3 class="view-subtitle">Mes sélections personnalisées</h3>
-                <button id="btn-create-collection" class="btn-create-collection">+ Nouvelle collection</button>
+                <h3 class="view-subtitle" data-i18n="profile_collections_subtitle">Mes sélections personnalisées</h3>
+                <button id="btn-create-collection" class="btn-create-collection" data-i18n="profile_btn_create_collection">+ Nouvelle collection</button>
               </div>
               <div id="collections-grid" class="profile-collections-cards-grid"></div>
               <div id="collections-empty" class="view-empty-state" hidden>
                 <div class="empty-icon">📁</div>
-                <h3>Aucune collection créée</h3>
-                <p>Regroupez vos affiches préférées dans des collections thématiques personnalisées.</p>
-                <button class="btn-empty-action btn-trigger-create-collection">+ Créer une collection</button>
+                <h3 data-i18n="profile_empty_cols_title">Aucune collection créée</h3>
+                <p data-i18n="profile_empty_cols_desc">Regroupez vos affiches préférées dans des collections thématiques personnalisées.</p>
+                <button class="btn-empty-action btn-trigger-create-collection" data-i18n="profile_btn_create_collection">+ Créer une collection</button>
               </div>
             </div>
 
@@ -180,7 +180,7 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
                     <path d="M19 12H5M12 19l-7-7 7-7"/>
                   </svg>
-                  Retour aux collections
+                  <span data-i18n="profile_btn_back_to_cols">Retour aux collections</span>
                 </button>
                 <div class="collection-detail-title-row">
                   <h2 id="collection-detail-title">Nom de la collection</h2>
@@ -189,13 +189,13 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
                         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
                       </svg>
-                      Modifier
+                      <span data-i18n="profile_btn_edit_col">Modifier</span>
                     </button>
                     <button id="btn-delete-collection" class="btn-collection-action btn-delete" title="Supprimer la collection">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
                         <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/>
                       </svg>
-                      Supprimer
+                      <span data-i18n="profile_btn_delete_col">Supprimer</span>
                     </button>
                   </div>
                 </div>
@@ -207,9 +207,9 @@
               
               <div id="collection-posters-empty" class="view-empty-state" hidden>
                 <div class="empty-icon">🖼️</div>
-                <h3>Cette collection est vide</h3>
-                <p>Naviguez sur la galerie principale et utilisez l'icône de marque-page d'une affiche pour l'ajouter à cette collection.</p>
-                <a href="./index.html" class="btn-empty-action">Parcourir les affiches</a>
+                <h3 data-i18n="profile_empty_col_detail_title">Cette collection est vide</h3>
+                <p data-i18n="profile_empty_col_detail_desc">Naviguez sur la galerie principale et utilisez l'icône de marque-page d'une affiche pour l'ajouter à cette collection.</p>
+                <a href="./index.html" class="btn-empty-action" data-i18n="profile_btn_browse_posters">Parcourir les affiches</a>
               </div>
             </div>
 
@@ -447,14 +447,14 @@
           <input type="email" id="edit-profile-email" required class="form-input" />
         </div>
         <div class="form-group">
-          <label for="edit-profile-name">Nom complet</label>
+          <label for="edit-profile-name" data-i18n="profile_full_name">Nom complet</label>
           <input type="text" id="edit-profile-name" class="form-input" />
         </div>
         <div class="form-group">
-          <label for="edit-profile-age">Âge</label>
+          <label for="edit-profile-age" data-i18n="profile_age">Âge</label>
           <input type="number" id="edit-profile-age" min="1" max="120" class="form-input" />
         </div>
-        <button type="submit" class="auth-submit-btn">Sauvegarder les modifications</button>
+        <button type="submit" class="auth-submit-btn" data-i18n="profile_save_btn">Sauvegarder les modifications</button>
       </form>
     </div>
   </div>

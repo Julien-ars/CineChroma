@@ -365,11 +365,40 @@ function syncSidebarInfo() {
   dom.profileDisplayUsername.textContent = state.user.username;
   dom.profileDisplayEmail.textContent = state.user.email;
   
-  dom.badgeFavCount.textContent = `${state.favorites.size} favori${state.favorites.size > 1 ? 's' : ''}`;
-  dom.badgeColCount.textContent = `${state.collections.length} collection${state.collections.length > 1 ? 's' : ''}`;
+  let favText = '';
+  if (state.lang === 'ja') {
+    favText = `${state.favorites.size} 件のお気に入り`;
+  } else if (state.lang === 'en') {
+    favText = `${state.favorites.size} favorite${state.favorites.size > 1 ? 's' : ''}`;
+  } else {
+    favText = `${state.favorites.size} favori${state.favorites.size > 1 ? 's' : ''}`;
+  }
+  dom.badgeFavCount.textContent = favText;
+
+  let colText = '';
+  if (state.lang === 'ja') {
+    colText = `${state.collections.length} 個のコレクション`;
+  } else if (state.lang === 'en') {
+    colText = `${state.collections.length} collection${state.collections.length > 1 ? 's' : ''}`;
+  } else {
+    colText = `${state.collections.length} collection${state.collections.length > 1 ? 's' : ''}`;
+  }
+  dom.badgeColCount.textContent = colText;
   
   dom.infoValName.textContent = state.user.name || 'N/A';
-  dom.infoValAge.textContent = state.user.age ? `${state.user.age} ans` : 'N/A';
+  
+  let ageText = 'N/A';
+  if (state.user.age) {
+    if (state.lang === 'ja') {
+      ageText = `${state.user.age} 歳`;
+    } else if (state.lang === 'en') {
+      ageText = `${state.user.age} years old`;
+    } else {
+      ageText = `${state.user.age} ans`;
+    }
+  }
+  dom.infoValAge.textContent = ageText;
+  
   dom.infoValJoined.textContent = state.user.joinedDate || 'N/A';
   
   // Sync pages.js header triggers if present
@@ -391,18 +420,19 @@ function handleLogin(e) {
   const ident = dom.loginUsername.value.trim();
   if (!ident) return;
   
+  const locale = state.lang === 'ja' ? 'ja-JP' : state.lang === 'en' ? 'en-US' : 'fr-FR';
   const user = {
     username: ident.includes('@') ? ident.split('@')[0] : ident,
     email: ident.includes('@') ? ident : `${ident}@cinechroma.app`,
     name: '',
     age: '',
     avatar: PRESET_AVATARS[0],
-    joinedDate: new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })
+    joinedDate: new Date().toLocaleDateString(locale, { month: 'long', year: 'numeric' })
   };
   
   state.user = user;
   localStorage.setItem('cinechroma_user', JSON.stringify(user));
-  showToast("Connexion réussie !");
+  showToast(t('profile_toast_login_success'));
   showDashboard();
 }
 
@@ -410,7 +440,7 @@ function handleLogin(e) {
 function logoutUser() {
   localStorage.removeItem('cinechroma_user');
   state.user = null;
-  showToast("Déconnecté avec succès.");
+  showToast(t('profile_toast_logout_success'));
   
   // Sync pages.js header triggers
   const headerAvatarImg = $('#header-avatar-img');
@@ -521,17 +551,26 @@ function renderCollectionsTab() {
         </div>
       `;
     } else {
-      previewsHtml = `<div class="collection-preview-empty">Dossier vide</div>`;
+      previewsHtml = `<div class="collection-preview-empty">${t('profile_col_empty_folder')}</div>`;
     }
     
+    let itemsCountText = '';
+    if (state.lang === 'ja') {
+      itemsCountText = `${count} 枚のポスター`;
+    } else if (state.lang === 'en') {
+      itemsCountText = `${count} poster${count > 1 ? 's' : ''}`;
+    } else {
+      itemsCountText = `${count} affiche${count > 1 ? 's' : ''}`;
+    }
+
     card.innerHTML = `
-      <button class="collection-delete-btn" data-id="${col.id}" title="Supprimer la collection">
+      <button class="collection-delete-btn" data-id="${col.id}" title="${t('profile_btn_delete_col')}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
       ${previewsHtml}
       <div class="collection-card-name">${esc(col.title)}</div>
-      <div class="collection-card-desc">${esc(col.desc || 'Sans description')}</div>
-      <div class="collection-card-count">${count} affiche${count > 1 ? 's' : ''}</div>
+      <div class="collection-card-desc">${esc(col.desc || t('profile_col_no_desc'))}</div>
+      <div class="collection-card-count">${itemsCountText}</div>
     `;
     
     // Navigate on card click
@@ -559,13 +598,22 @@ function renderCollectionDetails(colId) {
   }
   
   dom.collectionDetailTitle.textContent = col.title;
-  dom.collectionDetailDesc.textContent = col.desc || 'Aucune description';
+  dom.collectionDetailDesc.textContent = col.desc || t('profile_col_any_no_desc');
   
   dom.collectionPostersGrid.innerHTML = '';
   
   const colFilms = state.allFilms.filter(f => col.filmIds && col.filmIds.includes(getFilmId(f)));
   const count = colFilms.length;
-  dom.collectionDetailBadge.textContent = `${count} affiche${count > 1 ? 's' : ''}`;
+  
+  let itemsCountText = '';
+  if (state.lang === 'ja') {
+    itemsCountText = `${count} 枚のポスター`;
+  } else if (state.lang === 'en') {
+    itemsCountText = `${count} poster${count > 1 ? 's' : ''}`;
+  } else {
+    itemsCountText = `${count} affiche${count > 1 ? 's' : ''}`;
+  }
+  dom.collectionDetailBadge.textContent = itemsCountText;
   
   if (count === 0) {
     dom.collectionPostersEmpty.removeAttribute('hidden');
@@ -646,10 +694,10 @@ function toggleFavorite(filmId) {
   const isRemoving = state.favorites.has(filmId);
   if (isRemoving) {
     state.favorites.delete(filmId);
-    showToast("Retiré des favoris.");
+    showToast(t('profile_toast_fav_removed'));
   } else {
     state.favorites.add(filmId);
-    showToast("Ajouté aux favoris !");
+    showToast(t('profile_toast_fav_added'));
   }
   
   localStorage.setItem('cinechroma_favorites', JSON.stringify([...state.favorites]));
@@ -674,7 +722,7 @@ function removeFilmFromCollection(filmId, colId) {
   
   col.filmIds = (col.filmIds || []).filter(id => id !== filmId);
   localStorage.setItem('cinechroma_collections', JSON.stringify(state.collections));
-  showToast("Retiré de la collection.");
+  showToast(t('profile_toast_col_removed'));
   
   // Re-render collection detail
   renderCollectionDetails(colId);
@@ -685,10 +733,11 @@ function handleDeleteCollection(colId) {
   const col = state.collections.find(c => c.id === colId);
   if (!col) return;
   
-  if (confirm(`Voulez-vous vraiment supprimer la collection "${col.title}" ?`)) {
+  const confirmMsg = t('profile_confirm_delete_col').replace('{name}', col.title);
+  if (confirm(confirmMsg)) {
     state.collections = state.collections.filter(c => c.id !== colId);
     localStorage.setItem('cinechroma_collections', JSON.stringify(state.collections));
-    showToast("Collection supprimée.");
+    showToast(t('profile_toast_col_deleted'));
     
     syncSidebarInfo();
     showCollectionsList();
@@ -754,7 +803,7 @@ function handleSaveProfile(e) {
   state.user.avatar = finalAvatar;
   
   localStorage.setItem('cinechroma_user', JSON.stringify(state.user));
-  showToast("Profil enregistré !");
+  showToast(t('profile_toast_saved'));
   
   syncSidebarInfo();
   closeEditProfileModal();
@@ -767,17 +816,17 @@ function openColModal(colId = null) {
     const col = state.collections.find(c => c.id === colId);
     if (!col) return;
     
-    dom.colModalTitle.textContent = "Modifier la Collection";
+    dom.colModalTitle.textContent = t('profile_btn_edit_col') + ' ' + t('poster_style');
     dom.colTitle.value = col.title;
     dom.colDesc.value = col.desc || '';
-    dom.colSubmitBtn.textContent = "Enregistrer";
+    dom.colSubmitBtn.textContent = t('profile_save_btn');
     state.activeCollectionId = colId;
   } else {
     // Create new collection state
-    dom.colModalTitle.textContent = "Nouvelle Collection";
+    dom.colModalTitle.textContent = t('new_collection');
     dom.colTitle.value = '';
     dom.colDesc.value = '';
-    dom.colSubmitBtn.textContent = "Créer la collection";
+    dom.colSubmitBtn.textContent = t('create_collection_btn');
   }
   
   dom.createCollectionModal.removeAttribute('hidden');
@@ -794,14 +843,14 @@ function handleColFormSubmit(e) {
   const desc = dom.colDesc.value.trim();
   if (!title) return;
   
-  if (dom.colSubmitBtn.textContent === "Enregistrer" && state.activeCollectionId) {
+  if ((dom.colSubmitBtn.textContent === t('profile_save_btn') || dom.colSubmitBtn.textContent === "Enregistrer") && state.activeCollectionId) {
     // Save modifications
     const col = state.collections.find(c => c.id === state.activeCollectionId);
     if (col) {
       col.title = title;
       col.desc = desc;
       localStorage.setItem('cinechroma_collections', JSON.stringify(state.collections));
-      showToast("Collection mise à jour.");
+      showToast(t('profile_toast_col_updated'));
       
       closeColModal();
       renderCollectionDetails(state.activeCollectionId);
@@ -817,7 +866,7 @@ function handleColFormSubmit(e) {
     
     state.collections.push(newCol);
     localStorage.setItem('cinechroma_collections', JSON.stringify(state.collections));
-    showToast("Collection créée avec succès !");
+    showToast(t('profile_toast_col_created'));
     
     closeColModal();
     syncSidebarInfo();
@@ -833,7 +882,7 @@ function openCollectionChooser(film) {
   dom.chooserCollectionsList.innerHTML = '';
   
   if (state.collections.length === 0) {
-    dom.chooserCollectionsList.innerHTML = `<div style="text-align:center;padding:12px;color:var(--text-3);font-size:0.78rem;">Aucune collection créée pour le moment.</div>`;
+    dom.chooserCollectionsList.innerHTML = `<div style="text-align:center;padding:12px;color:var(--text-3);font-size:0.78rem;">${t('profile_toast_empty_cols')}</div>`;
   } else {
     state.collections.forEach(col => {
       const inCol = col.filmIds && col.filmIds.includes(filmId);
@@ -873,10 +922,12 @@ function toggleFilmInCollection(filmId, colId) {
   const idx = col.filmIds.indexOf(filmId);
   if (idx === -1) {
     col.filmIds.push(filmId);
-    showToast(`Ajouté à la collection "${col.title}"`);
+    const addedMsg = t('profile_toast_col_added_to').replace('{name}', col.title);
+    showToast(addedMsg);
   } else {
     col.filmIds.splice(idx, 1);
-    showToast(`Retiré de la collection "${col.title}"`);
+    const removedMsg = t('profile_toast_col_removed_from').replace('{name}', col.title);
+    showToast(removedMsg);
   }
   
   localStorage.setItem('cinechroma_collections', JSON.stringify(state.collections));
@@ -993,17 +1044,17 @@ function populateModal(film, startingPosterIndex = 0) {
   }
 
   dom.modalGenres.innerHTML = (film.genres || [])
-    .map(g => `<span class="genre-tag">${esc(g)}</span>`).join('');
+    .map(g => `<span class="genre-tag">${esc(translateGenre(g, state.lang))}</span>`).join('');
 
-  dom.modalTitle.textContent = film.titre || film.titre_original || 'Titre inconnu';
+  dom.modalTitle.textContent = film.titre || film.titre_original || t('profile_unknown_title');
   dom.modalOriginalTitle.textContent =
     film.titre_original && film.titre_original !== film.titre ? film.titre_original : '';
 
   const r = film.note_moyenne || 0;
   dom.modalStars.innerHTML = starsHtml(r);
   dom.modalRating.textContent = r ? r.toFixed(1) : 'N/A';
-  dom.modalPopularity.textContent = film.popularite ? Math.round(film.popularite).toLocaleString('fr-FR') : 'N/A';
-  dom.modalDirector.textContent = film.realisateur || 'N/A';
+  dom.modalPopularity.textContent = film.popularite ? Math.round(film.popularite).toLocaleString(state.lang === 'ja' ? 'ja-JP' : state.lang === 'en' ? 'en-US' : 'fr-FR') : 'N/A';
+  dom.modalDirector.textContent = film.realisateur || t('profile_unknown_director');
   dom.modalDate.textContent     = formatDate(film.date_sortie);
   
   const runtimeMin = film.duree_minutes || film.duree_min;
@@ -1014,7 +1065,16 @@ function populateModal(film, startingPosterIndex = 0) {
   dom.modalBudget.textContent   = formatCurrency(film.budget);
   dom.modalRevenue.textContent  = formatCurrency(film.recettes);
 
-  dom.modalSummary.textContent = film.resume_fr || film.resume_en || 'Résumé non disponible.';
+  // Translate summary based on active language
+  let summary = '';
+  if (state.lang === 'ja') {
+    summary = film.resume_ja || film.resume_en || film.resume_fr || t('profile_summary_no_available');
+  } else if (state.lang === 'en') {
+    summary = film.resume_en || film.resume_fr || t('profile_summary_no_available');
+  } else {
+    summary = film.resume_fr || film.resume_en || t('profile_summary_no_available');
+  }
+  dom.modalSummary.textContent = summary;
 }
 
 function updateModalAmbientGlowColor(film, idx) {
@@ -1275,7 +1335,8 @@ function formatDate(dateStr) {
   if (!dateStr) return 'N/A';
   try {
     const d = new Date(dateStr);
-    return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+    const locale = state.lang === 'ja' ? 'ja-JP' : state.lang === 'en' ? 'en-US' : 'fr-FR';
+    return d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
   } catch(e) {
     return dateStr;
   }
@@ -1285,12 +1346,23 @@ function formatRuntime(runtime) {
   if (!runtime) return 'N/A';
   const hrs = Math.floor(runtime / 60);
   const mins = runtime % 60;
-  return hrs > 0 ? `${hrs}h ${mins}min` : `${mins}min`;
+  if (state.lang === 'ja') {
+    return hrs > 0 ? `${hrs}時間 ${mins}分` : `${mins}分`;
+  } else if (state.lang === 'en') {
+    return hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
+  } else {
+    return hrs > 0 ? `${hrs}h ${mins}min` : `${mins}min`;
+  }
 }
 
 function formatCurrency(val) {
   if (!val) return 'N/A';
-  return '$' + Number(val).toLocaleString('en-US');
+  const currencyCode = state.lang === 'ja' ? 'JPY' : 'USD';
+  return new Intl.NumberFormat(state.lang === 'ja' ? 'ja-JP' : 'en-US', {
+    style: 'currency',
+    currency: currencyCode,
+    maximumFractionDigits: 0
+  }).format(val);
 }
 
 // Custom Toast Manager

@@ -241,8 +241,8 @@ function useHint() {
   const prefix = t('game_hint_prefix') + ` ${gameState.hintsUsed} :`;
   
   if (gameState.hintsUsed === 1) {
-    const year = film.date_sortie ? new Date(film.date_sortie).getFullYear() : (state.lang === 'ja' ? '不明' : 'Inconnue');
-    const dir = film.realisateur || (state.lang === 'ja' ? '不明' : 'Inconnu');
+    const year = film.date_sortie ? new Date(film.date_sortie).getFullYear() : t('profile_unknown_year');
+    const dir = film.realisateur || t('profile_unknown_director');
     
     let hintText = '';
     if (state.lang === 'ja') {
@@ -256,7 +256,7 @@ function useHint() {
     dom.hintDisplay.innerHTML += `<div><b>${prefix}</b> ${hintText}</div>`;
   }
   else if (gameState.hintsUsed === 2) {
-    const genres = film.genres ? film.genres.join(', ') : (state.lang === 'ja' ? 'ミステリー映画' : 'Mystère');
+    const genres = film.genres ? film.genres.map(g => translateGenre(g, state.lang)).join(', ') : (state.lang === 'ja' ? 'ミステリー映画' : 'Mystère');
     
     let hintText = '';
     if (state.lang === 'ja') {
@@ -317,9 +317,9 @@ function handleAnswer(btnElement, chosenFilm) {
   dom.bgPoster.style.setProperty('filter', 'blur(0px) brightness(0.9)', 'important');
   document.querySelector('.game-bg-container').classList.add('revealed');
   
-  dom.revealTitle.textContent = film.titre || film.titre_original;
-  const year = film.date_sortie ? new Date(film.date_sortie).getFullYear() : '';
-  dom.revealMeta.textContent = `${film.realisateur || 'Inconnu'} • ${year}`;
+  dom.revealTitle.textContent = film.titre || film.titre_original || t('profile_unknown_title');
+  const year = film.date_sortie ? new Date(film.date_sortie).getFullYear() : t('profile_unknown_year');
+  dom.revealMeta.textContent = `${film.realisateur || t('profile_unknown_director')} • ${year}`;
   dom.revealInfo.hidden = false;
   
   // Bouton suivant (ou terminer)

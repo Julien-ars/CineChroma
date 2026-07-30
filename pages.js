@@ -114,9 +114,97 @@ const I18N = {
     game_btn_start:      'Jouer',
     game_round:          'Manche',
     game_score:          'Score :',
+    game_difficulty_easy:'Facile',
+    game_difficulty_medium:'Moyen',
+    game_difficulty_hard:'Difficile',
+    game_hint_prefix:    'Indice',
+    game_hint_3_text:    'Une silhouette floutée de l\'affiche est maintenant visible en arrière-plan.',
+    game_next_round:     'Suivant ➔',
+    game_see_results:    'Voir les résultats',
+    game_hints_used_label:'Indices utilisés : ',
     game_end_title:      'Partie Terminée',
     game_end_score:      'Score final :',
-    game_btn_replay:     'Rejouer'
+    game_btn_replay:     'Rejouer',
+
+    // Shared Profile & Index missing translations
+    download_poster:     'Télécharger l\'affiche',
+    watch_trailer:       'Bande-annonce',
+    director:            'Réalisateur',
+    release:             'Sortie',
+    runtime:             'Durée',
+    language:            'Langue',
+    budget:              'Budget',
+    revenue:             'Recettes',
+    chromatic_palette:   'Palette',
+    palette_hint:        'cliquer pour filtrer',
+    learn_more:          'Source : TMDb',
+    collection_name:     'Nom de la collection',
+    collection_desc:     'Description (optionnelle)',
+    create_collection_btn:'Créer la collection',
+    auth_choose_avatar:  'Choisissez votre avatar',
+    auth_username:       'Nom d\'utilisateur',
+    auth_email:          'Adresse Email',
+    auth_username_email: 'Email ou Pseudo',
+    auth_password:       'Mot de passe',
+    register_btn:        'Créer mon compte',
+    new_collection:      'Nouvelle Collection',
+    copied_hex:          'Code copié dans le presse-papier !',
+    search_by_image:     'Rechercher par image',
+    pick_color_btn_title: 'Choisir une couleur',
+    change_language:     'Changer la langue',
+    toggle_theme:        'Inverser les couleurs',
+    user_profile_title:  'Mon Profil / Connexion',
+    navigation:          'Navigation',
+    filter_mode_or_desc_short: 'une couleur suffit',
+    filter_mode_and_desc_short: 'toutes requises',
+    filters_menu_short:  'Filtres',
+    pick_color:          'Couleur',
+
+    // Profile page translations
+    profile_full_name:   'Nom complet',
+    profile_age:         'Âge',
+    profile_save_btn:    'Sauvegarder les modifications',
+    profile_login_title: 'Connexion à votre espace',
+    profile_login_subtitle:'Connectez-vous pour retrouver vos favoris et vos collections d\'affiches.',
+    profile_no_account:  'Pas encore de compte ?',
+    profile_info_name:   'Nom complet :',
+    profile_info_age:    'Âge :',
+    profile_info_joined: 'Rejoint le :',
+    profile_btn_edit:    'Modifier mon profil',
+    profile_empty_likes_title:'Aucun favori pour le moment',
+    profile_empty_likes_desc:'Explorez le catalogue et ajoutez des affiches à vos favoris en cliquant sur l\'icône de cœur.',
+    profile_btn_explore_gallery:'Explorer la galerie',
+    profile_collections_subtitle:'Mes sélections personnalisées',
+    profile_btn_create_collection:'+ Nouvelle collection',
+    profile_empty_cols_title:'Aucune collection créée',
+    profile_empty_cols_desc:'Regroupez vos affiches préférées dans des collections thématiques personnalisées.',
+    profile_btn_back_to_cols:'Retour aux collections',
+    profile_btn_edit_col:'Modifier',
+    profile_btn_delete_col:'Supprimer',
+    profile_empty_col_detail_title:'Cette collection est vide',
+    profile_empty_col_detail_desc:'Naviguez sur la galerie principale et utilisez l\'icône de marque-page d\'une affiche pour l\'ajouter à cette collection.',
+    profile_btn_browse_posters:'Parcourir les affiches',
+    profile_toast_saved: 'Profil enregistré !',
+    profile_toast_col_updated:'Collection mise à jour.',
+    profile_toast_col_created:'Collection créée avec succès !',
+    profile_toast_empty_cols:'Aucune collection créée pour le moment.',
+    profile_confirm_delete_col:'Voulez-vous vraiment supprimer la collection "{name}" ?',
+    profile_toast_col_deleted:'Collection supprimée.',
+    profile_toast_fav_removed:'Retiré des favoris.',
+    profile_toast_fav_added: 'Ajouté aux favoris !',
+    profile_toast_col_removed:'Retiré de la collection.',
+    profile_toast_col_added_to:'Ajouté à la collection "{name}"',
+    profile_toast_col_removed_from:'Retiré de la collection "{name}"',
+    profile_toast_login_success:'Connexion réussie !',
+    profile_toast_logout_success:'Déconnecté avec succès.',
+    profile_toast_db_error:'Erreur de chargement de la base de données.',
+    profile_col_empty_folder:'Dossier vide',
+    profile_col_no_desc: 'Sans description',
+    profile_col_any_no_desc:'Aucune description',
+    profile_summary_no_available:'Résumé non disponible.',
+    profile_unknown_title:'Titre inconnu',
+    profile_unknown_director:'Inconnu',
+    profile_unknown_year: 'Inconnue'
   },
   en: {
     nav_gallery:         'Explore',
@@ -225,9 +313,97 @@ const I18N = {
     game_btn_start:      'Play',
     game_round:          'Round',
     game_score:          'Score:',
+    game_difficulty_easy:'Easy',
+    game_difficulty_medium:'Medium',
+    game_difficulty_hard:'Hard',
+    game_hint_prefix:    'Hint',
+    game_hint_3_text:    'A blurry silhouette of the poster is now visible in the background.',
+    game_next_round:     'Next ➔',
+    game_see_results:    'See Results',
+    game_hints_used_label:'Hints used: ',
     game_end_title:      'Game Over',
     game_end_score:      'Final score:',
-    game_btn_replay:     'Play Again'
+    game_btn_replay:     'Play Again',
+
+    // Shared Profile & Index missing translations
+    download_poster:     'Download poster',
+    watch_trailer:       'Trailer',
+    director:            'Director',
+    release:             'Release',
+    runtime:             'Runtime',
+    language:            'Language',
+    budget:              'Budget',
+    revenue:             'Revenue',
+    chromatic_palette:   'Palette',
+    palette_hint:        'click to filter',
+    learn_more:          'Source: TMDb',
+    collection_name:     'Collection name',
+    collection_desc:     'Description (optional)',
+    create_collection_btn:'Create collection',
+    auth_choose_avatar:  'Choose your avatar',
+    auth_username:       'Username',
+    auth_email:          'Email address',
+    auth_username_email: 'Email or Username',
+    auth_password:       'Password',
+    register_btn:        'Create my account',
+    new_collection:      'New Collection',
+    copied_hex:          'Hex code copied to clipboard!',
+    search_by_image:     'Search by image',
+    pick_color_btn_title: 'Choose a color',
+    change_language:     'Change language',
+    toggle_theme:        'Toggle theme',
+    user_profile_title:  'My Profile / Login',
+    navigation:          'Navigation',
+    filter_mode_or_desc_short: 'one color is enough',
+    filter_mode_and_desc_short: 'all colors required',
+    filters_menu_short:  'Filters',
+    pick_color:          'Color',
+
+    // Profile page translations
+    profile_full_name:   'Full name',
+    profile_age:         'Age',
+    profile_save_btn:    'Save changes',
+    profile_login_title: 'Log in to your space',
+    profile_login_subtitle:'Log in to retrieve your favorites and poster collections.',
+    profile_no_account:  'No account yet?',
+    profile_info_name:   'Full name:',
+    profile_info_age:    'Age:',
+    profile_info_joined: 'Joined on:',
+    profile_btn_edit:    'Edit profile',
+    profile_empty_likes_title:'No favorites yet',
+    profile_empty_likes_desc:'Explore the catalog and add posters to your favorites by clicking the heart icon.',
+    profile_btn_explore_gallery:'Explore gallery',
+    profile_collections_subtitle:'My custom selections',
+    profile_btn_create_collection:'+ New collection',
+    profile_empty_cols_title:'No collections created',
+    profile_empty_cols_desc:'Group your favorite posters into custom themed collections.',
+    profile_btn_back_to_cols:'Back to collections',
+    profile_btn_edit_col:'Edit',
+    profile_btn_delete_col:'Delete',
+    profile_empty_col_detail_title:'This collection is empty',
+    profile_empty_col_detail_desc:'Browse the main gallery and use the bookmark icon of a poster to add it to this collection.',
+    profile_btn_browse_posters:'Browse posters',
+    profile_toast_saved: 'Profile saved!',
+    profile_toast_col_updated:'Collection updated.',
+    profile_toast_col_created:'Collection created successfully!',
+    profile_toast_empty_cols:'No collections created yet.',
+    profile_confirm_delete_col:'Are you sure you want to delete the collection "{name}"?',
+    profile_toast_col_deleted:'Collection deleted.',
+    profile_toast_fav_removed:'Removed from favorites.',
+    profile_toast_fav_added: 'Added to favorites!',
+    profile_toast_col_removed:'Removed from collection.',
+    profile_toast_col_added_to:'Added to collection "{name}"',
+    profile_toast_col_removed_from:'Removed from collection "{name}"',
+    profile_toast_login_success:'Log in successful!',
+    profile_toast_logout_success:'Logged out successfully.',
+    profile_toast_db_error:'Error loading database.',
+    profile_col_empty_folder:'Empty folder',
+    profile_col_no_desc: 'No description',
+    profile_col_any_no_desc:'No description',
+    profile_summary_no_available:'Summary not available.',
+    profile_unknown_title:'Unknown title',
+    profile_unknown_director:'Unknown',
+    profile_unknown_year: 'Unknown'
   },
   ja: {
       nav_gallery:         'ギャラリー',
@@ -331,18 +507,104 @@ const I18N = {
       
       // Game translations
       game_start_title:    'CINECHROMA クイズ',
+      game_start_desc:     '色彩を通して映画の知識をテストしましょう。',
+      game_rule_1:         '色彩の特徴から映画を特定します',
+      game_rule_2:         '難易度が上がる全5ラウンド',
+      game_rule_3:         '迷ったときに使える3つのヒント',
       game_btn_start:      'プレイ',
       game_round:          'ラウンド',
       game_score:          'スコア:',
-      game_hint_left:      'ヒント残り:',
-      game_use_hint:       'ヒントを使用',
-      game_no_hint:        'ヒントなし',
-      game_hint_director:  '監督:',
-      game_hint_year:      '公開年:',
-      game_hint_actor:     '出演:',
-      game_game_over:      'ゲームオーバー',
-      game_final_score:    '最終スコア:',
-      game_btn_replay:     'もう一度プレイ'
+      game_difficulty_easy:'初級',
+      game_difficulty_medium:'中級',
+      game_difficulty_hard:'上級',
+      game_hint_prefix:    'ヒント',
+      game_hint_3_text:    'ポスターのぼやけたシルエットが背景に表示されています。',
+      game_next_round:     '次へ ➔',
+      game_see_results:    '結果を見る',
+      game_hints_used_label:'使用したヒント：',
+      game_end_title:      'ゲーム終了',
+      game_end_score:      '最終スコア：',
+      game_btn_replay:     'もう一度プレイ',
+
+      // Shared Profile & Index missing translations
+      download_poster:     'ポスターをダウンロード',
+      watch_trailer:       '予告編',
+      director:            '監督',
+      release:             '公開日',
+      runtime:             '上映時間',
+      language:            '言語',
+      budget:              '予算',
+      revenue:             '興行収入',
+      chromatic_palette:   'パレット',
+      palette_hint:        'クリックしてフィルタリング',
+      learn_more:          'ソース: TMDb',
+      collection_name:     'コレクション名',
+      collection_desc:     '説明（任意）',
+      create_collection_btn:'コレクションを作成',
+      auth_choose_avatar:  'アバターを選択',
+      auth_username:       'ユーザー名',
+      auth_email:          'メールアドレス',
+      auth_username_email: 'メールまたはユーザー名',
+      auth_password:       'パスワード',
+      register_btn:        'アカウントを作成',
+      new_collection:      '新しいコレクション',
+      copied_hex:          '16進数コードがクリップボードにコピーされました！',
+      search_by_image:     '画像で検索',
+      pick_color_btn_title: '色を選択',
+      change_language:     '言語を変更',
+      toggle_theme:        'テーマを切り替え',
+      user_profile_title:  'プロフィール / ログイン',
+      navigation:          'ナビゲーション',
+      filter_mode_or_desc_short: 'いずれかの色に一致',
+      filter_mode_and_desc_short: 'すべての色に一致',
+      filters_menu_short:  'フィルター',
+      pick_color:          '色',
+
+      // Profile page translations
+      profile_full_name:   'フルネーム',
+      profile_age:         '年齢',
+      profile_save_btn:    '変更を保存',
+      profile_login_title: 'スペースへログイン',
+      profile_login_subtitle:'ログインしてお気に入りやコレクションを同期します。',
+      profile_no_account:  'アカウントをお持ちでないですか？',
+      profile_info_name:   'フルネーム：',
+      profile_info_age:    '年齢：',
+      profile_info_joined: '登録日：',
+      profile_btn_edit:    'プロフィールを編集',
+      profile_empty_likes_title:'お気に入りはまだありません',
+      profile_empty_likes_desc:'カタログを探索し、ハートアイコンをクリックしてお気に入りにポスターを追加してください。',
+      profile_btn_explore_gallery:'ギャラリーを探索',
+      profile_collections_subtitle:'カスタムセレクション',
+      profile_btn_create_collection:'＋ 新しいコレクション',
+      profile_empty_cols_title:'作成されたコレクションはありません',
+      profile_empty_cols_desc:'お気に入りのポスターをカスタムテーマ別コレクションにグループ化します。',
+      profile_btn_back_to_cols:'コレクションに戻る',
+      profile_btn_edit_col:'編集',
+      profile_btn_delete_col:'削除',
+      profile_empty_col_detail_title:'このコレクションは空です',
+      profile_empty_col_detail_desc:'メインギャラリーを探索し、ポスターのブックマークアイコンを使用してお気に入りに追加します。',
+      profile_btn_browse_posters:'ポスターをブラウズ',
+      profile_toast_saved: 'プロフィールを保存しました！',
+      profile_toast_col_updated:'コレクションを更新しました。',
+      profile_toast_col_created:'コレクションを作成しました！',
+      profile_toast_empty_cols:'コレクションはまだ作成されていません。',
+      profile_confirm_delete_col:'コレクション「{name}」を削除してもよろしいですか？',
+      profile_toast_col_deleted:'コレクションを削除しました。',
+      profile_toast_fav_removed:'お気に入りから削除しました。',
+      profile_toast_fav_added: 'お気に入りに追加しました！',
+      profile_toast_col_removed:'コレクションから削除しました。',
+      profile_toast_col_added_to:'コレクション「{name}」に追加しました',
+      profile_toast_col_removed_from:'コレクション「{name}」から削除しました',
+      profile_toast_login_success:'ログインに成功しました！',
+      profile_toast_logout_success:'ログアウトしました。',
+      profile_toast_db_error:'データベースの読み込みエラー。',
+      profile_col_empty_folder:'空のフォルダ',
+      profile_col_no_desc: '説明なし',
+      profile_col_any_no_desc:'説明なし',
+      profile_summary_no_available:'概要は利用できません。',
+      profile_unknown_title:'不明なタイトル',
+      profile_unknown_director:'不明',
+      profile_unknown_year: '不明'
     }
 };
 
@@ -356,6 +618,34 @@ const $$ = (s) => [...document.querySelectorAll(s)];
 
 function t(key) {
   return (I18N[state.lang] || I18N.fr)[key] || key;
+}
+
+// --- GENRE DICTIONARY (FR / EN / JA) ---
+const GENRE_I18N = {
+  'Science-Fiction': { fr: 'Science-Fiction', en: 'Sci-Fi', ja: 'SF' },
+  'Action': { fr: 'Action', en: 'Action', ja: 'アクション' },
+  'Thriller': { fr: 'Thriller', en: 'Thriller', ja: 'スリラー' },
+  'Drame': { fr: 'Drame', en: 'Drama', ja: 'ドラマ' },
+  'Aventure': { fr: 'Aventure', en: 'Adventure', ja: 'アドベンチャー' },
+  'Crime': { fr: 'Crime', en: 'Crime', ja: '犯罪' },
+  'Comédie': { fr: 'Comédie', en: 'Comedy', ja: 'コメディ' },
+  'Comédie musicale': { fr: 'Comédie musicale', en: 'Musical', ja: 'ミュージカル' },
+  'Biographie': { fr: 'Biographie', en: 'Biography', ja: '伝記' },
+  'Histoire': { fr: 'Histoire', en: 'History', ja: '歴史' },
+  'Romance': { fr: 'Romance', en: 'Romance', ja: 'ロマンス' },
+  'Fantastique': { fr: 'Fantastique', en: 'Fantasy', ja: 'ファンタジー' },
+  'Guerre': { fr: 'Guerre', en: 'War', ja: '戦争' },
+  'Animation': { fr: 'Animation', en: 'Animation', ja: 'アニメーション' },
+  'Horreur': { fr: 'Horreur', en: 'Horror', ja: 'ホラー' },
+  'Documentaire': { fr: 'Documentaire', en: 'Documentary', ja: 'ドキュメンタリー' },
+  'Mystère': { fr: 'Mystère', en: 'Mystery', ja: 'ミステリー' },
+  'Familial': { fr: 'Familial', en: 'Family', ja: 'ファミリー' },
+  'Western': { fr: 'Western', en: 'Western', ja: '西部劇' }
+};
+
+function translateGenre(g, lang) {
+  if (GENRE_I18N[g]) return GENRE_I18N[g][lang] || g;
+  return g;
 }
 
 // Splits titles into interactive colored letters
@@ -459,8 +749,16 @@ function initUserSession() {
 
 // Apply language updates
 function applyLang(lang) {
-  state.lang = lang;
+  const current = localStorage.getItem('cinechroma_lang') || 'fr';
+  const isInitialLoad = !document.documentElement.lang;
   localStorage.setItem('cinechroma_lang', lang);
+  state.lang = lang;
+  
+  if (lang !== current && !isInitialLoad) {
+    location.reload();
+    return;
+  }
+
   document.documentElement.lang = lang;
 
   // Sync drawer pill buttons
@@ -477,19 +775,29 @@ function applyLang(lang) {
 
   const drawerLangLabel = $('#drawer-lang-label');
   if (drawerLangLabel) {
-    drawerLangLabel.textContent = lang === 'fr' ? 'Langue : Fran\u00e7ais (FR)' : (lang === 'en' ? 'Language: English (EN)' : '\u8a00\u8a9e: \u65e5\u672c\u8a9e (JA)');
+    drawerLangLabel.textContent = lang === 'fr' ? 'Langue : Français (FR)' : (lang === 'en' ? 'Language: English (EN)' : '言語: 日本語 (JA)');
   }
 
+  // Translate all
   $$('[data-i18n]').forEach(el => {
     el.textContent = t(el.getAttribute('data-i18n'));
+  });
+  $$('[data-i18n-title]').forEach(el => {
+    el.setAttribute('title', t(el.getAttribute('data-i18n-title')));
+  });
+  $$('[data-i18n-placeholder]').forEach(el => {
+    el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+  });
+  $$('[data-i18n-aria-label]').forEach(el => {
+    el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria-label')));
   });
 
   const contactName = $('#contact-name');
   const contactEmail = $('#contact-email');
   const contactMessage = $('#contact-message');
-  if (contactName) contactName.placeholder = lang === 'en' ? 'Your name' : (lang === 'ja' ? '\u304a\u540d\u524d' : 'Votre nom');
+  if (contactName) contactName.placeholder = lang === 'en' ? 'Your name' : (lang === 'ja' ? 'お名前' : 'Votre nom');
   if (contactEmail) contactEmail.placeholder = lang === 'en' ? 'name@example.com' : (lang === 'ja' ? 'name@example.com' : 'nom@exemple.com');
-  if (contactMessage) contactMessage.placeholder = lang === 'en' ? 'Your message...' : (lang === 'ja' ? '\u30e1\u30c3\u30bb\u30fc\u30b8...' : 'Votre message...');
+  if (contactMessage) contactMessage.placeholder = lang === 'en' ? 'Your message...' : (lang === 'ja' ? 'メッセージ...' : 'Votre message...');
 
   // Initialize/rebuild letters hover effects on current translated titles
   initTitleLetters();
