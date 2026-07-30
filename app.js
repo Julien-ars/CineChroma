@@ -2359,14 +2359,30 @@ function populateModal(film, startingPosterIndex = 0) {
       const catPosters = (grouped[activeCat] || []).slice(0, 3);
       if (catPosters.length > 1) {
         catPosters.forEach((p, i) => {
-          const dot = document.createElement('button');
-          dot.className = `modal-poster-dot${i === activeIndexInCat ? ' active' : ''}`;
-          dot.setAttribute('aria-label', `Poster ${i+1}`);
-          dot.addEventListener('click', () => {
-            activeIndexInCat = i;
-            renderPosterSection();
-          });
-          dotsContainer.appendChild(dot);
+          const thumbUrl = p.affiche_w500 || p.affiche_original || null;
+          if (thumbUrl) {
+            const img = document.createElement('img');
+            img.src = thumbUrl;
+            img.className = `poster-thumb${i === activeIndexInCat ? ' active' : ''}`;
+            img.alt = `Poster ${i+1}`;
+            img.setAttribute('role', 'button');
+            img.setAttribute('tabindex', '0');
+            img.addEventListener('click', () => {
+              activeIndexInCat = i;
+              renderPosterSection();
+            });
+            img.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { activeIndexInCat = i; renderPosterSection(); } });
+            dotsContainer.appendChild(img);
+          } else {
+            const dot = document.createElement('button');
+            dot.className = `modal-poster-dot${i === activeIndexInCat ? ' active' : ''}`;
+            dot.setAttribute('aria-label', `Poster ${i+1}`);
+            dot.addEventListener('click', () => {
+              activeIndexInCat = i;
+              renderPosterSection();
+            });
+            dotsContainer.appendChild(dot);
+          }
         });
       }
     }

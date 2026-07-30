@@ -1043,12 +1043,14 @@ body {
   border-bottom-color: var(--text-1);
 }
 
-/* Minimalist navigation dots for multiple posters inside category */
+/* Thumbnail navigation for multiple posters inside category */
 .modal-poster-dots {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   justify-content: center;
-  margin-top: 8px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-top: 10px;
   z-index: 2;
   position: relative;
 }
