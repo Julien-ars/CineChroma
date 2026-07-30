@@ -29,6 +29,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Shrikhand&family=Rubik+Bubbles&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Three.js & OrbitControls -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
 
@@ -392,21 +395,21 @@
             <line x1="15" y1="13" x2="15.01" y2="13"></line>
             <line x1="18" y1="11" x2="18.01" y2="11"></line>
           </svg>
-          <span data-i18n="nav_game">Mini-Jeu</span>
+          <span data-i18n="nav_game">Le Jeu</span>
         </a>
-        <a href="#" id="nav-link-favorites" class="nav-menu-link">
+        <a href="./profile.html?tab=likes" id="nav-link-favorites" class="nav-menu-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
           <span data-i18n="favorites">Favoris</span>
         </a>
-        <a href="#" id="nav-link-collections" class="nav-menu-link">
+        <a href="./profile.html?tab=collections" id="nav-link-collections" class="nav-menu-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
             <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
           </svg>
           <span data-i18n="nav_collections">Collections</span>
         </a>
-        <a href="#" id="nav-link-profile" class="nav-menu-link">
+        <a href="./profile.html" id="nav-link-profile" class="nav-menu-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
             <circle cx="12" cy="7" r="4"/>
@@ -625,9 +628,13 @@
             <div class="modal-palette-header-row">
               <span class="modal-palette-label" data-i18n="chromatic_palette">Palette</span>
               <span class="modal-palette-click-hint" data-i18n="palette_hint">cliquer pour sélectionner</span>
+              <button id="modal-3d-toggle-btn" class="modal-3d-toggle-btn">🌐 Mode 3D</button>
               <button id="modal-palette-validate-btn" class="modal-palette-validate-btn" hidden>Valider</button>
             </div>
             <div id="modal-palette" class="modal-palette-dots"></div>
+            
+            <!-- 3D Chromatic Cloud Container -->
+            <div id="modal-3d-cloud" class="modal-3d-cloud"></div>
           </div>
 
           <!-- Synopsis -->
@@ -825,10 +832,17 @@
   </div>
 
 
+  <!-- Poster Lightbox -->
+  <div id="poster-lightbox" class="poster-lightbox" hidden>
+    <div id="lightbox-ambient-glow" class="modal-ambient-glow lightbox-glow"></div>
+    <div class="poster-lightbox-content">
+      <img id="lightbox-img" src="" alt="Affiche agrandie" class="lightbox-img" />
+    </div>
+  </div>
+
   <!-- Toast -->
   <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
-
-
-  <script src="app.js"></script>
+  <script src="./three-cloud.js?v=1.0.8"></script>
+  <script src="./app-v3.js?v=1.0.8"></script>
 </body>
 </html>

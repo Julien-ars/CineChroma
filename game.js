@@ -50,7 +50,6 @@ function cacheDOM() {
   dom.endScoreVal = document.getElementById('game-end-score-val');
   dom.recapList = document.getElementById('game-recap-list');
   dom.replayBtn = document.getElementById('game-replay-btn');
-  dom.copyBtn = document.getElementById('game-copy-btn');
   dom.toast = document.getElementById('toast');
 }
 
@@ -59,7 +58,6 @@ function bindGameEvents() {
   dom.nextBtn.addEventListener('click', handleNextRound);
   dom.hintBtn.addEventListener('click', useHint);
   dom.replayBtn.addEventListener('click', initGame);
-  dom.copyBtn.addEventListener('click', copyScore);
 }
 
 async function loadData() {
@@ -106,27 +104,35 @@ function initGame() {
     dom.bgPoster.style.setProperty('filter', 'blur(40px) brightness(0.4)', 'important');
   }
 
+  dom.startScreen.style.opacity = '1';
   dom.startScreen.hidden = false;
   dom.activeScreen.hidden = true;
   dom.endScreen.hidden = true;
 }
 
 function startGameRound1() {
-  dom.startScreen.hidden = true;
-  dom.activeScreen.hidden = false;
+  dom.startScreen.style.transition = 'opacity 0.4s ease';
+  dom.startScreen.style.opacity = '0';
   
-  gameState = {
-    score: 0,
-    currentRound: 1,
-    totalRounds: 5,
-    history: [],
-    hintsUsed: 0,
-    currentFilm: null,
-    currentChoices: [],
-    isAnswered: false
-  };
-  
-  initRound();
+  setTimeout(() => {
+    dom.startScreen.hidden = true;
+    dom.activeScreen.style.opacity = '0';
+    dom.activeScreen.style.animation = 'fadeIn 0.5s ease forwards';
+    dom.activeScreen.hidden = false;
+    
+    gameState = {
+      score: 0,
+      currentRound: 1,
+      totalRounds: 5,
+      history: [],
+      hintsUsed: 0,
+      currentFilm: null,
+      currentChoices: [],
+      isAnswered: false
+    };
+    
+    initRound();
+  }, 400);
 }
 
 function initRound() {
@@ -304,9 +310,15 @@ function handleNextRound() {
 }
 
 function showEndScreen() {
-  dom.activeScreen.hidden = true;
-  dom.endScreen.hidden = false;
-  document.querySelector('.game-bg-container').classList.remove('revealed');
+  dom.activeScreen.style.transition = 'opacity 0.4s ease';
+  dom.activeScreen.style.opacity = '0';
+  setTimeout(() => {
+    dom.activeScreen.hidden = true;
+    dom.endScreen.style.opacity = '0';
+    dom.endScreen.style.animation = 'fadeIn 0.5s ease forwards';
+    dom.endScreen.hidden = false;
+    
+    document.querySelector('.game-bg-container').classList.remove('revealed');
   
   dom.endScoreVal.textContent = gameState.score;
   dom.recapList.innerHTML = '';
@@ -337,22 +349,9 @@ function showEndScreen() {
     
     dom.recapList.appendChild(item);
   });
+  }, 400);
 }
 
-function copyScore() {
-  let emojis = '';
-  gameState.history.forEach(r => {
-    emojis += r.isCorrect ? '🟩' : '🟥';
-  });
-  
-  const text = `CineChroma Quiz 🎬\nScore : ${gameState.score}/5\n${emojis}\n\nJoue aussi sur : https://cinechroma.vercel.app/game.html`;
-  
-  navigator.clipboard.writeText(text).then(() => {
-    showToast('Score copié dans le presse-papier !');
-  }).catch(err => {
-    console.error('Copy failed', err);
-    showToast('Erreur lors de la copie.');
-  });
-}
+
 
 

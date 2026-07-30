@@ -14,6 +14,10 @@ const I18N = {
     nav_profile:         'Mon Profil',
     nav_contact:         'Contact',
     nav_about:           'En savoir plus',
+    nav_game:            'Le Jeu',
+    logout:              'Déconnexion',
+    tab_likes:           'Mes Favoris',
+    tab_collections:     'Mes Collections',
     
     // Contact translations
     contact_badge_text:  'Canaux Officiels CineChroma',
@@ -80,6 +84,15 @@ const I18N = {
     features_feat3_desc: "Partagez vos explorations en un clic. Chaque combinaison de filtres, choix de tri ou tolérance chromatique est encodée en temps réel dans les paramètres de la barre d'adresse. Le destinataire du lien verra exactement la même sélection d'affiches.",
     features_feat4_title:'Favoris & Collections Locales',
     features_feat4_desc: "Aucune inscription obligatoire pour commencer ! Organisez vos inspirations en créant des collections thématiques personnalisées ou en ajoutant vos coups de cœur. Vos listes de sélection sont enregistrées localement dans votre navigateur via localStorage.",
+    features_coming_soon:'Prochainement',
+    features_feat5_title:'Nuage Chromatique 3D',
+    features_feat5_desc: "Plongez dans un espace tridimensionnel où chaque affiche est représentée comme un point coloré dans l'espace CIELAB. Ce nuage interactif, rendu en temps réel via WebGL (Three.js), vous permet de naviguer physiquement dans la carte colorimétrique du cinéma mondial.",
+    features_feat6_title:'Le Jeu — Quiz Chromatique',
+    features_feat6_desc: "Identifiez un film rien qu'à partir de sa palette de couleurs. Ce mini-jeu vous met au défi en 5 manches progressives. Trois indices sont disponibles si vous bloquez, et votre score tient compte de la vitesse et du nombre d'aides demandées.",
+    features_feat7_title:'Catalogue Universel d\'Affiches',
+    features_feat7_desc: "Le dataset s'enrichira prochainement d'affiches textless (sans typographie), d'affiches par pays d'origine et d'un catalogue mondial couvrant les cinémas asiatique, africain, latino-américain et européen.",
+    features_feat8_title:'Système de Compte & Profil',
+    features_feat8_desc: "Créez un compte CineChroma pour personnaliser votre expérience. Choisissez votre avatar, organisez vos favoris en collections nommées et consultez vos statistiques de jeu. Tout reste stocké localement — votre confidentialité est totale.",
     
     // Tab 4: Legal (Amplified)
     about_legal_title:   'Mentions Légales & Crédits',
@@ -91,6 +104,19 @@ const I18N = {
     legal_data_desc:     'CineChroma utilise l\'API publique de TMDb (The Movie Database) pour récupérer les métadonnées (titres, réalisateurs, dates de sortie, genres) et les chemins des affiches de films. Ce site n\'est ni affilié, ni certifié par TMDb. Les affiches de films et les visuels originaux restent la propriété intellectuelle exclusive des studios de production, distributeurs et titulaires de droits respectifs. Leur affichage est réalisé uniquement à des fins d\'illustration, de critique artistique et d\'analyse colorimétrique non commerciale, conformément aux dispositions du droit de citation et de l\'usage loyal (Fair Use). Si vous êtes titulaire de droits sur une œuvre et souhaitez son retrait, contactez-nous.',
     legal_section_cookies:'Données Personnelles, Cookies et RGPD',
     legal_cookies_desc:  'Conformément au Règlement Général sur la Protection des Données (RGPD), CineChroma adopte une politique stricte de respect de la vie privée. Aucun cookie de pistage, traceur publicitaire ou outil d\'analyse comportementale tiers n\'est déposé sur votre terminal. Les fonctionnalités interactives (sauvegarde de vos affiches favorites, création et renommage de collections thématiques personnalisées) reposent exclusivement sur l\'utilisation du stockage local de votre propre navigateur (localStorage). Aucune donnée nominative ou de navigation n\'est transmise ou collectée à l\'extérieur de votre machine. Vous disposez du contrôle total sur vos données.',
+    
+    // Game translations
+    game_start_title:    'CINECHROMA QUIZ',
+    game_start_desc:     'Testez votre culture cinématographique à travers la couleur.',
+    game_rule_1:         'Identifiez l\'œuvre par sa signature chromatique',
+    game_rule_2:         '5 manches de difficulté progressive',
+    game_rule_3:         '3 indices disponibles en cas de doute',
+    game_btn_start:      'Jouer',
+    game_round:          'Manche',
+    game_score:          'Score :',
+    game_end_title:      'Partie Terminée',
+    game_end_score:      'Score final :',
+    game_btn_replay:     'Rejouer'
   },
   en: {
     nav_gallery:         'Explore',
@@ -99,6 +125,10 @@ const I18N = {
     nav_profile:         'My Profile',
     nav_contact:         'Contact',
     nav_about:           'Learn more',
+    nav_game:            'The Game',
+    logout:              'Log out',
+    tab_likes:           'My Favorites',
+    tab_collections:     'My Collections',
     
     // Contact translations
     contact_badge_text:  'CineChroma Official Channels',
@@ -165,6 +195,15 @@ const I18N = {
     features_feat3_desc: 'Share your explorations in one click. Every filter combination, sorting option, or color tolerance threshold is encoded in real time in address bar parameters (deep linking). Anyone opening the link will see the exact same poster selection.',
     features_feat4_title:'Favorites & Local Collections',
     features_feat4_desc: 'No registration required to start! Organize your inspirations by creating custom themed collections or adding films to your favorites. Your lists are stored locally in your browser via localStorage.',
+    features_coming_soon:'Coming Soon',
+    features_feat5_title:'3D Chromatic Cloud',
+    features_feat5_desc: 'Dive into a three-dimensional space where each poster is represented as a colored point in CIELAB space. This interactive cloud, rendered in real time via WebGL (Three.js), lets you physically navigate through the colorimetric map of world cinema.',
+    features_feat6_title:'The Game — Chromatic Quiz',
+    features_feat6_desc: 'Can you identify a film just from its color palette? This cinematic mini-game challenges you across 5 rounds of progressive difficulty. Three hints are available if you get stuck, and your score factors in speed and hints used.',
+    features_feat7_title:'Universal Poster Catalog',
+    features_feat7_desc: 'The dataset will soon expand with textless posters (typography-free, for pure chromatic reading), posters by country of origin, and a worldwide catalog covering Asian, African, Latin American, and European cinema.',
+    features_feat8_title:'Account System & Profile',
+    features_feat8_desc: 'Create a CineChroma account to personalize your experience. Choose your avatar, organize your favorites into named collections, and track your game statistics. Everything stays stored locally — your privacy is total.',
     
     // Tab 4: Legal (Amplified)
     about_legal_title:   'Legal Notice & Credits',
@@ -175,7 +214,20 @@ const I18N = {
     legal_section_data:  'Data & API Sources',
     legal_data_desc:     'CineChroma uses the public API of TMDb (The Movie Database) to retrieve movie metadata (titles, directors, release dates, genres) and paths of film posters. This site is neither affiliated with nor certified by TMDb. Film posters and original visuals remain the exclusive intellectual property of their respective production studios, distributors, and copyright holders. Their display is carried out solely for illustration, artistic review, and non-commercial color analysis, in accordance with the provisions of fair use and citation rights. If you hold rights to an artwork and wish for its removal, please contact us.',
     legal_section_cookies:'Personal Data, Cookies & GDPR',
-    legal_cookies_desc:  'In accordance with the General Data Protection Regulation (GDPR), CineChroma adopts a strict privacy policy. No tracking cookies, advertising trackers, or third-party behavioral analysis tools are placed on your terminal. The interactive features (saving your favorite posters, creating and renaming custom themed collections) rely exclusively on the use of your own browser\'s local storage (localStorage). No identification or browsing data is transmitted or collected outside your computer. You have full control over your data.',
+    legal_cookies_desc:  'In compliance with the General Data Protection Regulation (GDPR), CineChroma adopts a strict privacy policy. No tracking cookies, advertising trackers, or third-party behavioral analysis tools are placed on your device. Interactive features (saving favorite posters, creating local collections) rely entirely on your browser\'s local storage (localStorage). No personal or browsing data is transmitted or collected outside your machine. You have total control over your data.',
+
+    // Game translations
+    game_start_title:    'CINECHROMA QUIZ',
+    game_start_desc:     'Test your movie knowledge through color.',
+    game_rule_1:         'Identify the movie by its chromatic signature',
+    game_rule_2:         '5 rounds of progressive difficulty',
+    game_rule_3:         '3 hints available if you are stuck',
+    game_btn_start:      'Play',
+    game_round:          'Round',
+    game_score:          'Score:',
+    game_end_title:      'Game Over',
+    game_end_score:      'Final score:',
+    game_btn_replay:     'Play Again'
   }
 };
 
@@ -276,9 +328,9 @@ function initUserSession() {
     }
   }
 
-  // Redirect click to main page with profile parameter
+  // Redirect click to standalone profile page
   userTrigger.addEventListener('click', () => {
-    window.location.href = './index.html?profile=open';
+    window.location.href = './profile.html';
   });
 
   if (logoutLink) {

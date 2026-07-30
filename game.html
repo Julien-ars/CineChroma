@@ -59,33 +59,33 @@
     <!-- Start Screen Landing -->
     <div id="game-start-screen" class="game-start-landing">
       <div class="game-start-content-epic">
-        <h1 class="game-epic-title shimmer-text-wave">CINECHROMA QUIZ</h1>
-        <p class="game-epic-desc">Testez votre culture cinématographique à travers la couleur.</p>
+        <h1 class="game-epic-title shimmer-text-wave" data-i18n="game_start_title">CINECHROMA QUIZ</h1>
+        <p class="game-epic-desc" data-i18n="game_start_desc">Testez votre culture cinématographique à travers la couleur.</p>
         
         <div class="game-epic-rules">
           <div class="epic-rule-item">
             <span class="epic-rule-icon">🎨</span>
-            <span class="epic-rule-text">Identifiez l'œuvre par sa signature chromatique</span>
+            <span class="epic-rule-text" data-i18n="game_rule_1">Identifiez l'œuvre par sa signature chromatique</span>
           </div>
           <div class="epic-rule-item">
             <span class="epic-rule-icon">🎬</span>
-            <span class="epic-rule-text">5 manches de difficulté progressive</span>
+            <span class="epic-rule-text" data-i18n="game_rule_2">5 manches de difficulté progressive</span>
           </div>
           <div class="epic-rule-item">
             <span class="epic-rule-icon">💡</span>
-            <span class="epic-rule-text">3 indices disponibles en cas de doute</span>
+            <span class="epic-rule-text" data-i18n="game_rule_3">3 indices disponibles en cas de doute</span>
           </div>
         </div>
         
-        <button id="game-start-btn" class="hero-btn-primary" style="margin-top: 50px; font-size: 17px; padding: 18px 48px; border-radius: 30px;">Commencer l'expérience</button>
+        <button id="game-start-btn" class="hero-btn-primary" style="margin-top: 50px; font-size: 17px; padding: 18px 48px; border-radius: 30px;" data-i18n="game_btn_start">Jouer</button>
       </div>
     </div>
 
     <!-- Active Game Screen -->
     <div id="game-active-screen" class="game-screen" hidden>
       <div class="game-top-bar">
-        <div class="game-round-info">Manche <span id="game-round-current">1</span>/5 - <span id="game-difficulty"></span></div>
-        <div class="game-score-info">Score : <span id="game-score-current">0</span></div>
+        <div class="game-round-info"><span data-i18n="game_round">Manche</span> <span id="game-round-current">1</span>/5 - <span id="game-difficulty"></span></div>
+        <div class="game-score-info"><span data-i18n="game_score">Score :</span> <span id="game-score-current">0</span></div>
       </div>
       <div class="game-progress-bar-wrap">
         <div id="game-progress-bar" class="game-progress-bar" style="width: 20%;"></div>
@@ -113,14 +113,13 @@
     <!-- End Game Screen -->
     <div id="game-end-screen" class="game-screen" hidden>
       <div class="game-end-content">
-        <h1 class="game-end-title">Partie Terminée</h1>
-        <div class="game-end-score">Score final : <span id="game-end-score-val"></span> / 5 🏆</div>
+        <h1 class="game-end-title" data-i18n="game_end_title">Partie Terminée</h1>
+        <div class="game-end-score"><span data-i18n="game_end_score">Score final :</span> <span id="game-end-score-val"></span> / 5 🏆</div>
         
         <div class="game-recap-list" id="game-recap-list"></div>
         
         <div class="game-end-actions">
-          <button id="game-replay-btn" class="btn-primary-pill">🔄 Rejouer une partie</button>
-          <button id="game-copy-btn" class="btn-outline-pill">📋 Copier mon score</button>
+          <button id="game-replay-btn" class="hero-btn-primary" style="border-radius: 30px; font-size: 16px; padding: 14px 32px;" data-i18n="game_btn_replay">Rejouer</button>
         </div>
       </div>
     </div>
@@ -154,17 +153,17 @@
             <line x1="15" y1="13" x2="15.01" y2="13"></line>
             <line x1="18" y1="11" x2="18.01" y2="11"></line>
           </svg>
-          <span data-i18n="nav_game">Mini-Jeu</span>
+          <span data-i18n="nav_game">Le Jeu</span>
         </a>
-        <a href="./index.html?genre=__favorites__" class="nav-menu-link">
+        <a href="./profile.html?tab=likes" class="nav-menu-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           <span data-i18n="favorites">Favoris</span>
         </a>
-        <a href="./index.html" class="nav-menu-link">
+        <a href="./profile.html?tab=collections" class="nav-menu-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
           <span data-i18n="nav_collections">Collections</span>
         </a>
-        <a href="./index.html" id="nav-link-profile" class="nav-menu-link">
+        <a href="./profile.html" id="nav-link-profile" class="nav-menu-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           <span data-i18n="nav_profile">Mon Profil</span>
         </a>

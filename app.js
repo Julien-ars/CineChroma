@@ -13,7 +13,7 @@
    CONFIGURATION
 ============================================================ */
 const CONFIG = {
-  DATA_URL:          './database_films_tmdb_riche.json',
+  DATA_URLS:         ['./films_part1.json', './films_part2.json'],
   PAGE_SIZE:         60,
   DEFAULT_SORT:      'popularity',
   DEFAULT_THRESHOLD: 30,
@@ -285,6 +285,15 @@ const I18N = {
   },
 };
 
+function safeGetJSON(key, fallback) {
+  try {
+    const val = localStorage.getItem(key);
+    return val ? JSON.parse(val) : fallback;
+  } catch (e) {
+    return fallback;
+  }
+}
+
 /* ============================================================
    STATE
 ============================================================ */
@@ -305,9 +314,9 @@ const state = {
   modalFilm:       null,
   modalPosterIndex:0,
   isLoadingMore:   false,
-  favorites:       new Set(JSON.parse(localStorage.getItem('cinechroma_favorites') || '[]')),
-  user:                    JSON.parse(localStorage.getItem('cinechroma_user') || 'null'),
-  collections:             JSON.parse(localStorage.getItem('cinechroma_collections') || '[]'),
+  favorites:       new Set(safeGetJSON('cinechroma_favorites', [])),
+  user:                    safeGetJSON('cinechroma_user', null),
+  collections:             safeGetJSON('cinechroma_collections', []),
   hasSeenGuestLikePrompt:  localStorage.getItem('cinechroma_guest_prompt_seen') === 'true',
   selectedRegisterAvatar:  PRESET_AVATARS[0],
   activeImageSrc:          null,
@@ -495,6 +504,8 @@ const dom = {
   
   modalTrailerBtn:      $('#modal-trailer-btn'),
   modalPalette:         $('#modal-palette'),
+  modal3dToggle:        $('#modal-3d-toggle-btn'),
+  modal3dCloud:         $('#modal-3d-cloud'),
   modalCertification:   $('#modal-certification'),
   modalGenres:          $('#modal-genres'),
   modalTitle:           $('#modal-title'),
@@ -509,6 +520,11 @@ const dom = {
   modalBudget:          $('#modal-budget'),
   modalRevenue:         $('#modal-revenue'),
   modalSummary:         $('#modal-summary'),
+  
+  lightbox:             $('#poster-lightbox'),
+  lightboxImg:          $('#lightbox-img'),
+  lightboxGlow:         $('#lightbox-ambient-glow'),
+  
   toast:                $('#toast'),
 };
 
@@ -721,12 +737,43 @@ async function loadData() {
   updateSplash(10, 'Initialisation...');
   try {
     updateSplash(30, 'Connexion à la base de données...');
-    const res = await fetch(CONFIG.DATA_URL);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const responses = await Promise.all(CONFIG.DATA_URLS.map(url => fetch(url)));
+    
+    for (const res of responses) {
+      if (!res.ok) throw new Error(`HTTP ${res.status} sur ${res.url}`);
+    }
+    
     updateSplash(50, 'Téléchargement de la bibliothèque...');
-    const raw = await res.json();
+    const rawDataArray = await Promise.all(responses.map(res => res.json()));
+    
     updateSplash(80, 'Indexation des œuvres...');
-    const films = Array.isArray(raw) ? raw : raw.films || raw.data || Object.values(raw);
+    let films = [];
+    for (const raw of rawDataArray) {
+      const partFilms = Array.isArray(raw) ? raw : raw.films || raw.data || Object.values(raw);
+      
+      // Reconstruction of the 'affiches' property for compatibility
+      for (const film of partFilms) {
+        let allAffiches = [];
+        if (film.affiches_globales) {
+          allAffiches = allAffiches.concat(film.affiches_globales);
+        }
+        if (film.saisons) {
+          for (const saison of film.saisons) {
+            if (saison.affiches) {
+              allAffiches = allAffiches.concat(saison.affiches);
+            }
+          }
+        }
+        // Fallback if 'affiches' already exists natively
+        if (allAffiches.length === 0 && film.affiches) {
+          allAffiches = film.affiches;
+        }
+        film.affiches = allAffiches;
+      }
+      
+      films = films.concat(partFilms);
+    }
+    
     if (!films.length) throw new Error('Aucun film trouvé.');
     state.allFilms = films;
     updateSplash(95, 'Génération de la galerie...');
@@ -1302,9 +1349,9 @@ function applyFiltersAndRender() {
       const titleNorm     = normalizeStr(f.titre || f.title || '');
       const origTitleNorm = normalizeStr(f.titre_original || f.original_title || '');
       const directorNorm  = normalizeStr(f.realisateur || f.director || '');
-      const haystack      = `${titleNorm} ${origTitleNorm} ${directorNorm}`;
+      const dbWords       = `${titleNorm} ${origTitleNorm} ${directorNorm}`.split(/\s+/).filter(Boolean);
 
-      return qTokens.every(token => haystack.includes(token));
+      return qTokens.every(token => fuzzyMatch(token, dbWords));
     });
   }
 
@@ -1464,9 +1511,11 @@ function buildCard(film, ratioClass) {
     </div>
   `;
 
-  card.addEventListener('click', () => openModal(film));
+  const affiches = film.affiches || [];
+  const clickedPosterIndex = Math.max(0, affiches.findIndex(a => (a.affiche_w500 || a.affiche_original) === src));
+  card.addEventListener('click', () => openModal(film, clickedPosterIndex));
   card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(film); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(film, clickedPosterIndex); }
   });
   card.querySelector('.card-fav-btn').addEventListener('click', e => {
     e.stopPropagation();
@@ -1732,7 +1781,11 @@ function renderProfileLikes() {
       const film = state.allFilms.find(f => getFilmId(f) === card.getAttribute('data-id'));
       if (film) {
         closeProfileModal();
-        openModal(film);
+        const posterImg = card.querySelector('.profile-like-img');
+        const posterUrl = posterImg ? posterImg.getAttribute('src') : '';
+        const affiches = film.affiches || [];
+        const clickedPosterIndex = Math.max(0, affiches.findIndex(a => (a.affiche_w500 || a.affiche_original) === posterUrl));
+        openModal(film, clickedPosterIndex);
       }
     });
   });
@@ -2089,24 +2142,31 @@ function hexToRgba(hex, alpha = 0.2) {
 /* ============================================================
    FILM DETAIL MODAL (Point 1: Download button + Centered poster)
 ============================================================ */
-function openModal(film) {
+function openModal(film, startingPosterIndex = 0) {
   state.modalFilm = film;
-  state.modalPosterIndex = 0;
-  populateModal(film);
+  state.modalPosterIndex = startingPosterIndex;
+  populateModal(film, startingPosterIndex);
   dom.filmModal.removeAttribute('hidden');
   document.body.style.overflow = 'hidden';
   setTimeout(() => dom.modalClose.focus(), 80);
 }
 
 function closeModal() {
+  // Cleanup 3D Cloud
+  if (window.cleanup3DCloud) {
+    window.cleanup3DCloud();
+  }
+  dom.modal3dCloud.classList.remove('expanded');
+  dom.modal3dToggle.classList.remove('active');
+  
   dom.filmModal.setAttribute('hidden', '');
   dom.filmModal.style.removeProperty('--modal-glow-color');
   document.body.style.overflow = '';
   state.modalFilm = null;
 }
 
-function populateModal(film) {
-  updateModalPoster(film, 0);
+function populateModal(film, startingPosterIndex = 0) {
+  updateModalPoster(film, startingPosterIndex);
 
   // Poster Thumbnails
   dom.modalPosterSelector.innerHTML = '';
@@ -2117,7 +2177,7 @@ function populateModal(film) {
       if (!src) return;
       const img = document.createElement('img');
       img.src = src; img.alt = `Affiche ${i+1}`;
-      img.className = `poster-thumb${i === 0 ? ' active' : ''}`;
+      img.className = `poster-thumb${i === startingPosterIndex ? ' active' : ''}`;
       img.loading = 'lazy';
       img.addEventListener('click', () => {
         updateModalPoster(film, i);
@@ -2495,6 +2555,20 @@ function renderModalPalette(palette) {
     dot.addEventListener('keydown', e => { if (e.key === 'Enter') toggleColor(); });
     dom.modalPalette.appendChild(dot);
   }
+  
+  // Save current palette for 3D toggle
+  const newPaletteHex = palette.map(p => p.hex);
+  const oldHexStr = JSON.stringify(state.currentPaletteHex || []);
+  const newHexStr = JSON.stringify(newPaletteHex);
+  
+  state.currentPaletteHex = newPaletteHex;
+  
+  // If 3D is active and palette changed (e.g. user clicked another poster), update the 3D scene
+  if (newHexStr !== oldHexStr && dom.modal3dCloud && dom.modal3dCloud.classList.contains('expanded')) {
+    if (window.init3DCloud) {
+      window.init3DCloud('modal-3d-cloud', state.currentPaletteHex);
+    }
+  }
 }
 
 /* ============================================================
@@ -2553,6 +2627,59 @@ function normalizeStr(str) {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]/g, ' ')
     .trim();
+}
+
+function levenshteinDistance(s1, s2) {
+  if (s1 === s2) return 0;
+  if (s1.length === 0) return s2.length;
+  if (s2.length === 0) return s1.length;
+
+  let prevRow = new Array(s2.length + 1);
+  let currRow = new Array(s2.length + 1);
+
+  for (let j = 0; j <= s2.length; j++) {
+    prevRow[j] = j;
+  }
+
+  for (let i = 1; i <= s1.length; i++) {
+    currRow[0] = i;
+    for (let j = 1; j <= s2.length; j++) {
+      const cost = s1[i - 1] === s2[j - 1] ? 0 : 1;
+      currRow[j] = Math.min(
+        prevRow[j] + 1,
+        currRow[j - 1] + 1,
+        prevRow[j - 1] + cost
+      );
+    }
+    let temp = prevRow;
+    prevRow = currRow;
+    currRow = temp;
+  }
+
+  return prevRow[s2.length];
+}
+
+function fuzzyMatch(token, dbWords) {
+  const len = token.length;
+  if (len <= 0) return false;
+
+  let maxDist = 0;
+  if (len === 4 || len === 5) maxDist = 1;
+  else if (len > 5) maxDist = 2;
+
+  for (const word of dbWords) {
+    if (!word) continue;
+    if (word.includes(token)) return true;
+
+    if (maxDist > 0) {
+      if (Math.abs(word.length - len) <= maxDist) {
+        if (levenshteinDistance(token, word) <= maxDist) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
 }
 
 /* ============================================================
@@ -2635,7 +2762,7 @@ function bindEvents() {
 
   // Profile Header Trigger
   dom.userProfileTrigger.addEventListener('click', () => {
-    if (state.user) openProfileModal('likes');
+    if (state.user) window.location.href = './profile.html';
     else openAuthModal('login');
   });
 
@@ -2682,21 +2809,21 @@ function bindEvents() {
     dom.navLinkFavorites.addEventListener('click', (e) => {
       e.preventDefault();
       closeNavMenu();
-      openProfileModal('likes');
+      window.location.href = './profile.html?tab=likes';
     });
   }
   if (dom.navLinkCollections) {
     dom.navLinkCollections.addEventListener('click', (e) => {
       e.preventDefault();
       closeNavMenu();
-      openProfileModal('collections');
+      window.location.href = './profile.html?tab=collections';
     });
   }
   if (dom.navLinkProfile) {
     dom.navLinkProfile.addEventListener('click', (e) => {
       e.preventDefault();
       closeNavMenu();
-      if (state.user) openProfileModal('likes');
+      if (state.user) window.location.href = './profile.html';
       else openAuthModal('login');
     });
   }
@@ -2856,10 +2983,64 @@ function bindEvents() {
   dom.modalClose.addEventListener('click', closeModal);
   dom.modalBackdrop.addEventListener('click', closeModal);
 
+  // 3D Toggle
+  if (dom.modal3dToggle && dom.modal3dCloud) {
+    dom.modal3dToggle.addEventListener('click', () => {
+      const isExpanded = dom.modal3dCloud.classList.contains('expanded');
+      if (!isExpanded) {
+        dom.modal3dCloud.classList.add('expanded');
+        dom.modal3dToggle.classList.add('active');
+        if (window.init3DCloud && state.currentPaletteHex) {
+          // Wait for CSS transition (0.4s) before initializing canvas size
+          setTimeout(() => {
+            window.init3DCloud('modal-3d-cloud', state.currentPaletteHex);
+          }, 400);
+        }
+      } else {
+        dom.modal3dCloud.classList.remove('expanded');
+        dom.modal3dToggle.classList.remove('active');
+        if (window.cleanup3DCloud) {
+          window.cleanup3DCloud();
+        }
+      }
+    });
+  }
+
+  // Poster Lightbox
+  if (dom.modalPosterImg && dom.lightbox) {
+    dom.modalPosterImg.addEventListener('click', () => {
+      if (!dom.modalPosterImg.src) return;
+      dom.lightboxImg.src = dom.modalPosterImg.src;
+      
+      const glowColor = dom.modalAmbientGlow.style.getPropertyValue('--modal-glow-color');
+      if (glowColor && dom.lightboxGlow) {
+        dom.lightboxGlow.style.setProperty('--modal-glow-color', glowColor);
+      }
+      
+      dom.lightbox.removeAttribute('hidden');
+      // Force reflow to start transition
+      void dom.lightbox.offsetWidth;
+      dom.lightbox.classList.add('active');
+    });
+
+    dom.lightbox.addEventListener('click', () => {
+      dom.lightbox.classList.remove('active');
+      setTimeout(() => {
+        dom.lightbox.setAttribute('hidden', '');
+        dom.lightboxImg.src = '';
+        if (dom.lightboxGlow) dom.lightboxGlow.style.removeProperty('--modal-glow-color');
+      }, 400);
+    });
+  }
+
   // Keyboard navigation
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      if (!dom.authModal.hasAttribute('hidden')) closeAuthModal();
+      if (dom.lightbox && !dom.lightbox.hasAttribute('hidden')) {
+        dom.lightbox.classList.remove('active');
+        setTimeout(() => dom.lightbox.setAttribute('hidden', ''), 400);
+      }
+      else if (!dom.authModal.hasAttribute('hidden')) closeAuthModal();
       else if (!dom.createCollectionModal.hasAttribute('hidden')) closeCreateCollectionModal();
       else if (!dom.profileModal.hasAttribute('hidden')) closeProfileModal();
       else if (!dom.cosmosColorModal.hasAttribute('hidden')) closeColorModal();
@@ -2875,7 +3056,13 @@ function bindEvents() {
         const next = e.key === 'ArrowRight'
           ? Math.min(idx+1, state.sorted.length-1)
           : Math.max(idx-1, 0);
-        if (next !== idx) openModal(state.sorted[next]);
+        if (next !== idx) {
+          const nextFilm = state.sorted[next];
+          const nextPosterUrl = getMatchingPosterUrl(nextFilm);
+          const affiches = nextFilm.affiches || [];
+          const nextPosterIndex = Math.max(0, affiches.findIndex(a => (a.affiche_w500 || a.affiche_original) === nextPosterUrl));
+          openModal(nextFilm, nextPosterIndex);
+        }
       }
     }
   });
@@ -3105,12 +3292,14 @@ function performKMeans(pixels, k) {
     }
   });
 
-  // Open profile modal if redirecting from a subpage
+  // Open profile modal / auth redirection
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('profile') === 'open') {
+    window.location.href = './profile.html';
+  }
+  if (urlParams.get('auth') === 'open') {
     setTimeout(() => {
-      if (state.user) openProfileModal('likes');
-      else openAuthModal('login');
+      openAuthModal('login');
     }, 200);
   }
 })();
