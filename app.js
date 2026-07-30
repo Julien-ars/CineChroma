@@ -75,6 +75,13 @@ const I18N = {
     filter_mode_and_desc_short: 'toutes requises',
     filters_menu_short:  'Filtres',
     tolerance:           'Précision des nuances',
+    splash_loading:      'Chargement de la bibliothèque...',
+    splash_init:         'Initialisation...',
+    splash_db:           'Connexion à la base de données...',
+    splash_download:     'Téléchargement de la bibliothèque...',
+    splash_index:        'Indexation des œuvres...',
+    splash_gallery:      'Génération de la galerie...',
+    splash_ready:        'Prêt !',
     filter_mode:         'Mode de filtre couleur',
     filter_mode_or_desc: 'OU (au moins 1 couleur)',
     filter_mode_and_desc:'ET (toutes les couleurs)',
@@ -204,6 +211,13 @@ const I18N = {
     filter_mode_and_desc_short: 'all colors required',
     filters_menu_short:  'Filters',
     tolerance:           'Shade Precision',
+    splash_loading:      'Loading library...',
+    splash_init:         'Initializing...',
+    splash_db:           'Connecting to database...',
+    splash_download:     'Downloading library...',
+    splash_index:        'Indexing artworks...',
+    splash_gallery:      'Generating gallery...',
+    splash_ready:        'Ready!',
     filter_mode:         'Color Filter Mode',
     filter_mode_or_desc: 'OR (matches at least 1)',
     filter_mode_and_desc:'AND (matches all colors)',
@@ -333,6 +347,13 @@ const I18N = {
       filter_mode_and_desc_short: 'すべての色に一致',
       filters_menu_short:  'フィルター',
       tolerance:           '許容範囲',
+      splash_loading:      'ライブラリを読み込み中...',
+      splash_init:         '初期化中...',
+      splash_db:           'データベースに接続中...',
+      splash_download:     'ライブラリをダウンロード中...',
+      splash_index:        '作品をインデックス中...',
+      splash_gallery:      'ギャラリーを生成中...',
+      splash_ready:        '準備完了！',
       filter_mode:         'カラーフィルターモード',
       filter_mode_or_desc: 'OR (少なくとも1つに一致)',
       filter_mode_and_desc:'AND (すべての色に一致)',
@@ -939,19 +960,19 @@ function getMatchingPosterUrl(film) {
 ============================================================ */
 async function loadData() {
   showState('loading');
-  updateSplash(10, 'Initialisation...');
+  updateSplash(10, t('splash_init'));
   try {
-    updateSplash(30, 'Connexion à la base de données...');
+    updateSplash(30, t('splash_db'));
     const responses = await Promise.all(CONFIG.DATA_URLS.map(url => fetch(url)));
     
     for (const res of responses) {
       if (!res.ok) throw new Error(`HTTP ${res.status} sur ${res.url}`);
     }
     
-    updateSplash(50, 'Téléchargement de la bibliothèque...');
+    updateSplash(50, t('splash_download'));
     const rawDataArray = await Promise.all(responses.map(res => res.json()));
     
-    updateSplash(80, 'Indexation des œuvres...');
+    updateSplash(80, t('splash_index'));
     let films = [];
     for (const raw of rawDataArray) {
       const partFilms = Array.isArray(raw) ? raw : raw.films || raw.data || Object.values(raw);
@@ -981,9 +1002,9 @@ async function loadData() {
     
     if (!films.length) throw new Error('Aucun film trouvé.');
     state.allFilms = films;
-    updateSplash(95, 'Génération de la galerie...');
+    updateSplash(95, t('splash_gallery'));
     initApp();
-    updateSplash(100, 'Prêt !');
+    updateSplash(100, t('splash_ready'));
     setTimeout(hideSplashScreen, 300);
   } catch (err) {
     console.error('[CineChroma]', err);
@@ -2683,15 +2704,15 @@ function populateModal(film, startingPosterIndex = 0) {
   dom.modalGenres.innerHTML = (film.genres || [])
     .map(g => `<span class="genre-tag">${esc(translateGenre(g, state.lang))}</span>`).join('');
 
-  dom.modalTitle.textContent = (state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || 'Titre inconnu';
+  dom.modalTitle.textContent = (state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || t('profile_unknown_title');
   dom.modalOriginalTitle.textContent =
     film.titre_original && film.titre_original !== film.titre ? film.titre_original : '';
 
   const r = film.note_moyenne || 0;
   dom.modalStars.innerHTML = starsHtml(r);
   dom.modalRating.textContent = r ? r.toFixed(1) : 'N/A';
-  dom.modalPopularity.textContent = film.popularite ? Math.round(film.popularite).toLocaleString('fr-FR') : 'N/A';
-  dom.modalDirector.textContent = film.realisateur || 'N/A';
+  dom.modalPopularity.textContent = film.popularite ? Math.round(film.popularite).toLocaleString(state.lang === 'ja' ? 'ja-JP' : state.lang === 'en' ? 'en-US' : 'fr-FR') : 'N/A';
+  dom.modalDirector.textContent = film.realisateur || t('profile_unknown_director');
   dom.modalDate.textContent     = formatDate(film.date_sortie);
   
   // Property Aliases support for updated database JSON (duree_minutes / duree_min & langue_origine / langue_originale)
@@ -3010,20 +3031,37 @@ function renderModalPalette(palette) {
 ============================================================ */
 function formatCurrency(v) {
   if (!v) return 'N/A';
-  if (v >= 1e9) return `$${(v/1e9).toFixed(2)}Md`;
-  if (v >= 1e6) return `$${(v/1e6).toFixed(1)}M`;
-  return `$${v.toLocaleString('fr-FR')}`;
+  if (state.lang === 'ja') {
+    if (v >= 1e8) return `${(v/1e8).toFixed(1)}億円`;
+    if (v >= 1e4) return `${(v/1e4).toFixed(0)}万円`;
+    return `${v.toLocaleString('ja-JP')}円`;
+  }
+  const symbol = '$';
+  if (v >= 1e9) {
+    return state.lang === 'en' ? `${symbol}${(v/1e9).toFixed(2)}B` : `${symbol}${(v/1e9).toFixed(2)}Md`;
+  }
+  if (v >= 1e6) {
+    return `${symbol}${(v/1e6).toFixed(1)}M`;
+  }
+  return `${symbol}${v.toLocaleString(state.lang === 'en' ? 'en-US' : 'fr-FR')}`;
 }
 function formatRuntime(m) {
   if (!m) return 'N/A';
   const h = Math.floor(m/60), mn = m%60;
-  return h ? `${h}h${mn.toString().padStart(2,'0')}` : `${mn}min`;
+  if (state.lang === 'ja') {
+    return h ? `${h}時間${mn}分` : `${mn}分`;
+  } else if (state.lang === 'en') {
+    return h ? `${h}h ${mn}m` : `${mn}m`;
+  } else {
+    return h ? `${h}h${mn.toString().padStart(2,'0')}` : `${mn}min`;
+  }
 }
 function formatDate(s) {
   if (!s) return 'N/A';
   const d = new Date(s);
   if (isNaN(d)) return s;
-  return d.toLocaleDateString(state.lang === 'en' ? 'en-GB' : 'fr-FR', {year:'numeric',month:'long',day:'numeric'});
+  const locale = state.lang === 'ja' ? 'ja-JP' : state.lang === 'en' ? 'en-US' : 'fr-FR';
+  return d.toLocaleDateString(locale, {year:'numeric',month:'long',day:'numeric'});
 }
 function formatYear(s) {
   if (!s) return '';
