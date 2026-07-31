@@ -1063,7 +1063,7 @@ function populateModal(film, startingPosterIndex = 0) {
   dom.modalRuntime.textContent  = formatRuntime(runtimeMin);
   dom.modalLanguage.textContent = langCode.toUpperCase() || 'N/A';
   dom.modalBudget.textContent   = formatCurrency(film.budget);
-  dom.modalRevenue.textContent  = formatCurrency(film.recettes);
+  dom.modalRevenue.textContent  = formatCurrency(film.revenue);
 
   // Translate summary based on active language
   let summary = '';

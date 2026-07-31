@@ -2731,7 +2731,7 @@ function populateModal(film, startingPosterIndex = 0) {
   dom.modalRuntime.textContent  = formatRuntime(runtimeMin);
   dom.modalLanguage.textContent = langCode.toUpperCase() || 'N/A';
   dom.modalBudget.textContent   = formatCurrency(film.budget);
-  dom.modalRevenue.textContent  = formatCurrency(film.recettes);
+  dom.modalRevenue.textContent  = formatCurrency(film.revenue);
 
   dom.modalSummary.textContent = state.lang === 'ja' ? (film.resume_ja || film.resume_en || film.resume_fr || '概要はありません。') : (state.lang === 'en' ? (film.resume_en || film.resume_fr || 'Summary not available.') : (film.resume_fr || film.resume_en || 'Résumé non disponible.'));
 }
