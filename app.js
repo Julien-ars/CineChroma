@@ -506,7 +506,7 @@ const state = {
   modalFilm:       null,
   modalPosterIndex:0,
   isLoadingMore:   false,
-  favorites:       new Set(safeGetJSON('cinechroma_favorites', [])),
+  favorites:       new Set(), // initialized below after migration
   user:                    safeGetJSON('cinechroma_user', null),
   collections:             safeGetJSON('cinechroma_collections', []),
   hasSeenGuestLikePrompt:  localStorage.getItem('cinechroma_guest_prompt_seen') === 'true',
@@ -1747,7 +1747,7 @@ function applyFiltersAndRender() {
 
   if (state.activeGenres.size > 0) {
     if (state.activeGenres.has('__favorites__')) {
-      films = films.filter(f => state.favorites.has(getFilmId(f)));
+      films = films.filter(f => { const prefix = getFilmId(f) + ':'; return [...state.favorites].some(k => k.startsWith(prefix)); });
     } else {
       films = films.filter(f =>
         [...state.activeGenres].some(g => (f.genres||[]).includes(g))
@@ -1865,8 +1865,12 @@ function buildCard(film, ratioClass) {
   card.setAttribute('data-id', filmId);
   const src     = getMatchingPosterUrl(film);
   const year    = formatYear(film.date_sortie);
-  const isFav   = state.favorites.has(filmId);
-  const isColActive = state.collections.some(c => c.filmIds && c.filmIds.includes(filmId));
+  const affiches = film.affiches || [];
+  const clickedPosterIndex = Math.max(0, affiches.findIndex(a => (a.affiche_w500 || a.affiche_original) === src));
+  const posterKey = getPosterKey(filmId, clickedPosterIndex);
+  const filmPrefix = filmId + ':';
+  const isFav   = [...state.favorites].some(k => k.startsWith(filmPrefix));
+  const isColActive = state.collections.some(c => c.posterKeys && c.posterKeys.some(k => k.startsWith(filmPrefix)));
 
   let matchScore = null;
   if (state.activeColors.length) {
@@ -1902,22 +1906,22 @@ function buildCard(film, ratioClass) {
     </div>
   `;
 
-  const affiches = film.affiches || [];
-  const clickedPosterIndex = Math.max(0, affiches.findIndex(a => (a.affiche_w500 || a.affiche_original) === src));
-  card.addEventListener('click', () => openModal(film, clickedPosterIndex));
+  const affiches2 = film.affiches || [];
+  const clickedPosterIndex2 = Math.max(0, affiches2.findIndex(a => (a.affiche_w500 || a.affiche_original) === src));
+  card.addEventListener('click', () => openModal(film, clickedPosterIndex2));
   card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(film, clickedPosterIndex); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(film, clickedPosterIndex2); }
   });
   card.querySelector('.card-fav-btn').addEventListener('click', e => {
     e.stopPropagation();
-    toggleFavorite(filmId, e.currentTarget);
+    toggleFavorite(posterKey, e.currentTarget);
   });
   
   const colBtn = card.querySelector('.card-col-btn');
   if (colBtn) {
     colBtn.addEventListener('click', e => {
       e.stopPropagation();
-      openCollectionChooser(film, colBtn);
+      openCollectionChooser(film, clickedPosterIndex2, colBtn);
     });
   }
   
@@ -1959,39 +1963,45 @@ function setupScrollTopBtn() {
 /* ============================================================
    FAVORITES & GUEST PROMPT
 ============================================================ */
-function toggleFavorite(filmId, btnEl) {
+function toggleFavorite(posterKey, btnEl) {
   if (!state.user && !state.hasSeenGuestLikePrompt) {
     state.hasSeenGuestLikePrompt = true;
     localStorage.setItem('cinechroma_guest_prompt_seen', 'true');
     showToast(t('guest_like_prompt'));
   }
 
-  const isRemoving = state.favorites.has(filmId);
+  const isRemoving = state.favorites.has(posterKey);
   if (isRemoving) {
-    state.favorites.delete(filmId);
+    state.favorites.delete(posterKey);
     showToast(t('fav_removed'));
   } else {
-    state.favorites.add(filmId);
+    state.favorites.add(posterKey);
     if (state.user || state.hasSeenGuestLikePrompt) {
       showToast(t('fav_added'));
     }
   }
 
-  // Update all matching cards in DOM
-  const activeVal = !isRemoving;
+  // Determine if ANY poster of this film is still liked
+  const { filmId } = parsePosterKey(posterKey);
+  const filmPrefix = filmId + ':';
+  const anyFav = [...state.favorites].some(k => k.startsWith(filmPrefix));
+
+  // Update all cards for this film
   $$(`.film-card[data-id="${filmId}"]`).forEach(card => {
     const btn = card.querySelector('.card-fav-btn');
     if (btn) {
-      btn.classList.toggle('active', activeVal);
-      btn.querySelector('svg').setAttribute('fill', activeVal ? 'currentColor' : 'none');
+      btn.classList.toggle('active', anyFav);
+      btn.querySelector('svg').setAttribute('fill', anyFav ? 'currentColor' : 'none');
     }
   });
 
-  // Update details modal button state if open
+  // Update details modal button: reflect the CURRENT poster's specific key
   if (state.modalFilm && getFilmId(state.modalFilm) === filmId) {
+    const currentKey = getPosterKey(filmId, state.modalPosterIndex);
+    const currentFav = state.favorites.has(currentKey);
     if (dom.modalLikeBtn) {
-      dom.modalLikeBtn.classList.toggle('active-like', activeVal);
-      dom.modalLikeBtn.querySelector('svg').setAttribute('fill', activeVal ? 'currentColor' : 'none');
+      dom.modalLikeBtn.classList.toggle('active-like', currentFav);
+      dom.modalLikeBtn.querySelector('svg').setAttribute('fill', currentFav ? 'currentColor' : 'none');
     }
   }
 
@@ -2152,31 +2162,39 @@ function switchProfileTab(tab) {
 }
 
 function renderProfileLikes() {
-  const favFilms = state.allFilms.filter(f => state.favorites.has(getFilmId(f)));
-  if (!favFilms.length) {
+  const favKeys = [...state.favorites]; // array of posterKeys e.g. "filmId:2"
+  if (!favKeys.length) {
     dom.profileLikesGrid.innerHTML = `<div style="grid-column: 1/-1; padding: 24px; text-align: center; color: var(--text-3); font-size: 0.82rem;">Aucun favori pour le moment. Cliquez sur le cœur d'une affiche pour l'ajouter !</div>`;
     return;
   }
 
-  dom.profileLikesGrid.innerHTML = favFilms.map(f => {
-    const posterUrl = getMatchingPosterUrl(f);
+  // Resolve each posterKey to {film, posterIndex}
+  const resolved = [];
+  favKeys.forEach(key => {
+    const { filmId, posterIndex } = parsePosterKey(key);
+    const film = state.allFilms.find(f => getFilmId(f) === filmId);
+    if (film) resolved.push({ film, posterIndex, key });
+  });
+
+  dom.profileLikesGrid.innerHTML = resolved.map(({ film, posterIndex, key }) => {
+    const affiches = film.affiches || [];
+    const poster = affiches[posterIndex] || affiches[0] || {};
+    const posterUrl = poster.affiche_w500 || poster.affiche_original || getMatchingPosterUrl(film);
     return `
-      <div class="profile-like-card" data-id="${getFilmId(f)}">
-        <img src="${esc(posterUrl)}" alt="${esc(f.titre)}" class="profile-like-img" loading="lazy" />
+      <div class="profile-like-card" data-poster-key="${esc(key)}">
+        <img src="${esc(posterUrl)}" alt="${esc(film.titre)}" class="profile-like-img" loading="lazy" />
       </div>
     `;
   }).join('');
 
   $$('#profile-likes-grid .profile-like-card').forEach(card => {
     card.addEventListener('click', () => {
-      const film = state.allFilms.find(f => getFilmId(f) === card.getAttribute('data-id'));
+      const key = card.getAttribute('data-poster-key');
+      const { filmId, posterIndex } = parsePosterKey(key);
+      const film = state.allFilms.find(f => getFilmId(f) === filmId);
       if (film) {
         closeProfileModal();
-        const posterImg = card.querySelector('.profile-like-img');
-        const posterUrl = posterImg ? posterImg.getAttribute('src') : '';
-        const affiches = film.affiches || [];
-        const clickedPosterIndex = Math.max(0, affiches.findIndex(a => (a.affiche_w500 || a.affiche_original) === posterUrl));
-        openModal(film, clickedPosterIndex);
+        openModal(film, posterIndex);
       }
     });
   });
@@ -2195,7 +2213,7 @@ function renderProfileCollections() {
       </button>
       <div class="collection-card-name">${esc(col.title)}</div>
       <div class="collection-card-desc">${esc(col.desc || 'Sans description')}</div>
-      <div class="collection-card-count">${col.filmIds ? col.filmIds.length : 0} affiches</div>
+      <div class="collection-card-count">${col.posterKeys ? col.posterKeys.length : 0} affiches</div>
     </div>
   `).join('');
 
@@ -2235,7 +2253,7 @@ function handleCreateCollection(e) {
     id: 'col_' + Date.now(),
     title,
     desc,
-    filmIds: []
+    posterKeys: []
   };
 
   state.collections.push(newCol);
@@ -2253,8 +2271,9 @@ function handleCreateCollection(e) {
 /* ============================================================
    COLLECTION CHOOSER POPUP & HELPERS
 ============================================================ */
-function openCollectionChooser(film, triggerEl) {
+function openCollectionChooser(film, posterIndex, triggerEl) {
   state.chooserFilm = film;
+  state.chooserPosterIndex = (posterIndex !== undefined) ? posterIndex : state.modalPosterIndex;
   renderCollectionChooserList();
   dom.colChooserModal.removeAttribute('hidden');
   document.body.style.overflow = 'hidden';
@@ -2270,6 +2289,7 @@ function renderCollectionChooserList() {
   dom.colChooserList.innerHTML = '';
   if (!state.chooserFilm) return;
   const filmId = getFilmId(state.chooserFilm);
+  const posterKey = getPosterKey(filmId, state.chooserPosterIndex || 0);
   
   if (state.collections.length === 0) {
     dom.colChooserList.innerHTML = `<div style="text-align:center; padding:16px; font-size:0.78rem; color:var(--text-3);">Aucune collection. Créez-en une ci-dessous !</div>`;
@@ -2277,7 +2297,8 @@ function renderCollectionChooserList() {
   }
   
   state.collections.forEach(col => {
-    const isChecked = col.filmIds && col.filmIds.includes(filmId);
+    if (!col.posterKeys) col.posterKeys = [];
+    const isChecked = col.posterKeys.includes(posterKey);
     const item = document.createElement('div');
     item.className = 'col-chooser-item';
     item.innerHTML = `
@@ -2291,17 +2312,16 @@ function renderCollectionChooserList() {
         </div>
         <span class="col-chooser-name">${esc(col.title)}</span>
       </div>
-      <span class="col-chooser-count">${col.filmIds ? col.filmIds.length : 0}</span>
+      <span class="col-chooser-count">${col.posterKeys.length}</span>
     `;
     
     item.addEventListener('click', () => {
-      if (!col.filmIds) col.filmIds = [];
-      const idx = col.filmIds.indexOf(filmId);
+      const idx = col.posterKeys.indexOf(posterKey);
       if (idx > -1) {
-        col.filmIds.splice(idx, 1);
+        col.posterKeys.splice(idx, 1);
         showToast(state.lang === 'en' ? `Removed from "${col.title}"` : `Retiré de la collection "${col.title}"`);
       } else {
-        col.filmIds.push(filmId);
+        col.posterKeys.push(posterKey);
         showToast(state.lang === 'en' ? `Added to "${col.title}"` : `Ajouté à la collection "${col.title}"`);
       }
       localStorage.setItem('cinechroma_collections', JSON.stringify(state.collections));
@@ -2319,7 +2339,8 @@ function renderCollectionChooserList() {
 }
 
 function syncCardCollectionStates(filmId) {
-  const isColActive = state.collections.some(c => c.filmIds && c.filmIds.includes(filmId));
+  const filmPrefix = filmId + ':';
+  const isColActive = state.collections.some(c => c.posterKeys && c.posterKeys.some(k => k.startsWith(filmPrefix)));
   $$(`.film-card[data-id="${filmId}"]`).forEach(card => {
     const btn = card.querySelector('.card-col-btn');
     if (btn) {
@@ -2332,7 +2353,8 @@ function syncCardCollectionStates(filmId) {
 function updateDetailsModalCollectionBtn(filmId) {
   if (state.modalFilm && getFilmId(state.modalFilm) === filmId) {
     if (dom.modalColBtn) {
-      const isCol = state.collections.some(c => c.filmIds && c.filmIds.includes(filmId));
+      const filmPrefix = filmId + ':';
+      const isCol = state.collections.some(c => c.posterKeys && c.posterKeys.some(k => k.startsWith(filmPrefix)));
       dom.modalColBtn.classList.toggle('active-col', isCol);
       dom.modalColBtn.querySelector('svg').setAttribute('fill', isCol ? 'currentColor' : 'none');
     }
@@ -2589,6 +2611,23 @@ function populateModal(film, startingPosterIndex = 0) {
       const idxInGlobal = affiches.indexOf(poster);
       state.modalPosterIndex = idxInGlobal !== -1 ? idxInGlobal : 0;
       updateModalPoster(film, state.modalPosterIndex);
+
+      // Update like/col button states to reflect the newly selected poster
+      const currentFilmId = getFilmId(film);
+      const currentPosterKey = getPosterKey(currentFilmId, state.modalPosterIndex);
+      const filmPrefix = currentFilmId + ':';
+      if (dom.modalLikeBtn) {
+        const currentFav = state.favorites.has(currentPosterKey);
+        dom.modalLikeBtn.classList.toggle('active-like', currentFav);
+        dom.modalLikeBtn.querySelector('svg').setAttribute('fill', currentFav ? 'currentColor' : 'none');
+        dom.modalLikeBtn.onclick = (e) => { e.preventDefault(); toggleFavorite(currentPosterKey, null); };
+      }
+      if (dom.modalColBtn && state.user) {
+        const currentCol = state.collections.some(c => c.posterKeys && c.posterKeys.some(k => k.startsWith(filmPrefix)));
+        dom.modalColBtn.classList.toggle('active-col', currentCol);
+        dom.modalColBtn.querySelector('svg').setAttribute('fill', currentCol ? 'currentColor' : 'none');
+        dom.modalColBtn.onclick = (e) => { e.preventDefault(); openCollectionChooser(film, state.modalPosterIndex, dom.modalColBtn); };
+      }
     }
 
     const catsContainer = $('#modal-poster-cats');
@@ -2668,15 +2707,17 @@ function populateModal(film, startingPosterIndex = 0) {
 
   // Details Modal actions row (Like & Collection)
   const filmId = getFilmId(film);
-  const isFav = state.favorites.has(filmId);
-  const isCol = state.collections.some(c => c.filmIds && c.filmIds.includes(filmId));
+  const currentPosterKey = getPosterKey(filmId, startingPosterIndex);
+  const filmPrefix = filmId + ':';
+  const isFav = state.favorites.has(currentPosterKey);
+  const isCol = state.collections.some(c => c.posterKeys && c.posterKeys.some(k => k.startsWith(filmPrefix)));
   
   if (dom.modalLikeBtn) {
     dom.modalLikeBtn.classList.toggle('active-like', isFav);
     dom.modalLikeBtn.querySelector('svg').setAttribute('fill', isFav ? 'currentColor' : 'none');
     dom.modalLikeBtn.onclick = (e) => {
       e.preventDefault();
-      toggleFavorite(filmId, null);
+      toggleFavorite(getPosterKey(filmId, state.modalPosterIndex), null);
     };
   }
 
@@ -2687,7 +2728,7 @@ function populateModal(film, startingPosterIndex = 0) {
       dom.modalColBtn.querySelector('svg').setAttribute('fill', isCol ? 'currentColor' : 'none');
       dom.modalColBtn.onclick = (e) => {
         e.preventDefault();
-        openCollectionChooser(film, dom.modalColBtn);
+        openCollectionChooser(film, state.modalPosterIndex, dom.modalColBtn);
       };
     } else {
       dom.modalColBtn.hidden = true;
@@ -3095,6 +3136,47 @@ function starsHtml(r) {
 function getFilmId(film) {
   const t = ((state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || 'x').toLowerCase().replace(/[^a-z0-9]/g,'_');
   return `${t}_${film.date_sortie||'?'}`;
+}
+
+// Poster-level key: "filmId:posterIndex"
+function getPosterKey(filmId, posterIndex) {
+  return `${filmId}:${posterIndex}`;
+}
+function parsePosterKey(key) {
+  const parts = String(key).split(':');
+  // posterIndex is the last segment; filmId may contain colons in theory — be safe
+  const posterIndex = Number(parts[parts.length - 1]);
+  const filmId = parts.slice(0, -1).join(':');
+  return { filmId, posterIndex: isNaN(posterIndex) ? 0 : posterIndex };
+}
+
+// One-time migration: old data used raw filmId values (string without :index)
+// Convert them to posterKey format (filmId:0) silently.
+function migrateLegacyFavorites() {
+  const raw = safeGetJSON('cinechroma_favorites', []);
+  const migrated = raw.map(v => {
+    const s = String(v);
+    // Already a posterKey if it ends with ":" + a number
+    if (/:\d+$/.test(s)) return s;
+    return `${s}:0`;
+  });
+  state.favorites = new Set(migrated);
+  localStorage.setItem('cinechroma_favorites', JSON.stringify(migrated));
+}
+
+function migrateLegacyCollections() {
+  let changed = false;
+  state.collections.forEach(col => {
+    if (col.filmIds && !col.posterKeys) {
+      col.posterKeys = col.filmIds.map(id => `${id}:0`);
+      delete col.filmIds;
+      changed = true;
+    }
+    if (!col.posterKeys) col.posterKeys = [];
+  });
+  if (changed) {
+    localStorage.setItem('cinechroma_collections', JSON.stringify(state.collections));
+  }
 }
 function esc(s) {
   if (!s) return '';
@@ -3797,6 +3879,8 @@ function performKMeans(pixels, k) {
    BOOTSTRAP
 ============================================================ */
 (function bootstrap() {
+  migrateLegacyFavorites();
+  migrateLegacyCollections();
   readURL();
   bindEvents();
   loadData();

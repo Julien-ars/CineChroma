@@ -3422,6 +3422,13 @@ body.page-exit {
   stroke: #ffb800;
 }
 
+#collection-chooser-modal {
+  z-index: 700;
+}
+#create-collection-modal {
+  z-index: 800;
+}
+
 /* 5. Collection Chooser Modal */
 .col-chooser-card {
   max-width: 380px !important;

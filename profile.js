@@ -37,13 +37,14 @@ const state = {
   theme: localStorage.getItem('cinechroma_theme') || 'dark',
   allFilms: [],
   user: safeGetJSON('cinechroma_user', null),
-  favorites: new Set(safeGetJSON('cinechroma_favorites', [])),
+  favorites: new Set(), // initialized after migration
   collections: safeGetJSON('cinechroma_collections', []),
   activeTab: 'likes', // 'likes' or 'collections'
   activeCollectionId: null, // Selected collection in details view
   modalFilm: null,
   modalPosterIndex: 0,
   chooserFilm: null,
+  chooserPosterIndex: 0,
   selectedAvatarToEdit: null,
 };
 
@@ -166,6 +167,8 @@ const dom = {
 
 // Initialisation
 async function init() {
+  migrateLegacyFavorites();
+  migrateLegacyCollections();
   bindCommonUI();
   await loadDatabase();
   
@@ -301,11 +304,13 @@ function bindCommonUI() {
 // Get film list corresponding to currently active tab/subview
 function getActiveViewFilmList() {
   if (state.activeTab === 'likes') {
-    return state.allFilms.filter(f => state.favorites.has(getFilmId(f)));
+    return state.allFilms.filter(f => { const prefix = getFilmId(f) + ':'; return [...state.favorites].some(k => k.startsWith(prefix)); });
   } else if (state.activeTab === 'collections' && state.activeCollectionId) {
     const col = state.collections.find(c => c.id === state.activeCollectionId);
-    if (col && col.filmIds) {
-      return state.allFilms.filter(f => col.filmIds.includes(getFilmId(f)));
+    if (col && col.posterKeys) {
+      // Return unique films that have at least one posterKey in this collection
+      const filmIds = [...new Set(col.posterKeys.map(k => parsePosterKey(k).filmId))];
+      return state.allFilms.filter(f => filmIds.includes(getFilmId(f)));
     }
   }
   return [];
@@ -502,8 +507,22 @@ function showCollectionsList() {
 function renderLikesTab() {
   dom.likesGrid.innerHTML = '';
   
-  const likedFilms = state.allFilms.filter(f => state.favorites.has(getFilmId(f)));
-  if (likedFilms.length === 0) {
+  const favKeys = [...state.favorites];
+  if (favKeys.length === 0) {
+    dom.likesEmpty.removeAttribute('hidden');
+    dom.likesGrid.hidden = true;
+    return;
+  }
+  
+  // Resolve posterKeys to {film, posterIndex}
+  const resolved = [];
+  favKeys.forEach(key => {
+    const { filmId, posterIndex } = parsePosterKey(key);
+    const film = state.allFilms.find(f => getFilmId(f) === filmId);
+    if (film) resolved.push({ film, posterIndex, key });
+  });
+
+  if (resolved.length === 0) {
     dom.likesEmpty.removeAttribute('hidden');
     dom.likesGrid.hidden = true;
     return;
@@ -512,8 +531,8 @@ function renderLikesTab() {
   dom.likesEmpty.setAttribute('hidden', '');
   dom.likesGrid.removeAttribute('hidden');
   
-  likedFilms.forEach(film => {
-    const card = buildPosterCard(film, true);
+  resolved.forEach(({ film, posterIndex, key }) => {
+    const card = buildPosterCard(film, posterIndex, true);
     dom.likesGrid.appendChild(card);
   });
 }
@@ -532,22 +551,28 @@ function renderCollectionsTab() {
   dom.collectionsGrid.removeAttribute('hidden');
   
   state.collections.forEach(col => {
+    if (!col.posterKeys) col.posterKeys = [];
     const card = document.createElement('div');
     card.className = 'collection-card';
     card.setAttribute('data-id', col.id);
     
-    // Create preview row with mini posters
-    const count = col.filmIds ? col.filmIds.length : 0;
+    const count = col.posterKeys.length;
     let previewsHtml = '';
     
     if (count > 0 && state.allFilms.length > 0) {
-      const previewFilms = state.allFilms.filter(f => col.filmIds.includes(getFilmId(f))).slice(0, 3);
+      // Show up to 3 preview thumbnails using the specific poster from each key
+      const previewKeys = col.posterKeys.slice(0, 3);
+      const thumbs = previewKeys.map(key => {
+        const { filmId, posterIndex } = parsePosterKey(key);
+        const film = state.allFilms.find(f => getFilmId(f) === filmId);
+        if (!film) return null;
+        const affiches = film.affiches || [];
+        const poster = affiches[posterIndex] || affiches[0] || {};
+        return poster.affiche_w500 || poster.affiche_original || null;
+      }).filter(Boolean);
       previewsHtml = `
         <div class="collection-preview-thumbnails">
-          ${previewFilms.map(f => {
-            const url = getMatchingPosterUrl(f);
-            return `<img src="${esc(url)}" alt="" class="collection-preview-thumb-img" />`;
-          }).join('')}
+          ${thumbs.map(url => `<img src="${esc(url)}" alt="" class="collection-preview-thumb-img" />`).join('')}
         </div>
       `;
     } else {
@@ -573,13 +598,11 @@ function renderCollectionsTab() {
       <div class="collection-card-count">${itemsCountText}</div>
     `;
     
-    // Navigate on card click
     card.addEventListener('click', (e) => {
       if (e.target.closest('.collection-delete-btn')) return;
       viewCollectionDetail(col.id);
     });
     
-    // Delete collection
     card.querySelector('.collection-delete-btn').addEventListener('click', (e) => {
       e.stopPropagation();
       handleDeleteCollection(col.id);
@@ -596,14 +619,14 @@ function renderCollectionDetails(colId) {
     showCollectionsList();
     return;
   }
+  if (!col.posterKeys) col.posterKeys = [];
   
   dom.collectionDetailTitle.textContent = col.title;
   dom.collectionDetailDesc.textContent = col.desc || t('profile_col_any_no_desc');
   
   dom.collectionPostersGrid.innerHTML = '';
   
-  const colFilms = state.allFilms.filter(f => col.filmIds && col.filmIds.includes(getFilmId(f)));
-  const count = colFilms.length;
+  const count = col.posterKeys.length;
   
   let itemsCountText = '';
   if (state.lang === 'ja') {
@@ -624,14 +647,17 @@ function renderCollectionDetails(colId) {
   dom.collectionPostersEmpty.setAttribute('hidden', '');
   dom.collectionPostersGrid.removeAttribute('hidden');
   
-  colFilms.forEach(film => {
-    const card = buildPosterCard(film, false, col.id);
+  col.posterKeys.forEach(key => {
+    const { filmId, posterIndex } = parsePosterKey(key);
+    const film = state.allFilms.find(f => getFilmId(f) === filmId);
+    if (!film) return;
+    const card = buildPosterCard(film, posterIndex, false, col.id, key);
     dom.collectionPostersGrid.appendChild(card);
   });
 }
 
 // BUILD POSTER CARD
-function buildPosterCard(film, isLikesGrid = true, colId = null) {
+function buildPosterCard(film, posterIndex = 0, isLikesGrid = true, colId = null, posterKey = null) {
   const card = document.createElement('article');
   card.className = 'film-card ratio-tall';
   card.setAttribute('tabindex', '0');
@@ -640,7 +666,12 @@ function buildPosterCard(film, isLikesGrid = true, colId = null) {
   
   const filmId = getFilmId(film);
   card.setAttribute('data-id', filmId);
-  const src = getMatchingPosterUrl(film);
+
+  // Use the specific poster at posterIndex
+  const affiches = film.affiches || [];
+  const poster = affiches[posterIndex] || affiches[0] || {};
+  const src = poster.affiche_w500 || poster.affiche_original || getMatchingPosterUrl(film);
+  const resolvedKey = posterKey || getPosterKey(filmId, posterIndex);
   const year = film.date_sortie ? new Date(film.date_sortie).getFullYear() : '';
   
   const actionButton = isLikesGrid ? `
@@ -669,20 +700,20 @@ function buildPosterCard(film, isLikesGrid = true, colId = null) {
     </div>
   `;
   
-  card.addEventListener('click', () => openModal(film));
+  card.addEventListener('click', () => openModal(film, posterIndex));
   card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(film); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(film, posterIndex); }
   });
   
   if (isLikesGrid) {
     card.querySelector('.card-fav-btn').addEventListener('click', e => {
       e.stopPropagation();
-      toggleFavorite(filmId);
+      toggleFavorite(resolvedKey);
     });
   } else {
     card.querySelector('.card-col-btn').addEventListener('click', e => {
       e.stopPropagation();
-      removeFilmFromCollection(filmId, colId);
+      removePosterFromCollection(resolvedKey, colId);
     });
   }
   
@@ -690,13 +721,13 @@ function buildPosterCard(film, isLikesGrid = true, colId = null) {
 }
 
 // TOGGLE FAVORITE
-function toggleFavorite(filmId) {
-  const isRemoving = state.favorites.has(filmId);
+function toggleFavorite(posterKey) {
+  const isRemoving = state.favorites.has(posterKey);
   if (isRemoving) {
-    state.favorites.delete(filmId);
+    state.favorites.delete(posterKey);
     showToast(t('profile_toast_fav_removed'));
   } else {
-    state.favorites.add(filmId);
+    state.favorites.add(posterKey);
     showToast(t('profile_toast_fav_added'));
   }
   
@@ -709,18 +740,21 @@ function toggleFavorite(filmId) {
   }
   
   // Update details modal button if open
-  if (state.modalFilm && getFilmId(state.modalFilm) === filmId) {
-    dom.modalLikeBtn.classList.toggle('active-like', !isRemoving);
-    dom.modalLikeBtn.querySelector('svg').setAttribute('fill', !isRemoving ? 'currentColor' : 'none');
+  if (state.modalFilm) {
+    const currentFilmId = getFilmId(state.modalFilm);
+    const currentKey = getPosterKey(currentFilmId, state.modalPosterIndex);
+    const currentFav = state.favorites.has(currentKey);
+    dom.modalLikeBtn.classList.toggle('active-like', currentFav);
+    dom.modalLikeBtn.querySelector('svg').setAttribute('fill', currentFav ? 'currentColor' : 'none');
   }
 }
 
-// REMOVE FILM FROM A COLLECTION
-function removeFilmFromCollection(filmId, colId) {
+// REMOVE POSTER FROM A COLLECTION
+function removePosterFromCollection(posterKey, colId) {
   const col = state.collections.find(c => c.id === colId);
-  if (!col) return;
+  if (!col || !col.posterKeys) return;
   
-  col.filmIds = (col.filmIds || []).filter(id => id !== filmId);
+  col.posterKeys = col.posterKeys.filter(k => k !== posterKey);
   localStorage.setItem('cinechroma_collections', JSON.stringify(state.collections));
   showToast(t('profile_toast_col_removed'));
   
@@ -861,7 +895,7 @@ function handleColFormSubmit(e) {
       id: 'col_' + Date.now(),
       title,
       desc,
-      filmIds: []
+      posterKeys: []
     };
     
     state.collections.push(newCol);
@@ -874,10 +908,11 @@ function handleColFormSubmit(e) {
   }
 }
 
-// ADD FILM TO COLLECTION CHOOSER MODAL
-function openCollectionChooser(film) {
+// ADD POSTER TO COLLECTION CHOOSER MODAL
+function openCollectionChooser(film, posterIndex) {
   state.chooserFilm = film;
-  const filmId = getFilmId(film);
+  state.chooserPosterIndex = (posterIndex !== undefined) ? posterIndex : state.modalPosterIndex;
+  const posterKey = getPosterKey(getFilmId(film), state.chooserPosterIndex);
   
   dom.chooserCollectionsList.innerHTML = '';
   
@@ -885,7 +920,8 @@ function openCollectionChooser(film) {
     dom.chooserCollectionsList.innerHTML = `<div style="text-align:center;padding:12px;color:var(--text-3);font-size:0.78rem;">${t('profile_toast_empty_cols')}</div>`;
   } else {
     state.collections.forEach(col => {
-      const inCol = col.filmIds && col.filmIds.includes(filmId);
+      if (!col.posterKeys) col.posterKeys = [];
+      const inCol = col.posterKeys.includes(posterKey);
       const row = document.createElement('div');
       row.className = `chooser-col-row${inCol ? ' active' : ''}`;
       row.innerHTML = `
@@ -895,8 +931,8 @@ function openCollectionChooser(film) {
         </svg>
       `;
       row.addEventListener('click', () => {
-        toggleFilmInCollection(filmId, col.id);
-        const active = col.filmIds.includes(filmId);
+        togglePosterInCollection(posterKey, col.id);
+        const active = col.posterKeys.includes(posterKey);
         row.classList.toggle('active', active);
         row.querySelector('svg').setAttribute('fill', active ? 'currentColor' : 'none');
       });
@@ -913,19 +949,19 @@ function closeChooserModal() {
   state.chooserFilm = null;
 }
 
-function toggleFilmInCollection(filmId, colId) {
+function togglePosterInCollection(posterKey, colId) {
   const col = state.collections.find(c => c.id === colId);
   if (!col) return;
   
-  if (!col.filmIds) col.filmIds = [];
+  if (!col.posterKeys) col.posterKeys = [];
   
-  const idx = col.filmIds.indexOf(filmId);
+  const idx = col.posterKeys.indexOf(posterKey);
   if (idx === -1) {
-    col.filmIds.push(filmId);
+    col.posterKeys.push(posterKey);
     const addedMsg = t('profile_toast_col_added_to').replace('{name}', col.title);
     showToast(addedMsg);
   } else {
-    col.filmIds.splice(idx, 1);
+    col.posterKeys.splice(idx, 1);
     const removedMsg = t('profile_toast_col_removed_from').replace('{name}', col.title);
     showToast(removedMsg);
   }
@@ -942,9 +978,11 @@ function toggleFilmInCollection(filmId, colId) {
     }
   }
   
-  // Sync bookmarks in detail modal if open
-  if (state.modalFilm && getFilmId(state.modalFilm) === filmId) {
-    const isCol = state.collections.some(c => c.filmIds && c.filmIds.includes(filmId));
+  // Sync col button in modal if open
+  if (state.modalFilm) {
+    const filmId = getFilmId(state.modalFilm);
+    const filmPrefix = filmId + ':';
+    const isCol = state.collections.some(c => c.posterKeys && c.posterKeys.some(k => k.startsWith(filmPrefix)));
     dom.modalColBtn.classList.toggle('active-col', isCol);
     dom.modalColBtn.querySelector('svg').setAttribute('fill', isCol ? 'currentColor' : 'none');
   }
@@ -991,9 +1029,21 @@ function populateModal(film, startingPosterIndex = 0) {
       img.className = `poster-thumb${i === startingPosterIndex ? ' active' : ''}`;
       img.loading = 'lazy';
       img.addEventListener('click', () => {
+        state.modalPosterIndex = i;
         updateModalPoster(film, i);
         $$('.poster-thumb').forEach(t => t.classList.remove('active'));
         img.classList.add('active');
+        // Refresh like/col buttons for new poster
+        const currentFilmId = getFilmId(film);
+        const currentKey = getPosterKey(currentFilmId, i);
+        const filmPrefix = currentFilmId + ':';
+        dom.modalLikeBtn.classList.toggle('active-like', state.favorites.has(currentKey));
+        dom.modalLikeBtn.querySelector('svg').setAttribute('fill', state.favorites.has(currentKey) ? 'currentColor' : 'none');
+        dom.modalLikeBtn.onclick = (e) => { e.preventDefault(); toggleFavorite(currentKey); };
+        const currentCol = state.collections.some(c => c.posterKeys && c.posterKeys.some(k => k.startsWith(filmPrefix)));
+        dom.modalColBtn.classList.toggle('active-col', currentCol);
+        dom.modalColBtn.querySelector('svg').setAttribute('fill', currentCol ? 'currentColor' : 'none');
+        dom.modalColBtn.onclick = (e) => { e.preventDefault(); openCollectionChooser(film, i); };
       });
       dom.modalPosterSelector.appendChild(img);
     });
@@ -1010,21 +1060,23 @@ function populateModal(film, startingPosterIndex = 0) {
   };
 
   const filmId = getFilmId(film);
-  const isFav = state.favorites.has(filmId);
-  const isCol = state.collections.some(c => c.filmIds && c.filmIds.includes(filmId));
+  const currentPosterKey = getPosterKey(filmId, startingPosterIndex);
+  const filmPrefix = filmId + ':';
+  const isFav = state.favorites.has(currentPosterKey);
+  const isCol = state.collections.some(c => c.posterKeys && c.posterKeys.some(k => k.startsWith(filmPrefix)));
   
   dom.modalLikeBtn.classList.toggle('active-like', isFav);
   dom.modalLikeBtn.querySelector('svg').setAttribute('fill', isFav ? 'currentColor' : 'none');
   dom.modalLikeBtn.onclick = (e) => {
     e.preventDefault();
-    toggleFavorite(filmId);
+    toggleFavorite(getPosterKey(filmId, state.modalPosterIndex));
   };
 
   dom.modalColBtn.classList.toggle('active-col', isCol);
   dom.modalColBtn.querySelector('svg').setAttribute('fill', isCol ? 'currentColor' : 'none');
   dom.modalColBtn.onclick = (e) => {
     e.preventDefault();
-    openCollectionChooser(film);
+    openCollectionChooser(film, state.modalPosterIndex);
   };
 
   if (film.bande_annonce_url) {
@@ -1288,6 +1340,43 @@ async function shareCardImage(film) {
 function getFilmId(film) {
   const t = (film.titre || film.titre_original || 'x').toLowerCase().replace(/[^a-z0-9]/g,'_');
   return `${t}_${film.date_sortie||'?'}`;
+}
+
+// Poster-level key helpers
+function getPosterKey(filmId, posterIndex) {
+  return `${filmId}:${posterIndex}`;
+}
+function parsePosterKey(key) {
+  const parts = String(key).split(':');
+  const posterIndex = Number(parts[parts.length - 1]);
+  const filmId = parts.slice(0, -1).join(':');
+  return { filmId, posterIndex: isNaN(posterIndex) ? 0 : posterIndex };
+}
+
+function migrateLegacyFavorites() {
+  const raw = safeGetJSON('cinechroma_favorites', []);
+  const migrated = raw.map(v => {
+    const s = String(v);
+    if (/:\d+$/.test(s)) return s;
+    return `${s}:0`;
+  });
+  state.favorites = new Set(migrated);
+  localStorage.setItem('cinechroma_favorites', JSON.stringify(migrated));
+}
+
+function migrateLegacyCollections() {
+  let changed = false;
+  state.collections.forEach(col => {
+    if (col.filmIds && !col.posterKeys) {
+      col.posterKeys = col.filmIds.map(id => `${id}:0`);
+      delete col.filmIds;
+      changed = true;
+    }
+    if (!col.posterKeys) col.posterKeys = [];
+  });
+  if (changed) {
+    localStorage.setItem('cinechroma_collections', JSON.stringify(state.collections));
+  }
 }
 
 function getMatchingPosterUrl(film) {
