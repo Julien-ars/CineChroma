@@ -715,7 +715,9 @@ const GENRE_I18N = {
   'Documentaire': { fr: 'Documentaire', en: 'Documentary', ja: 'ドキュメンタリー' },
   'Mystère': { fr: 'Mystère', en: 'Mystery', ja: 'ミステリー' },
   'Familial': { fr: 'Familial', en: 'Family', ja: 'ファミリー' },
-  'Western': { fr: 'Western', en: 'Western', ja: '西部劇' }
+  'Western': { fr: 'Western', en: 'Western', ja: '西部劇' },
+  'Musique': { fr: 'Musique', en: 'Music', ja: '音楽' },
+  'Téléfilm': { fr: 'Téléfilm', en: 'TV Movie', ja: 'テレビ映画' }
 };
 
 function translateGenre(g, lang) {

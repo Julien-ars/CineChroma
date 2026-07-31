@@ -46,6 +46,15 @@ const GENRE_I18N = {
   'Histoire': { fr: 'Histoire', en: 'History', ja: '歴史' },
   'Romance': { fr: 'Romance', en: 'Romance', ja: 'ロマンス' },
   'Fantastique': { fr: 'Fantastique', en: 'Fantasy', ja: 'ファンタジー' },
+  'Guerre': { fr: 'Guerre', en: 'War', ja: '戦争' },
+  'Animation': { fr: 'Animation', en: 'Animation', ja: 'アニメーション' },
+  'Horreur': { fr: 'Horreur', en: 'Horror', ja: 'ホラー' },
+  'Documentaire': { fr: 'Documentaire', en: 'Documentary', ja: 'ドキュメンタリー' },
+  'Mystère': { fr: 'Mystère', en: 'Mystery', ja: 'ミステリー' },
+  'Familial': { fr: 'Familial', en: 'Family', ja: 'ファミリー' },
+  'Western': { fr: 'Western', en: 'Western', ja: '西部劇' },
+  'Musique': { fr: 'Musique', en: 'Music', ja: '音楽' },
+  'Téléfilm': { fr: 'Téléfilm', en: 'TV Movie', ja: 'テレビ映画' }
 };
 
 function translateGenre(g, lang) {
@@ -151,7 +160,7 @@ const I18N = {
     collection_deleted:  'Collection supprimée',
     hero_tagline:        'EXPÉRIENCE VISUELLE & CINÉMATOGRAPHIQUE',
     hero_title:          'L\'art du cinéma révélé par la couleur',
-    hero_subtitle:       'Explorez plus de 20 000 affiches sous un nouvel angle. Choisissez une teinte et découvrez instantanément les œuvres qui partagent la même signature esthétique.',
+    hero_subtitle:       'Explorez plus de 90 000 affiches sous un nouvel angle. Choisissez une teinte et découvrez instantanément les œuvres qui partagent la même signature esthétique.',
     hero_try_colors:     'Explorez les nuances :',
     hero_btn_explore:    'Explorer la galerie ↓',
     hero_btn_picker:     '🎨 Tester le nuancier',
@@ -287,7 +296,7 @@ const I18N = {
     collection_deleted:  'Collection deleted',
     hero_tagline:        'VISUAL & CINEMATIC EXPERIENCE',
     hero_title:          'The art of cinema revealed by color',
-    hero_subtitle:       'Explore 20,000+ movie posters from a new perspective. Pick a shade and instantly discover posters sharing the same aesthetic signature.',
+    hero_subtitle:       'Explore 90,000+ movie posters from a new perspective. Pick a shade and instantly discover posters sharing the same aesthetic signature.',
     hero_try_colors:     'Explore shades:',
     hero_btn_explore:    'Explore gallery ↓',
     hero_btn_picker:     '🎨 Try color picker',
@@ -423,7 +432,7 @@ const I18N = {
       collection_deleted:  'コレクションが削除されました',
       hero_tagline:        '視覚的かつ映画的な体験',
       hero_title:          '色彩で明らかになる映画の芸術',
-      hero_subtitle:       '20,000以上の映画ポスターを新しい視点から探求。色合いを選び、同じ美的シグネチャを共有するポスターを瞬時に発見します。',
+      hero_subtitle:       '90,000以上の映画ポスターを新しい視点から探求。色合いを選び、同じ美的シグネチャを共有するポスターを瞬時に発見します。',
       hero_try_colors:     '色合いを探る:',
       hero_btn_explore:    'ギャラリーを見る',
       hero_btn_picker:     'カラーチャートをテスト',
