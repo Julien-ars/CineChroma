@@ -1094,8 +1094,14 @@ body {
   transition: var(--transition);
   border-bottom: 2px solid transparent;
 }
+[data-theme="light"] .modal-poster-cat-btn {
+  color: var(--text-2);
+}
 .modal-poster-cat-btn:hover {
   color: var(--text-2);
+}
+[data-theme="light"] .modal-poster-cat-btn:hover {
+  color: var(--text-1);
 }
 .modal-poster-cat-btn.active {
   color: var(--text-1);
@@ -1135,7 +1141,19 @@ body {
   cursor: pointer; opacity: 0.38; border: 2px solid transparent;
   transition: var(--transition);
 }
+[data-theme="light"] .poster-thumb {
+  opacity: 0.65;
+  border-color: var(--border-strong);
+}
+[data-theme="light"] .poster-thumb:hover {
+  opacity: 0.95;
+}
 .poster-thumb.active { opacity: 1; border-color: var(--accent); }
+[data-theme="light"] .poster-thumb.active {
+  opacity: 1;
+  border-color: var(--text-1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
 
 .modal-download-btn-minimal {
   display: inline-flex; align-items: center; gap: 8px;
@@ -1175,12 +1193,14 @@ body {
 /* Genres + cert */
 .modal-meta-top { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .badge-cert { padding: 2px 7px; border-radius: 4px; border: 1px solid var(--border); font-size: 0.6rem; font-weight: 700; color: var(--text-2); }
+[data-theme="light"] .badge-cert { color: var(--text-1); border-color: var(--border-strong); }
 .modal-genres { display: flex; gap: 4px; flex-wrap: wrap; }
 .genre-tag {
   padding: 3px 10px; border-radius: var(--radius-pill);
   background: var(--bg-surface); border: 1px solid var(--border);
   font-size: 0.64rem; font-weight: 500; color: var(--text-2);
 }
+[data-theme="light"] .genre-tag { color: var(--text-1); }
 
 /* Titre — plus grand, plus affirmé */
 .modal-title-block { display: flex; flex-direction: column; gap: 3px; }
@@ -1217,6 +1237,9 @@ body {
 .modal-meta-grid dt {
   font-size: 0.6rem; text-transform: uppercase;
   letter-spacing: 0.1em; color: var(--text-3); font-weight: 700; margin-bottom: 2px;
+}
+[data-theme="light"] .modal-meta-grid dt {
+  color: var(--text-2);
 }
 .modal-meta-grid dd { font-size: 0.85rem; color: var(--text-1); font-weight: 500; }
 
@@ -1980,6 +2003,10 @@ body {
 }
 .film-modal:not([hidden]) .modal-ambient-glow {
   opacity: 0.22; /* High-end subtle ambient glowing projection */
+}
+[data-theme="light"] .film-modal:not([hidden]) .modal-ambient-glow {
+  opacity: 0.85; /* Stronger glow for light theme */
+  filter: blur(70px);
 }
 
 
@@ -3833,6 +3860,18 @@ body.page-exit {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(11, 11, 14, 0.7);
+  transition: opacity 0.5s ease, background 0.5s ease;
+}
+
+/* Revealed and Hint 3 Active overlay reductions */
+.game-bg-container.revealed .game-bg-overlay {
+  opacity: 0.12 !important; /* Laisse transparaître l'affiche à 88% de sa clarté */
+}
+.game-bg-container.hint-3-active .game-bg-overlay {
+  opacity: 0.35 !important; /* Laisse transparaître le contour flou de l'affiche */
+}
+[data-theme="light"] .game-bg-container.hint-3-active .game-bg-overlay {
+  opacity: 0.45 !important;
 }
 
 .game-screen {
@@ -4182,12 +4221,82 @@ body.page-exit {
   justify-content: center;
 }
 
+/* ─── GAME PAGE LIGHT THEME OVERRIDES ─── */
+[data-theme="light"] .game-bg-overlay {
+  background: rgba(235, 237, 242, 0.75);
+}
+[data-theme="light"] .game-bg-poster {
+  filter: blur(40px) brightness(0.9);
+}
+[data-theme="light"] .game-screen {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--text-1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .game-screen::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+[data-theme="light"] .game-top-bar {
+  color: var(--text-2);
+}
+[data-theme="light"] .game-hint-btn {
+  border-color: var(--border-strong);
+  color: var(--text-2);
+}
+[data-theme="light"] .game-hint-btn:hover:not(:disabled) {
+  background: var(--border);
+  color: var(--text-1);
+}
+[data-theme="light"] .game-hint-display {
+  background: var(--bg-surface);
+  color: var(--text-2);
+}
+[data-theme="light"] .game-reveal-info p {
+  color: var(--text-2);
+}
+[data-theme="light"] .game-choice-btn {
+  background: var(--bg-surface);
+  border-color: var(--border);
+  color: var(--text-1);
+}
+[data-theme="light"] .game-choice-btn:hover:not(:disabled) {
+  background: var(--border);
+}
+[data-theme="light"] .game-start-landing {
+  background: rgba(255, 255, 255, 0.45);
+}
+[data-theme="light"] .game-epic-desc {
+  color: var(--text-2);
+}
+[data-theme="light"] .epic-rule-icon {
+  background: var(--bg-surface);
+  border-color: var(--border);
+  color: var(--text-1);
+}
+[data-theme="light"] .epic-rule-text {
+  color: var(--text-2);
+}
+[data-theme="light"] .game-end-score {
+  color: var(--text-2);
+}
+[data-theme="light"] .game-recap-item {
+  background: var(--bg-surface);
+  border-color: var(--border);
+}
+[data-theme="light"] .recap-index {
+  color: var(--text-3);
+}
+[data-theme="light"] .recap-hints {
+  color: var(--text-3);
+}
+
 /* 3D Toggle Button */
 .modal-3d-toggle-btn {
   margin-left: auto;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #E2E8F0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-2);
   border-radius: 20px;
   padding: 4px 12px;
   font-size: 11px;
@@ -4199,13 +4308,13 @@ body.page-exit {
   gap: 6px;
 }
 .modal-3d-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--border);
+  color: var(--text-1);
 }
 .modal-3d-toggle-btn.active {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
-  color: #FFF;
+  background: var(--text-1);
+  border-color: var(--text-1);
+  color: var(--accent-inverse);
 }
 
 /* 3D Chromatic Cloud */

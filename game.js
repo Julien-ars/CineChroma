@@ -19,6 +19,13 @@ let gameState = {
 
 const dom = {};
 
+function getFilmTitle(film) {
+  if (!film) return '';
+  if (state.lang === 'ja' && film.titre_ja) return film.titre_ja;
+  if (state.lang === 'en' && film.titre_en) return film.titre_en;
+  return film.titre || film.titre_original || 'Film inconnu';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   cacheDOM();
   bindGameEvents();
@@ -161,6 +168,7 @@ function initRound() {
   dom.bgPoster.src = film.affiches[0].affiche_original || film.affiches[0].affiche_w500;
   dom.bgPoster.style.filter = 'blur(40px) brightness(0.4)';
   document.querySelector('.game-bg-container').classList.remove('revealed');
+  document.querySelector('.game-bg-container').classList.remove('hint-3-active');
   
   dom.hintBtn.disabled = false;
   dom.hintsUsed.textContent = '0';
@@ -202,7 +210,7 @@ function initRound() {
   gameState.currentChoices.forEach(film => {
     const btn = document.createElement('button');
     btn.className = 'game-choice-btn';
-    btn.textContent = film.titre || film.titre_original || 'Film inconnu';
+    btn.textContent = getFilmTitle(film);
     btn.onclick = () => handleAnswer(btn, film);
     dom.choices.appendChild(btn);
   });
@@ -273,6 +281,7 @@ function useHint() {
     dom.hintBtn.disabled = true;
     dom.hintDisplay.innerHTML += `<div><b>${prefix}</b> ${t('game_hint_3_text')}</div>`;
     dom.bgPoster.style.setProperty('filter', 'blur(6px) brightness(0.7)', 'important');
+    document.querySelector('.game-bg-container').classList.add('hint-3-active');
   }
 }
 
@@ -295,7 +304,7 @@ function handleAnswer(btnElement, chosenFilm) {
   const buttons = document.querySelectorAll('.game-choice-btn');
   buttons.forEach(btn => {
     btn.disabled = true;
-    if (btn.textContent === (gameState.currentFilm.titre || gameState.currentFilm.titre_original)) {
+    if (btn.textContent === getFilmTitle(gameState.currentFilm)) {
       btn.classList.add('correct');
     } else if (btn === btnElement && !isCorrect) {
       btn.classList.add('wrong');
@@ -317,7 +326,7 @@ function handleAnswer(btnElement, chosenFilm) {
   dom.bgPoster.style.setProperty('filter', 'blur(0px) brightness(0.9)', 'important');
   document.querySelector('.game-bg-container').classList.add('revealed');
   
-  dom.revealTitle.textContent = film.titre || film.titre_original || t('profile_unknown_title');
+  dom.revealTitle.textContent = getFilmTitle(film);
   const year = film.date_sortie ? new Date(film.date_sortie).getFullYear() : t('profile_unknown_year');
   dom.revealMeta.textContent = `${film.realisateur || t('profile_unknown_director')} • ${year}`;
   dom.revealInfo.hidden = false;
@@ -350,6 +359,7 @@ function showEndScreen() {
     dom.endScreen.hidden = false;
     
     document.querySelector('.game-bg-container').classList.remove('revealed');
+  document.querySelector('.game-bg-container').classList.remove('hint-3-active');
   
   dom.endScoreVal.textContent = gameState.score;
   dom.recapList.innerHTML = '';
@@ -361,7 +371,7 @@ function showEndScreen() {
     const statusClass = round.isCorrect ? 'recap-correct' : 'recap-wrong';
     
     const posterSrc = round.film.affiches[0].affiche_w500 || round.film.affiches[0].affiche_original;
-    const title = round.film.titre || round.film.titre_original;
+    const title = getFilmTitle(round.film);
     
     let paletteHtml = '';
     round.film.affiches[0].palette.forEach(p => {
