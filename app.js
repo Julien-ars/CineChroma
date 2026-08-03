@@ -1831,11 +1831,31 @@ function renderGrid(reset = false) {
 
   const ratioClasses = ['ratio-tall', 'ratio-square', 'ratio-medium', 'ratio-wide'];
 
-  // Distribute items round-robin across columns so row 1 has items #0, #1, #2, #3, #4!
+  // Read actual heights once per batch to avoid layout thrashing
+  let colHeights = colEls.map(col => col.offsetHeight || 0);
+
+  // Distribute items to the shortest column dynamically
   page.forEach((film, index) => {
-    const colIndex = index % numColumns;
+    let minHeight = Infinity;
+    let shortestColIndex = 0;
+    for (let i = 0; i < numColumns; i++) {
+      if (colHeights[i] < minHeight) {
+        minHeight = colHeights[i];
+        shortestColIndex = i;
+      }
+    }
+
     const ratioClass = ratioClasses[(start + index) % ratioClasses.length];
-    colEls[colIndex].appendChild(buildCard(film, ratioClass));
+    colEls[shortestColIndex].appendChild(buildCard(film, ratioClass));
+
+    // Update virtual height with estimated card height
+    let estimatedH = 300;
+    if (ratioClass === 'ratio-tall') estimatedH = 450;
+    else if (ratioClass === 'ratio-square') estimatedH = 300;
+    else if (ratioClass === 'ratio-medium') estimatedH = 400;
+    else if (ratioClass === 'ratio-wide') estimatedH = 170;
+    
+    colHeights[shortestColIndex] += estimatedH;
   });
 
   const loaded = Math.min(end, state.sorted.length);
