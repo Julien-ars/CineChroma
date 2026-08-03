@@ -3213,7 +3213,7 @@ body {
 @media (max-width: 768px) {
   .feature-showcase-row {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
     padding: 24px 0;
   }
   .feature-showcase-row--reverse {
@@ -3322,7 +3322,7 @@ body.page-exit {
 }
 .splash-logo {
   font-family: 'Shrikhand', cursive;
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 10vw, 3.5rem);
   color: var(--text-1);
   letter-spacing: 2px;
   animation: splashGlow 2s infinite alternate;
@@ -5253,15 +5253,17 @@ body.page-exit {
   }
   .header-inner {
     flex-wrap: wrap;
-    padding: 12px 16px;
+    padding: 10px 12px;
     height: auto;
-    gap: 12px;
+    gap: 8px;
   }
   .brand {
     order: 1;
+    min-width: 0;
   }
   .header-right {
     order: 2;
+    gap: 6px;
   }
   .search-container {
     margin: 0;
@@ -5270,7 +5272,7 @@ body.page-exit {
     flex-basis: 100%;
   }
   .logo-text-groovy {
-    font-size: 38px; /* Slightly scaled down from 48px to fit on small mobile, but still large */
+    font-size: clamp(26px, 7vw, 38px);
   }
 
   /* Sub Navbar */
