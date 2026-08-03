@@ -1825,7 +1825,7 @@ function renderGrid(reset = false) {
     }
   }
 
-  const start = (state.currentPage - 1) * CONFIG.PAGE_SIZE;
+  const start = reset ? 0 : (state.currentPage - 1) * CONFIG.PAGE_SIZE;
   const end   = state.currentPage * CONFIG.PAGE_SIZE;
   const page  = state.sorted.slice(start, end);
 
@@ -3686,10 +3686,12 @@ function bindEvents() {
     }
   });
 
+  let lastWindowWidth = window.innerWidth;
   window.addEventListener('resize', debounce(() => {
+    if (window.innerWidth === lastWindowWidth) return;
+    lastWindowWidth = window.innerWidth;
     renderGrid(true);
   }, 200));
-
   dom.retryBtn.addEventListener('click', loadData);
   dom.resetFiltersBtn.addEventListener('click', () => {
     state.activeColors = [];
