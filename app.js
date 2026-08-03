@@ -952,9 +952,20 @@ function getMatchingPosterUrl(film) {
 
   for (const affiche of candidates) {
     let posterScore = 0;
-    for (const targetHex of state.activeColors) {
-      posterScore += getSingleColorScoreForPoster(affiche, targetHex, state.colorThreshold);
+    if (state.filterMode === 'and') {
+      let product = 1;
+      for (const targetHex of state.activeColors) {
+        const s = getSingleColorScoreForPoster(affiche, targetHex, state.colorThreshold);
+        if (s <= 0) { product = 0; break; }
+        product *= s;
+      }
+      posterScore = product;
+    } else {
+      for (const targetHex of state.activeColors) {
+        posterScore += getSingleColorScoreForPoster(affiche, targetHex, state.colorThreshold);
+      }
     }
+    
     if (posterScore > maxScore) {
       maxScore = posterScore;
       bestPoster = affiche;

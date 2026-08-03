@@ -5293,44 +5293,189 @@ body.page-exit {
     padding: 16px 16px 60px;
   }
 
-  /* Modal Layout */
-  .modal-layout {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    align-items: flex-start;
-  }
-  .modal-poster-col {
-    width: 100%;
-  }
-  .modal-poster-img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--radius-card) !important;
-  }
-  .modal-poster-col::before {
-    width: 150vw;
-    height: 150vw;
-    filter: blur(50px);
-  }
-  .modal-meta-grid {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
+  /* -------------------------------------
+     Native App Mobile Modal Re-design
+  -------------------------------------- */
   .film-modal {
-    padding: 10px;
+    padding: 0 !important;
   }
   .modal-container {
-    padding: 20px;
+    padding: 0 !important;
+    max-height: 100dvh !important;
+    height: 100dvh !important;
+    border-radius: 0 !important;
+    background: var(--bg-surface) !important;
+    box-shadow: none !important;
+    overflow-x: hidden !important;
   }
   
-  /* Fix modal info overlapping and messy padding */
-  .modal-info-col {
-    padding: 16px !important;
+  /* Floating Close Button */
+  .modal-close {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
   }
+  .modal-close svg { stroke: #fff !important; }
+
+  /* Layout & Poster Edge-to-Edge */
+  .modal-layout {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .modal-poster-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 60vh !important;
+    min-height: 60vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  .modal-poster-img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .modal-poster-col::before {
+    display: none !important; /* Hide old glow */
+  }
+  
+  /* Gradient fade from poster to info */
+  .modal-poster-col::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg-surface) 0%, transparent 35%);
+    pointer-events: none;
+    z-index: 5;
+  }
+  
+  /* Poster Navigation (Glass Pills) */
+  .modal-poster-cats {
+    position: absolute !important;
+    bottom: 115px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: rgba(16, 16, 22, 0.45) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 20px !important;
+    padding: 3px 6px !important;
+    z-index: 20 !important;
+    margin: 0 !important;
+    width: max-content !important;
+    max-width: 90% !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+  }
+  .modal-poster-dots {
+    position: absolute !important;
+    bottom: 75px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: rgba(16, 16, 22, 0.45) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 20px !important;
+    padding: 6px 12px !important;
+    z-index: 20 !important;
+    margin: 0 !important;
+    width: max-content !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+  }
+  
+  /* Make poster thumbs elegant tiny dots on mobile */
+  .poster-thumb {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    opacity: 0.6 !important;
+  }
+  .poster-thumb.active {
+    opacity: 1 !important;
+    border-color: rgba(255,255,255,0.8) !important;
+    transform: scale(1.3) !important;
+  }
+  .modal-download-btn-minimal { display: none !important; } /* Hide on mobile to simplify */
+
+  /* Info Column (Glass Card sliding up) */
+  .modal-info-col {
+    position: relative !important;
+    margin-top: -60px !important; /* overlap the gradient */
+    z-index: 10 !important;
+    padding: 30px 24px 60px !important;
+    background: var(--bg-surface) !important;
+    border-radius: 30px 30px 0 0 !important;
+    border-top: 1px solid rgba(255,255,255,0.05) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    box-shadow: 0 -15px 40px rgba(0,0,0,0.6) !important;
+  }
+
+  .modal-title-block {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .modal-film-title { font-size: 2.1rem !important; margin-bottom: 4px; }
+  .modal-meta-top {
+    justify-content: center !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Redesign Action Bar */
   .modal-rating-row {
-    flex-direction: row !important;
-    flex-wrap: wrap;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    background: var(--bg-elevated) !important;
+    padding: 20px !important;
+    border-radius: 20px !important;
+    margin-bottom: 24px !important;
+  }
+  .modal-right-actions {
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    margin-left: 0 !important;
+  }
+  .modal-action-btn-circle {
+    width: 54px !important;
+    height: 54px !important;
+    background: var(--bg-surface) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+  }
+  .modal-action-btn-circle svg { width: 22px !important; height: 22px !important; }
+  
+  /* Bring palette to the top */
+  .modal-palette-section {
+    order: -1 !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Metadata grid */
+  .modal-meta-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+    padding: 16px !important;
+    background: transparent !important;
+    border: 1px solid var(--border) !important;
   }
   
   /* About Page Fixes */
