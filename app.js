@@ -2661,17 +2661,17 @@ function populateModal(film, startingPosterIndex = 0) {
       }
     }
 
-    const catsContainer = $('#modal-poster-cats');
-    if (catsContainer) {
-      catsContainer.innerHTML = '';
-      const catLabels = {
-        textless: state.lang === 'ja' ? '文字なし' : (state.lang === 'en' ? 'Textless' : 'Sans texte'),
-        origine: state.lang === 'ja' ? 'オリジナル' : (state.lang === 'en' ? 'Original' : "Langue d'origine"),
-        monde: state.lang === 'ja' ? 'インターナショナル' : (state.lang === 'en' ? 'World' : 'Du monde')
-      };
+    const catsContainers = $$('.modal-poster-cats');
+    catsContainers.forEach(container => container.innerHTML = '');
+    const catLabels = {
+      textless: state.lang === 'ja' ? '文字なし' : (state.lang === 'en' ? 'Textless' : 'Sans texte'),
+      origine: state.lang === 'ja' ? 'オリジナル' : (state.lang === 'en' ? 'Original' : "Langue d'origine"),
+      monde: state.lang === 'ja' ? 'インターナショナル' : (state.lang === 'en' ? 'World' : 'Du monde')
+    };
 
-      ['textless', 'origine', 'monde'].forEach(cat => {
-        if (grouped[cat] && grouped[cat].length > 0) {
+    ['textless', 'origine', 'monde'].forEach(cat => {
+      if (grouped[cat] && grouped[cat].length > 0) {
+        catsContainers.forEach(container => {
           const btn = document.createElement('button');
           btn.className = `modal-poster-cat-btn${cat === activeCat ? ' active' : ''}`;
           btn.textContent = catLabels[cat];
@@ -2680,19 +2680,19 @@ function populateModal(film, startingPosterIndex = 0) {
             activeIndexInCat = 0;
             renderPosterSection();
           });
-          catsContainer.appendChild(btn);
-        }
-      });
-    }
+          container.appendChild(btn);
+        });
+      }
+    });
 
-    const dotsContainer = $('#modal-poster-dots');
-    if (dotsContainer) {
-      dotsContainer.innerHTML = '';
-      const catPosters = (grouped[activeCat] || []).slice(0, 3);
-      if (catPosters.length > 1) {
-        catPosters.forEach((p, i) => {
-          const thumbUrl = p.affiche_w500 || p.affiche_original || null;
-          if (thumbUrl) {
+    const dotsContainers = $$('.modal-poster-dots');
+    dotsContainers.forEach(container => container.innerHTML = '');
+    
+    if (catPosters.length > 1) {
+      catPosters.forEach((p, i) => {
+        const thumbUrl = p.affiche_w500 || p.affiche_original || null;
+        if (thumbUrl) {
+          dotsContainers.forEach(container => {
             const img = document.createElement('img');
             img.src = thumbUrl;
             img.className = `poster-thumb${i === activeIndexInCat ? ' active' : ''}`;
@@ -2704,8 +2704,10 @@ function populateModal(film, startingPosterIndex = 0) {
               renderPosterSection();
             });
             img.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { activeIndexInCat = i; renderPosterSection(); } });
-            dotsContainer.appendChild(img);
-          } else {
+            container.appendChild(img);
+          });
+        } else {
+          dotsContainers.forEach(container => {
             const dot = document.createElement('button');
             dot.className = `modal-poster-dot${i === activeIndexInCat ? ' active' : ''}`;
             dot.setAttribute('aria-label', `Poster ${i+1}`);
@@ -2713,10 +2715,10 @@ function populateModal(film, startingPosterIndex = 0) {
               activeIndexInCat = i;
               renderPosterSection();
             });
-            dotsContainer.appendChild(dot);
-          }
-        });
-      }
+            container.appendChild(dot);
+          });
+        }
+      });
     }
   }
 

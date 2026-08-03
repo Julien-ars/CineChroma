@@ -1072,6 +1072,10 @@ body {
 }
 
 /* Minimalist Modal Poster Category Tabs */
+.modal-poster-cats-mobile,
+.modal-poster-dots-mobile {
+  display: none !important;
+}
 .modal-poster-cats {
   display: flex;
   gap: 8px;
@@ -5364,53 +5368,54 @@ body.page-exit {
     z-index: 5;
   }
   
-  /* Poster Navigation (Glass Pills) */
-  .modal-poster-cats {
-    position: absolute !important;
-    bottom: 115px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    background: rgba(16, 16, 22, 0.45) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
-    border-radius: 20px !important;
-    padding: 3px 6px !important;
-    z-index: 20 !important;
-    margin: 0 !important;
-    width: max-content !important;
-    max-width: 90% !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-  }
-  .modal-poster-dots {
-    position: absolute !important;
-    bottom: 75px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    background: rgba(16, 16, 22, 0.45) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255,255,255,0.06) !important;
-    border-radius: 20px !important;
-    padding: 6px 12px !important;
-    z-index: 20 !important;
-    margin: 0 !important;
-    width: max-content !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+  /* Hide desktop poster selectors */
+  .modal-poster-cats-desktop,
+  .modal-poster-dots-desktop {
+    display: none !important;
   }
   
-  /* Make poster thumbs elegant tiny dots on mobile */
+  /* Show and style mobile poster selectors in flow */
+  .modal-poster-cats-mobile {
+    display: flex !important;
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .modal-poster-dots-mobile {
+    display: flex !important;
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 24px !important;
+    width: 100% !important;
+  }
+  
+  /* Make poster thumbs large and elegant */
   .poster-thumb {
-    width: 12px !important;
-    height: 12px !important;
-    border-radius: 50% !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    opacity: 0.6 !important;
+    width: 44px !important;
+    height: 64px !important;
+    border-radius: 8px !important;
+    border: 2px solid rgba(255,255,255,0.2) !important;
+    opacity: 0.8 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
   }
   .poster-thumb.active {
     opacity: 1 !important;
-    border-color: rgba(255,255,255,0.8) !important;
-    transform: scale(1.3) !important;
+    border-color: rgba(255,255,255,0.9) !important;
+    transform: scale(1.1) !important;
   }
   .modal-download-btn-minimal { display: none !important; } /* Hide on mobile to simplify */
 
