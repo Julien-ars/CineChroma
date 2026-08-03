@@ -167,7 +167,7 @@ body {
 }
 .logo-text-groovy {
   font-family: 'Shrikhand', 'Rubik Bubbles', cursive, sans-serif;
-  font-size: 44px; font-weight: 900; letter-spacing: 2px;
+  font-size: 48px; font-weight: 900; letter-spacing: 2px;
   fill: currentColor;
 }
 
@@ -5043,8 +5043,315 @@ body.page-exit {
   margin: 0 0 16px;
   letter-spacing: -0.01em;
 }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn-back-to-list {
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 0;
+  align-self: flex-start;
+  transition: var(--transition);
+}
+.btn-back-to-list:hover {
+  color: var(--text-1);
+}
+.collection-detail-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.collection-detail-actions {
+  display: flex;
+  gap: 8px;
+}
+.btn-collection-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-surface);
+  color: var(--text-2);
+  transition: var(--transition);
+}
+.btn-collection-action:hover {
+  background: var(--border);
+  color: var(--text-1);
+}
+.btn-collection-action.btn-delete {
+  color: #e53e3e;
+}
+.btn-collection-action.btn-delete:hover {
+  background: rgba(229, 62, 62, 0.08);
+  border-color: rgba(229, 62, 62, 0.2);
+}
+.collection-detail-description {
+  font-size: 0.8rem;
+  color: var(--text-3);
+  line-height: 1.5;
+  margin: 0;
+}
+.collection-detail-count-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--border);
+  color: var(--text-2);
+  align-self: flex-start;
+}
+
+/* Modals extra rules */
+.chooser-modal-card {
+  max-width: 400px;
+}
+.chooser-modal-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0 0 16px;
+}
+.chooser-collections-list {
+  max-height: 240px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.chooser-col-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-mid);
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--bg);
+}
+.chooser-col-row:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-surface);
+}
+.chooser-col-row.active {
+  border-color: var(--accent);
+  background: rgba(229, 9, 20, 0.05);
+}
+.chooser-col-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-1);
+}
+.chooser-col-check {
+  color: var(--accent);
+}
+.btn-chooser-new-col {
+  width: 100%;
+  background: none;
+  border: 1px dashed var(--border-strong);
+  color: var(--text-2);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-chooser-new-col:hover {
+  background: var(--bg-surface);
+  color: var(--text-1);
+  border-color: var(--text-3);
+}
+
+.avatar-select-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.avatar-select-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.avatar-presets-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+.avatar-preset-item {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  aspect-ratio: 1/1;
+  background: var(--border);
+}
+.avatar-preset-item:hover {
+  transform: scale(1.05);
+}
+.avatar-preset-item.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
+}
+.avatar-preset-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.custom-avatar-url-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+.custom-avatar-url-group label {
+  font-size: 0.68rem;
+  color: var(--text-3);
+}
+.edit-profile-card, .collection-modal-card {
+  max-width: 440px;
+  padding: 24px;
+}
+.edit-profile-title, .col-modal-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-1);
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
 .edit-profile-form, .col-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+/* ============================================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+============================================================ */
+@media (max-width: 768px) {
+  /* Header & Navigation */
+  #app-header {
+    height: auto !important;
+  }
+  .header-inner {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    height: auto;
+    gap: 12px;
+  }
+  .brand {
+    order: 1;
+  }
+  .header-right {
+    order: 2;
+  }
+  .search-container {
+    margin: 0;
+    max-width: 100%;
+    order: 3;
+    flex-basis: 100%;
+  }
+  .logo-text-groovy {
+    font-size: 38px; /* Slightly scaled down from 48px to fit on small mobile, but still large */
+  }
+
+  /* Sub Navbar */
+  .sub-navbar {
+    height: auto;
+    padding: 8px 0;
+  }
+  .sub-navbar-inner {
+    padding: 0 16px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+  }
+  
+  /* Main Container */
+  #app-main {
+    padding: 16px 16px 60px;
+  }
+
+  /* Modal Layout */
+  .modal-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .modal-poster-col {
+    width: 100%;
+  }
+  .modal-poster-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-card) !important;
+  }
+  .modal-poster-col::before {
+    width: 150vw;
+    height: 150vw;
+    filter: blur(50px);
+  }
+  .modal-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .film-modal {
+    padding: 10px;
+  }
+  .modal-container {
+    padding: 20px;
+  }
+  
+  /* Fix modal info overlapping and messy padding */
+  .modal-info-col {
+    padding: 16px !important;
+  }
+  .modal-rating-row {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+  }
+  
+  /* About Page Fixes */
+  .about-tab-btn {
+    flex-shrink: 0;
+  }
+  .palette-swatch-seg {
+    font-size: 0.55rem;
+    padding: 4px 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Other Modals */
+  .edit-profile-card, .collection-modal-card, .cosmos-modal-card, .auth-modal-card {
+    padding: 16px !important;
+    max-width: 100% !important;
+    width: 100%;
+  }
+  
+  /* Burger Drawer & Nav */
+  .nav-menu-content, .drawer-content {
+    max-width: 85%;
+  }
 }
