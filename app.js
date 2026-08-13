@@ -2590,8 +2590,21 @@ function openModal(film, startingPosterIndex = 0) {
   state.modalFilm = film;
   state.modalPosterIndex = startingPosterIndex;
   populateModal(film, startingPosterIndex);
+  
+  // Scroll to top automatically (especially important on mobile)
+  const container = dom.filmModal.querySelector('.modal-container');
+  if (container) container.scrollTop = 0;
+  
   dom.filmModal.removeAttribute('hidden');
   document.body.style.overflow = 'hidden';
+  
+  // Trigger animation classes
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      dom.filmModal.classList.add('modal-visible');
+    });
+  });
+  
   setTimeout(() => dom.modalClose.focus(), 80);
 }
 
@@ -2603,10 +2616,15 @@ function closeModal() {
   dom.modal3dCloud.classList.remove('expanded');
   dom.modal3dToggle.classList.remove('active');
   
-  dom.filmModal.setAttribute('hidden', '');
-  dom.filmModal.style.removeProperty('--modal-glow-color');
+  dom.filmModal.classList.remove('modal-visible');
   document.body.style.overflow = '';
-  state.modalFilm = null;
+  
+  // Wait for transition before hiding completely
+  setTimeout(() => {
+    dom.filmModal.setAttribute('hidden', '');
+    dom.filmModal.style.removeProperty('--modal-glow-color');
+    state.modalFilm = null;
+  }, 300);
 }
 
 function populateModal(film, startingPosterIndex = 0) {
@@ -2837,8 +2855,11 @@ function updateModalPoster(film, idx) {
   const a = (film.affiches || [])[idx] || {};
   const src = a.affiche_original || a.affiche_w500;
   if (src) {
+    dom.modalPosterImg.classList.remove('poster-anim-in');
+    void dom.modalPosterImg.offsetWidth;
     dom.modalPosterImg.src = src;
-    dom.modalPosterImg.alt = `${film.titre||'Affiche'} — ${idx+1}`;
+    dom.modalPosterImg.alt = `${film.titre||'Affiche'} - ${idx+1}`;
+    dom.modalPosterImg.classList.add('poster-anim-in');
   }
   if (a.palette?.length) renderModalPalette(a.palette);
   updateModalAmbientGlowColor(film, idx);
