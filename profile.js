@@ -996,8 +996,19 @@ function openModal(film, startingPosterIndex = 0) {
   state.modalFilm = film;
   state.modalPosterIndex = startingPosterIndex;
   populateModal(film, startingPosterIndex);
+  
+  const container = dom.filmModal.querySelector('.modal-container');
+  if (container) container.scrollTop = 0;
+  
   dom.filmModal.removeAttribute('hidden');
   document.body.style.overflow = 'hidden';
+  
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      dom.filmModal.classList.add('modal-visible');
+    });
+  });
+  
   setTimeout(() => dom.modalClose.focus(), 80);
 }
 
@@ -1008,10 +1019,14 @@ function closeModal() {
   dom.modal3dCloud.classList.remove('expanded');
   dom.modal3dToggleBtn.classList.remove('active');
   
-  dom.filmModal.setAttribute('hidden', '');
-  dom.filmModal.style.removeProperty('--modal-glow-color');
+  dom.filmModal.classList.remove('modal-visible');
   document.body.style.overflow = '';
-  state.modalFilm = null;
+  
+  setTimeout(() => {
+    dom.filmModal.setAttribute('hidden', '');
+    dom.filmModal.style.removeProperty('--modal-glow-color');
+    state.modalFilm = null;
+  }, 300);
 }
 
 function populateModal(film, startingPosterIndex = 0) {
