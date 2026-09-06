@@ -127,6 +127,59 @@ const I18N = {
     game_end_score:      'Score final :',
     game_btn_replay:     'Rejouer',
 
+    // Hub & Config
+    game_hub_title:      'Mini-Jeux',
+    game_hub_subtitle:   'Choisissez votre défi chromatique',
+    game_hub_back:       '← Retour',
+    game_config_title:   'Configuration',
+    game_config_start:   'Lancer la partie',
+    game_config_difficulty: 'Difficulté',
+    game_config_universe: 'Univers',
+    game_config_rounds:  'Manches',
+    game_config_time:    'Durée',
+    game_diff_easy:      'Facile',
+    game_diff_medium:    'Moyen',
+    game_diff_hard:      'Expert',
+    game_diff_mixed:     'Mixte',
+    game_universe_all:   'Tous les films',
+    game_universe_popular: 'Films populaires',
+    game_universe_animation: 'Animation',
+    game_rounds_5:       '5 manches',
+    game_rounds_10:      '10 manches',
+    game_rounds_20:      '20 manches',
+    game_time_30:        '30 secondes',
+    game_time_60:        '60 secondes',
+    game_time_90:        '90 secondes',
+
+    // CouleurQuiz
+    game_cq_name:        'CouleurQuiz',
+    game_cq_desc:        'Identifiez le film depuis sa palette de 5 couleurs.',
+    game_cq_tag:         'Classique',
+
+    // PalettePure
+    game_pp_name:        'PalettePure',
+    game_pp_desc:        'Trouvez la couleur manquante parmi les propositions.',
+    game_pp_tag:         'Œil Chromatique',
+    game_pp_question:    'Quelle est la couleur manquante ?',
+    game_pp_correct:     'Bonne couleur !',
+    game_pp_wrong:       'Mauvaise couleur',
+
+    // ChronoChroma
+    game_cc_name:        'ChronoChroma',
+    game_cc_desc:        'Course contre la montre. Maximum de bonnes réponses avant la fin du temps.',
+    game_cc_tag:         'Vitesse',
+    game_cc_time_left:   'Temps restant',
+    game_cc_films_done:  'Films répondus',
+    game_cc_end_title:   'Temps écoulé !',
+    game_cc_end_score:   'Films trouvés :',
+
+    // Shared new
+    game_best_score:     'Meilleur score',
+    game_accuracy:       'Précision',
+    game_hints_total:    'Indices utilisés',
+    game_play_again:     'Rejouer',
+    game_change_game:    'Changer de jeu',
+
     // Shared Profile & Index missing translations
     download_poster:     'Télécharger l\'affiche',
     watch_trailer:       'Bande-annonce',
@@ -351,6 +404,59 @@ const I18N = {
     game_end_title:      'Game Over',
     game_end_score:      'Final score:',
     game_btn_replay:     'Play Again',
+
+    // Hub & Config
+    game_hub_title:      'Mini-Games',
+    game_hub_subtitle:   'Choose your chromatic challenge',
+    game_hub_back:       '← Back',
+    game_config_title:   'Configuration',
+    game_config_start:   'Start Game',
+    game_config_difficulty: 'Difficulty',
+    game_config_universe: 'Universe',
+    game_config_rounds:  'Rounds',
+    game_config_time:    'Duration',
+    game_diff_easy:      'Easy',
+    game_diff_medium:    'Medium',
+    game_diff_hard:      'Expert',
+    game_diff_mixed:     'Mixed',
+    game_universe_all:   'All Films',
+    game_universe_popular: 'Popular Films',
+    game_universe_animation: 'Animation',
+    game_rounds_5:       '5 rounds',
+    game_rounds_10:      '10 rounds',
+    game_rounds_20:      '20 rounds',
+    game_time_30:        '30 seconds',
+    game_time_60:        '60 seconds',
+    game_time_90:        '90 seconds',
+
+    // CouleurQuiz
+    game_cq_name:        'ColorQuiz',
+    game_cq_desc:        'Identify the film from its 5-color palette.',
+    game_cq_tag:         'Classic',
+
+    // PalettePure
+    game_pp_name:        'PalettePure',
+    game_pp_desc:        'Find the missing color among the options.',
+    game_pp_tag:         'Chromatic Eye',
+    game_pp_question:    'Which color is missing?',
+    game_pp_correct:     'Correct color!',
+    game_pp_wrong:       'Wrong color',
+
+    // ChronoChroma
+    game_cc_name:        'ChronoChroma',
+    game_cc_desc:        'Race against the clock. Get as many correct answers as possible.',
+    game_cc_tag:         'Speed',
+    game_cc_time_left:   'Time left',
+    game_cc_films_done:  'Films answered',
+    game_cc_end_title:   'Time\'s up!',
+    game_cc_end_score:   'Films found:',
+
+    // Shared new
+    game_best_score:     'Best score',
+    game_accuracy:       'Accuracy',
+    game_hints_total:    'Hints used',
+    game_play_again:     'Play Again',
+    game_change_game:    'Change Game',
 
     // Shared Profile & Index missing translations
     download_poster:     'Download poster',
@@ -578,6 +684,59 @@ const I18N = {
       game_end_title:      'ゲーム終了',
       game_end_score:      '最終スコア：',
       game_btn_replay:     'もう一度プレイ',
+
+      // Hub & Config
+      game_hub_title:      'ミニゲーム',
+      game_hub_subtitle:   '色彩チャレンジを選んでください',
+      game_hub_back:       '← 戻る',
+      game_config_title:   '設定',
+      game_config_start:   'ゲームを開始',
+      game_config_difficulty: '難易度',
+      game_config_universe: 'ユニバース',
+      game_config_rounds:  'ラウンド',
+      game_config_time:    '時間',
+      game_diff_easy:      '初級',
+      game_diff_medium:    '中級',
+      game_diff_hard:      '上級',
+      game_diff_mixed:     'ランダム',
+      game_universe_all:   'すべての映画',
+      game_universe_popular: '人気映画',
+      game_universe_animation: 'アニメ',
+      game_rounds_5:       '5ラウンド',
+      game_rounds_10:      '10ラウンド',
+      game_rounds_20:      '20ラウンド',
+      game_time_30:        '30秒',
+      game_time_60:        '60秒',
+      game_time_90:        '90秒',
+
+      // CouleurQuiz
+      game_cq_name:        'カラークイズ',
+      game_cq_desc:        '5色のパレットから映画を当ててください。',
+      game_cq_tag:         'クラシック',
+
+      // PalettePure
+      game_pp_name:        'パレットピュア',
+      game_pp_desc:        '提案の中から欠けている色を見つけてください。',
+      game_pp_tag:         '色彩眼',
+      game_pp_question:    '欠けている色はどれですか？',
+      game_pp_correct:     '正解の色！',
+      game_pp_wrong:       '色が違います',
+
+      // ChronoChroma
+      game_cc_name:        'クロノクロマ',
+      game_cc_desc:        '制限時間内に最大数の映画を当ててください。',
+      game_cc_tag:         'スピード',
+      game_cc_time_left:   '残り時間',
+      game_cc_films_done:  '回答済み',
+      game_cc_end_title:   '時間切れ！',
+      game_cc_end_score:   '正解数：',
+
+      // Shared new
+      game_best_score:     'ベストスコア',
+      game_accuracy:       '正答率',
+      game_hints_total:    'ヒント使用数',
+      game_play_again:     'もう一度',
+      game_change_game:    'ゲームを変更',
 
       // Shared Profile & Index missing translations
       download_poster:     'ポスターをダウンロード',

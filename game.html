@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CineChroma — Devine le film</title>
-  <meta name="description" content="Jouez au quiz CineChroma : Devinez le film à partir de sa palette de couleurs en 5 manches." />
+  <title>CineChroma — Mini-Jeux Chromatiques</title>
+  <meta name="description" content="Jouez aux mini-jeux CineChroma : CouleurQuiz, PalettePure et ChronoChroma. Testez votre œil chromatique sur des centaines de films." />
   <link rel="icon" type="image/png" href="./favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Shrikhand&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./style.css" />
-
 </head>
 <body class="game-body game-transparent-header">
 
@@ -25,7 +24,6 @@
         </div>
       </a>
       <div class="header-right" style="margin-left: auto;">
-        <!-- Elegant Header Language Dropdown -->
         <div class="header-lang-switcher">
           <button id="header-lang-btn" class="header-lang-btn" aria-haspopup="true" aria-expanded="false" data-i18n-title="change_language">FR</button>
           <div id="header-lang-dropdown" class="header-lang-dropdown" hidden>
@@ -34,19 +32,16 @@
             <button class="lang-dropdown-item" data-lang-val="ja">日本語</button>
           </div>
         </div>
-
         <button id="theme-toggle" class="header-icon-btn" data-i18n-aria-label="toggle_theme" data-i18n-title="toggle_theme">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
             <circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 1 0-18z" fill="currentColor"/>
           </svg>
         </button>
-
         <button id="user-profile-trigger" class="header-avatar-btn" data-i18n-aria-label="user_profile_title" data-i18n-title="user_profile_title">
           <img id="header-avatar-img" src="" alt="Avatar" class="header-avatar-img" hidden />
           <div id="header-avatar-placeholder" class="header-avatar-placeholder">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
             </svg>
           </div>
         </button>
@@ -59,80 +54,294 @@
     </div>
   </header>
 
-  <!-- GAME INTERFACE -->
-  <main class="game-page-container">
-    <div class="game-bg-container">
-      <img id="game-bg-poster" class="game-bg-poster" src="" alt="" />
-      <div class="game-bg-overlay"></div>
+  <!-- GAME BG -->
+  <div class="game-bg-container" id="game-bg-container">
+    <img id="game-bg-poster" class="game-bg-poster" src="" alt="" />
+    <div class="game-bg-overlay"></div>
+  </div>
+
+  <!-- ============================================================
+       MAIN — ALL GAME SCREENS
+  ============================================================ -->
+  <main class="game-page-container" id="game-main">
+
+    <!-- ──────────────────────────────────────────
+         HUB SCREEN — Choose mini-game
+    ────────────────────────────────────────── -->
+    <div id="screen-hub" class="gscreen gscreen--hub">
+      <div class="hub-header">
+        <h1 class="hub-title" data-i18n="game_hub_title">Mini-Jeux</h1>
+        <p class="hub-subtitle" data-i18n="game_hub_subtitle">Choisissez votre défi chromatique</p>
+      </div>
+
+      <div class="hub-cards">
+        <!-- CouleurQuiz -->
+        <button class="hub-card" id="hub-card-cq" data-game="couleurquiz">
+          <div class="hub-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+              <circle cx="7" cy="12" r="3" fill="currentColor" opacity="0.6"/>
+              <circle cx="12" cy="7" r="3" fill="currentColor" opacity="0.8"/>
+              <circle cx="17" cy="12" r="3" fill="currentColor"/>
+              <circle cx="12" cy="17" r="3" fill="currentColor" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="hub-card-body">
+            <div class="hub-card-top">
+              <span class="hub-card-name" data-i18n="game_cq_name">CouleurQuiz</span>
+              <span class="hub-card-tag" data-i18n="game_cq_tag">Classique</span>
+            </div>
+            <p class="hub-card-desc" data-i18n="game_cq_desc">Identifiez le film depuis sa palette de 5 couleurs.</p>
+          </div>
+          <div class="hub-card-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </button>
+
+        <!-- PalettePure -->
+        <button class="hub-card" id="hub-card-pp" data-game="palettepure">
+          <div class="hub-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+              <rect x="3" y="6" width="18" height="4" rx="2" fill="currentColor" opacity="0.7"/>
+              <rect x="3" y="14" width="12" height="4" rx="2" fill="currentColor" opacity="0.4"/>
+              <rect x="17" y="14" width="4" height="4" rx="2" stroke-dasharray="2 2"/>
+            </svg>
+          </div>
+          <div class="hub-card-body">
+            <div class="hub-card-top">
+              <span class="hub-card-name" data-i18n="game_pp_name">PalettePure</span>
+              <span class="hub-card-tag" data-i18n="game_pp_tag">Œil Chromatique</span>
+            </div>
+            <p class="hub-card-desc" data-i18n="game_pp_desc">Trouvez la couleur manquante parmi les propositions.</p>
+          </div>
+          <div class="hub-card-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </button>
+
+        <!-- ChronoChroma -->
+        <button class="hub-card" id="hub-card-cc" data-game="chronochroma">
+          <div class="hub-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+              <circle cx="12" cy="13" r="8"/>
+              <path d="M12 9v4l3 3"/>
+              <path d="M9 2h6"/>
+            </svg>
+          </div>
+          <div class="hub-card-body">
+            <div class="hub-card-top">
+              <span class="hub-card-name" data-i18n="game_cc_name">ChronoChroma</span>
+              <span class="hub-card-tag hub-card-tag--speed" data-i18n="game_cc_tag">Vitesse</span>
+            </div>
+            <p class="hub-card-desc" data-i18n="game_cc_desc">Course contre la montre. Maximum de bonnes réponses avant la fin du temps.</p>
+          </div>
+          <div class="hub-card-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </button>
+      </div>
     </div>
 
-    <!-- Start Screen Landing -->
-    <div id="game-start-screen" class="game-start-landing">
-      <div class="game-start-content-epic">
-        <h1 class="game-epic-title shimmer-text-wave" data-i18n="game_start_title">CINECHROMA QUIZ</h1>
-        <p class="game-epic-desc" data-i18n="game_start_desc">Testez votre culture cinématographique à travers la couleur.</p>
-        
-        <div class="game-epic-rules">
-          <div class="epic-rule-item">
-            <span class="epic-rule-icon">🎨</span>
-            <span class="epic-rule-text" data-i18n="game_rule_1">Identifiez l'œuvre par sa signature chromatique</span>
+    <!-- ──────────────────────────────────────────
+         CONFIG SCREEN — Options before game
+    ────────────────────────────────────────── -->
+    <div id="screen-config" class="gscreen gscreen--config" hidden>
+      <div class="config-panel">
+        <div class="config-header">
+          <button id="config-back-btn" class="config-back-btn" data-i18n="game_hub_back">← Retour</button>
+          <h2 class="config-game-title" id="config-game-name"></h2>
+        </div>
+
+        <div class="config-sections">
+          <!-- Difficulty -->
+          <div class="config-section" id="config-section-difficulty">
+            <label class="config-label" data-i18n="game_config_difficulty">Difficulté</label>
+            <div class="config-btn-group" id="config-difficulty">
+              <button class="config-opt-btn config-opt-btn--active" data-val="easy" data-i18n="game_diff_easy">Facile</button>
+              <button class="config-opt-btn" data-val="medium" data-i18n="game_diff_medium">Moyen</button>
+              <button class="config-opt-btn" data-val="hard" data-i18n="game_diff_hard">Expert</button>
+              <button class="config-opt-btn" data-val="mixed" data-i18n="game_diff_mixed">Mixte</button>
+            </div>
           </div>
-          <div class="epic-rule-item">
-            <span class="epic-rule-icon">🎬</span>
-            <span class="epic-rule-text" data-i18n="game_rule_2">5 manches de difficulté progressive</span>
+
+          <!-- Universe -->
+          <div class="config-section">
+            <label class="config-label" data-i18n="game_config_universe">Univers</label>
+            <div class="config-btn-group" id="config-universe">
+              <button class="config-opt-btn config-opt-btn--active" data-val="all" data-i18n="game_universe_all">Tous les films</button>
+              <button class="config-opt-btn" data-val="popular" data-i18n="game_universe_popular">Films populaires</button>
+              <button class="config-opt-btn" data-val="animation" data-i18n="game_universe_animation">Animation</button>
+            </div>
           </div>
-          <div class="epic-rule-item">
-            <span class="epic-rule-icon">💡</span>
-            <span class="epic-rule-text" data-i18n="game_rule_3">3 indices disponibles en cas de doute</span>
+
+          <!-- Rounds (hidden for ChronoChroma) -->
+          <div class="config-section" id="config-section-rounds">
+            <label class="config-label" data-i18n="game_config_rounds">Manches</label>
+            <div class="config-btn-group" id="config-rounds">
+              <button class="config-opt-btn config-opt-btn--active" data-val="5" data-i18n="game_rounds_5">5 manches</button>
+              <button class="config-opt-btn" data-val="10" data-i18n="game_rounds_10">10 manches</button>
+              <button class="config-opt-btn" data-val="20" data-i18n="game_rounds_20">20 manches</button>
+            </div>
+          </div>
+
+          <!-- Time (only for ChronoChroma) -->
+          <div class="config-section" id="config-section-time" hidden>
+            <label class="config-label" data-i18n="game_config_time">Durée</label>
+            <div class="config-btn-group" id="config-time">
+              <button class="config-opt-btn" data-val="30" data-i18n="game_time_30">30 secondes</button>
+              <button class="config-opt-btn config-opt-btn--active" data-val="60" data-i18n="game_time_60">60 secondes</button>
+              <button class="config-opt-btn" data-val="90" data-i18n="game_time_90">90 secondes</button>
+            </div>
           </div>
         </div>
-        
-        <button id="game-start-btn" class="hero-btn-primary" style="margin-top: 50px; font-size: 17px; padding: 18px 48px; border-radius: 30px;" data-i18n="game_btn_start">Jouer</button>
+
+        <button id="config-start-btn" class="config-start-btn" data-i18n="game_config_start">Lancer la partie</button>
       </div>
     </div>
 
-    <!-- Active Game Screen -->
-    <div id="game-active-screen" class="game-screen" hidden>
-      <div class="game-top-bar">
-        <div class="game-round-info"><span data-i18n="game_round">Manche</span> <span id="game-round-current">1</span>/5 - <span id="game-difficulty"></span></div>
-        <div class="game-score-info"><span data-i18n="game_score">Score :</span> <span id="game-score-current">0</span></div>
-      </div>
-      <div class="game-progress-bar-wrap">
-        <div id="game-progress-bar" class="game-progress-bar" style="width: 20%;"></div>
-      </div>
-
-      <div class="game-main-area">
-        <div id="game-palette" class="game-palette"></div>
-        
-        <div class="game-hints-section">
-          <button id="game-hint-btn" class="game-hint-btn">💡 <span data-i18n="game_use_hint">Obtenir un indice</span> (<span id="game-hints-used">0</span>/3)</button>
-          <div id="game-hint-display" class="game-hint-display" hidden></div>
+    <!-- ──────────────────────────────────────────
+         COULEURQUIZ SCREEN
+    ────────────────────────────────────────── -->
+    <div id="screen-cq" class="gscreen gscreen--cq" hidden>
+      <div class="game-screen">
+        <h2 class="game-screen-title" data-i18n="game_cq_name">CouleurQuiz</h2>
+        <!-- Top bar -->
+        <div class="game-top-bar">
+          <div class="game-round-info">
+            <span data-i18n="game_round">Manche</span>&nbsp;<span id="cq-round-current">1</span>/<span id="cq-round-total">5</span>
+            <span class="game-diff-badge" id="cq-difficulty"></span>
+          </div>
+          <div class="game-score-info"><span data-i18n="game_score">Score :</span> <span id="cq-score">0</span></div>
+        </div>
+        <div class="game-progress-bar-wrap">
+          <div id="cq-progress-bar" class="game-progress-bar" style="width:0%"></div>
         </div>
 
-        <div id="game-reveal-info" class="game-reveal-info" hidden>
-          <h3 id="game-reveal-title"></h3>
-          <p id="game-reveal-meta"></p>
+        <!-- Palette -->
+        <div id="cq-palette" class="game-palette"></div>
+
+        <!-- Hints -->
+        <div class="game-hints-section" id="cq-hints-section">
+          <button id="cq-hint-btn" class="game-hint-btn">
+            💡 <span data-i18n="game_use_hint">Obtenir un indice</span> (<span id="cq-hints-used">0</span>/3)
+          </button>
+          <div id="cq-hint-display" class="game-hint-display" hidden></div>
         </div>
 
-        <div id="game-choices" class="game-choices"></div>
-        
-        <button id="game-next-btn" class="game-next-btn" hidden>Suivant ➔</button>
+        <!-- Reveal info -->
+        <div id="cq-reveal-info" class="game-reveal-info" hidden>
+          <h3 id="cq-reveal-title"></h3>
+          <p id="cq-reveal-meta"></p>
+        </div>
+
+        <!-- Choices -->
+        <div id="cq-choices" class="game-choices"></div>
+
+        <button id="cq-next-btn" class="game-next-btn" hidden>Suivant ➔</button>
       </div>
     </div>
 
-    <!-- End Game Screen -->
-    <div id="game-end-screen" class="game-screen" hidden>
-      <div class="game-end-content">
-        <h1 class="game-end-title" data-i18n="game_end_title">Partie Terminée</h1>
-        <div class="game-end-score"><span data-i18n="game_end_score">Score final :</span> <span id="game-end-score-val"></span> / 5 🏆</div>
-        
-        <div class="game-recap-list" id="game-recap-list"></div>
-        
+    <!-- ──────────────────────────────────────────
+         PALETTEPURE SCREEN
+    ────────────────────────────────────────── -->
+    <div id="screen-pp" class="gscreen gscreen--pp" hidden>
+      <div class="game-screen">
+        <h2 class="game-screen-title" data-i18n="game_pp_name">PalettePure</h2>
+        <!-- Top bar -->
+        <div class="game-top-bar">
+          <div class="game-round-info">
+            <span data-i18n="game_round">Manche</span>&nbsp;<span id="pp-round-current">1</span>/<span id="pp-round-total">5</span>
+          </div>
+          <div class="game-score-info"><span data-i18n="game_score">Score :</span> <span id="pp-score">0</span></div>
+        </div>
+        <div class="game-progress-bar-wrap">
+          <div id="pp-progress-bar" class="game-progress-bar" style="width:0%"></div>
+        </div>
+
+        <!-- Film name -->
+        <div class="pp-film-name-row">
+          <span class="pp-film-label">🎬</span>
+          <span id="pp-film-name" class="pp-film-name"></span>
+        </div>
+
+        <!-- Known swatches + mystery -->
+        <div class="pp-palette-section">
+          <p class="pp-question" data-i18n="game_pp_question">Quelle est la couleur manquante ?</p>
+          <div id="pp-known-swatches" class="pp-known-swatches"></div>
+        </div>
+
+        <!-- Color choices -->
+        <div id="pp-color-choices" class="pp-color-choices"></div>
+
+        <!-- Feedback -->
+        <div id="pp-feedback" class="pp-feedback" hidden></div>
+
+        <button id="pp-next-btn" class="game-next-btn" hidden>Suivant ➔</button>
+      </div>
+    </div>
+
+    <!-- ──────────────────────────────────────────
+         CHRONOCHROMA SCREEN
+    ────────────────────────────────────────── -->
+    <div id="screen-cc" class="gscreen gscreen--cc" hidden>
+      <div class="game-screen">
+        <h2 class="game-screen-title" data-i18n="game_cc_name">ChronoChroma</h2>
+        <!-- Chrono bar -->
+        <div class="cc-chrono-section">
+          <div class="cc-chrono-label">
+            <span data-i18n="game_cc_time_left">Temps restant</span>
+            <span id="cc-time-display" class="cc-time-display">60</span>
+          </div>
+          <div class="cc-chrono-bar-wrap">
+            <div id="cc-chrono-bar" class="cc-chrono-bar"></div>
+          </div>
+        </div>
+
+        <!-- Score live -->
+        <div class="cc-live-score">
+          <div class="cc-stat">
+            <span id="cc-score" class="cc-stat-val">0</span>
+            <span class="cc-stat-lbl" data-i18n="game_score">Score</span>
+          </div>
+          <div class="cc-stat-sep"></div>
+          <div class="cc-stat">
+            <span id="cc-total" class="cc-stat-val">0</span>
+            <span class="cc-stat-lbl" data-i18n="game_cc_films_done">Films</span>
+          </div>
+        </div>
+
+        <!-- Palette -->
+        <div id="cc-palette" class="game-palette"></div>
+
+        <!-- Choices -->
+        <div id="cc-choices" class="game-choices"></div>
+
+        <!-- Flash feedback -->
+        <div id="cc-feedback" class="cc-feedback" hidden></div>
+      </div>
+    </div>
+
+    <!-- ──────────────────────────────────────────
+         END SCREEN — Results (all games)
+    ────────────────────────────────────────── -->
+    <div id="screen-end" class="gscreen gscreen--end" hidden>
+      <div class="game-screen game-end-content">
+        <div class="end-game-badge" id="end-game-badge"></div>
+        <h1 class="game-end-title" id="end-title"></h1>
+        <div class="end-stats-grid" id="end-stats-grid"></div>
+        <div class="game-recap-list" id="end-recap-list"></div>
         <div class="game-end-actions">
-          <button id="game-replay-btn" class="hero-btn-primary" style="border-radius: 30px; font-size: 16px; padding: 14px 32px;" data-i18n="game_btn_replay">Rejouer</button>
+          <button id="end-replay-btn" class="config-start-btn" data-i18n="game_play_again">Rejouer</button>
+          <button id="end-hub-btn" class="game-next-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.25);font-size:14px;padding:12px 24px;" data-i18n="game_change_game">Changer de jeu</button>
         </div>
       </div>
     </div>
+
   </main>
 
   <!-- Toast -->
@@ -169,16 +378,11 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           <span data-i18n="favorites">Favoris</span>
         </a>
-        <a href="./profile.html?tab=collections" class="nav-menu-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-          <span data-i18n="nav_collections">Collections</span>
-        </a>
         <a href="./profile.html" id="nav-link-profile" class="nav-menu-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           <span data-i18n="nav_profile">Mon Profil</span>
         </a>
         <div class="nav-menu-separator"></div>
-        <!-- Language switch inside drawer -->
         <div class="nav-menu-lang-section" style="padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.75rem;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18" style="color: var(--text-2); flex-shrink: 0;">
             <circle cx="12" cy="12" r="10"/>
@@ -189,17 +393,12 @@
             <button class="lang-switch-btn" data-lang-val="en">EN</button>
             <button class="lang-switch-btn" data-lang-val="ja">JA</button>
           </div>
-          <!-- Keep hidden select for compatibility with legacy events -->
           <select id="lang-switch-drawer" aria-label="Changer la langue" style="display: none;">
             <option value="fr">FR</option>
             <option value="en">EN</option>
             <option value="ja">JA</option>
           </select>
         </div>
-        <a href="./contact.html" class="nav-menu-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <span data-i18n="nav_contact">Contact</span>
-        </a>
         <a href="./about.html" class="nav-menu-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
           <span data-i18n="nav_about">En savoir plus</span>
