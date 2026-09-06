@@ -1588,24 +1588,26 @@ function renderModalActiveColorsRow() {
 function isFilmClassic(film) {
   if (!film) return false;
   const note = Number(film.note_moyenne || film.vote_average || 0);
-  const votes = Number(film.vote_count || film.votes || 0);
-  const year = parseInt((film.date_sortie || '').split('-')[0], 10);
+  const pop = Number(film.popularite || film.popularity || 0);
+  const dateStr = film.date_sortie || '';
+  const year = parseInt((dateStr.split('-')[0] || ''), 10);
   
-  // 1. Chefs-d'œuvre majeurs (Interstellar, Chihiro, Inception, Pulp Fiction, The Dark Knight...)
-  if (votes >= 2500 && note >= 7.8) return true;
-  if (note >= 8.2 && votes >= 1000) return true;
-  
-  // 2. Classiques réputés sortis avant 2018
-  if (year && year <= 2018) {
-    if (votes >= 1200 && note >= 7.5) return true;
-    if (votes >= 3000 && note >= 7.2) return true;
+  // Doit être un film déjà sorti (pas un projet non sorti 2025/2026/2027+)
+  if (!year || year > 2024) {
+    return false;
   }
   
-  // 3. Classiques de l'âge d'or (avant 2000)
-  if (year && year <= 2000) {
-    if (votes >= 500 && note >= 7.4) return true;
-    if (note >= 7.8 && votes >= 250) return true;
-  }
+  // 1. Chefs-d'œuvre majeurs universels (note >= 8.0, ex: Interstellar, Chihiro, Pulp Fiction, Le Parrain, Les Évadés...)
+  if (note >= 8.0) return true;
+  
+  // 2. Classiques modernes acclamés (2000-2024, note >= 7.6 et popularité établie)
+  if (year >= 2000 && note >= 7.6 && (pop >= 15 || note >= 7.8)) return true;
+  
+  // 3. Classiques du XXe siècle (avant 2000, note >= 7.4)
+  if (year < 2000 && note >= 7.4) return true;
+  
+  // 4. Âge d'or du cinéma (avant 1980, note >= 7.2)
+  if (year < 1980 && note >= 7.2) return true;
 
   return false;
 }
@@ -1616,10 +1618,21 @@ function getFilmPopularityScore(film) {
   const voteAvg = Number(film.note_moyenne || film.vote_average || 0);
   const voteCount = Number(film.vote_count || film.votes || 0);
   
-  // Notoriété intemporelle : Popularité dynamique TMDb + Pondération historique (sqrt des votes * note)
-  const scoreBase = Math.max(0, voteAvg - 3.5);
-  const voteBonus = Math.sqrt(Math.max(0, voteCount)) * scoreBase * 0.7;
-  return rawPop + voteBonus;
+  // Si le nombre de votes est disponible (depuis sync_weekly ou TMDb direct)
+  if (voteCount > 0) {
+    const scoreBase = Math.max(0, voteAvg - 3.5);
+    const voteBonus = Math.sqrt(voteCount) * scoreBase * 0.7;
+    return rawPop + voteBonus;
+  }
+  
+  // Bonus de notoriété intemporelle pour les œuvres cultes basées sur la note critique
+  let qualityBonus = 0;
+  if (voteAvg >= 8.3) qualityBonus = 160;
+  else if (voteAvg >= 8.0) qualityBonus = 110;
+  else if (voteAvg >= 7.7) qualityBonus = 60;
+  else if (voteAvg >= 7.4) qualityBonus = 25;
+  
+  return rawPop + qualityBonus;
 }
 
 function buildDrawerGenreChips() {
