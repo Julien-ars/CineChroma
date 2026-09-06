@@ -855,6 +855,24 @@ body {
 .drawer-chip:hover { border-color: var(--border-strong); color: var(--text-1); }
 .drawer-chip.active { background: var(--accent); color: var(--accent-inverse); border-color: var(--accent); }
 .drawer-chip--fav { color: #e05c6e; }
+.drawer-chip--classics {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(217, 119, 6, 0.08));
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+.drawer-chip--classics:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.22), rgba(217, 119, 6, 0.15));
+  border-color: rgba(245, 158, 11, 0.55);
+  color: #fde68a;
+  transform: translateY(-1px);
+}
+.drawer-chip--classics.active {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border-color: #f59e0b;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+}
 
 .drawer-footer {
   padding: 16px 20px; border-top: 1px solid var(--border);

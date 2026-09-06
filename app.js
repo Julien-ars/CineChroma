@@ -231,6 +231,7 @@ const I18N = {
     tmdb_search_searching:'Recherche sur TMDb...',
     tmdb_search_no_results:'Aucun film trouvé sur TMDb pour cette recherche.',
     tmdb_search_action_title:'Importer et analyser les palettes',
+    classics_filter:     '🏛️ Grands Classiques',
   },
   en: {
     search_placeholder:  'Try a color…',
@@ -397,6 +398,7 @@ const I18N = {
     tmdb_search_searching:'Searching TMDb...',
     tmdb_search_no_results:'No movies found on TMDb for this search.',
     tmdb_search_action_title:'Import and analyze palettes',
+    classics_filter:     '🏛️ Timeless Classics',
   },
   ja: {
       search_placeholder:  '映画や監督を検索…',
@@ -564,6 +566,7 @@ const I18N = {
       tmdb_search_searching:'TMDbを検索中...',
       tmdb_search_no_results:'この検索でTMDbに映画が見つかりませんでした。',
       tmdb_search_action_title:'インポートしてパレットを分析',
+      classics_filter:     '🏛️ 名作クラシック',
     }
 };
 
@@ -1582,6 +1585,43 @@ function renderModalActiveColorsRow() {
 /* ============================================================
    BURGER DRAWER
 ============================================================ */
+function isFilmClassic(film) {
+  if (!film) return false;
+  const note = Number(film.note_moyenne || film.vote_average || 0);
+  const votes = Number(film.vote_count || film.votes || 0);
+  const year = parseInt((film.date_sortie || '').split('-')[0], 10);
+  
+  // 1. Chefs-d'œuvre majeurs (Interstellar, Chihiro, Inception, Pulp Fiction, The Dark Knight...)
+  if (votes >= 2500 && note >= 7.8) return true;
+  if (note >= 8.2 && votes >= 1000) return true;
+  
+  // 2. Classiques réputés sortis avant 2018
+  if (year && year <= 2018) {
+    if (votes >= 1200 && note >= 7.5) return true;
+    if (votes >= 3000 && note >= 7.2) return true;
+  }
+  
+  // 3. Classiques de l'âge d'or (avant 2000)
+  if (year && year <= 2000) {
+    if (votes >= 500 && note >= 7.4) return true;
+    if (note >= 7.8 && votes >= 250) return true;
+  }
+
+  return false;
+}
+
+function getFilmPopularityScore(film) {
+  if (!film) return 0;
+  const rawPop = Number(film.popularite || film.popularity || 0);
+  const voteAvg = Number(film.note_moyenne || film.vote_average || 0);
+  const voteCount = Number(film.vote_count || film.votes || 0);
+  
+  // Notoriété intemporelle : Popularité dynamique TMDb + Pondération historique (sqrt des votes * note)
+  const scoreBase = Math.max(0, voteAvg - 3.5);
+  const voteBonus = Math.sqrt(Math.max(0, voteCount)) * scoreBase * 0.7;
+  return rawPop + voteBonus;
+}
+
 function buildDrawerGenreChips() {
   const genres = [...new Set(state.allFilms.flatMap(f => f.genres || []))].sort();
   dom.drawerGenreChips.innerHTML = '';
@@ -1592,6 +1632,13 @@ function buildDrawerGenreChips() {
   favChip.textContent = t('favorites');
   favChip.addEventListener('click', () => toggleDrawerGenre('__favorites__', favChip));
   dom.drawerGenreChips.appendChild(favChip);
+
+  const isClassicsActive = state.activeGenres.has('__classics__');
+  const classicsChip = document.createElement('button');
+  classicsChip.className = `drawer-chip drawer-chip--classics${isClassicsActive ? ' active' : ''}`;
+  classicsChip.textContent = t('classics_filter');
+  classicsChip.addEventListener('click', () => toggleDrawerGenre('__classics__', classicsChip));
+  dom.drawerGenreChips.appendChild(classicsChip);
 
   for (const g of genres) {
     const isActive = state.activeGenres.has(g);
@@ -1907,9 +1954,14 @@ function applyFiltersAndRender() {
   if (state.activeGenres.size > 0) {
     if (state.activeGenres.has('__favorites__')) {
       films = films.filter(f => { const prefix = getFilmId(f) + ':'; return [...state.favorites].some(k => k.startsWith(prefix)); });
-    } else {
+    }
+    if (state.activeGenres.has('__classics__')) {
+      films = films.filter(f => isFilmClassic(f));
+    }
+    const regularGenres = [...state.activeGenres].filter(g => !g.startsWith('__'));
+    if (regularGenres.length > 0) {
       films = films.filter(f =>
-        [...state.activeGenres].some(g => (f.genres||[]).includes(g))
+        regularGenres.some(g => (f.genres||[]).includes(g))
       );
     }
   }
@@ -1944,11 +1996,11 @@ function sortFilms(films, key) {
   }
   return [...films].sort((a,b) => {
     switch(key) {
-      case 'popularity': return (b.popularite||0) - (a.popularite||0);
+      case 'popularity': return getFilmPopularityScore(b) - getFilmPopularityScore(a);
       case 'rating':     return (b.note_moyenne||0) - (a.note_moyenne||0);
       case 'date':       return new Date(b.date_sortie||0) - new Date(a.date_sortie||0);
       case 'title':      return (a.titre||'').localeCompare(b.titre||'','fr');
-      default:           return (b.popularite||0) - (a.popularite||0);
+      default:           return getFilmPopularityScore(b) - getFilmPopularityScore(a);
     }
   });
 }

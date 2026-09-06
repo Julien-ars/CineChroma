@@ -181,15 +181,36 @@ def run_weekly_sync(max_new_films: int = 10, days_window: int = 7, dry_run: bool
         print("\n⏩ [1/2] Actualisation des affiches ignorée (--skip-refresh).")
 
     # ─────────────────────────────────────────────────────────────
-    # ÉTAPE 2 : Ajout des nouveaux films populaires
+    # ÉTAPE 2 : Découverte des nouveautés & Actualisation de popularité
     # ─────────────────────────────────────────────────────────────
     added_films_count = 0
-    if not skip_new:
-        print(f"\n🚀 [2/2] Découverte et ajout des nouveaux films populaires (max: {max_new_films})...")
-        trending = get_trending_movie_ids(session, limit=40)
-        candidates = [m for m in trending if m["id"] not in existing_ids]
+    updated_pop_count = 0
 
-        print(f"  📌 {len(candidates)} nouveau(x) film(s) potentiel(s) trouvé(s).")
+    print(f"\n🚀 [2/2] Analyse des tendances TMDb & Actualisation des scores de popularité...")
+    trending = get_trending_movie_ids(session, limit=100)
+
+    # 2a. Mise à jour instantanée de la popularité pour les films du catalogue présents dans le Top TMDb
+    film_id_map = {f.get("id"): f for f in all_films if f.get("id")}
+    for m in trending:
+        mid = m.get("id")
+        if mid in film_id_map:
+            film = film_id_map[mid]
+            new_pop = round(m.get("popularity", 0), 2)
+            new_votes = m.get("vote_count", 0)
+            if new_pop > 0:
+                film["popularite"] = new_pop
+                if new_votes:
+                    film["vote_count"] = new_votes
+                updated_pop_count += 1
+
+    if updated_pop_count > 0:
+        print(f"  📈 Scores de popularité actualisés pour {updated_pop_count} film(s) du catalogue.")
+
+    # 2b. Ajout des nouveaux films populaires
+    if not skip_new:
+        candidates = [m for m in trending if m["id"] not in existing_ids]
+        print(f"  📌 {len(candidates)} nouveau(x) film(s) potentiel(s) trouvé(s) (limite: {max_new_films}).")
+
         for m in candidates:
             if added_films_count >= max_new_films:
                 break
@@ -206,7 +227,7 @@ def run_weekly_sync(max_new_films: int = 10, days_window: int = 7, dry_run: bool
             else:
                 print(f"    ⏩ Ignoré (pas d'affiches valides).")
     else:
-        print("\n⏩ [2/2] Ajout des nouveaux films ignoré (--skip-new).")
+        print("\n⏩ Ajout des nouveaux films ignoré (--skip-new).")
 
     # ─────────────────────────────────────────────────────────────
     # RÉCAPITULATIF & SAUVEGARDE
@@ -215,6 +236,7 @@ def run_weekly_sync(max_new_films: int = 10, days_window: int = 7, dry_run: bool
     print("📊 BILAN DE LA SYNCHRONISATION :")
     print(f"  • Nouveaux films ajoutés : {added_films_count}")
     print(f"  • Affiches de films récents actualisées : {refreshed_posters_count}")
+    print(f"  • Scores de popularité actualisés : {updated_pop_count}")
     print(f"  • Total films dans la base : {len(all_films)}")
     print("=" * 65)
 
