@@ -201,6 +201,36 @@ const I18N = {
     legal_data_desc:     'Les données des films et affiches proviennent de l\'API publique de TMDb (The Movie Database). Les affiches restent la propriété exclusive de leurs producteurs et studios respectifs.',
     legal_section_cookies:'Données personnelles',
     legal_cookies_desc:  'Aucun cookie traceur tiers n\'est utilisé. Vos favoris et collections sont stockés exclusivement en local dans votre navigateur (localStorage).',
+    nav_add_movie:       'Ajouter un film',
+    add_movie_title:     'Ajouter un film',
+    add_movie_desc:      'Recherchez un film sur TMDb pour calculer ses palettes et l\'intégrer instantanément.',
+    add_movie_placeholder:'Titre du film (ex: Challengers, Nosferatu...)',
+    add_movie_from_tmdb: 'Ajouter un film depuis TMDb',
+    film_not_found_prompt:'Le film que vous cherchez n\'est pas encore sur CineChroma ?',
+    film_added_success:  'Film ajouté avec succès !',
+    tmdb_direct_import:  'IMPORTATION TMDB',
+    refresh_data_hint:   'Actualisation recommandée : film récent ou données financières manquantes',
+    refresh_data_std:    'Actualiser les données TMDb (budget, recettes, note...)',
+    refresh_tmdb_data:   'Actualiser les données TMDb (budget, recettes...)',
+    recent_release_badge:'Film Récent',
+    data_updated_success:'Données TMDb actualisées avec succès !',
+    mode_3d:             '🌐 Mode 3D',
+    mode_3d_close:       'Fermer 3D',
+    new_to_cinechroma:   'Nouveau sur CineChroma ?',
+    add_to_collections_title: 'Ajouter aux collections',
+    add_to_collections_desc: 'Sélectionnez les collections thématiques pour cette affiche :',
+    close:               'Fermer',
+    image_search_title:  'Recherche par image',
+    image_search_desc:   'Déposez une affiche pour filtrer par sa palette de couleurs.',
+    dropzone_drag:       'Glissez une image ici ou',
+    dropzone_browse:     'parcourez vos fichiers',
+    dropzone_subtext:    'JPG, PNG, WEBP — Analyse 100% locale',
+    extracting_colors:   'Extraction des couleurs',
+    add_movie_extracting:'Téléchargement des affiches et extraction des palettes...',
+    add_btn_text:        'Ajouter',
+    tmdb_search_searching:'Recherche sur TMDb...',
+    tmdb_search_no_results:'Aucun film trouvé sur TMDb pour cette recherche.',
+    tmdb_search_action_title:'Importer et analyser les palettes',
   },
   en: {
     search_placeholder:  'Try a color…',
@@ -269,7 +299,7 @@ const I18N = {
     downloading:         'Downloading poster...',
     download_error:      'Direct download failed (right-click to save)',
     nav_gallery:         'Explore',
-      nav_game:            'The Game',
+    nav_game:            'The Game',
     nav_collections:     'Collections',
     collections_title:   'Thematic Collections',
     nav_profile:         'My Profile',
@@ -337,6 +367,36 @@ const I18N = {
     legal_data_desc:     'Movie data and posters are provided by the TMDb API. Posters remain the property of their respective production companies.',
     legal_section_cookies:'Privacy & GDPR',
     legal_cookies_desc:  'No third-party trackers are used. Your favorites and collections are stored exclusively in your browser\'s local storage.',
+    nav_add_movie:       'Add a Movie',
+    add_movie_title:     'Add a Movie',
+    add_movie_desc:      'Search for a film on TMDb to extract its palettes and integrate it instantly.',
+    add_movie_placeholder:'Movie title (e.g. Challengers, Nosferatu...)',
+    add_movie_from_tmdb: 'Add movie from TMDb',
+    film_not_found_prompt:'The movie you are looking for is not on CineChroma yet?',
+    film_added_success:  'Movie added successfully!',
+    tmdb_direct_import:  'TMDB IMPORT',
+    refresh_data_hint:   'Recommended refresh: recent release or missing financials',
+    refresh_data_std:    'Refresh TMDb data (budget, box office, rating...)',
+    refresh_tmdb_data:   'Refresh TMDb data (budget, revenue...)',
+    recent_release_badge:'Recent Release',
+    data_updated_success:'TMDb data updated successfully!',
+    mode_3d:             '🌐 3D Mode',
+    mode_3d_close:       'Close 3D',
+    new_to_cinechroma:   'New to CineChroma?',
+    add_to_collections_title: 'Add to Collections',
+    add_to_collections_desc: 'Select thematic collections for this poster:',
+    close:               'Close',
+    image_search_title:  'Image Search',
+    image_search_desc:   'Drop a poster to filter by its color palette.',
+    dropzone_drag:       'Drag & drop an image here or',
+    dropzone_browse:     'browse files',
+    dropzone_subtext:    'JPG, PNG, WEBP — 100% local analysis',
+    extracting_colors:   'Extracting colors',
+    add_movie_extracting:'Downloading posters and extracting palettes...',
+    add_btn_text:        'Add',
+    tmdb_search_searching:'Searching TMDb...',
+    tmdb_search_no_results:'No movies found on TMDb for this search.',
+    tmdb_search_action_title:'Import and analyze palettes',
   },
   ja: {
       search_placeholder:  '映画や監督を検索…',
@@ -465,6 +525,7 @@ const I18N = {
       about_feat2_title:   'インテリジェント抽出',
       about_feat2_desc:    'K-Meansアルゴリズムがブラウザで100%実行されます。',
       about_legal_title:   '法的通知',
+      about_legal_desc:   'CineChromaサイトは技術的および芸術的なデモンストレーションを目的として公開されています。',
       legal_section_editor:'サイト編集',
       legal_editor_desc:   'CineChromaサイトは技術的および芸術的なデモンストレーションを目的として公開されています。',
       legal_section_host:  'ホスティング',
@@ -472,7 +533,37 @@ const I18N = {
       legal_section_data:  'データとAPI',
       legal_data_desc:     '映画とポスターのデータはTMDb (The Movie Database)の公開APIから提供されています。ポスターは各プロデューサーとスタジオの独占的な財産です。',
       legal_section_cookies:'個人データ',
-      legal_cookies_desc:  'サードパーティのトラッキングクッキーは使用されていません。お気に入りやコレクションは、ブラウザ(localStorage)にローカルにのみ保存されます。'
+      legal_cookies_desc:  'サードパーティのトラッキングクッキーは使用されていません。お気に入りやコレクションは、ブラウザ(localStorage)にローカルにのみ保存されます。',
+      nav_add_movie:       '映画を追加',
+      add_movie_title:     '映画を追加',
+      add_movie_desc:      'TMDbで映画を検索し、パレットを抽出して即座に追加します。',
+      add_movie_placeholder:'映画のタイトル（例：チャレンジャーズ...）',
+      add_movie_from_tmdb: 'TMDbから映画を追加',
+      film_not_found_prompt:'探している映画はまだCineChromaにありませんか？',
+      film_added_success:  '映画が正常に追加されました！',
+      tmdb_direct_import:  'TMDBインポート',
+      refresh_data_hint:   '推奨される更新：最近の公開作品または未完全な財務データ',
+      refresh_data_std:    'TMDbデータを更新（予算、興行収入、評価...）',
+      refresh_tmdb_data:   'TMDbデータを更新（予算、興行収入...）',
+      recent_release_badge:'新作映画',
+      data_updated_success:'TMDbデータが正常に更新されました！',
+      mode_3d:             '🌐 3Dモード',
+      mode_3d_close:       '3Dを閉じる',
+      new_to_cinechroma:   'CineChromaは初めてですか？',
+      add_to_collections_title: 'コレクションに追加',
+      add_to_collections_desc: 'このポスターのテーマ別コレクションを選択:',
+      close:               '閉じる',
+      image_search_title:  '画像で検索',
+      image_search_desc:   'ポスターをドロップしてカラーパレットで検索します。',
+      dropzone_drag:       '画像をドラッグ＆ドロップするか、',
+      dropzone_browse:     'ファイルを参照',
+      dropzone_subtext:    'JPG、PNG、WEBP — 100%ローカル分析',
+      extracting_colors:   '色を抽出中',
+      add_movie_extracting:'ポスターをダウンロードしてパレットを抽出中...',
+      add_btn_text:        '追加',
+      tmdb_search_searching:'TMDbを検索中...',
+      tmdb_search_no_results:'この検索でTMDbに映画が見つかりませんでした。',
+      tmdb_search_action_title:'インポートしてパレットを分析',
     }
 };
 
@@ -682,6 +773,7 @@ const dom = {
   modalPosterImg:       $('#modal-poster-img'),
   modalPosterSelector:  $('#modal-poster-selector'),
   modalDownloadBtn:     $('#modal-download-btn'),
+  modalRefreshDataBtn:  $('#modal-refresh-data-btn'),
   modalShareCardBtn:    $('#modal-share-card-btn'),
   modalLikeBtn:         $('#modal-like-btn'),
   modalColBtn:          $('#modal-col-btn'),
@@ -716,6 +808,18 @@ const dom = {
   lightbox:             $('#poster-lightbox'),
   lightboxImg:          $('#lightbox-img'),
   lightboxGlow:         $('#lightbox-ambient-glow'),
+  
+  // Add Movie Modal (TMDb)
+  addMovieModal:        $('#add-movie-modal'),
+  addMovieBackdrop:     $('#add-movie-backdrop'),
+  addMovieClose:        $('#add-movie-close'),
+  addMovieInput:        $('#add-movie-input'),
+  addMovieSearchBtn:    $('#add-movie-search-btn'),
+  addMovieResults:      $('#add-movie-results'),
+  addMovieLoading:      $('#add-movie-loading'),
+  addMovieLoadingMsg:   $('#add-movie-loading-msg'),
+  navLinkAddMovie:      $('#nav-link-add-movie'),
+  emptyAddMovieBtn:     $('#empty-add-movie-btn'),
   
   toast:                $('#toast'),
 };
@@ -891,11 +995,14 @@ function colorDistance(hexA, hexB) {
 
 function getSingleColorScoreForPoster(affiche, targetHex, threshold) {
   let totalScore = 0;
-  for (const { hex, weight } of (affiche.palette || [])) {
+  for (const item of (affiche.palette || [])) {
+    const hex = typeof item === 'string' ? item : (item.hex || '');
+    if (!hex) continue;
+    const weight = (typeof item === 'object' && item.weight) ? item.weight : 1.0;
     const d = colorDistance(hex, targetHex);
     if (d <= threshold) {
       const proximity = Math.pow(1 - d / threshold, 1.5);
-      const coverage = (weight || 1.0);
+      const coverage = weight;
       totalScore += proximity * coverage;
     }
   }
@@ -938,7 +1045,7 @@ function getMatchingPosterUrl(film) {
 
   // Filter by active poster style if any
   const styleFiltered = state.activePosterStyles.size > 0
-    ? film.affiches.filter(a => state.activePosterStyles.has(a.categorie))
+    ? film.affiches.filter(a => state.activePosterStyles.has(a.categorie || a.type))
     : film.affiches;
   const candidates = styleFiltered.length > 0 ? styleFiltered : film.affiches;
 
@@ -975,6 +1082,55 @@ function getMatchingPosterUrl(film) {
   return bestPoster.affiche_w500 || bestPoster.affiche_original || null;
 }
 
+function normalizeFilmObject(film) {
+  if (!film) return film;
+  
+  let affiches = [];
+  if (film.affiches_globales && Array.isArray(film.affiches_globales)) {
+    affiches = affiches.concat(film.affiches_globales);
+  }
+  if (film.saisons && Array.isArray(film.saisons)) {
+    for (const saison of film.saisons) {
+      if (saison.affiches && Array.isArray(saison.affiches)) {
+        affiches = affiches.concat(saison.affiches);
+      }
+    }
+  }
+  if (affiches.length === 0 && film.affiches && Array.isArray(film.affiches)) {
+    affiches = film.affiches;
+  }
+  
+  film.affiches = affiches.map((a, idx) => {
+    let rawPalette = a.palette || a.palette_brute || [];
+    let normalizedPalette = [];
+    if (Array.isArray(rawPalette)) {
+      normalizedPalette = rawPalette.map(item => {
+        let hex = typeof item === 'string' ? item : (item.hex || item.color || '#000000');
+        if (!hex.startsWith('#')) hex = `#${hex}`;
+        let weight = (typeof item === 'object' && item.weight) ? item.weight : 20;
+        return { hex: hex.toUpperCase(), weight };
+      });
+    }
+    
+    const cat = a.categorie || a.type || (idx === 0 ? 'textless' : 'monde');
+    const w500 = a.affiche_w500 || a.affiche_original || (a.file_path ? `https://image.tmdb.org/t/p/w500${a.file_path}` : '');
+    const orig = a.affiche_original || a.affiche_w500 || (a.file_path ? `https://image.tmdb.org/t/p/original${a.file_path}` : '');
+
+    return {
+      ...a,
+      categorie: cat,
+      type: cat,
+      affiche_w500: w500,
+      affiche_original: orig,
+      palette: normalizedPalette,
+      palette_brute: normalizedPalette
+    };
+  });
+  
+  film.affiches_globales = film.affiches;
+  return film;
+}
+
 /* ============================================================
    DATA LOADING
 ============================================================ */
@@ -996,30 +1152,22 @@ async function loadData() {
     let films = [];
     for (const raw of rawDataArray) {
       const partFilms = Array.isArray(raw) ? raw : raw.films || raw.data || Object.values(raw);
-      
-      // Reconstruction of the 'affiches' property for compatibility
-      for (const film of partFilms) {
-        let allAffiches = [];
-        if (film.affiches_globales) {
-          allAffiches = allAffiches.concat(film.affiches_globales);
-        }
-        if (film.saisons) {
-          for (const saison of film.saisons) {
-            if (saison.affiches) {
-              allAffiches = allAffiches.concat(saison.affiches);
-            }
-          }
-        }
-        // Fallback if 'affiches' already exists natively
-        if (allAffiches.length === 0 && film.affiches) {
-          allAffiches = film.affiches;
-        }
-        film.affiches = allAffiches;
-      }
-      
       films = films.concat(partFilms);
     }
     
+    // Merge custom films saved locally (client additions)
+    try {
+      const customFilms = JSON.parse(localStorage.getItem('cinechroma_custom_films') || '[]');
+      if (Array.isArray(customFilms) && customFilms.length > 0) {
+        const existingIds = new Set(films.map(f => getFilmId(f)));
+        const uniqueCustom = customFilms.filter(cf => !existingIds.has(getFilmId(cf)));
+        films = uniqueCustom.concat(films);
+      }
+    } catch (_) {}
+
+    // Normalize all films
+    films = films.map(normalizeFilmObject);
+
     if (!films.length) throw new Error('Aucun film trouvé.');
     state.allFilms = films;
     updateSplash(95, t('splash_gallery'));
@@ -2628,21 +2776,28 @@ function closeModal() {
 }
 
 function populateModal(film, startingPosterIndex = 0) {
+  // Normalize film structure so affiches, categories and palettes are consistent
+  normalizeFilmObject(film);
+
   // Poster Categories and Dots Selector
   const affiches = film.affiches || [];
   const grouped = {
-    textless: affiches.filter(a => a.categorie === 'textless'),
-    origine: affiches.filter(a => a.categorie === 'origine'),
-    monde: affiches.filter(a => a.categorie === 'monde')
+    textless: affiches.filter(a => (a.categorie || a.type) === 'textless'),
+    origine: affiches.filter(a => (a.categorie || a.type) === 'origine'),
+    monde: affiches.filter(a => (a.categorie || a.type) === 'monde')
   };
 
   const startingPoster = affiches[startingPosterIndex] || affiches[0];
-  let activeCat = startingPoster ? (startingPoster.categorie || 'textless') : 'textless';
+  let activeCat = startingPoster ? (startingPoster.categorie || startingPoster.type || 'textless') : 'textless';
   
   if (!grouped[activeCat] || grouped[activeCat].length === 0) {
     if (grouped.textless.length > 0) activeCat = 'textless';
     else if (grouped.origine.length > 0) activeCat = 'origine';
     else if (grouped.monde.length > 0) activeCat = 'monde';
+    else {
+      grouped.monde = affiches;
+      activeCat = 'monde';
+    }
   }
 
   let activeIndexInCat = 0;
@@ -2750,6 +2905,64 @@ function populateModal(film, startingPosterIndex = 0) {
     downloadPosterImage(film);
   };
 
+  // Live TMDb Refresh Button for Recent / Incomplete Films
+  if (dom.modalRefreshDataBtn) {
+    const isRecent = film.date_sortie && (new Date() - new Date(film.date_sortie)) / (1000 * 60 * 60 * 24) < 45;
+    const hasMissingFinancials = !film.budget || !film.revenue;
+    const isHighlighted = Boolean(isRecent || hasMissingFinancials);
+    dom.modalRefreshDataBtn.classList.toggle('modal-refresh-highlight', isHighlighted);
+    dom.modalRefreshDataBtn.title = isHighlighted ? t('refresh_data_hint') : t('refresh_data_std');
+    dom.modalRefreshDataBtn.setAttribute('aria-label', dom.modalRefreshDataBtn.title);
+
+    dom.modalRefreshDataBtn.onclick = async (e) => {
+      e.preventDefault();
+      if (dom.modalRefreshDataBtn.classList.contains('spinning')) return;
+      dom.modalRefreshDataBtn.classList.add('spinning');
+
+      try {
+        const TMDB_BEARER = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZDY4ZDgwMDBlMjNjY2E1Mzc4NDAxYmY5MDA0ZTg4NCIsIm5iZiI6MTc4NDU3ODY2MS45ODg5OTk4LCJzdWIiOiI2YTVlODI2NTFhODNiZTIyYWM0ZjYyN2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.fxMEYiohV7Ot3AuR1R5GxoMMROYjZmAUp1RMUJN_1Sg";
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${film.id}?language=fr-FR`, {
+          headers: {
+            Authorization: `Bearer ${TMDB_BEARER}`,
+            accept: 'application/json'
+          }
+        });
+        if (res.ok) {
+          const fresh = await res.json();
+          film.budget = fresh.budget || film.budget || 0;
+          film.revenue = fresh.revenue || film.revenue || 0;
+          if (fresh.vote_average) film.note_moyenne = fresh.vote_average;
+          if (fresh.popularity) film.popularite = fresh.popularity;
+          if (fresh.runtime) film.duree_minutes = fresh.runtime;
+
+          dom.modalBudget.textContent = formatCurrency(film.budget);
+          dom.modalRevenue.textContent = formatCurrency(film.revenue);
+          if (dom.modalRuntime) dom.modalRuntime.textContent = formatRuntime(film.duree_minutes);
+          if (dom.modalRating && film.note_moyenne) {
+            dom.modalRating.textContent = film.note_moyenne.toFixed(1);
+            dom.modalStars.innerHTML = starsHtml(film.note_moyenne);
+          }
+
+          dom.modalBudget.classList.add('val-updated-flash');
+          dom.modalRevenue.classList.add('val-updated-flash');
+          setTimeout(() => {
+            dom.modalBudget.classList.remove('val-updated-flash');
+            dom.modalRevenue.classList.remove('val-updated-flash');
+          }, 1500);
+
+          showToast(t('data_updated_success'));
+        } else {
+          showToast('Impossible d\'actualiser depuis TMDb');
+        }
+      } catch (err) {
+        console.error('Erreur live refresh TMDb :', err);
+        showToast('Erreur de connexion');
+      } finally {
+        dom.modalRefreshDataBtn.classList.remove('spinning');
+      }
+    };
+  }
+
   // Share Card Button
   dom.modalShareCardBtn.onclick = (e) => {
     e.preventDefault();
@@ -2832,21 +3045,24 @@ function updateModalAmbientGlowColor(film, idx) {
   const affiches = film.affiches || [];
   const currentPoster = affiches[idx] || affiches[0];
   if (currentPoster && currentPoster.palette?.length > 0) {
-    const hex = currentPoster.palette[0].hex;
-    const cleanHex = hex.startsWith('#') ? hex : `#${hex}`;
-    dom.modalAmbientGlow.style.setProperty('--modal-glow-color', hexToRgba(cleanHex, 0.45));
-    
-    // Set poster-glow custom property center behind the poster
-    const posterCol = $('.modal-poster-col');
-    if (posterCol) {
-      posterCol.style.setProperty('--poster-glow', hexToRgba(cleanHex, 0.85)); /* Intensité maximale */
+    const entry = currentPoster.palette[0];
+    const rawHex = typeof entry === 'string' ? entry : (entry?.hex || '');
+    if (rawHex) {
+      const cleanHex = rawHex.startsWith('#') ? rawHex : `#${rawHex}`;
+      dom.modalAmbientGlow.style.setProperty('--modal-glow-color', hexToRgba(cleanHex, 0.45));
+      
+      // Set poster-glow custom property center behind the poster
+      const posterCol = $('.modal-poster-col');
+      if (posterCol) {
+        posterCol.style.setProperty('--poster-glow', hexToRgba(cleanHex, 0.85)); /* Intensité maximale */
+      }
+      return;
     }
-  } else {
-    dom.modalAmbientGlow.style.setProperty('--modal-glow-color', 'transparent');
-    const posterCol = $('.modal-poster-col');
-    if (posterCol) {
-      posterCol.style.setProperty('--poster-glow', 'transparent');
-    }
+  }
+  dom.modalAmbientGlow.style.setProperty('--modal-glow-color', 'transparent');
+  const posterCol = $('.modal-poster-col');
+  if (posterCol) {
+    posterCol.style.setProperty('--poster-glow', 'transparent');
   }
 }
 
@@ -3069,6 +3285,7 @@ async function shareCardImage(film) {
 
 function renderModalPalette(palette) {
   dom.modalPalette.innerHTML = '';
+  if (!palette || !Array.isArray(palette)) return;
   
   const validateBtn = $('#modal-palette-validate-btn');
   if (validateBtn) {
@@ -3083,9 +3300,11 @@ function renderModalPalette(palette) {
   }
 
   for (const entry of palette) {
-    const hex = (entry.hex||'').startsWith('#') ? entry.hex : `#${entry.hex}`;
+    const rawHex = typeof entry === 'string' ? entry : (entry?.hex || '');
+    if (!rawHex) continue;
+    const hex = rawHex.startsWith('#') ? rawHex : `#${rawHex}`;
     if (!hex || hex === '#') continue;
-    const isActive = state.activeColors.includes(hex);
+    const isActive = state.activeColors.includes(hex.toUpperCase());
 
     const dot = document.createElement('div');
     dot.className = `modal-palette-dot${isActive ? ' filter-active' : ''}`;
@@ -3096,7 +3315,8 @@ function renderModalPalette(palette) {
     dot.setAttribute('aria-label', `Sélectionner ${hex}`);
 
     const toggleColor = () => {
-      const idx = state.activeColors.indexOf(hex);
+      const uHex = hex.toUpperCase();
+      const idx = state.activeColors.indexOf(uHex);
       if (idx > -1) {
         state.activeColors.splice(idx, 1);
       } else {
@@ -3104,7 +3324,7 @@ function renderModalPalette(palette) {
           showToast(t('color_max'));
           return;
         }
-        state.activeColors.push(hex);
+        state.activeColors.push(uHex);
       }
       renderModalPalette(palette);
       if (validateBtn) validateBtn.hidden = (state.activeColors.length === 0);
@@ -3116,7 +3336,11 @@ function renderModalPalette(palette) {
   }
   
   // Save current palette for 3D toggle
-  const newPaletteHex = palette.map(p => p.hex);
+  const newPaletteHex = palette.map(p => {
+    const raw = typeof p === 'string' ? p : (p?.hex || '');
+    return raw.startsWith('#') ? raw : `#${raw}`;
+  }).filter(h => h.length > 1);
+
   const oldHexStr = JSON.stringify(state.currentPaletteHex || []);
   const newHexStr = JSON.stringify(newPaletteHex);
   
@@ -3686,6 +3910,32 @@ function bindEvents() {
     });
   }
 
+  // Add Movie Modal Actions
+  if (dom.navLinkAddMovie) {
+    dom.navLinkAddMovie.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeNavMenu();
+      openAddMovieModal();
+    });
+  }
+  if (dom.emptyAddMovieBtn) {
+    dom.emptyAddMovieBtn.addEventListener('click', () => {
+      const q = state.searchQuery || (dom.searchInput ? dom.searchInput.value : '');
+      openAddMovieModal(q);
+    });
+  }
+  if (dom.addMovieClose) dom.addMovieClose.addEventListener('click', closeAddMovieModal);
+  if (dom.addMovieBackdrop) dom.addMovieBackdrop.addEventListener('click', closeAddMovieModal);
+  if (dom.addMovieSearchBtn) dom.addMovieSearchBtn.addEventListener('click', searchTmdbMoviesToAdd);
+  if (dom.addMovieInput) {
+    dom.addMovieInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        searchTmdbMoviesToAdd();
+      }
+    });
+  }
+
   // Keyboard navigation
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
@@ -3693,6 +3943,7 @@ function bindEvents() {
         dom.lightbox.classList.remove('active');
         setTimeout(() => dom.lightbox.setAttribute('hidden', ''), 400);
       }
+      else if (dom.addMovieModal && !dom.addMovieModal.hasAttribute('hidden')) closeAddMovieModal();
       else if (!dom.authModal.hasAttribute('hidden')) closeAuthModal();
       else if (!dom.createCollectionModal.hasAttribute('hidden')) closeCreateCollectionModal();
       else if (!dom.profileModal.hasAttribute('hidden')) closeProfileModal();
@@ -3932,6 +4183,376 @@ function performKMeans(pixels, k) {
 }
 
 /* ============================================================
+   ADD MOVIE FROM TMDB (MODAL & EXTRACTION)
+============================================================ */
+function openAddMovieModal(initialQuery = '') {
+  if (!dom.addMovieModal) return;
+  dom.addMovieModal.removeAttribute('hidden');
+  document.body.style.overflow = 'hidden';
+
+  if (dom.addMovieLoading) dom.addMovieLoading.hidden = true;
+  if (dom.addMovieResults) dom.addMovieResults.innerHTML = '';
+
+  if (dom.addMovieInput) {
+    dom.addMovieInput.value = initialQuery;
+    setTimeout(() => dom.addMovieInput.focus(), 150);
+    if (initialQuery.trim()) {
+      searchTmdbMoviesToAdd();
+    }
+  }
+}
+
+function closeAddMovieModal() {
+  if (!dom.addMovieModal) return;
+  dom.addMovieModal.setAttribute('hidden', '');
+  document.body.style.overflow = '';
+  if (dom.addMovieLoading) dom.addMovieLoading.hidden = true;
+}
+
+async function searchTmdbMoviesToAdd() {
+  if (!dom.addMovieInput || !dom.addMovieResults) return;
+  const query = dom.addMovieInput.value.trim();
+  if (!query) return;
+
+  dom.addMovieResults.innerHTML = `
+    <div class="add-movie-empty-msg">
+      <div class="add-movie-spinner" style="width:28px;height:28px;margin:0 auto 10px;"></div>
+      <span>${t('tmdb_search_searching')}</span>
+    </div>
+  `;
+
+  try {
+    let results = [];
+    // 1. Try server API first if serve.py is active
+    try {
+      const srvRes = await fetch('/api/search-tmdb', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query })
+      });
+      if (srvRes.ok) {
+        const srvData = await srvRes.json();
+        if (srvData.success && Array.isArray(srvData.results)) {
+          results = srvData.results;
+        }
+      }
+    } catch (_) {}
+
+    // 2. Direct TMDb fetch fallback
+    if (results.length === 0) {
+      const TMDB_BEARER = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZDY4ZDgwMDBlMjNjY2E1Mzc4NDAxYmY5MDA0ZTg4NCIsIm5iZiI6MTc4NDU3ODY2MS45ODg5OTk4LCJzdWIiOiI2YTVlODI2NTFhODNiZTIyYWM0ZjYyN2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.fxMEYiohV7Ot3AuR1R5GxoMMROYjZmAUp1RMUJN_1Sg";
+      const tmdbRes = await fetch(`https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&language=fr-FR&include_adult=false`, {
+        headers: {
+          Authorization: `Bearer ${TMDB_BEARER}`,
+          accept: 'application/json'
+        }
+      });
+      if (tmdbRes.ok) {
+        const tmdbData = await tmdbRes.json();
+        results = (tmdbData.results || []).slice(0, 10).map(m => ({
+          id: m.id,
+          titre: m.title || m.original_title,
+          titre_original: m.original_title || m.title,
+          date_sortie: m.release_date || '',
+          poster_path: m.poster_path,
+          overview: m.overview || '',
+          vote_average: m.vote_average || 0
+        }));
+      }
+    }
+
+    renderAddMovieResults(results);
+  } catch (err) {
+    console.error('Erreur recherche TMDb :', err);
+    dom.addMovieResults.innerHTML = `
+      <div class="add-movie-empty-msg">
+        ⚠️ ${err.message || 'Error'}
+      </div>
+    `;
+  }
+}
+
+function renderAddMovieResults(results) {
+  if (!dom.addMovieResults) return;
+  dom.addMovieResults.innerHTML = '';
+
+  if (!results || results.length === 0) {
+    dom.addMovieResults.innerHTML = `
+      <div class="add-movie-empty-msg">
+        ${t('tmdb_search_no_results')}
+      </div>
+    `;
+    return;
+  }
+
+  results.forEach(film => {
+    const item = document.createElement('div');
+    item.className = 'add-movie-result-item';
+    const displayTitle = film.titre || film.title || film.original_title || 'Film';
+    const origTitle = film.titre_original || film.original_title || '';
+    const releaseDate = film.date_sortie || film.release_date || '';
+    const year = releaseDate ? releaseDate.split('-')[0] : '—';
+    const posterPath = film.poster_path;
+    const posterUrl = posterPath
+      ? (posterPath.startsWith('http') ? posterPath : `https://image.tmdb.org/t/p/w185${posterPath}`)
+      : null;
+    const voteAvg = film.vote_average || film.note_moyenne;
+
+    item.innerHTML = `
+      ${posterUrl
+        ? `<img src="${posterUrl}" class="add-movie-poster-thumb" alt="${displayTitle}" loading="lazy" />`
+        : `<div class="add-movie-poster-placeholder"><span>N/A</span></div>`
+      }
+      <div class="add-movie-result-info">
+        <span class="add-movie-result-title">${displayTitle}</span>
+        <div class="add-movie-result-meta">
+          <span>${year}</span>
+          ${origTitle && origTitle !== displayTitle ? `<span>• ${origTitle}</span>` : ''}
+          ${voteAvg ? `<span>• ⭐ ${Number(voteAvg).toFixed(1)}</span>` : ''}
+        </div>
+      </div>
+      <button class="add-movie-result-action" title="${t('tmdb_search_action_title')}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        <span>${t('add_btn_text')}</span>
+      </button>
+    `;
+
+    item.addEventListener('click', () => {
+      importTmdbMovie(film.id, { titre: displayTitle, titre_original: origTitle });
+    });
+
+    dom.addMovieResults.appendChild(item);
+  });
+}
+
+async function importTmdbMovie(tmdbId, basicInfo = {}) {
+  if (!dom.addMovieLoading) return;
+  dom.addMovieLoading.hidden = false;
+  if (dom.addMovieResults) dom.addMovieResults.innerHTML = '';
+  if (dom.addMovieLoadingMsg) {
+    dom.addMovieLoadingMsg.textContent = t('add_movie_extracting');
+  }
+
+  const TMDB_BEARER = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZDY4ZDgwMDBlMjNjY2E1Mzc4NDAxYmY5MDA0ZTg4NCIsIm5iZiI6MTc4NDU3ODY2MS45ODg5OTk4LCJzdWIiOiI2YTVlODI2NTFhODNiZTIyYWM0ZjYyN2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.fxMEYiohV7Ot3AuR1R5GxoMMROYjZmAUp1RMUJN_1Sg";
+
+  try {
+    let finalFilmObj = null;
+
+    // 1. Try Python backend API (persists directly to films_part3.json)
+    try {
+      if (dom.addMovieLoadingMsg) dom.addMovieLoadingMsg.textContent = 'Traitement par le pipeline K-Means (LAB)...';
+      const srvRes = await fetch('/api/add-film', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: tmdbId })
+      });
+      if (srvRes.ok) {
+        const srvData = await srvRes.json();
+        if (srvData.success && srvData.film) {
+          finalFilmObj = srvData.film;
+        }
+      }
+    } catch (_) {}
+
+    // 2. Client-side fallback if server not reachable
+    if (!finalFilmObj) {
+      if (dom.addMovieLoadingMsg) dom.addMovieLoadingMsg.textContent = 'Récupération des métadonnées multilingues TMDb...';
+      const [resFr, resEn, resJa] = await Promise.all([
+        fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?language=fr-FR&append_to_response=credits,release_dates,images&include_image_language=fr,en,null`, {
+          headers: { Authorization: `Bearer ${TMDB_BEARER}`, accept: 'application/json' }
+        }),
+        fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?language=en-US`, {
+          headers: { Authorization: `Bearer ${TMDB_BEARER}`, accept: 'application/json' }
+        }).catch(() => null),
+        fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?language=ja-JP`, {
+          headers: { Authorization: `Bearer ${TMDB_BEARER}`, accept: 'application/json' }
+        }).catch(() => null)
+      ]);
+
+      if (!resFr.ok) throw new Error('Impossible de charger les détails du film sur TMDb.');
+      const dataFr = await resFr.json();
+      const dataEn = resEn && resEn.ok ? await resEn.json() : null;
+      const dataJa = resJa && resJa.ok ? await resJa.json() : null;
+
+      // Director
+      let director = '';
+      if (dataFr.credits && dataFr.credits.crew) {
+        const dObj = dataFr.credits.crew.find(c => c.job === 'Director');
+        if (dObj) director = dObj.name;
+      }
+
+      // Certifications
+      const certs = { France: '', USA: '' };
+      if (dataFr.release_dates && dataFr.release_dates.results) {
+        const frRel = dataFr.release_dates.results.find(r => r.iso_3166_1 === 'FR');
+        if (frRel && frRel.release_dates && frRel.release_dates.length) {
+          certs.France = frRel.release_dates[0].certification || '';
+        }
+        const usRel = dataFr.release_dates.results.find(r => r.iso_3166_1 === 'US');
+        if (usRel && usRel.release_dates && usRel.release_dates.length) {
+          certs.USA = usRel.release_dates[0].certification || '';
+        }
+      }
+
+      // Posters extraction
+      const rawPosters = (dataFr.images && dataFr.images.posters) || [];
+      const affiches = [];
+
+      const textlessList = rawPosters.filter(p => !p.iso_639_1);
+      const frList = rawPosters.filter(p => p.iso_639_1 === 'fr');
+      const enList = rawPosters.filter(p => p.iso_639_1 === 'en');
+      const otherList = rawPosters.filter(p => p.iso_639_1 && p.iso_639_1 !== 'fr' && p.iso_639_1 !== 'en');
+
+      const selectedPosters = [];
+      if (textlessList.length) selectedPosters.push({ ...textlessList[0], type: 'textless' });
+      if (frList.length) selectedPosters.push({ ...frList[0], type: 'origine' });
+      else if (enList.length) selectedPosters.push({ ...enList[0], type: 'origine' });
+      if (otherList.length) selectedPosters.push({ ...otherList[0], type: 'monde' });
+      else if (enList.length > 1) selectedPosters.push({ ...enList[1], type: 'monde' });
+
+      if (selectedPosters.length === 0 && dataFr.poster_path) {
+        selectedPosters.push({ file_path: dataFr.poster_path, type: 'origine' });
+      }
+
+      if (dom.addMovieLoadingMsg) dom.addMovieLoadingMsg.textContent = 'Extraction des palettes chromatiques (Canvas 2D)...';
+
+      for (const p of selectedPosters) {
+        const imgUrl = `https://image.tmdb.org/t/p/w500${p.file_path}`;
+        const palette = await extractPaletteFromPosterUrl(imgUrl);
+        affiches.push({
+          affiche_w500: imgUrl,
+          affiche_original: `https://image.tmdb.org/t/p/original${p.file_path}`,
+          palette: palette,
+          palette_brute: palette,
+          type: p.type || 'monde',
+          iso_639_1: p.iso_639_1 || null
+        });
+      }
+
+      finalFilmObj = {
+        id: dataFr.id,
+        tmdb_id: dataFr.id,
+        titre: dataFr.title || '',
+        titre_original: dataFr.original_title || '',
+        titre_en: dataEn ? dataEn.title || '' : '',
+        titre_ja: dataJa ? dataJa.title || '' : '',
+        realisateur: director,
+        date_sortie: dataFr.release_date || '',
+        duree_minutes: dataFr.runtime || 0,
+        genres: (dataFr.genres || []).map(g => g.name),
+        langue_origine: dataFr.original_language || '',
+        note_moyenne: dataFr.vote_average || 0,
+        vote_count: dataFr.vote_count || 0,
+        popularite: dataFr.popularity || 0,
+        budget: dataFr.budget || 0,
+        recette: dataFr.revenue || 0,
+        resume: dataFr.overview || '',
+        certifications: certs,
+        affiches: affiches,
+        affiches_globales: affiches
+      };
+
+      // Save to localStorage for persistence across sessions
+      try {
+        finalFilmObj = normalizeFilmObject(finalFilmObj);
+        const localList = JSON.parse(localStorage.getItem('cinechroma_custom_films') || '[]');
+        const existingLocalIdx = localList.findIndex(f => f.id === finalFilmObj.id);
+        if (existingLocalIdx >= 0) localList[existingLocalIdx] = finalFilmObj;
+        else localList.unshift(finalFilmObj);
+        localStorage.setItem('cinechroma_custom_films', JSON.stringify(localList));
+      } catch (_) {}
+    }
+
+    // Ensure film object is fully normalized
+    finalFilmObj = normalizeFilmObject(finalFilmObj);
+
+    // Insert into runtime state
+    const existingStateIdx = state.allFilms.findIndex(f => getFilmId(f) === getFilmId(finalFilmObj));
+    if (existingStateIdx >= 0) {
+      state.allFilms[existingStateIdx] = finalFilmObj;
+    } else {
+      state.allFilms.unshift(finalFilmObj);
+    }
+
+    // Clear search and reset filters so the newly added film appears right at the top
+    state.searchQuery = '';
+    if (dom.searchInput) dom.searchInput.value = '';
+    if (dom.searchClear) dom.searchClear.hidden = true;
+    state.activeColors = [];
+    state.activeGenres.clear();
+    state.activeLanguages.clear();
+    state.sort = 'date';
+
+    closeAddMovieModal();
+    applyFiltersAndRender();
+    updateURL();
+
+    showToast(`🎬 "${finalFilmObj.titre || finalFilmObj.titre_original}" ajouté avec succès !`);
+
+    // Open detail modal immediately
+    setTimeout(() => {
+      openModal(finalFilmObj, 0);
+    }, 300);
+
+  } catch (err) {
+    console.error('Erreur import film TMDb :', err);
+    if (dom.addMovieLoading) dom.addMovieLoading.hidden = true;
+    if (dom.addMovieResults) {
+      dom.addMovieResults.innerHTML = `
+        <div class="add-movie-empty-msg">
+          ❌ Erreur lors de l'ajout : ${err.message}
+        </div>
+      `;
+    }
+    showToast(`Erreur : ${err.message}`);
+  }
+}
+
+function extractPaletteFromPosterUrl(imgUrl) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = 120;
+        canvas.height = 180;
+        const ctx = canvas.getContext('2d');
+        const cropX = Math.round(img.width * 0.05);
+        const cropY = Math.round(img.height * 0.05);
+        const cropW = Math.round(img.width * 0.9);
+        const cropH = Math.round(img.height * 0.9);
+        ctx.drawImage(img, cropX, cropY, cropW, cropH, 0, 0, 120, 180);
+
+        const imgData = ctx.getImageData(0, 0, 120, 180).data;
+        const pixels = [];
+        for (let i = 0; i < imgData.length; i += 4) {
+          if (imgData[i + 3] < 128) continue;
+          pixels.push({ r: imgData[i], g: imgData[i + 1], b: imgData[i + 2] });
+        }
+        if (pixels.length < 10) {
+          resolve(['#222222', '#555555', '#888888', '#bbbbbb', '#eeeeee']);
+          return;
+        }
+        const centroids = performKMeans(pixels, 5);
+        const hexPalette = centroids.map(c => rgbToHex(c).toUpperCase());
+        while (hexPalette.length < 5) hexPalette.push('#000000');
+        resolve(hexPalette);
+      } catch (err) {
+        console.warn('Canvas extraction error', err);
+        resolve(['#1a1a24', '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b']);
+      }
+    };
+    img.onerror = () => {
+      resolve(['#1a1a24', '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b']);
+    };
+    img.src = imgUrl;
+  });
+}
+
+/* ============================================================
    BOOTSTRAP
 ============================================================ */
 (function bootstrap() {
@@ -3949,7 +4570,7 @@ function performKMeans(pixels, k) {
     }
   });
 
-  // Open profile modal / auth redirection
+  // Open profile modal / auth / add movie redirection
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('profile') === 'open') {
     window.location.href = './profile.html';
@@ -3958,5 +4579,10 @@ function performKMeans(pixels, k) {
     setTimeout(() => {
       openAuthModal('login');
     }, 200);
+  }
+  if (urlParams.get('add') === 'open') {
+    setTimeout(() => {
+      openAddMovieModal();
+    }, 300);
   }
 })();

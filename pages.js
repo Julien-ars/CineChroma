@@ -128,6 +128,8 @@ const I18N = {
     game_btn_replay:     'Rejouer',
 
     // Hub & Config
+    game_hub_kicker:     'ARCADE CINÉMA',
+    game_hub_badge:      'DÉFIS CHROMATIQUES',
     game_hub_title:      'Mini-Jeux',
     game_hub_subtitle:   'Choisissez votre défi chromatique',
     game_hub_back:       '← Retour',
@@ -150,6 +152,11 @@ const I18N = {
     game_time_30:        '30 secondes',
     game_time_60:        '60 secondes',
     game_time_90:        '90 secondes',
+
+    // Quick Play
+    game_quick_name:     'Jeu Rapide',
+    game_quick_tag:      '⚡ Express',
+    game_quick_desc:     'Lancez instantanément une partie de 5 films cultes sans attendre.',
 
     // CouleurQuiz
     game_cq_name:        'CouleurQuiz',
@@ -189,6 +196,19 @@ const I18N = {
     language:            'Langue',
     budget:              'Budget',
     revenue:             'Recettes',
+    refresh_data_hint:   'Actualisation recommandée : film récent ou données financières manquantes',
+    refresh_data_std:    'Actualiser les données TMDb (budget, recettes, note...)',
+    refresh_tmdb_data:   'Actualiser les données TMDb (budget, recettes...)',
+    data_updated_success:'Données TMDb actualisées avec succès !',
+    recent_release_badge:'Film Récent',
+    nav_add_movie:       'Ajouter un film',
+    add_movie_title:     'Ajouter un film',
+    add_movie_desc:      'Recherchez un film sur TMDb pour calculer ses palettes et l\'intégrer instantanément.',
+    add_movie_placeholder:'Titre du film (ex: Challengers, Nosferatu...)',
+    add_movie_from_tmdb: 'Ajouter un film depuis TMDb',
+    film_not_found_prompt:'Le film que vous cherchez n\'est pas encore sur CineChroma ?',
+    film_added_success:  'Film ajouté avec succès !',
+    tmdb_direct_import:  'IMPORTATION TMDB',
     chromatic_palette:   'Palette',
     palette_hint:        'cliquer pour filtrer',
     learn_more:          'Source : TMDb',
@@ -406,6 +426,8 @@ const I18N = {
     game_btn_replay:     'Play Again',
 
     // Hub & Config
+    game_hub_kicker:     'CINEMA ARCADE',
+    game_hub_badge:      'CHROMATIC CHALLENGES',
     game_hub_title:      'Mini-Games',
     game_hub_subtitle:   'Choose your chromatic challenge',
     game_hub_back:       '← Back',
@@ -428,6 +450,11 @@ const I18N = {
     game_time_30:        '30 seconds',
     game_time_60:        '60 seconds',
     game_time_90:        '90 seconds',
+
+    // Quick Play
+    game_quick_name:     'Quick Play',
+    game_quick_tag:      '⚡ Express',
+    game_quick_desc:     'Instantly start a 5-round classic game with no setup.',
 
     // CouleurQuiz
     game_cq_name:        'ColorQuiz',
@@ -467,6 +494,19 @@ const I18N = {
     language:            'Language',
     budget:              'Budget',
     revenue:             'Revenue',
+    refresh_data_hint:   'Recommended refresh: recent release or missing financials',
+    refresh_data_std:    'Refresh TMDb data (budget, box office, rating...)',
+    refresh_tmdb_data:   'Refresh TMDb data (budget, revenue...)',
+    data_updated_success:'TMDb data refreshed successfully!',
+    recent_release_badge:'Recent Release',
+    nav_add_movie:       'Add a Movie',
+    add_movie_title:     'Add a Movie',
+    add_movie_desc:      'Search any movie on TMDb to extract its palettes and add it instantly.',
+    add_movie_placeholder:'Movie title (e.g. Challengers, Nosferatu...)',
+    add_movie_from_tmdb: 'Add movie from TMDb',
+    film_not_found_prompt:'The movie you are looking for is not on CineChroma yet?',
+    film_added_success:  'Movie added successfully!',
+    tmdb_direct_import:  'TMDB IMPORT',
     chromatic_palette:   'Palette',
     palette_hint:        'click to filter',
     learn_more:          'Source: TMDb',
@@ -686,6 +726,8 @@ const I18N = {
       game_btn_replay:     'もう一度プレイ',
 
       // Hub & Config
+      game_hub_kicker:     'シネマアーケード',
+      game_hub_badge:      '色彩の挑戦',
       game_hub_title:      'ミニゲーム',
       game_hub_subtitle:   '色彩チャレンジを選んでください',
       game_hub_back:       '← 戻る',
@@ -708,6 +750,11 @@ const I18N = {
       game_time_30:        '30秒',
       game_time_60:        '60秒',
       game_time_90:        '90秒',
+
+      // Quick Play
+      game_quick_name:     'クイックプレイ',
+      game_quick_tag:      '⚡ 即時',
+      game_quick_desc:     '設定不要で名作5問のゲームを今すぐ開始します。',
 
       // CouleurQuiz
       game_cq_name:        'カラークイズ',
@@ -747,6 +794,19 @@ const I18N = {
       language:            '言語',
       budget:              '予算',
       revenue:             '興行収入',
+      refresh_data_hint:   '推奨される更新：最近の公開作品または未完全な財務データ',
+      refresh_data_std:    'TMDbデータを更新（予算、興行収入、評価など）',
+      refresh_tmdb_data:   'TMDbデータを更新（予算、興行収入など）',
+      data_updated_success:'TMDbデータが正常に更新されました！',
+      recent_release_badge:'新作映画',
+      nav_add_movie:       '映画を追加',
+      add_movie_title:     '映画を追加',
+      add_movie_desc:      'TMDbで映画を検索し、カラーパレットを抽出して即座に追加します。',
+      add_movie_placeholder:'映画タイトル（例: チャレンジャーズ...）',
+      add_movie_from_tmdb: 'TMDbから映画を追加',
+      film_not_found_prompt:'探している映画はまだCineChromaにありませんか？',
+      film_added_success:  '映画が正常に追加されました！',
+      tmdb_direct_import:  'TMDBインポート',
       chromatic_palette:   'パレット',
       palette_hint:        'クリックしてフィルタリング',
       learn_more:          'ソース: TMDb',

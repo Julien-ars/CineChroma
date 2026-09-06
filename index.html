@@ -439,6 +439,14 @@
           </svg>
           <span data-i18n="nav_profile">Mon Profil</span>
         </a>
+        <a href="#" id="nav-link-add-movie" class="nav-menu-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18">
+            <circle cx="12" cy="12" r="9"/>
+            <line x1="12" y1="8" x2="12" y2="16"/>
+            <line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+          <span data-i18n="nav_add_movie">Ajouter un film</span>
+        </a>
 
         <div class="nav-menu-separator"></div>
 
@@ -553,6 +561,15 @@
         <input type="range" id="empty-tolerance-slider" min="5" max="80" value="30" step="5" class="empty-range-input" />
       </div>
 
+      <!-- Prompt pour ajouter un film absent depuis TMDb -->
+      <div class="empty-add-movie-box" id="empty-add-movie-box">
+        <p class="empty-add-movie-prompt" data-i18n="film_not_found_prompt">Le film que vous cherchez n'est pas encore sur CineChroma ?</p>
+        <button id="empty-add-movie-btn" class="btn-primary-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 5v14M5 12h14"/></svg>
+          <span data-i18n="add_movie_from_tmdb">Ajouter un film depuis TMDb</span>
+        </button>
+      </div>
+
       <button id="reset-filters-btn" class="btn-outline-pill" data-i18n="reset_filters">Réinitialiser</button>
     </div>
 
@@ -644,9 +661,14 @@
                   <line x1="12" y1="2" x2="12" y2="15"/>
                 </svg>
               </button>
-              <button id="modal-download-btn" class="modal-action-btn-circle" title="Télécharger l'affiche">
+              <button id="modal-download-btn" class="modal-action-btn-circle" title="Télécharger l'affiche" data-i18n-title="download_poster">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+              </button>
+              <button id="modal-refresh-data-btn" class="modal-action-btn-circle" title="Actualiser les données TMDb" data-i18n-title="refresh_tmdb_data">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
                 </svg>
               </button>
               <a id="modal-trailer-btn" href="#" target="_blank" rel="noopener noreferrer" class="modal-trailer-link" hidden>
@@ -672,8 +694,8 @@
             <div class="modal-palette-header-row">
               <span class="modal-palette-label" data-i18n="chromatic_palette">Palette</span>
               <span class="modal-palette-click-hint" data-i18n="palette_hint">cliquer pour sélectionner</span>
-              <button id="modal-3d-toggle-btn" class="modal-3d-toggle-btn">🌐 Mode 3D</button>
-              <button id="modal-palette-validate-btn" class="modal-palette-validate-btn" hidden>Valider</button>
+              <button id="modal-3d-toggle-btn" class="modal-3d-toggle-btn" data-i18n="mode_3d">🌐 Mode 3D</button>
+              <button id="modal-palette-validate-btn" class="modal-palette-validate-btn" data-i18n="validate" hidden>Valider</button>
             </div>
             <div id="modal-palette" class="modal-palette-dots"></div>
             
@@ -723,8 +745,8 @@
       </form>
 
       <div class="auth-register-link-row">
-        <span class="auth-register-hint">Nouveau sur CineChroma ?</span>
-        <a href="./register.html" id="auth-link-to-register" class="auth-register-action-link">Créer un compte</a>
+        <span class="auth-register-hint" data-i18n="new_to_cinechroma">Nouveau sur CineChroma ?</span>
+        <a href="./register.html" id="auth-link-to-register" class="auth-register-action-link" data-i18n="register">Créer un compte</a>
       </div>
     </div>
   </div>
@@ -821,12 +843,12 @@
           <path d="M18 6 6 18M6 6l12 12"/>
         </svg>
       </button>
-      <h3 class="col-chooser-title">Ajouter aux collections</h3>
-      <p class="col-chooser-desc">Sélectionnez les collections thématiques pour cette affiche :</p>
+      <h3 class="col-chooser-title" data-i18n="add_to_collections_title">Ajouter aux collections</h3>
+      <p class="col-chooser-desc" data-i18n="add_to_collections_desc">Sélectionnez les collections thématiques pour cette affiche :</p>
       <div id="col-chooser-list" class="col-chooser-list"></div>
       <div class="col-chooser-actions">
-        <button id="col-chooser-btn-create" class="col-chooser-btn-create">+ Créer une collection</button>
-        <button id="col-chooser-btn-close" class="col-chooser-btn-close">Fermer</button>
+        <button id="col-chooser-btn-create" class="col-chooser-btn-create" data-i18n="create_collection">+ Créer une collection</button>
+        <button id="col-chooser-btn-close" class="col-chooser-btn-close" data-i18n="close">Fermer</button>
       </div>
     </div>
   </div>
@@ -834,10 +856,10 @@
   <!-- ============================================================
        IMAGE SEARCH MODAL (DROPZONE)
   ============================================================ -->
-  <div id="image-search-modal" class="cosmos-modal" hidden role="dialog" aria-modal="true" aria-label="Recherche par image">
+  <div id="image-search-modal" class="cosmos-modal" hidden role="dialog" aria-modal="true" data-i18n-aria-label="image_search_title" aria-label="Recherche par image">
     <div class="cosmos-modal-backdrop" id="image-modal-backdrop"></div>
     <div class="cosmos-modal-card image-modal-card">
-      <button class="cosmos-modal-close" id="image-modal-close" aria-label="Fermer">
+      <button class="cosmos-modal-close" id="image-modal-close" data-i18n-aria-label="close" aria-label="Fermer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
           <path d="M18 6 6 18M6 6l12 12"/>
         </svg>
@@ -845,8 +867,8 @@
 
       <!-- État initial : dropzone -->
       <div id="image-dropzone-state">
-        <p class="image-modal-title">Recherche par image</p>
-        <p class="image-modal-desc">Déposez une affiche pour filtrer par sa palette de couleurs.</p>
+        <p class="image-modal-title" data-i18n="image_search_title">Recherche par image</p>
+        <p class="image-modal-desc" data-i18n="image_search_desc">Déposez une affiche pour filtrer par sa palette de couleurs.</p>
         <div class="image-dropzone" id="image-dropzone">
           <div class="dropzone-content">
             <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36">
@@ -854,8 +876,8 @@
               <polyline points="17 8 12 3 7 8"/>
               <line x1="12" y1="3" x2="12" y2="15"/>
             </svg>
-            <span class="dropzone-text">Glissez une image ici ou <span class="dropzone-browse">parcourez vos fichiers</span></span>
-            <span class="dropzone-subtext">JPG, PNG, WEBP — Analyse 100% locale</span>
+            <span class="dropzone-text"><span data-i18n="dropzone_drag">Glissez une image ici ou</span> <span class="dropzone-browse" data-i18n="dropzone_browse">parcourez vos fichiers</span></span>
+            <span class="dropzone-subtext" data-i18n="dropzone_subtext">JPG, PNG, WEBP — Analyse 100% locale</span>
           </div>
           <input type="file" id="image-file-input" accept="image/*" hidden />
         </div>
@@ -867,11 +889,61 @@
           <img id="extraction-preview-img" src="" alt="" class="extraction-preview-img" />
         </div>
         <div class="extraction-info">
-          <p class="extraction-message" id="extraction-message">Extraction des couleurs<span class="extraction-dots"></span></p>
+          <p class="extraction-message" id="extraction-message"><span data-i18n="extracting_colors">Extraction des couleurs</span><span class="extraction-dots"></span></p>
           <div class="extraction-colors" id="extraction-colors"></div>
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ============================================================
+       ADD MOVIE MODAL (TMDB LIVE SEARCH & IMPORT)
+  ============================================================ -->
+  <div id="add-movie-modal" class="cosmos-modal" hidden role="dialog" aria-modal="true" data-i18n-aria-label="add_movie_title" aria-label="Ajouter un film">
+    <div class="cosmos-modal-backdrop" id="add-movie-backdrop"></div>
+    <div class="cosmos-modal-card add-movie-card">
+      <button class="cosmos-modal-close" id="add-movie-close" data-i18n-aria-label="close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="add-movie-header">
+        <div class="add-movie-badge">
+          <svg class="add-movie-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+            <line x1="7" y1="2" x2="7" y2="22"/>
+            <line x1="17" y1="2" x2="17" y2="22"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <line x1="2" y1="7" x2="7" y2="7"/>
+            <line x1="2" y1="17" x2="7" y2="17"/>
+            <line x1="17" y1="17" x2="22" y2="17"/>
+            <line x1="17" y1="7" x2="22" y2="7"/>
+          </svg>
+          <span class="add-movie-badge-text" data-i18n="tmdb_direct_import">IMPORTATION TMDB</span>
+          <span class="add-movie-badge-dot"></span>
+        </div>
+        <h3 class="add-movie-title" data-i18n="add_movie_title">Ajouter un film</h3>
+        <p class="add-movie-subtitle" data-i18n="add_movie_desc">Recherchez un film sur TMDb pour calculer ses palettes et l'intégrer instantanément.</p>
+      </div>
+
+      <div class="add-movie-search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+        <input type="text" id="add-movie-input" class="add-movie-input" placeholder="Titre du film (ex: Challengers, Nosferatu...)" data-i18n-placeholder="add_movie_placeholder" autocomplete="off" />
+        <button id="add-movie-search-btn" class="add-movie-search-btn" data-i18n="search">Rechercher</button>
+      </div>
+
+      <!-- Results list -->
+      <div id="add-movie-results" class="add-movie-results"></div>
+
+      <!-- Loading State with Step messages -->
+      <div id="add-movie-loading" class="add-movie-loading" hidden>
+        <div class="add-movie-spinner"></div>
+        <p id="add-movie-loading-msg" class="add-movie-loading-msg" data-i18n="add_movie_extracting">Téléchargement des affiches et extraction des palettes...</p>
+      </div>
     </div>
   </div>
 

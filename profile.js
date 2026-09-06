@@ -106,6 +106,7 @@ const dom = {
   modalPosterImg: $('#modal-poster-img'),
   modalPosterSelector: $('#modal-poster-selector'),
   modalDownloadBtn: $('#modal-download-btn'),
+  modalRefreshDataBtn: $('#modal-refresh-data-btn'),
   modalGenres: $('#modal-genres'),
   modalCertification: $('#modal-certification'),
   modalTitle: $('#modal-title'),
@@ -1069,6 +1070,57 @@ function populateModal(film, startingPosterIndex = 0) {
     e.preventDefault();
     downloadPosterImage(film);
   };
+
+  if (dom.modalRefreshDataBtn) {
+    const isRecent = film.date_sortie && (new Date() - new Date(film.date_sortie)) / (1000 * 60 * 60 * 24) < 45;
+    const hasMissingFinancials = !film.budget || !film.revenue;
+    const isHighlighted = Boolean(isRecent || hasMissingFinancials);
+    dom.modalRefreshDataBtn.classList.toggle('modal-refresh-highlight', isHighlighted);
+    dom.modalRefreshDataBtn.title = isHighlighted ? t('refresh_data_hint') : t('refresh_data_std');
+    dom.modalRefreshDataBtn.setAttribute('aria-label', dom.modalRefreshDataBtn.title);
+
+    dom.modalRefreshDataBtn.onclick = async (e) => {
+      e.preventDefault();
+      if (dom.modalRefreshDataBtn.classList.contains('spinning')) return;
+      dom.modalRefreshDataBtn.classList.add('spinning');
+
+      try {
+        const TMDB_BEARER = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZDY4ZDgwMDBlMjNjY2E1Mzc4NDAxYmY5MDA0ZTg4NCIsIm5iZiI6MTc4NDU3ODY2MS45ODg5OTk4LCJzdWIiOiI2YTVlODI2NTFhODNiZTIyYWM0ZjYyN2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.fxMEYiohV7Ot3AuR1R5GxoMMROYjZmAUp1RMUJN_1Sg";
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${film.id}?language=fr-FR`, {
+          headers: {
+            Authorization: `Bearer ${TMDB_BEARER}`,
+            accept: 'application/json'
+          }
+        });
+        if (res.ok) {
+          const fresh = await res.json();
+          film.budget = fresh.budget || film.budget || 0;
+          film.revenue = fresh.revenue || film.revenue || 0;
+          if (fresh.vote_average) film.note_moyenne = fresh.vote_average;
+          if (fresh.popularity) film.popularite = fresh.popularity;
+          if (fresh.runtime) film.duree_minutes = fresh.runtime;
+
+          dom.modalBudget.textContent = formatCurrency(film.budget);
+          dom.modalRevenue.textContent = formatCurrency(film.revenue);
+          if (dom.modalRuntime) dom.modalRuntime.textContent = formatRuntime(film.duree_minutes);
+
+          dom.modalBudget.classList.add('val-updated-flash');
+          dom.modalRevenue.classList.add('val-updated-flash');
+          setTimeout(() => {
+            dom.modalBudget.classList.remove('val-updated-flash');
+            dom.modalRevenue.classList.remove('val-updated-flash');
+          }, 1500);
+
+          showToast(t('data_updated_success'));
+        }
+      } catch (err) {
+        console.error('Erreur live refresh TMDb :', err);
+      } finally {
+        dom.modalRefreshDataBtn.classList.remove('spinning');
+      }
+    };
+  }
+
   dom.modalShareCardBtn.onclick = (e) => {
     e.preventDefault();
     shareCardImage(film);
@@ -1148,20 +1200,23 @@ function updateModalAmbientGlowColor(film, idx) {
   const affiches = film.affiches || [];
   const currentPoster = affiches[idx] || affiches[0];
   if (currentPoster && currentPoster.palette?.length > 0) {
-    const hex = currentPoster.palette[0].hex;
-    const cleanHex = hex.startsWith('#') ? hex : `#${hex}`;
-    dom.modalAmbientGlow.style.setProperty('--modal-glow-color', hexToRgba(cleanHex, 0.45));
-    
-    const posterCol = $('.modal-poster-col');
-    if (posterCol) {
-      posterCol.style.setProperty('--poster-glow', hexToRgba(cleanHex, 0.85));
+    const entry = currentPoster.palette[0];
+    const rawHex = typeof entry === 'string' ? entry : (entry?.hex || '');
+    if (rawHex) {
+      const cleanHex = rawHex.startsWith('#') ? rawHex : `#${rawHex}`;
+      dom.modalAmbientGlow.style.setProperty('--modal-glow-color', hexToRgba(cleanHex, 0.45));
+      
+      const posterCol = $('.modal-poster-col');
+      if (posterCol) {
+        posterCol.style.setProperty('--poster-glow', hexToRgba(cleanHex, 0.85));
+      }
+      return;
     }
-  } else {
-    dom.modalAmbientGlow.style.setProperty('--modal-glow-color', 'transparent');
-    const posterCol = $('.modal-poster-col');
-    if (posterCol) {
-      posterCol.style.setProperty('--poster-glow', 'transparent');
-    }
+  }
+  dom.modalAmbientGlow.style.setProperty('--modal-glow-color', 'transparent');
+  const posterCol = $('.modal-poster-col');
+  if (posterCol) {
+    posterCol.style.setProperty('--poster-glow', 'transparent');
   }
 }
 
@@ -1179,17 +1234,21 @@ function updateModalPoster(film, idx) {
 
 function renderModalPalette(palette) {
   dom.modalPalette.innerHTML = '';
+  if (!palette || !Array.isArray(palette)) return;
   palette.forEach(color => {
     const dot = document.createElement('button');
     dot.className = 'modal-palette-dot';
-    const hex = color.hex.startsWith('#') ? color.hex : `#${color.hex}`;
+    const rawHex = typeof color === 'string' ? color : (color?.hex || '');
+    if (!rawHex) return;
+    const hex = rawHex.startsWith('#') ? rawHex : `#${rawHex}`;
+    const weight = typeof color === 'object' && color.weight ? ` (${Math.round(color.weight)}%)` : '';
     dot.style.backgroundColor = hex;
-    dot.title = `${hex} (${Math.round(color.weight)}%)`;
+    dot.title = `${hex}${weight}`;
     
     // Redirect on click: return to gallery with active color filter!
     dot.addEventListener('click', () => {
       closeModal();
-      window.location.href = `./index.html?colors=${color.hex.replace('#','')}`;
+      window.location.href = `./index.html?colors=${hex.replace('#','')}`;
     });
     
     dom.modalPalette.appendChild(dot);

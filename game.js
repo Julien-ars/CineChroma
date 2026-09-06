@@ -116,9 +116,20 @@
   }
 
   function bindEvents() {
-    // Hub cards → Config
+    // Hub cards → Config or Direct Quick Play
     D.hubCards.forEach(card => {
       card.addEventListener('click', () => {
+        if (card.dataset.quick === 'true') {
+          gameConfig = {
+            game: 'couleurquiz',
+            difficulty: 'easy',
+            universe: 'popular',
+            rounds: 5,
+            time: 60
+          };
+          startGame();
+          return;
+        }
         gameConfig.game = card.dataset.game;
         showConfig();
       });
@@ -152,6 +163,9 @@
     if (hubTitle) {
       applyInteractiveLettering(hubTitle, hubTitle.textContent.trim());
     }
+
+    // Initialise l'effet subtil de perspective 3D sur les cartes
+    initHub3DTilt();
   }
 
   function setupOptGroup(container, onChange) {
@@ -1013,6 +1027,33 @@
         letter.style.textShadow = '';
         letter.style.transform = '';
         letter.style.transition = 'color 0.4s, text-shadow 0.4s, transform 0.4s';
+      });
+    });
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  HUB ELEGANT 3D TILT & SPOTLIGHT INTERACTION
+  // ─────────────────────────────────────────────────────────────
+  function initHub3DTilt() {
+    const cards = document.querySelectorAll('.hub-card');
+    cards.forEach(card => {
+      card.addEventListener('pointermove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotX = ((y - centerY) / centerY) * -4;
+        const rotY = ((x - centerX) / centerX) * 4;
+
+        card.style.setProperty('--sheen-x', `${x}px`);
+        card.style.setProperty('--sheen-y', `${y}px`);
+        card.style.transform = `perspective(800px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-2px)`;
+      });
+
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
       });
     });
   }

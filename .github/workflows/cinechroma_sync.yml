@@ -1,0 +1,63 @@
+name: CineChroma Weekly TMDb Sync
+
+on:
+  # Exécution automatique hebdomadaire (Tous les lundis à 03:00 UTC)
+  schedule:
+    - cron: '0 3 * * 1'
+  # Déclenchement manuel en 1 clic depuis l'onglet Actions de GitHub
+  workflow_dispatch:
+    inputs:
+      max_new_films:
+        description: 'Nombre max de nouveaux films populaires à ajouter'
+        required: false
+        default: '10'
+      days_window:
+        description: 'Fenêtre en jours pour actualiser les affiches des films récents'
+        required: false
+        default: '7'
+
+permissions:
+  contents: write
+
+jobs:
+  sync-and-update:
+    name: Sync Popular Films & Refresh Posters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🎬 Run CineChroma Weekly Sync
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
+        run: |
+          MAX_FILMS="${{ github.event.inputs.max_new_films || '10' }}"
+          DAYS_WIN="${{ github.event.inputs.days_window || '7' }}"
+          python scripts/sync_weekly.py --max-new-films "$MAX_FILMS" --days-window "$DAYS_WIN"
+
+      - name: 💾 Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add films_part1.json films_part2.json films_part3.json
+          if git diff --staged --quiet; then
+            echo "✨ Aucune modification à enregistrer."
+          else
+            git commit -m "chore(sync): automated weekly popular movies & posters update [skip ci]"
+            git push
+            echo "🚀 Données mises à jour et publiées sur le dépôt."
+          fi

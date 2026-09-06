@@ -69,16 +69,48 @@
          HUB SCREEN — Choose mini-game
     ────────────────────────────────────────── -->
     <div id="screen-hub" class="gscreen gscreen--hub">
+      
+      <!-- Subtle Cinematic Ambient Glow & Moving Projector Beams -->
+      <div class="hub-ambient-glow" aria-hidden="true">
+        <div class="hub-light-orb hub-light-orb--1"></div>
+        <div class="hub-light-orb hub-light-orb--2"></div>
+      </div>
+
       <div class="hub-header">
+        <span class="hub-kicker" data-i18n="game_hub_kicker">ARCADE CINÉMA</span>
+        <div class="hub-chroma-line" aria-hidden="true"></div>
         <h1 class="hub-title" data-i18n="game_hub_title">Mini-Jeux</h1>
         <p class="hub-subtitle" data-i18n="game_hub_subtitle">Choisissez votre défi chromatique</p>
       </div>
 
       <div class="hub-cards">
+        <!-- Quick Play / Jeu Rapide -->
+        <button class="hub-card hub-card--quick" id="hub-card-quick" data-quick="true">
+          <div class="hub-card-sheen" aria-hidden="true"></div>
+          <div class="hub-card-icon hub-card-icon--quick">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+              <polygon points="6 4 19 12 6 20 6 4" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="hub-card-body">
+            <div class="hub-card-top">
+              <span class="hub-card-name" data-i18n="game_quick_name">Jeu Rapide</span>
+              <span class="hub-card-tag hub-card-tag--quick" data-i18n="game_quick_tag">⚡ Express</span>
+            </div>
+            <p class="hub-card-desc" data-i18n="game_quick_desc">Lancez instantanément une partie de 5 films cultes sans attendre.</p>
+          </div>
+          <div class="hub-card-arrow hub-card-arrow--quick">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </button>
+
         <!-- CouleurQuiz -->
-        <button class="hub-card" id="hub-card-cq" data-game="couleurquiz">
-          <div class="hub-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+        <button class="hub-card hub-card--cq" id="hub-card-cq" data-game="couleurquiz">
+          <div class="hub-card-sheen" aria-hidden="true"></div>
+          <div class="hub-card-icon hub-card-icon--cq">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24">
               <circle cx="7" cy="12" r="3" fill="currentColor" opacity="0.6"/>
               <circle cx="12" cy="7" r="3" fill="currentColor" opacity="0.8"/>
               <circle cx="17" cy="12" r="3" fill="currentColor"/>
@@ -88,7 +120,7 @@
           <div class="hub-card-body">
             <div class="hub-card-top">
               <span class="hub-card-name" data-i18n="game_cq_name">CouleurQuiz</span>
-              <span class="hub-card-tag" data-i18n="game_cq_tag">Classique</span>
+              <span class="hub-card-tag hub-card-tag--cq" data-i18n="game_cq_tag">Classique</span>
             </div>
             <p class="hub-card-desc" data-i18n="game_cq_desc">Identifiez le film depuis sa palette de 5 couleurs.</p>
           </div>
@@ -100,18 +132,19 @@
         </button>
 
         <!-- PalettePure -->
-        <button class="hub-card" id="hub-card-pp" data-game="palettepure">
-          <div class="hub-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
-              <rect x="3" y="6" width="18" height="4" rx="2" fill="currentColor" opacity="0.7"/>
-              <rect x="3" y="14" width="12" height="4" rx="2" fill="currentColor" opacity="0.4"/>
-              <rect x="17" y="14" width="4" height="4" rx="2" stroke-dasharray="2 2"/>
+        <button class="hub-card hub-card--pp" id="hub-card-pp" data-game="palettepure">
+          <div class="hub-card-sheen" aria-hidden="true"></div>
+          <div class="hub-card-icon hub-card-icon--pp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24">
+              <rect x="3" y="6" width="18" height="4" rx="2" fill="currentColor" opacity="0.75"/>
+              <rect x="3" y="14" width="12" height="4" rx="2" fill="currentColor" opacity="0.45"/>
+              <rect x="17" y="14" width="4" height="4" rx="2" stroke-dasharray="2 2" stroke="currentColor" stroke-width="1.5"/>
             </svg>
           </div>
           <div class="hub-card-body">
             <div class="hub-card-top">
               <span class="hub-card-name" data-i18n="game_pp_name">PalettePure</span>
-              <span class="hub-card-tag" data-i18n="game_pp_tag">Œil Chromatique</span>
+              <span class="hub-card-tag hub-card-tag--pp" data-i18n="game_pp_tag">Œil Chromatique</span>
             </div>
             <p class="hub-card-desc" data-i18n="game_pp_desc">Trouvez la couleur manquante parmi les propositions.</p>
           </div>
@@ -123,9 +156,10 @@
         </button>
 
         <!-- ChronoChroma -->
-        <button class="hub-card" id="hub-card-cc" data-game="chronochroma">
-          <div class="hub-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+        <button class="hub-card hub-card--cc" id="hub-card-cc" data-game="chronochroma">
+          <div class="hub-card-sheen" aria-hidden="true"></div>
+          <div class="hub-card-icon hub-card-icon--cc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24">
               <circle cx="12" cy="13" r="8"/>
               <path d="M12 9v4l3 3"/>
               <path d="M9 2h6"/>
