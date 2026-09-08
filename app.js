@@ -201,13 +201,13 @@ const I18N = {
     legal_data_desc:     'Les données des films et affiches proviennent de l\'API publique de TMDb (The Movie Database). Les affiches restent la propriété exclusive de leurs producteurs et studios respectifs.',
     legal_section_cookies:'Données personnelles',
     legal_cookies_desc:  'Aucun cookie traceur tiers n\'est utilisé. Vos favoris et collections sont stockés exclusivement en local dans votre navigateur (localStorage).',
-    nav_add_movie:       'Ajouter un film',
-    add_movie_title:     'Ajouter un film',
-    add_movie_desc:      'Recherchez un film sur TMDb pour calculer ses palettes et l\'intégrer instantanément.',
-    add_movie_placeholder:'Titre du film (ex: Challengers, Nosferatu...)',
-    add_movie_from_tmdb: 'Ajouter un film depuis TMDb',
-    film_not_found_prompt:'Le film que vous cherchez n\'est pas encore sur CineChroma ?',
-    film_added_success:  'Film ajouté avec succès !',
+    nav_add_movie:       'Ajouter une œuvre',
+    add_movie_title:     'Ajouter une œuvre',
+    add_movie_desc:      'Recherchez un film, une série ou un animé sur TMDb pour calculer ses palettes et l\'intégrer instantanément.',
+    add_movie_placeholder:'Titre du film, de la série ou de l\'animé...',
+    add_movie_from_tmdb: 'Ajouter depuis TMDb',
+    film_not_found_prompt:'L\'œuvre que vous cherchez n\'est pas encore sur CineChroma ?',
+    film_added_success:  'Œuvre ajoutée avec succès !',
     tmdb_direct_import:  'IMPORTATION TMDB',
     refresh_data_hint:   'Actualisation recommandée : film récent ou données financières manquantes',
     refresh_data_std:    'Actualiser les données TMDb (budget, recettes, note...)',
@@ -230,8 +230,40 @@ const I18N = {
     add_btn_text:        'Ajouter',
     tmdb_search_searching:'Recherche sur TMDb...',
     tmdb_search_no_results:'Aucun film trouvé sur TMDb pour cette recherche.',
-    tmdb_search_action_title:'Importer et analyser les palettes',
-    classics_filter:     '🏛️ Grands Classiques',
+    classics_filter:     'Grands Classiques',
+    media_type_title:    'Type de média',
+    media_all:           'Tous',
+    media_movies:        'Films',
+    media_series:        'Séries',
+    media_animes:        'Animés',
+    badge_movie:         'Film',
+    badge_tv:            'Série TV',
+    badge_anime:         'Animé',
+    creator:             'Créateur',
+    format:              'Format',
+    airing:              'Diffusion',
+    seasons_title:       'Saisons',
+    episodes_title:      'Épisodes',
+    status_title:        'Statut',
+    network_title:       'Diffuseur',
+    studio_title:        'Studio',
+    status_ended:        'Terminée',
+    status_returning:    'En cours',
+    status_in_production:'En production',
+    status_canceled:     'Annulée',
+    status_miniseries:   'Mini-série',
+    ep_runtime_unit:     'min / ép.',
+    ongoing_present:     'Présent',
+    seasons_selector_label: 'Saisons :',
+    season_general:      'Général',
+    season_special:      'Spécial',
+    season_short:        'S',
+    season_singular:     'saison',
+    seasons_plural:      'saisons',
+    episode_singular:    'épisode',
+    episodes_plural:     'épisodes',
+    profile_unknown_director: 'Inconnu',
+    profile_unknown_title: 'Titre inconnu',
   },
   en: {
     search_placeholder:  'Try a color…',
@@ -368,13 +400,13 @@ const I18N = {
     legal_data_desc:     'Movie data and posters are provided by the TMDb API. Posters remain the property of their respective production companies.',
     legal_section_cookies:'Privacy & GDPR',
     legal_cookies_desc:  'No third-party trackers are used. Your favorites and collections are stored exclusively in your browser\'s local storage.',
-    nav_add_movie:       'Add a Movie',
-    add_movie_title:     'Add a Movie',
-    add_movie_desc:      'Search for a film on TMDb to extract its palettes and integrate it instantly.',
-    add_movie_placeholder:'Movie title (e.g. Challengers, Nosferatu...)',
-    add_movie_from_tmdb: 'Add movie from TMDb',
-    film_not_found_prompt:'The movie you are looking for is not on CineChroma yet?',
-    film_added_success:  'Movie added successfully!',
+    nav_add_movie:       'Add Media',
+    add_movie_title:     'Add a Title',
+    add_movie_desc:      'Search for a movie, TV series, or anime on TMDb to extract palettes and integrate it instantly.',
+    add_movie_placeholder:'Title of movie, series, or anime...',
+    add_movie_from_tmdb: 'Add from TMDb',
+    film_not_found_prompt:'Can\'t find what you are looking for on CineChroma?',
+    film_added_success:  'Title added successfully!',
     tmdb_direct_import:  'TMDB IMPORT',
     refresh_data_hint:   'Recommended refresh: recent release or missing financials',
     refresh_data_std:    'Refresh TMDb data (budget, box office, rating...)',
@@ -397,8 +429,40 @@ const I18N = {
     add_btn_text:        'Add',
     tmdb_search_searching:'Searching TMDb...',
     tmdb_search_no_results:'No movies found on TMDb for this search.',
-    tmdb_search_action_title:'Import and analyze palettes',
-    classics_filter:     '🏛️ Timeless Classics',
+    classics_filter:     'Timeless Classics',
+    media_type_title:    'Media Type',
+    media_all:           'All',
+    media_movies:        'Movies',
+    media_series:        'Series',
+    media_animes:        'Anime',
+    badge_movie:         'Movie',
+    badge_tv:            'TV Show',
+    badge_anime:         'Anime',
+    creator:             'Creator',
+    format:              'Format',
+    airing:              'Broadcast',
+    seasons_title:       'Seasons',
+    episodes_title:      'Episodes',
+    status_title:        'Status',
+    network_title:       'Network',
+    studio_title:        'Studio',
+    status_ended:        'Ended',
+    status_returning:    'Ongoing',
+    status_in_production:'In production',
+    status_canceled:     'Canceled',
+    status_miniseries:   'Limited Series',
+    ep_runtime_unit:     'min / ep.',
+    ongoing_present:     'Present',
+    seasons_selector_label: 'Seasons:',
+    season_general:      'General',
+    season_special:      'Special',
+    season_short:        'S',
+    season_singular:     'season',
+    seasons_plural:      'seasons',
+    episode_singular:    'episode',
+    episodes_plural:     'episodes',
+    profile_unknown_director: 'Unknown',
+    profile_unknown_title: 'Unknown title',
   },
   ja: {
       search_placeholder:  '映画や監督を検索…',
@@ -536,13 +600,13 @@ const I18N = {
       legal_data_desc:     '映画とポスターのデータはTMDb (The Movie Database)の公開APIから提供されています。ポスターは各プロデューサーとスタジオの独占的な財産です。',
       legal_section_cookies:'個人データ',
       legal_cookies_desc:  'サードパーティのトラッキングクッキーは使用されていません。お気に入りやコレクションは、ブラウザ(localStorage)にローカルにのみ保存されます。',
-      nav_add_movie:       '映画を追加',
-      add_movie_title:     '映画を追加',
-      add_movie_desc:      'TMDbで映画を検索し、パレットを抽出して即座に追加します。',
-      add_movie_placeholder:'映画のタイトル（例：チャレンジャーズ...）',
-      add_movie_from_tmdb: 'TMDbから映画を追加',
-      film_not_found_prompt:'探している映画はまだCineChromaにありませんか？',
-      film_added_success:  '映画が正常に追加されました！',
+      nav_add_movie:       '作品を追加',
+      add_movie_title:     '作品を追加',
+      add_movie_desc:      '映画、ドラマ、アニメをTMDbで検索し、パレットを抽出して即座に追加します。',
+      add_movie_placeholder:'映画・ドラマ・アニメのタイトル...',
+      add_movie_from_tmdb: 'TMDbから追加',
+      film_not_found_prompt:'探している作品はまだCineChromaにありませんか？',
+      film_added_success:  '作品が正常に追加されました！',
       tmdb_direct_import:  'TMDBインポート',
       refresh_data_hint:   '推奨される更新：最近の公開作品または未完全な財務データ',
       refresh_data_std:    'TMDbデータを更新（予算、興行収入、評価...）',
@@ -565,8 +629,40 @@ const I18N = {
       add_btn_text:        '追加',
       tmdb_search_searching:'TMDbを検索中...',
       tmdb_search_no_results:'この検索でTMDbに映画が見つかりませんでした。',
-      tmdb_search_action_title:'インポートしてパレットを分析',
-      classics_filter:     '🏛️ 名作クラシック',
+      classics_filter:     '名作クラシック',
+      media_type_title:    'メディアタイプ',
+      media_all:           'すべて',
+      media_movies:        '映画',
+      media_series:        'シリーズ',
+      media_animes:        'アニメ',
+      badge_movie:         '映画',
+      badge_tv:            'TVシリーズ',
+      badge_anime:         'アニメ',
+      creator:             'クリエイター',
+      format:              'フォーマット',
+      airing:              '放送期間',
+      seasons_title:       'シーズン数',
+      episodes_title:      'エピソード数',
+      status_title:        'ステータス',
+      network_title:       '放送局・配信',
+      studio_title:        '制作スタジオ',
+      status_ended:        '放送終了',
+      status_returning:    '放送中',
+      status_in_production:'制作中',
+      status_canceled:     '打ち切り',
+      status_miniseries:   'ミニシリーズ',
+      ep_runtime_unit:     '分 / 話',
+      ongoing_present:     '現在',
+      seasons_selector_label: 'シーズン一覧:',
+      season_general:      '全体',
+      season_special:      '特別',
+      season_short:        'S',
+      season_singular:     'シーズン',
+      seasons_plural:      'シーズン',
+      episode_singular:    '話',
+      episodes_plural:     '話',
+      profile_unknown_director: '不明',
+      profile_unknown_title: 'タイトル不明',
     }
 };
 
@@ -579,6 +675,29 @@ function safeGetJSON(key, fallback) {
   }
 }
 
+function saveFilmOverride(filmId, overrides) {
+  try {
+    const stored = safeGetJSON('cinechroma_film_overrides', {});
+    stored[String(filmId)] = { ...(stored[String(filmId)] || {}), ...overrides, updated_at: Date.now() };
+    localStorage.setItem('cinechroma_film_overrides', JSON.stringify(stored));
+  } catch (e) {
+    console.error('Erreur sauvegarde override film :', e);
+  }
+}
+
+function applyFilmOverrides(films) {
+  try {
+    const stored = safeGetJSON('cinechroma_film_overrides', {});
+    if (!stored || Object.keys(stored).length === 0) return;
+    for (const film of films) {
+      const fid = String(film.id || film.tmdb_id || '');
+      if (fid && stored[fid]) {
+        Object.assign(film, stored[fid]);
+      }
+    }
+  } catch (e) {}
+}
+
 /* ============================================================
    STATE
 ============================================================ */
@@ -588,6 +707,7 @@ const state = {
   sorted:          [],
   currentPage:     1,
   searchQuery:     '',
+  mediaType:       'all',
   activeGenres:    new Set(),
   activeLanguages: new Set(),
   activePosterStyles: new Set(['textless']),
@@ -776,7 +896,6 @@ const dom = {
   modalPosterImg:       $('#modal-poster-img'),
   modalPosterSelector:  $('#modal-poster-selector'),
   modalDownloadBtn:     $('#modal-download-btn'),
-  modalRefreshDataBtn:  $('#modal-refresh-data-btn'),
   modalShareCardBtn:    $('#modal-share-card-btn'),
   modalLikeBtn:         $('#modal-like-btn'),
   modalColBtn:          $('#modal-col-btn'),
@@ -807,6 +926,26 @@ const dom = {
   modalBudget:          $('#modal-budget'),
   modalRevenue:         $('#modal-revenue'),
   modalSummary:         $('#modal-summary'),
+
+  // Metadata Blocks & Dynamic Series Elements
+  modalDirectorBlock:   $('#modal-director-block'),
+  modalDateBlock:       $('#modal-date-block'),
+  modalSeasonsBlock:    $('#modal-seasons-block'),
+  modalEpisodesBlock:   $('#modal-episodes-block'),
+  modalRuntimeBlock:    $('#modal-runtime-block'),
+  modalStatusBlock:     $('#modal-status-block'),
+  modalNetworkBlock:    $('#modal-network-block'),
+  modalBudgetBlock:     $('#modal-budget-block'),
+  modalRevenueBlock:    $('#modal-revenue-block'),
+  modalDirectorLabel:   $('#modal-director-label'),
+  modalDateLabel:       $('#modal-date-label'),
+  modalRuntimeLabel:    $('#modal-runtime-label'),
+  modalLanguageLabel:   $('#modal-language-label'),
+  modalNetworkLabel:    $('#modal-network-label'),
+  modalSeasonsCount:    $('#modal-seasons-count'),
+  modalEpisodesCount:   $('#modal-episodes-count'),
+  modalStatus:          $('#modal-status'),
+  modalNetwork:         $('#modal-network'),
   
   lightbox:             $('#poster-lightbox'),
   lightboxImg:          $('#lightbox-img'),
@@ -1088,12 +1227,22 @@ function getMatchingPosterUrl(film) {
 function normalizeFilmObject(film) {
   if (!film) return film;
   
+  film.est_serie = Boolean(film.est_serie || film.type_media === 'tv');
+  const isAnimation = Array.isArray(film.genres) && film.genres.includes('Animation');
+  const isJapan = (film.langue_origine === 'ja' || film.langue_originale === 'ja' || (Array.isArray(film.pays_origine) && film.pays_origine.includes('JP')));
+  film.est_anime = Boolean(film.est_anime || (isAnimation && isJapan));
+  film.type_media = film.type_media || (film.est_serie ? 'tv' : 'movie');
+  
   let affiches = [];
   if (film.affiches_globales && Array.isArray(film.affiches_globales)) {
     affiches = affiches.concat(film.affiches_globales);
   }
   if (film.saisons && Array.isArray(film.saisons)) {
     for (const saison of film.saisons) {
+      if (saison.affiche_path) {
+        saison.affiche_w500 = saison.affiche_path.startsWith('http') ? saison.affiche_path : `https://image.tmdb.org/t/p/w500${saison.affiche_path}`;
+        saison.affiche_original = saison.affiche_path.startsWith('http') ? saison.affiche_path : `https://image.tmdb.org/t/p/original${saison.affiche_path}`;
+      }
       if (saison.affiches && Array.isArray(saison.affiches)) {
         affiches = affiches.concat(saison.affiches);
       }
@@ -1168,6 +1317,9 @@ async function loadData() {
       }
     } catch (_) {}
 
+    // Apply live TMDb refresh overrides saved locally
+    applyFilmOverrides(films);
+
     // Normalize all films
     films = films.map(normalizeFilmObject);
 
@@ -1234,6 +1386,14 @@ function syncUIFromState() {
   syncDrawerLanguageChips();
   syncDirectorButtons();
 
+  // Sync Media Type Pills and Drawer options
+  $$('.media-pill-btn').forEach(btn => {
+    btn.classList.toggle('active', (btn.getAttribute('data-media-type') || 'all') === state.mediaType);
+  });
+  $$('#drawer-media-options .drawer-option-btn').forEach(btn => {
+    btn.classList.toggle('active', (btn.getAttribute('data-media-type') || 'all') === state.mediaType);
+  });
+
   // Sync Popover Sort Active state
   $$('.sort-popover-item').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-sort') === state.sort);
@@ -1277,14 +1437,37 @@ function showState(s) {
 /* ============================================================
    ACTIVE FILTER BAR — COSMOS.SO STYLE (Point 2)
 ============================================================ */
+function getFormattedCountText(count, mediaType, lang) {
+  const isSingular = count === 1;
+  if (lang === 'en') {
+    if (mediaType === 'movie') return `${count} ${isSingular ? 'movie' : 'movies'}`;
+    if (mediaType === 'tv') return `${count} ${isSingular ? 'series' : 'series'}`;
+    if (mediaType === 'anime') return `${count} anime`;
+    return `${count} ${isSingular ? 'title' : 'titles'}`;
+  }
+  if (lang === 'ja') {
+    if (mediaType === 'movie') return `${count} 映画`;
+    if (mediaType === 'tv') return `${count} シリーズ`;
+    if (mediaType === 'anime') return `${count} アニメ`;
+    return `${count} 作品`;
+  }
+  // Français (défaut)
+  if (mediaType === 'movie') return `${count} ${isSingular ? 'film' : 'films'}`;
+  if (mediaType === 'tv') return `${count} ${isSingular ? 'série' : 'séries'}`;
+  if (mediaType === 'anime') return `${count} ${isSingular ? 'animé' : 'animés'}`;
+  return `${count} ${isSingular ? 'œuvre' : 'œuvres'}`;
+}
+
 function renderActiveFilterBar() {
   const hasColors = state.activeColors.length > 0;
   const hasGenres = state.activeGenres.size > 0;
   const hasImage = !!state.activeImageSrc;
 
-  dom.activeCountBadge.textContent = `${state.filtered.length} ${state.lang === 'en' ? 'movies' : (state.lang === 'ja' ? '映画' : 'films')}`;
+  if (dom.activeCountBadge) {
+    dom.activeCountBadge.textContent = getFormattedCountText(state.filtered.length, state.mediaType, state.lang);
+  }
 
-  if (!hasColors && !hasGenres && !state.searchQuery && !hasImage) {
+  if (!hasColors && !hasGenres && !state.searchQuery && !hasImage && state.mediaType === 'all') {
     dom.activeFilterBar.hidden = true;
     return;
   }
@@ -1368,8 +1551,6 @@ function renderActiveFilterBar() {
       dom.cosmosColorsRows.appendChild(line);
     }
   }
-
-  dom.activeCountBadge.textContent = `${state.filtered.length} ${state.lang === 'en' ? 'movies' : (state.lang === 'ja' ? '映画' : 'films')}`;
 }
 
 function copyToClipboard(text) {
@@ -1950,6 +2131,15 @@ function applyFiltersAndRender() {
   }
   let films = state.allFilms;
 
+  // Media Type Filter (all / movie / tv / anime)
+  if (state.mediaType === 'movie') {
+    films = films.filter(f => !f.est_anime && !f.est_serie && f.type_media !== 'tv');
+  } else if (state.mediaType === 'tv') {
+    films = films.filter(f => f.est_serie && !f.est_anime);
+  } else if (state.mediaType === 'anime') {
+    films = films.filter(f => f.est_anime);
+  }
+
   if (state.searchQuery) {
     const qNorm = normalizeStr(state.searchQuery);
     const qTokens = qNorm.split(/\s+/).filter(Boolean);
@@ -2144,10 +2334,22 @@ function buildCard(film, ratioClass) {
       </svg>
     </button>
     ${colButtonHtml}
-    <div class="card-overlay" aria-hidden="true">
-      <div class="card-title">${esc((state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || '')}</div>
-      <div class="card-meta">${[film.realisateur, year].filter(Boolean).join(' · ')}</div>
-    </div>
+      <div class="card-overlay" aria-hidden="true">
+        <div class="card-title">${esc((state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || '')}</div>
+        <div class="card-meta">${(() => {
+          const typeBadge = film.est_anime ? t('badge_anime') : (film.est_serie ? t('badge_tv') : '');
+          const author = (film.est_serie ? (film.createur || film.realisateur) : film.realisateur) || '';
+          const metaList = [];
+          if (typeBadge) metaList.push(typeBadge);
+          if (author) metaList.push(author);
+          if (year) metaList.push(year);
+          if (film.est_serie) {
+            const sCount = film.nombre_saisons || film.nb_saisons || (film.saisons ? film.saisons.length : 0);
+            if (sCount > 0) metaList.push(`${sCount} ${sCount > 1 ? t('seasons_plural') : t('season_singular')}`);
+          }
+          return metaList.join(' · ');
+        })()}</div>
+      </div>
   `;
 
   const affiches2 = film.affiches || [];
@@ -2802,23 +3004,59 @@ function hexToRgba(hex, alpha = 0.2) {
 function openModal(film, startingPosterIndex = 0) {
   state.modalFilm = film;
   state.modalPosterIndex = startingPosterIndex;
-  populateModal(film, startingPosterIndex);
+  try {
+    populateModal(film, startingPosterIndex);
+  } catch (err) {
+    console.error('Erreur lors du peuplement de la modale :', err);
+  }
   
-  // Scroll to top automatically (especially important on mobile)
-  const container = dom.filmModal.querySelector('.modal-container');
+  // Scroll to top automatically & dynamic fade mask
+  const container = dom.filmModal ? dom.filmModal.querySelector('.modal-container') : null;
   if (container) container.scrollTop = 0;
+
+  const infoCol = dom.filmModal ? dom.filmModal.querySelector('.modal-info-col') : null;
+  if (infoCol) {
+    infoCol.scrollTop = 0;
+    const updateScrollMask = () => {
+      const { scrollTop, scrollHeight, clientHeight } = infoCol;
+      const hasOverflow = scrollHeight > clientHeight + 4;
+      if (!hasOverflow) {
+        infoCol.style.maskImage = 'none';
+        infoCol.style.webkitMaskImage = 'none';
+        return;
+      }
+      const isAtTop = scrollTop <= 4;
+      const isAtBottom = scrollTop + clientHeight >= scrollHeight - 4;
+      if (isAtTop) {
+        infoCol.style.maskImage = 'linear-gradient(to bottom, black calc(100% - 36px), transparent 100%)';
+        infoCol.style.webkitMaskImage = 'linear-gradient(to bottom, black calc(100% - 36px), transparent 100%)';
+      } else if (isAtBottom) {
+        infoCol.style.maskImage = 'linear-gradient(to bottom, transparent 0%, black 28px, black 100%)';
+        infoCol.style.webkitMaskImage = 'linear-gradient(to bottom, transparent 0%, black 28px, black 100%)';
+      } else {
+        infoCol.style.maskImage = 'linear-gradient(to bottom, transparent 0%, black 28px, black calc(100% - 36px), transparent 100%)';
+        infoCol.style.webkitMaskImage = 'linear-gradient(to bottom, transparent 0%, black 28px, black calc(100% - 36px), transparent 100%)';
+      }
+    };
+    infoCol.onscroll = updateScrollMask;
+    setTimeout(updateScrollMask, 60);
+  }
   
-  dom.filmModal.removeAttribute('hidden');
-  document.body.style.overflow = 'hidden';
-  
-  // Trigger animation classes
-  requestAnimationFrame(() => {
+  if (dom.filmModal) {
+    dom.filmModal.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    
+    // Trigger animation classes
     requestAnimationFrame(() => {
-      dom.filmModal.classList.add('modal-visible');
+      requestAnimationFrame(() => {
+        if (dom.filmModal) dom.filmModal.classList.add('modal-visible');
+      });
     });
-  });
+  }
   
-  setTimeout(() => dom.modalClose.focus(), 80);
+  if (dom.modalClose) {
+    setTimeout(() => dom.modalClose.focus(), 80);
+  }
 }
 
 function closeModal() {
@@ -2826,18 +3064,22 @@ function closeModal() {
   if (window.cleanup3DCloud) {
     window.cleanup3DCloud();
   }
-  dom.modal3dCloud.classList.remove('expanded');
-  dom.modal3dToggle.classList.remove('active');
+  if (dom.modal3dCloud) dom.modal3dCloud.classList.remove('expanded');
+  if (dom.modal3dToggle) dom.modal3dToggle.classList.remove('active');
   
-  dom.filmModal.classList.remove('modal-visible');
-  document.body.style.overflow = '';
-  
-  // Wait for transition before hiding completely
-  setTimeout(() => {
-    dom.filmModal.setAttribute('hidden', '');
-    dom.filmModal.style.removeProperty('--modal-glow-color');
-    state.modalFilm = null;
-  }, 300);
+  if (dom.filmModal) {
+    dom.filmModal.classList.remove('modal-visible');
+    document.body.style.overflow = '';
+    
+    // Wait for transition before hiding completely
+    setTimeout(() => {
+      if (dom.filmModal) {
+        dom.filmModal.setAttribute('hidden', '');
+        dom.filmModal.style.removeProperty('--modal-glow-color');
+      }
+      state.modalFilm = null;
+    }, 300);
+  }
 }
 
 function populateModal(film, startingPosterIndex = 0) {
@@ -2872,8 +3114,104 @@ function populateModal(film, startingPosterIndex = 0) {
     if (idx !== -1) activeIndexInCat = idx;
   }
 
+  let selectedSeasonNum = null;
+
+  function updateSeasonPillActiveState() {
+    $$('.modal-season-pill-btn').forEach(btn => {
+      const isGen = btn.dataset.season === 'general';
+      const sNum = parseInt(btn.dataset.season, 10);
+      if (selectedSeasonNum === null) {
+        btn.classList.toggle('active', isGen);
+      } else {
+        btn.classList.toggle('active', !isGen && sNum === selectedSeasonNum);
+      }
+    });
+  }
+
+  function renderSeasonsBar() {
+    const seasonsBars = $$('.modal-seasons-bar');
+    const validSeasons = (film.saisons || []).filter(s => s && s.numero !== undefined && (s.affiche_path || s.nb_episodes > 0));
+
+    if (!film.est_serie || validSeasons.length === 0) {
+      seasonsBars.forEach(bar => { bar.hidden = true; bar.innerHTML = ''; });
+      return;
+    }
+
+    seasonsBars.forEach(bar => {
+      bar.hidden = false;
+      bar.innerHTML = '';
+      
+      const wrap = document.createElement('div');
+      wrap.className = 'modal-seasons-pills';
+
+      // Bouton 'Générale'
+      const genBtn = document.createElement('button');
+      genBtn.className = `modal-season-pill-btn${selectedSeasonNum === null ? ' active' : ''}`;
+      genBtn.dataset.season = 'general';
+      genBtn.innerHTML = `<span>${t('season_general')}</span>`;
+      genBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (selectedSeasonNum === null) return;
+        selectedSeasonNum = null;
+        updateSeasonPillActiveState();
+        renderPosterSection();
+      });
+      wrap.appendChild(genBtn);
+
+      // Bouton par saison
+      validSeasons.forEach(s => {
+        const sBtn = document.createElement('button');
+        const isActive = (selectedSeasonNum === s.numero);
+        sBtn.className = `modal-season-pill-btn${isActive ? ' active' : ''}`;
+        sBtn.dataset.season = String(s.numero);
+        const sLabel = s.numero === 0 ? t('season_special') : `${t('season_short')}${s.numero}`;
+        const epInfo = s.nb_episodes ? ` (${s.nb_episodes} ép.)` : '';
+        sBtn.title = `${s.nom || sLabel}${epInfo}`;
+        sBtn.innerHTML = `<span>${sLabel}</span>`;
+        sBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (selectedSeasonNum === s.numero) return;
+          selectedSeasonNum = s.numero;
+          updateSeasonPillActiveState();
+          renderPosterSection();
+        });
+        wrap.appendChild(sBtn);
+      });
+
+      bar.appendChild(wrap);
+    });
+  }
+
   function renderPosterSection() {
-    const catPosters = (grouped[activeCat] || []).slice(0, 3);
+    const catsContainers = $$('.modal-poster-cats');
+    const dotsContainers = $$('.modal-poster-dots');
+
+    if (selectedSeasonNum !== null) {
+      // Mode Saison spécifique
+      const seasonObj = (film.saisons || []).find(s => s.numero === selectedSeasonNum);
+      const sUrl = seasonObj?.affiche_original || seasonObj?.affiche_w500;
+
+      catsContainers.forEach(container => {
+        container.innerHTML = `<span class="season-active-badge">${esc(seasonObj?.nom || (selectedSeasonNum === 0 ? t('season_special') : `${t('season_short')}${selectedSeasonNum}`))}</span>`;
+      });
+      dotsContainers.forEach(container => container.innerHTML = '');
+
+      if (sUrl && dom.modalPosterImg) {
+        dom.modalPosterImg.classList.remove('poster-anim-in');
+        void dom.modalPosterImg.offsetWidth;
+        dom.modalPosterImg.src = sUrl;
+        dom.modalPosterImg.alt = `${film.titre || 'Série'} - ${seasonObj?.nom || ('Saison ' + selectedSeasonNum)}`;
+        dom.modalPosterImg.classList.add('poster-anim-in');
+
+        // Extraction palette locale si disponible ou fallback sur la première palette de la série
+        renderModalPalette(getFirstPalette(film));
+        updateModalAmbientGlowColor(film, 0);
+      }
+      return;
+    }
+
+    // Mode Affiches Générales
+    const catPosters = grouped[activeCat] || [];
     const poster = catPosters[activeIndexInCat] || catPosters[0] || affiches[0];
     
     if (poster) {
@@ -2881,25 +3219,26 @@ function populateModal(film, startingPosterIndex = 0) {
       state.modalPosterIndex = idxInGlobal !== -1 ? idxInGlobal : 0;
       updateModalPoster(film, state.modalPosterIndex);
 
-      // Update like/col button states to reflect the newly selected poster
+      // Update like/col button states
       const currentFilmId = getFilmId(film);
       const currentPosterKey = getPosterKey(currentFilmId, state.modalPosterIndex);
       const filmPrefix = currentFilmId + ':';
       if (dom.modalLikeBtn) {
         const currentFav = state.favorites.has(currentPosterKey);
         dom.modalLikeBtn.classList.toggle('active-like', currentFav);
-        dom.modalLikeBtn.querySelector('svg').setAttribute('fill', currentFav ? 'currentColor' : 'none');
+        const svg = dom.modalLikeBtn.querySelector('svg');
+        if (svg) svg.setAttribute('fill', currentFav ? 'currentColor' : 'none');
         dom.modalLikeBtn.onclick = (e) => { e.preventDefault(); toggleFavorite(currentPosterKey, null); };
       }
       if (dom.modalColBtn && state.user) {
         const currentCol = state.collections.some(c => c.posterKeys && c.posterKeys.some(k => k.startsWith(filmPrefix)));
         dom.modalColBtn.classList.toggle('active-col', currentCol);
-        dom.modalColBtn.querySelector('svg').setAttribute('fill', currentCol ? 'currentColor' : 'none');
+        const svg = dom.modalColBtn.querySelector('svg');
+        if (svg) svg.setAttribute('fill', currentCol ? 'currentColor' : 'none');
         dom.modalColBtn.onclick = (e) => { e.preventDefault(); openCollectionChooser(film, state.modalPosterIndex, dom.modalColBtn); };
       }
     }
 
-    const catsContainers = $$('.modal-poster-cats');
     catsContainers.forEach(container => container.innerHTML = '');
     const catLabels = {
       textless: state.lang === 'ja' ? '文字なし' : (state.lang === 'en' ? 'Textless' : 'Sans texte'),
@@ -2923,7 +3262,6 @@ function populateModal(film, startingPosterIndex = 0) {
       }
     });
 
-    const dotsContainers = $$('.modal-poster-dots');
     dotsContainers.forEach(container => container.innerHTML = '');
     
     if (catPosters.length > 1) {
@@ -2960,79 +3298,25 @@ function populateModal(film, startingPosterIndex = 0) {
     }
   }
 
+  renderSeasonsBar();
   renderPosterSection();
-  dom.modalPosterSelector.innerHTML = ''; // Keep cleared for compat
+  if (dom.modalPosterSelector) dom.modalPosterSelector.innerHTML = '';
 
-
-  // Point 1: Direct Download Button for Poster Image
-  dom.modalDownloadBtn.onclick = (e) => {
-    e.preventDefault();
-    downloadPosterImage(film);
-  };
-
-  // Live TMDb Refresh Button for Recent / Incomplete Films
-  if (dom.modalRefreshDataBtn) {
-    const isRecent = film.date_sortie && (new Date() - new Date(film.date_sortie)) / (1000 * 60 * 60 * 24) < 45;
-    const hasMissingFinancials = !film.budget || !film.revenue;
-    const isHighlighted = Boolean(isRecent || hasMissingFinancials);
-    dom.modalRefreshDataBtn.classList.toggle('modal-refresh-highlight', isHighlighted);
-    dom.modalRefreshDataBtn.title = isHighlighted ? t('refresh_data_hint') : t('refresh_data_std');
-    dom.modalRefreshDataBtn.setAttribute('aria-label', dom.modalRefreshDataBtn.title);
-
-    dom.modalRefreshDataBtn.onclick = async (e) => {
+  // Direct Download Buttons for Poster Image (both left button & action circle button)
+  $$('#modal-download-btn, .modal-download-btn-minimal, .modal-action-btn-circle[data-i18n-title="download_poster"]').forEach(btn => {
+    btn.onclick = (e) => {
       e.preventDefault();
-      if (dom.modalRefreshDataBtn.classList.contains('spinning')) return;
-      dom.modalRefreshDataBtn.classList.add('spinning');
-
-      try {
-        const TMDB_BEARER = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZDY4ZDgwMDBlMjNjY2E1Mzc4NDAxYmY5MDA0ZTg4NCIsIm5iZiI6MTc4NDU3ODY2MS45ODg5OTk4LCJzdWIiOiI2YTVlODI2NTFhODNiZTIyYWM0ZjYyN2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.fxMEYiohV7Ot3AuR1R5GxoMMROYjZmAUp1RMUJN_1Sg";
-        const res = await fetch(`https://api.themoviedb.org/3/movie/${film.id}?language=fr-FR`, {
-          headers: {
-            Authorization: `Bearer ${TMDB_BEARER}`,
-            accept: 'application/json'
-          }
-        });
-        if (res.ok) {
-          const fresh = await res.json();
-          film.budget = fresh.budget || film.budget || 0;
-          film.revenue = fresh.revenue || film.revenue || 0;
-          if (fresh.vote_average) film.note_moyenne = fresh.vote_average;
-          if (fresh.popularity) film.popularite = fresh.popularity;
-          if (fresh.runtime) film.duree_minutes = fresh.runtime;
-
-          dom.modalBudget.textContent = formatCurrency(film.budget);
-          dom.modalRevenue.textContent = formatCurrency(film.revenue);
-          if (dom.modalRuntime) dom.modalRuntime.textContent = formatRuntime(film.duree_minutes);
-          if (dom.modalRating && film.note_moyenne) {
-            dom.modalRating.textContent = film.note_moyenne.toFixed(1);
-            dom.modalStars.innerHTML = starsHtml(film.note_moyenne);
-          }
-
-          dom.modalBudget.classList.add('val-updated-flash');
-          dom.modalRevenue.classList.add('val-updated-flash');
-          setTimeout(() => {
-            dom.modalBudget.classList.remove('val-updated-flash');
-            dom.modalRevenue.classList.remove('val-updated-flash');
-          }, 1500);
-
-          showToast(t('data_updated_success'));
-        } else {
-          showToast('Impossible d\'actualiser depuis TMDb');
-        }
-      } catch (err) {
-        console.error('Erreur live refresh TMDb :', err);
-        showToast('Erreur de connexion');
-      } finally {
-        dom.modalRefreshDataBtn.classList.remove('spinning');
-      }
+      downloadPosterImage(film);
     };
-  }
+  });
 
   // Share Card Button
-  dom.modalShareCardBtn.onclick = (e) => {
-    e.preventDefault();
-    shareCardImage(film);
-  };
+  if (dom.modalShareCardBtn) {
+    dom.modalShareCardBtn.onclick = (e) => {
+      e.preventDefault();
+      shareCardImage(film);
+    };
+  }
 
   // Details Modal actions row (Like & Collection)
   const filmId = getFilmId(film);
@@ -3043,7 +3327,8 @@ function populateModal(film, startingPosterIndex = 0) {
   
   if (dom.modalLikeBtn) {
     dom.modalLikeBtn.classList.toggle('active-like', isFav);
-    dom.modalLikeBtn.querySelector('svg').setAttribute('fill', isFav ? 'currentColor' : 'none');
+    const svg = dom.modalLikeBtn.querySelector('svg');
+    if (svg) svg.setAttribute('fill', isFav ? 'currentColor' : 'none');
     dom.modalLikeBtn.onclick = (e) => {
       e.preventDefault();
       toggleFavorite(getPosterKey(filmId, state.modalPosterIndex), null);
@@ -3054,7 +3339,8 @@ function populateModal(film, startingPosterIndex = 0) {
     if (state.user) {
       dom.modalColBtn.hidden = false;
       dom.modalColBtn.classList.toggle('active-col', isCol);
-      dom.modalColBtn.querySelector('svg').setAttribute('fill', isCol ? 'currentColor' : 'none');
+      const svg = dom.modalColBtn.querySelector('svg');
+      if (svg) svg.setAttribute('fill', isCol ? 'currentColor' : 'none');
       dom.modalColBtn.onclick = (e) => {
         e.preventDefault();
         openCollectionChooser(film, state.modalPosterIndex, dom.modalColBtn);
@@ -3064,46 +3350,178 @@ function populateModal(film, startingPosterIndex = 0) {
     }
   }
 
-  if (film.bande_annonce_url) {
-    dom.modalTrailerBtn.href = film.bande_annonce_url;
-    dom.modalTrailerBtn.removeAttribute('hidden');
-  } else {
-    dom.modalTrailerBtn.setAttribute('hidden', '');
+  if (dom.modalTrailerBtn) {
+    if (film.bande_annonce_url) {
+      dom.modalTrailerBtn.href = film.bande_annonce_url;
+      dom.modalTrailerBtn.removeAttribute('hidden');
+    } else {
+      dom.modalTrailerBtn.setAttribute('hidden', '');
+    }
   }
 
   renderModalPalette(getFirstPalette(film));
 
-  if (film.certification) {
-    dom.modalCertification.textContent = film.certification;
-    dom.modalCertification.removeAttribute('hidden');
-  } else {
-    dom.modalCertification.setAttribute('hidden', '');
+  if (dom.modalCertification) {
+    if (film.certification) {
+      dom.modalCertification.textContent = film.certification;
+      dom.modalCertification.removeAttribute('hidden');
+    } else {
+      dom.modalCertification.setAttribute('hidden', '');
+    }
   }
 
-  dom.modalGenres.innerHTML = (film.genres || [])
-    .map(g => `<span class="genre-tag">${esc(translateGenre(g, state.lang))}</span>`).join('');
+  const typeBadgeKey = film.est_anime ? 'badge_anime' : (film.est_serie ? 'badge_tv' : 'badge_movie');
+  const typeBadgeHtml = `<span class="genre-tag genre-tag--format">${esc(t(typeBadgeKey))}</span>`;
 
-  dom.modalTitle.textContent = (state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || t('profile_unknown_title');
-  dom.modalOriginalTitle.textContent =
-    film.titre_original && film.titre_original !== film.titre ? film.titre_original : '';
+  if (dom.modalGenres) {
+    dom.modalGenres.innerHTML = typeBadgeHtml + (film.genres || [])
+      .map(g => `<span class="genre-tag">${esc(translateGenre(g, state.lang))}</span>`).join('');
+  }
+
+  if (dom.modalTitle) {
+    dom.modalTitle.textContent = (state.lang === 'ja' && film.titre_ja ? film.titre_ja : (state.lang === 'en' && film.titre_en ? film.titre_en : (film.titre || film.titre_original))) || t('profile_unknown_title');
+  }
+  if (dom.modalOriginalTitle) {
+    dom.modalOriginalTitle.textContent =
+      film.titre_original && film.titre_original !== film.titre ? film.titre_original : '';
+  }
 
   const r = film.note_moyenne || 0;
-  dom.modalStars.innerHTML = starsHtml(r);
-  dom.modalRating.textContent = r ? r.toFixed(1) : 'N/A';
-  dom.modalPopularity.textContent = film.popularite ? Math.round(film.popularite).toLocaleString(state.lang === 'ja' ? 'ja-JP' : state.lang === 'en' ? 'en-US' : 'fr-FR') : 'N/A';
-  dom.modalDirector.textContent = film.realisateur || t('profile_unknown_director');
-  dom.modalDate.textContent     = formatDate(film.date_sortie);
+  if (dom.modalStars) dom.modalStars.innerHTML = starsHtml(r);
+  if (dom.modalRating) dom.modalRating.textContent = r ? r.toFixed(1) : 'N/A';
+  if (dom.modalPopularity) {
+    dom.modalPopularity.textContent = film.popularite ? Math.round(film.popularite).toLocaleString(state.lang === 'ja' ? 'ja-JP' : state.lang === 'en' ? 'en-US' : 'fr-FR') : 'N/A';
+  }
   
-  // Property Aliases support for updated database JSON (duree_minutes / duree_min & langue_origine / langue_originale)
-  const runtimeMin = film.duree_minutes || film.duree_min;
-  const langCode   = film.langue_origine || film.langue_originale || '';
-  
-  dom.modalRuntime.textContent  = formatRuntime(runtimeMin);
-  dom.modalLanguage.textContent = langCode.toUpperCase() || 'N/A';
-  dom.modalBudget.textContent   = formatCurrency(film.budget);
-  dom.modalRevenue.textContent  = formatCurrency(film.revenue);
+  const directorLabelEl = $('#modal-director-label');
+  if (directorLabelEl) {
+    directorLabelEl.textContent = film.est_serie ? t('creator') : t('director');
+  }
+  if (dom.modalDirector) {
+    dom.modalDirector.textContent = (film.est_serie ? (film.createur || film.realisateur) : film.realisateur) || t('profile_unknown_director');
+  }
 
-  dom.modalSummary.textContent = state.lang === 'ja' ? (film.resume_ja || film.resume_en || film.resume_fr || '概要はありません。') : (state.lang === 'en' ? (film.resume_en || film.resume_fr || 'Summary not available.') : (film.resume_fr || film.resume_en || 'Résumé non disponible.'));
+  // Date / Période de diffusion
+  const dateLabelEl = $('#modal-date-label');
+  if (film.est_serie) {
+    if (dateLabelEl) dateLabelEl.textContent = t('airing');
+    const startYear = (film.date_sortie || '').split('-')[0] || '';
+    const endYear = (film.derniere_diffusion || '').split('-')[0] || '';
+    const isEnded = film.statut === 'Ended' || film.statut === 'Canceled';
+    let dateStr = startYear;
+    if (startYear) {
+      if (endYear && endYear !== startYear) {
+        dateStr = isEnded ? `${startYear} – ${endYear}` : `${startYear} – ${t('ongoing_present')}`;
+      } else if (!isEnded && startYear) {
+        dateStr = `${startYear} – ${t('ongoing_present')}`;
+      }
+    }
+    if (dom.modalDate) dom.modalDate.textContent = dateStr || formatDate(film.date_sortie);
+  } else {
+    if (dateLabelEl) dateLabelEl.textContent = t('release');
+    if (dom.modalDate) dom.modalDate.textContent = formatDate(film.date_sortie);
+  }
+  
+  // Saisons & Épisodes
+  if (film.est_serie) {
+    const sCount = film.nombre_saisons || film.nb_saisons || (film.saisons ? film.saisons.length : 1);
+    const epCount = film.nombre_episodes || film.nb_episodes || (film.saisons ? film.saisons.reduce((acc, s) => acc + (s.nb_episodes || 0), 0) : 0);
+    
+    if (dom.modalSeasonsBlock) {
+      dom.modalSeasonsBlock.hidden = false;
+      if (dom.modalSeasonsCount) {
+        dom.modalSeasonsCount.innerHTML = `<span class="meta-pill-badge">${sCount} ${sCount > 1 ? t('seasons_plural') : t('season_singular')}</span>`;
+      }
+    }
+    if (dom.modalEpisodesBlock) {
+      dom.modalEpisodesBlock.hidden = !epCount;
+      if (dom.modalEpisodesCount) {
+        dom.modalEpisodesCount.innerHTML = epCount ? `<span class="meta-pill-badge">${epCount} ${epCount > 1 ? t('episodes_plural') : t('episode_singular')}</span>` : '';
+      }
+    }
+  } else {
+    if (dom.modalSeasonsBlock) dom.modalSeasonsBlock.hidden = true;
+    if (dom.modalEpisodesBlock) dom.modalEpisodesBlock.hidden = true;
+  }
+
+  // Durée (par épisode pour série / total pour film)
+  const runtimeMin = film.duree_minutes || film.duree_min || film.duree_episode_min;
+  const langCode   = film.langue_origine || film.langue_originale || '';
+  const runtimeLabelEl = $('#modal-runtime-label');
+
+  if (film.est_serie) {
+    if (runtimeLabelEl) runtimeLabelEl.textContent = t('format');
+    if (dom.modalRuntime) dom.modalRuntime.textContent = runtimeMin ? `~${runtimeMin} ${t('ep_runtime_unit')}` : 'Format variable';
+  } else {
+    if (runtimeLabelEl) runtimeLabelEl.textContent = t('runtime');
+    if (dom.modalRuntime) dom.modalRuntime.textContent = formatRuntime(runtimeMin);
+  }
+
+  // Statut de diffusion
+  if (film.est_serie && (film.statut || film.type_serie)) {
+    if (dom.modalStatusBlock) dom.modalStatusBlock.hidden = false;
+    let statusText = film.statut;
+    let statusClass = 'status-ended';
+    if (film.statut === 'Ended') {
+      statusText = t('status_ended');
+      statusClass = 'status-ended';
+    } else if (film.statut === 'Returning Series') {
+      statusText = t('status_returning');
+      statusClass = 'status-returning';
+    } else if (film.statut === 'In Production') {
+      statusText = t('status_in_production');
+      statusClass = 'status-production';
+    } else if (film.statut === 'Canceled') {
+      statusText = t('status_canceled');
+      statusClass = 'status-canceled';
+    } else if (film.nombre_saisons === 1 || film.type_serie === 'Miniseries') {
+      statusText = t('status_miniseries');
+      statusClass = 'status-miniseries';
+    }
+    if (dom.modalStatus) {
+      dom.modalStatus.innerHTML = `<span class="status-badge ${statusClass}"><span class="status-dot"></span>${esc(statusText || film.statut)}</span>`;
+    }
+  } else {
+    if (dom.modalStatusBlock) dom.modalStatusBlock.hidden = true;
+  }
+
+  // Diffuseur / Studio
+  const hasStudios = Array.isArray(film.studios) && film.studios.length > 0;
+  const hasNetworks = Array.isArray(film.reseaux) && film.reseaux.length > 0;
+  if (film.est_serie && (hasStudios || hasNetworks)) {
+    if (dom.modalNetworkBlock) dom.modalNetworkBlock.hidden = false;
+    const networkLabelEl = $('#modal-network-label');
+    if (networkLabelEl) {
+      networkLabelEl.textContent = film.est_anime ? t('studio_title') : t('network_title');
+    }
+    const names = film.est_anime ? (hasStudios ? film.studios : film.reseaux) : (hasNetworks ? film.reseaux : film.studios);
+    if (dom.modalNetwork) {
+      dom.modalNetwork.textContent = names.slice(0, 3).join(', ');
+    }
+  } else {
+    if (dom.modalNetworkBlock) dom.modalNetworkBlock.hidden = true;
+  }
+
+  if (dom.modalLanguage) dom.modalLanguage.textContent = langCode.toUpperCase() || 'N/A';
+  if (dom.modalBudget) dom.modalBudget.textContent   = formatCurrency(film.budget);
+  if (dom.modalRevenue) dom.modalRevenue.textContent  = formatCurrency(film.revenue);
+
+  const budgetBlock = $('#modal-budget-block');
+  const revenueBlock = $('#modal-revenue-block');
+  if (film.est_serie || !film.budget || film.budget === 0) {
+    if (budgetBlock) budgetBlock.style.display = 'none';
+  } else {
+    if (budgetBlock) budgetBlock.style.display = '';
+  }
+  if (film.est_serie || !film.revenue || film.revenue === 0) {
+    if (revenueBlock) revenueBlock.style.display = 'none';
+  } else {
+    if (revenueBlock) revenueBlock.style.display = '';
+  }
+
+  if (dom.modalSummary) {
+    dom.modalSummary.textContent = state.lang === 'ja' ? (film.resume_ja || film.resume_en || film.resume_fr || '概要はありません。') : (state.lang === 'en' ? (film.resume_en || film.resume_fr || 'Summary not available.') : (film.resume_fr || film.resume_en || 'Résumé non disponible.'));
+  }
 }
 
 function updateModalAmbientGlowColor(film, idx) {
@@ -3148,9 +3566,14 @@ function updateModalPoster(film, idx) {
 
 // Download poster function
 function downloadPosterImage(film) {
-  const affiches = film.affiches || [];
-  const currentPoster = affiches[state.modalPosterIndex] || affiches[0] || {};
-  const src = currentPoster.affiche_original || currentPoster.affiche_w500;
+  let src = null;
+  if (dom.modalPosterImg && dom.modalPosterImg.src && dom.modalPosterImg.src.startsWith('http')) {
+    src = dom.modalPosterImg.src;
+  } else {
+    const affiches = film.affiches || [];
+    const currentPoster = affiches[state.modalPosterIndex] || affiches[0] || {};
+    src = currentPoster.affiche_original || currentPoster.affiche_w500;
+  }
 
   if (!src) return;
 
@@ -3170,7 +3593,7 @@ function downloadPosterImage(film) {
       URL.revokeObjectURL(url);
     })
     .catch(err => {
-      console.error(err);
+      console.warn('Blob download fallback to direct tab:', err);
       window.open(src, '_blank');
       showToast(t('download_error'));
     });
@@ -3809,6 +4232,30 @@ function bindEvents() {
   dom.filterTrigger.addEventListener('click', openDrawer);
   dom.sortTrigger.addEventListener('click', toggleSortPopover);
 
+  // Media Type Pills click handlers
+  $$('.media-pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.mediaType = btn.getAttribute('data-media-type') || 'all';
+      $$('.media-pill-btn').forEach(b => b.classList.toggle('active', b === btn));
+      $$('#drawer-media-options .drawer-option-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-media-type') === state.mediaType));
+      state.currentPage = 1;
+      applyFiltersAndRender();
+      updateURL();
+    });
+  });
+
+  // Drawer Media Options click handlers
+  $$('#drawer-media-options .drawer-option-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.mediaType = btn.getAttribute('data-media-type') || 'all';
+      $$('#drawer-media-options .drawer-option-btn').forEach(b => b.classList.toggle('active', b === btn));
+      $$('.media-pill-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-media-type') === state.mediaType));
+      state.currentPage = 1;
+      applyFiltersAndRender();
+      updateURL();
+    });
+  });
+
   // Nav Menu Close
   dom.navMenuClose.addEventListener('click', closeNavMenu);
   dom.navMenuBackdrop.addEventListener('click', closeNavMenu);
@@ -4293,7 +4740,7 @@ async function searchTmdbMoviesToAdd() {
       const srvRes = await fetch('/api/search-tmdb', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query })
+        body: JSON.stringify({ query, type: 'all' })
       });
       if (srvRes.ok) {
         const srvData = await srvRes.json();
@@ -4303,10 +4750,10 @@ async function searchTmdbMoviesToAdd() {
       }
     } catch (_) {}
 
-    // 2. Direct TMDb fetch fallback
+    // 2. Direct TMDb multi-search fallback
     if (results.length === 0) {
       const TMDB_BEARER = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZDY4ZDgwMDBlMjNjY2E1Mzc4NDAxYmY5MDA0ZTg4NCIsIm5iZiI6MTc4NDU3ODY2MS45ODg5OTk4LCJzdWIiOiI2YTVlODI2NTFhODNiZTIyYWM0ZjYyN2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.fxMEYiohV7Ot3AuR1R5GxoMMROYjZmAUp1RMUJN_1Sg";
-      const tmdbRes = await fetch(`https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&language=fr-FR&include_adult=false`, {
+      const tmdbRes = await fetch(`https://api.themoviedb.org/3/search/multi?query=${encodeURIComponent(query)}&language=fr-FR&include_adult=false`, {
         headers: {
           Authorization: `Bearer ${TMDB_BEARER}`,
           accept: 'application/json'
@@ -4314,15 +4761,28 @@ async function searchTmdbMoviesToAdd() {
       });
       if (tmdbRes.ok) {
         const tmdbData = await tmdbRes.json();
-        results = (tmdbData.results || []).slice(0, 10).map(m => ({
-          id: m.id,
-          titre: m.title || m.original_title,
-          titre_original: m.original_title || m.title,
-          date_sortie: m.release_date || '',
-          poster_path: m.poster_path,
-          overview: m.overview || '',
-          vote_average: m.vote_average || 0
-        }));
+        results = (tmdbData.results || [])
+          .filter(m => m.media_type === 'movie' || m.media_type === 'tv')
+          .slice(0, 12)
+          .map(m => {
+            const isTv = m.media_type === 'tv';
+            const isAnimGenre = Array.isArray(m.genre_ids) && m.genre_ids.includes(16);
+            const origLang = (m.original_language || '').toLowerCase();
+            const isAnime = isAnimGenre && (origLang === 'ja' || (Array.isArray(m.origin_country) && m.origin_country.includes('JP')));
+            const format = isAnime ? 'anime' : (isTv ? 'serie' : 'film');
+
+            return {
+              id: m.id,
+              media_type: isTv ? 'tv' : 'movie',
+              format: format,
+              titre: m.title || m.name || m.original_title || m.original_name || 'Sans titre',
+              titre_original: m.original_title || m.original_name || '',
+              date_sortie: m.release_date || m.first_air_date || '',
+              poster_path: m.poster_path,
+              overview: m.overview || '',
+              vote_average: m.vote_average || 0
+            };
+          });
       }
     }
 
@@ -4350,18 +4810,19 @@ function renderAddMovieResults(results) {
     return;
   }
 
-  results.forEach(film => {
+  results.forEach(itemData => {
     const item = document.createElement('div');
     item.className = 'add-movie-result-item';
-    const displayTitle = film.titre || film.title || film.original_title || 'Film';
-    const origTitle = film.titre_original || film.original_title || '';
-    const releaseDate = film.date_sortie || film.release_date || '';
+    const displayTitle = itemData.titre || itemData.title || itemData.original_title || 'Œuvre';
+    const origTitle = itemData.titre_original || itemData.original_title || '';
+    const releaseDate = itemData.date_sortie || itemData.release_date || '';
     const year = releaseDate ? releaseDate.split('-')[0] : '—';
-    const posterPath = film.poster_path;
+    const posterPath = itemData.poster_path;
     const posterUrl = posterPath
       ? (posterPath.startsWith('http') ? posterPath : `https://image.tmdb.org/t/p/w185${posterPath}`)
       : null;
-    const voteAvg = film.vote_average || film.note_moyenne;
+    const voteAvg = itemData.vote_average || itemData.note_moyenne;
+    const formatLabel = itemData.format === 'anime' ? 'Animé' : (itemData.media_type === 'tv' ? 'Série' : 'Film');
 
     item.innerHTML = `
       ${posterUrl
@@ -4371,6 +4832,7 @@ function renderAddMovieResults(results) {
       <div class="add-movie-result-info">
         <span class="add-movie-result-title">${displayTitle}</span>
         <div class="add-movie-result-meta">
+          <span class="add-movie-result-type-tag">${formatLabel}</span>
           <span>${year}</span>
           ${origTitle && origTitle !== displayTitle ? `<span>• ${origTitle}</span>` : ''}
           ${voteAvg ? `<span>• ⭐ ${Number(voteAvg).toFixed(1)}</span>` : ''}
@@ -4385,7 +4847,12 @@ function renderAddMovieResults(results) {
     `;
 
     item.addEventListener('click', () => {
-      importTmdbMovie(film.id, { titre: displayTitle, titre_original: origTitle });
+      importTmdbMovie(itemData.id, {
+        media_type: itemData.media_type || (itemData.format === 'serie' || itemData.format === 'anime' ? 'tv' : 'movie'),
+        format: itemData.format,
+        titre: displayTitle,
+        titre_original: origTitle
+      });
     });
 
     dom.addMovieResults.appendChild(item);
@@ -4400,6 +4867,7 @@ async function importTmdbMovie(tmdbId, basicInfo = {}) {
     dom.addMovieLoadingMsg.textContent = t('add_movie_extracting');
   }
 
+  const mediaType = basicInfo.media_type || (basicInfo.format === 'serie' || basicInfo.format === 'anime' ? 'tv' : 'movie');
   const TMDB_BEARER = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZDY4ZDgwMDBlMjNjY2E1Mzc4NDAxYmY5MDA0ZTg4NCIsIm5iZiI6MTc4NDU3ODY2MS45ODg5OTk4LCJzdWIiOiI2YTVlODI2NTFhODNiZTIyYWM0ZjYyN2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.fxMEYiohV7Ot3AuR1R5GxoMMROYjZmAUp1RMUJN_1Sg";
 
   try {
@@ -4411,7 +4879,7 @@ async function importTmdbMovie(tmdbId, basicInfo = {}) {
       const srvRes = await fetch('/api/add-film', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: tmdbId })
+        body: JSON.stringify({ id: tmdbId, media_type: mediaType })
       });
       if (srvRes.ok) {
         const srvData = await srvRes.json();
@@ -4424,61 +4892,112 @@ async function importTmdbMovie(tmdbId, basicInfo = {}) {
     // 2. Client-side fallback if server not reachable
     if (!finalFilmObj) {
       if (dom.addMovieLoadingMsg) dom.addMovieLoadingMsg.textContent = 'Récupération des métadonnées multilingues TMDb...';
-      const [resFr, resEn, resJa] = await Promise.all([
-        fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?language=fr-FR&append_to_response=credits,release_dates,images&include_image_language=fr,en,null`, {
+      const endpoint = mediaType === 'tv' ? 'tv' : 'movie';
+
+      const [resFr, resEn, resJa, resImages] = await Promise.all([
+        fetch(`https://api.themoviedb.org/3/${endpoint}/${tmdbId}?language=fr-FR&append_to_response=credits,content_ratings,release_dates`, {
           headers: { Authorization: `Bearer ${TMDB_BEARER}`, accept: 'application/json' }
         }),
-        fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?language=en-US`, {
+        fetch(`https://api.themoviedb.org/3/${endpoint}/${tmdbId}?language=en-US`, {
           headers: { Authorization: `Bearer ${TMDB_BEARER}`, accept: 'application/json' }
         }).catch(() => null),
-        fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?language=ja-JP`, {
+        fetch(`https://api.themoviedb.org/3/${endpoint}/${tmdbId}?language=ja-JP`, {
+          headers: { Authorization: `Bearer ${TMDB_BEARER}`, accept: 'application/json' }
+        }).catch(() => null),
+        fetch(`https://api.themoviedb.org/3/${endpoint}/${tmdbId}/images`, {
           headers: { Authorization: `Bearer ${TMDB_BEARER}`, accept: 'application/json' }
         }).catch(() => null)
       ]);
 
-      if (!resFr.ok) throw new Error('Impossible de charger les détails du film sur TMDb.');
+      if (!resFr.ok) throw new Error("Impossible de charger les détails de l'œuvre sur TMDb.");
       const dataFr = await resFr.json();
       const dataEn = resEn && resEn.ok ? await resEn.json() : null;
       const dataJa = resJa && resJa.ok ? await resJa.json() : null;
+      const dataImages = resImages && resImages.ok ? await resImages.json() : null;
+      const origLang = (dataFr.original_language || 'en').toLowerCase();
 
-      // Director
+      // Director / Creator
       let director = '';
-      if (dataFr.credits && dataFr.credits.crew) {
-        const dObj = dataFr.credits.crew.find(c => c.job === 'Director');
-        if (dObj) director = dObj.name;
+      if (mediaType === 'tv') {
+        if (Array.isArray(dataFr.created_by) && dataFr.created_by.length) {
+          director = dataFr.created_by.map(c => c.name).join(', ');
+        } else if (dataFr.credits && Array.isArray(dataFr.credits.crew)) {
+          const showrunners = dataFr.credits.crew.filter(c => c.job === 'Executive Producer' || c.job === 'Director');
+          if (showrunners.length) director = showrunners[0].name;
+        }
+      } else {
+        if (dataFr.credits && Array.isArray(dataFr.credits.crew)) {
+          const dObj = dataFr.credits.crew.find(c => c.job === 'Director');
+          if (dObj) director = dObj.name;
+        }
+      }
+
+      // Format detection (film / serie / anime)
+      const genresList = (dataFr.genres || []).map(g => g.name);
+      const isAnimation = genresList.some(g => /animation/i.test(g));
+      let determinedFormat = 'film';
+      if (mediaType === 'tv') {
+        determinedFormat = (isAnimation && (origLang === 'ja' || (dataFr.origin_country || []).includes('JP'))) ? 'anime' : 'serie';
+      } else if (isAnimation && origLang === 'ja') {
+        determinedFormat = 'anime';
       }
 
       // Certifications
       const certs = { France: '', USA: '' };
-      if (dataFr.release_dates && dataFr.release_dates.results) {
+      if (mediaType === 'tv' && dataFr.content_ratings && dataFr.content_ratings.results) {
+        const frRel = dataFr.content_ratings.results.find(r => r.iso_3166_1 === 'FR');
+        if (frRel) certs.France = frRel.rating || '';
+        const usRel = dataFr.content_ratings.results.find(r => r.iso_3166_1 === 'US');
+        if (usRel) certs.USA = usRel.rating || '';
+      } else if (dataFr.release_dates && dataFr.release_dates.results) {
         const frRel = dataFr.release_dates.results.find(r => r.iso_3166_1 === 'FR');
-        if (frRel && frRel.release_dates && frRel.release_dates.length) {
-          certs.France = frRel.release_dates[0].certification || '';
-        }
+        if (frRel && frRel.release_dates && frRel.release_dates.length) certs.France = frRel.release_dates[0].certification || '';
         const usRel = dataFr.release_dates.results.find(r => r.iso_3166_1 === 'US');
-        if (usRel && usRel.release_dates && usRel.release_dates.length) {
-          certs.USA = usRel.release_dates[0].certification || '';
-        }
+        if (usRel && usRel.release_dates && usRel.release_dates.length) certs.USA = usRel.release_dates[0].certification || '';
       }
 
       // Posters extraction
-      const rawPosters = (dataFr.images && dataFr.images.posters) || [];
+      const rawPosters = (dataImages && dataImages.posters) || (dataFr.images && dataFr.images.posters) || [];
       const affiches = [];
 
+      function isOrigMatch(langCode, oLang) {
+        if (!langCode) return false;
+        langCode = langCode.toLowerCase();
+        oLang = (oLang || '').toLowerCase();
+        if (['zh', 'cn'].includes(oLang) && ['zh', 'cn'].includes(langCode)) return true;
+        return langCode === oLang;
+      }
+
       const textlessList = rawPosters.filter(p => !p.iso_639_1);
-      const frList = rawPosters.filter(p => p.iso_639_1 === 'fr');
-      const enList = rawPosters.filter(p => p.iso_639_1 === 'en');
-      const otherList = rawPosters.filter(p => p.iso_639_1 && p.iso_639_1 !== 'fr' && p.iso_639_1 !== 'en');
+      const origList = rawPosters.filter(p => isOrigMatch(p.iso_639_1, origLang));
+      const worldCandidates = rawPosters.filter(p => p.iso_639_1 && !isOrigMatch(p.iso_639_1, origLang));
 
       const selectedPosters = [];
-      if (textlessList.length) selectedPosters.push({ ...textlessList[0], type: 'textless' });
-      if (frList.length) selectedPosters.push({ ...frList[0], type: 'origine' });
-      else if (enList.length) selectedPosters.push({ ...enList[0], type: 'origine' });
-      if (otherList.length) selectedPosters.push({ ...otherList[0], type: 'monde' });
-      else if (enList.length > 1) selectedPosters.push({ ...enList[1], type: 'monde' });
+      textlessList.slice(0, 3).forEach(p => selectedPosters.push({ ...p, type: 'textless', categorie: 'textless' }));
+      origList.slice(0, 3).forEach(p => selectedPosters.push({ ...p, type: 'origine', categorie: 'origine' }));
+
+      const selectedWorldLangs = new Set();
+      const seenWorldPaths = new Set();
+      for (const p of worldCandidates) {
+        const lang = (p.iso_639_1 || '').toLowerCase();
+        if (!lang || selectedWorldLangs.has(lang) || seenWorldPaths.has(p.file_path)) continue;
+        selectedPosters.push({ ...p, type: 'monde', categorie: 'monde' });
+        selectedWorldLangs.add(lang);
+        seenWorldPaths.add(p.file_path);
+        if (selectedWorldLangs.size === 3) break;
+      }
+      if (selectedWorldLangs.size < 3) {
+        for (const p of worldCandidates) {
+          if (!seenWorldPaths.has(p.file_path)) {
+            selectedPosters.push({ ...p, type: 'monde', categorie: 'monde' });
+            seenWorldPaths.add(p.file_path);
+            if (selectedPosters.filter(x => x.type === 'monde').length === 3) break;
+          }
+        }
+      }
 
       if (selectedPosters.length === 0 && dataFr.poster_path) {
-        selectedPosters.push({ file_path: dataFr.poster_path, type: 'origine' });
+        selectedPosters.push({ file_path: dataFr.poster_path, type: 'origine', categorie: 'origine' });
       }
 
       if (dom.addMovieLoadingMsg) dom.addMovieLoadingMsg.textContent = 'Extraction des palettes chromatiques (Canvas 2D)...';
@@ -4496,17 +5015,41 @@ async function importTmdbMovie(tmdbId, basicInfo = {}) {
         });
       }
 
+      // Saisons pour séries/animés
+      const saisonsList = [];
+      if (mediaType === 'tv' && Array.isArray(dataFr.seasons)) {
+        for (const s of dataFr.seasons) {
+          if (s.poster_path) {
+            const sImgUrl = `https://image.tmdb.org/t/p/w500${s.poster_path}`;
+            saisonsList.push({
+              numero_saison: s.season_number,
+              nom: s.name,
+              affiche_w500: sImgUrl,
+              affiche_original: `https://image.tmdb.org/t/p/original${s.poster_path}`,
+              nb_episodes: s.episode_count || 0
+            });
+          }
+        }
+      }
+
       finalFilmObj = {
         id: dataFr.id,
         tmdb_id: dataFr.id,
-        titre: dataFr.title || '',
-        titre_original: dataFr.original_title || '',
-        titre_en: dataEn ? dataEn.title || '' : '',
-        titre_ja: dataJa ? dataJa.title || '' : '',
+        type_media: determinedFormat,
+        format: determinedFormat,
+        titre: dataFr.title || dataFr.name || '',
+        titre_original: dataFr.original_title || dataFr.original_name || '',
+        titre_en: dataEn ? (dataEn.title || dataEn.name || '') : '',
+        titre_ja: dataJa ? (dataJa.title || dataJa.name || '') : '',
         realisateur: director,
-        date_sortie: dataFr.release_date || '',
-        duree_minutes: dataFr.runtime || 0,
-        genres: (dataFr.genres || []).map(g => g.name),
+        createur: director,
+        date_sortie: dataFr.release_date || dataFr.first_air_date || '',
+        duree_minutes: dataFr.runtime || (dataFr.episode_run_time && dataFr.episode_run_time[0]) || 0,
+        nombre_saisons: dataFr.number_of_seasons || 0,
+        nombre_episodes: dataFr.number_of_episodes || 0,
+        diffuseur: (dataFr.networks && dataFr.networks[0] && dataFr.networks[0].name) || '',
+        statut: dataFr.status || '',
+        genres: genresList,
         langue_origine: dataFr.original_language || '',
         note_moyenne: dataFr.vote_average || 0,
         vote_count: dataFr.vote_count || 0,
@@ -4516,14 +5059,15 @@ async function importTmdbMovie(tmdbId, basicInfo = {}) {
         resume: dataFr.overview || '',
         certifications: certs,
         affiches: affiches,
-        affiches_globales: affiches
+        affiches_globales: affiches,
+        saisons: saisonsList
       };
 
       // Save to localStorage for persistence across sessions
       try {
         finalFilmObj = normalizeFilmObject(finalFilmObj);
         const localList = JSON.parse(localStorage.getItem('cinechroma_custom_films') || '[]');
-        const existingLocalIdx = localList.findIndex(f => f.id === finalFilmObj.id);
+        const existingLocalIdx = localList.findIndex(f => f.id === finalFilmObj.id && (f.type_media || 'film') === (finalFilmObj.type_media || 'film'));
         if (existingLocalIdx >= 0) localList[existingLocalIdx] = finalFilmObj;
         else localList.unshift(finalFilmObj);
         localStorage.setItem('cinechroma_custom_films', JSON.stringify(localList));
@@ -4554,7 +5098,15 @@ async function importTmdbMovie(tmdbId, basicInfo = {}) {
     applyFiltersAndRender();
     updateURL();
 
-    showToast(`🎬 "${finalFilmObj.titre || finalFilmObj.titre_original}" ajouté avec succès !`);
+    const voteCount = finalFilmObj.vote_count || 0;
+    const isQualityApproved = voteCount >= 50 && !finalFilmObj.adult && ((finalFilmObj.affiches_globales || []).length > 0 || (finalFilmObj.affiches || []).length > 0);
+    const mediaName = finalFilmObj.type_media === 'anime' ? 'Animé' : (finalFilmObj.type_media === 'serie' ? 'Série' : 'Film');
+
+    if (isQualityApproved) {
+      showToast(`🎬 ${mediaName} "${finalFilmObj.titre || finalFilmObj.titre_original}" ajouté ! Éligible à la base globale.`);
+    } else {
+      showToast(`🎬 ${mediaName} "${finalFilmObj.titre || finalFilmObj.titre_original}" ajouté à votre galerie locale.`);
+    }
 
     // Open detail modal immediately
     setTimeout(() => {
@@ -4575,46 +5127,96 @@ async function importTmdbMovie(tmdbId, basicInfo = {}) {
   }
 }
 
-function extractPaletteFromPosterUrl(imgUrl) {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => {
-      try {
-        const canvas = document.createElement('canvas');
-        canvas.width = 120;
-        canvas.height = 180;
-        const ctx = canvas.getContext('2d');
-        const cropX = Math.round(img.width * 0.05);
-        const cropY = Math.round(img.height * 0.05);
-        const cropW = Math.round(img.width * 0.9);
-        const cropH = Math.round(img.height * 0.9);
-        ctx.drawImage(img, cropX, cropY, cropW, cropH, 0, 0, 120, 180);
+async function extractPaletteFromPosterUrl(imgUrl) {
+  // Helper to load image through canvas and compute palette
+  function extractFromImageElement(img) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 120;
+    canvas.height = 180;
+    const ctx = canvas.getContext('2d');
+    const cropX = Math.round(img.naturalWidth * 0.05) || 0;
+    const cropY = Math.round(img.naturalHeight * 0.05) || 0;
+    const cropW = Math.round(img.naturalWidth * 0.9) || img.naturalWidth || 120;
+    const cropH = Math.round(img.naturalHeight * 0.9) || img.naturalHeight || 180;
+    ctx.drawImage(img, cropX, cropY, cropW, cropH, 0, 0, 120, 180);
 
-        const imgData = ctx.getImageData(0, 0, 120, 180).data;
-        const pixels = [];
-        for (let i = 0; i < imgData.length; i += 4) {
-          if (imgData[i + 3] < 128) continue;
-          pixels.push({ r: imgData[i], g: imgData[i + 1], b: imgData[i + 2] });
-        }
-        if (pixels.length < 10) {
-          resolve(['#222222', '#555555', '#888888', '#bbbbbb', '#eeeeee']);
-          return;
-        }
-        const centroids = performKMeans(pixels, 5);
-        const hexPalette = centroids.map(c => rgbToHex(c).toUpperCase());
-        while (hexPalette.length < 5) hexPalette.push('#000000');
-        resolve(hexPalette);
-      } catch (err) {
-        console.warn('Canvas extraction error', err);
-        resolve(['#1a1a24', '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b']);
+    const imgData = ctx.getImageData(0, 0, 120, 180).data;
+    const pixels = [];
+    for (let i = 0; i < imgData.length; i += 4) {
+      if (imgData[i + 3] < 128) continue;
+      pixels.push({ r: imgData[i], g: imgData[i + 1], b: imgData[i + 2] });
+    }
+    if (pixels.length < 10) return null;
+    const centroids = performKMeans(pixels, 5);
+    const hexPalette = centroids.map(c => rgbToHex(c).toUpperCase());
+    while (hexPalette.length < 5) hexPalette.push('#000000');
+    return hexPalette;
+  }
+
+  // 1. Try with CORS-enabled image proxy for TMDb images
+  const proxyUrls = [];
+  if (imgUrl.includes('image.tmdb.org')) {
+    proxyUrls.push(`https://images.weserv.nl/?url=${encodeURIComponent(imgUrl)}&w=200&output=jpg`);
+  }
+  proxyUrls.push(imgUrl);
+
+  for (const src of proxyUrls) {
+    try {
+      const palette = await new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          try {
+            const res = extractFromImageElement(img);
+            if (res) resolve(res);
+            else reject(new Error('Empty pixels'));
+          } catch (e) {
+            reject(e);
+          }
+        };
+        img.onerror = (err) => reject(err);
+        img.src = src;
+      });
+      if (palette && palette.length === 5) {
+        return palette;
       }
-    };
-    img.onerror = () => {
-      resolve(['#1a1a24', '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b']);
-    };
-    img.src = imgUrl;
-  });
+    } catch (_) {
+      // Continue to next candidate
+    }
+  }
+
+  // 2. Try fetching as Blob and create ObjectURL (bypasses direct cross-origin canvas tainting if server allows)
+  try {
+    const res = await fetch(imgUrl);
+    if (res.ok) {
+      const blob = await res.blob();
+      const objUrl = URL.createObjectURL(blob);
+      const palette = await new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          try {
+            const result = extractFromImageElement(img);
+            URL.revokeObjectURL(objUrl);
+            resolve(result);
+          } catch (e) {
+            URL.revokeObjectURL(objUrl);
+            reject(e);
+          }
+        };
+        img.onerror = (e) => {
+          URL.revokeObjectURL(objUrl);
+          reject(e);
+        };
+        img.src = objUrl;
+      });
+      if (palette && palette.length === 5) {
+        return palette;
+      }
+    }
+  } catch (_) {}
+
+  // 3. Fallback only if totally unreachable
+  return ['#2C3E50', '#E74C3C', '#ECF0F1', '#3498DB', '#F39C12'];
 }
 
 /* ============================================================

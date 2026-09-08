@@ -104,14 +104,16 @@ def refresh_single_film_posters(session, film: dict) -> bool:
     if not movie_id:
         return False
 
-    url = f"https://api.themoviedb.org/3/movie/{movie_id}?append_to_response=images,release_dates&include_image_language=fr,en,ja,null"
+    url_main = f"https://api.themoviedb.org/3/movie/{movie_id}?append_to_response=release_dates"
+    url_images = f"https://api.themoviedb.org/3/movie/{movie_id}/images"
     try:
-        resp = session.get(url, timeout=10, verify=False)
+        resp = session.get(url_main, timeout=10, verify=False)
         if resp.status_code != 200:
             return False
 
         data = resp.json()
-        raw_posters = (data.get("images") or {}).get("posters", [])
+        resp_images = session.get(url_images, timeout=10, verify=False)
+        raw_posters = resp_images.json().get("posters", []) if resp_images.status_code == 200 else []
         if not raw_posters:
             return False
 
@@ -131,8 +133,9 @@ def refresh_single_film_posters(session, film: dict) -> bool:
             obj = build_poster_object(session, p, "monde")
             if obj: new_affiches.append(obj)
 
-        if len(new_affiches) > len(film.get("affiches_globales", [])):
+        if new_affiches:
             film["affiches_globales"] = new_affiches
+            film["affiches"] = new_affiches
             film["affiches_valides"] = len(new_affiches)
             return True
 
@@ -206,8 +209,9 @@ def run_weekly_sync(max_new_films: int = 10, days_window: int = 7, dry_run: bool
     if updated_pop_count > 0:
         print(f"  📈 Scores de popularité actualisés pour {updated_pop_count} film(s) du catalogue.")
 
-    # 2b. Ajout des nouveaux films populaires
+    # 2b. Ajout des nouveaux films populaires (avec filtre de qualité strict)
     if not skip_new:
+        from import_community_films import evaluate_quality_gate
         candidates = [m for m in trending if m["id"] not in existing_ids]
         print(f"  📌 {len(candidates)} nouveau(x) film(s) potentiel(s) trouvé(s) (limite: {max_new_films}).")
 
@@ -216,9 +220,14 @@ def run_weekly_sync(max_new_films: int = 10, days_window: int = 7, dry_run: bool
                 break
             mid = m["id"]
             mtitle = m["title"]
-            print(f"\n  👉 Traitement du film [{added_films_count + 1}/{max_new_films}] : {mtitle} (ID: {mid})...")
-            full_film = fetch_tmdb_movie_full(mid, session=session)
+            print(f"\n  👉 Évaluation qualité [{added_films_count + 1}/{max_new_films}] : {mtitle} (ID: {mid})...")
+            
+            is_valid, reason, _ = evaluate_quality_gate(session, mid)
+            if not is_valid:
+                print(f"    ⏩ Écarté ({reason}).")
+                continue
 
+            full_film = fetch_tmdb_movie_full(mid, session=session)
             if full_film and full_film.get("affiches_globales"):
                 all_films.insert(0, full_film)
                 existing_ids.add(mid)

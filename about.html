@@ -318,23 +318,21 @@
 
         <div class="feature-divider"></div>
 
-        <!-- Feature 4: Dynamic TMDb Data Refresh -->
+        <!-- Feature 4: Automated TMDb Data Synchronization -->
         <div class="feature-showcase-row feature-showcase-row--reverse">
           <div class="feature-showcase-text">
             <div class="feature-number">04</div>
-            <h3 class="tech-card-title" data-i18n="features_feat4_title">Actualisation Dynamique des Données</h3>
-            <p class="tech-card-desc" data-i18n="features_feat4_desc">Pour les films récemment sortis en salle ou en streaming, actualisez en un clic les données financières (box-office, budget), la note critique et les nouvelles affiches via notre connecteur direct avec l'API TMDb.</p>
+            <h3 class="tech-card-title" data-i18n="features_feat4_title">Synchronisation & Actualisation Automatisée</h3>
+            <p class="tech-card-desc" data-i18n="features_feat4_desc">Pour garantir des données toujours fraîches sans intervention manuelle, un pipeline automatisé interroge l'API TMDb chaque semaine et pour les sorties récentes. Les chiffres du box-office, budgets, notes critiques et nouvelles affiches officielles sont automatiquement synchronisés et intégrés à la base.</p>
           </div>
           <div class="feature-showcase-demo">
             <div class="demo-refresh-card">
               <div class="demo-refresh-header">
-                <div class="demo-refresh-badge">Film Récent</div>
-                <button class="demo-refresh-btn" title="Actualiser TMDb">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13">
-                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
-                  </svg>
-                  <span>Actualiser TMDb</span>
-                </button>
+                <div class="demo-refresh-badge">TMDb Live Sync</div>
+                <div class="demo-sync-live-pill">
+                  <span class="demo-sync-pulse"></span>
+                  <span>Pipeline Actif</span>
+                </div>
               </div>
               <div class="demo-refresh-meta-grid">
                 <div class="demo-refresh-meta">

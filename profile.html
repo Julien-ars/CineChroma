@@ -315,15 +315,19 @@
         <!-- Left Column -->
         <div class="modal-poster-col">
           <img id="modal-poster-img" src="" alt="" class="modal-poster-img" />
-          <div id="modal-poster-selector" class="modal-poster-selector" style="display: none;"></div>
-          <div id="modal-poster-cats" class="modal-poster-cats"></div>
-          <div id="modal-poster-dots" class="modal-poster-dots"></div>
-          <button id="modal-download-btn" class="modal-download-btn-minimal" title="Télécharger l'affiche">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-            </svg>
-            <span data-i18n="download_poster">Télécharger l'affiche</span>
-          </button>
+          <div class="modal-poster-controls">
+            <div id="modal-poster-selector" class="modal-poster-selector" style="display: none;"></div>
+            <div class="modal-poster-subcontrols">
+              <div id="modal-poster-cats" class="modal-poster-cats"></div>
+              <div id="modal-poster-dots" class="modal-poster-dots"></div>
+            </div>
+            <button id="modal-download-btn" class="modal-download-btn-minimal" title="Télécharger l'affiche">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              <span data-i18n="download_poster">Télécharger l'affiche</span>
+            </button>
+          </div>
         </div>
         <!-- Right Column -->
         <div class="modal-info-col">
@@ -355,11 +359,6 @@
               <button id="modal-share-card-btn" class="modal-action-btn-circle" title="Partager la carte">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
                   <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
-                </svg>
-              </button>
-              <button id="modal-refresh-data-btn" class="modal-action-btn-circle" title="Actualiser les données TMDb" data-i18n-title="refresh_tmdb_data">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
-                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
                 </svg>
               </button>
               <a id="modal-trailer-btn" href="#" target="_blank" rel="noopener noreferrer" class="modal-trailer-link" hidden>
