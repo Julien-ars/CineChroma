@@ -87,7 +87,7 @@ const I18N = {
     splash_loading:      'Chargement de la bibliothèque...',
     splash_init:         'Initialisation...',
     splash_db:           'Connexion à la base de données...',
-    splash_download:     'Téléchargement de la bibliothèque...',
+    splash_download:     'Chargement de la bibliothèque...',
     splash_index:        'Indexation des œuvres...',
     splash_gallery:      'Génération de la galerie...',
     splash_ready:        'Prêt !',
@@ -286,7 +286,7 @@ const I18N = {
     splash_loading:      'Loading library...',
     splash_init:         'Initializing...',
     splash_db:           'Connecting to database...',
-    splash_download:     'Downloading library...',
+    splash_download:     'Loading library...',
     splash_index:        'Indexing artworks...',
     splash_gallery:      'Generating gallery...',
     splash_ready:        'Ready!',
@@ -485,7 +485,7 @@ const I18N = {
       splash_loading:      'ライブラリを読み込み中...',
       splash_init:         '初期化中...',
       splash_db:           'データベースに接続中...',
-      splash_download:     'ライブラリをダウンロード中...',
+      splash_download:     'ライブラリを読み込み中...',
       splash_index:        '作品をインデックス中...',
       splash_gallery:      'ギャラリーを生成中...',
       splash_ready:        '準備完了！',
@@ -2964,7 +2964,7 @@ function startHeroGlowCycle() {
   }, 5000);
 }
 
-// Discreet mouse spotlight follower over hero background
+// Ultra-fluid GPU-accelerated mouse spotlight follower over hero background
 function setupHeroMouseSpotlight() {
   if (!dom.landingHero || $('#hero-mouse-spotlight')) return;
   const spotlight = document.createElement('div');
@@ -2972,16 +2972,51 @@ function setupHeroMouseSpotlight() {
   spotlight.className = 'hero-mouse-spotlight';
   dom.landingHero.appendChild(spotlight);
 
+  let mouseX = 0;
+  let mouseY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let isHovered = false;
+  let rafId = null;
+
+  function updatePosition() {
+    // Ultra-fluid lerp interpolation for silky smoothness
+    currentX += (mouseX - currentX) * 0.35;
+    currentY += (mouseY - currentY) * 0.35;
+
+    spotlight.style.transform = `translate3d(${currentX.toFixed(1)}px, ${currentY.toFixed(1)}px, 0)`;
+
+    if (isHovered || Math.abs(mouseX - currentX) > 0.2 || Math.abs(mouseY - currentY) > 0.2) {
+      rafId = requestAnimationFrame(updatePosition);
+    } else {
+      rafId = null;
+    }
+  }
+
+  dom.landingHero.addEventListener('mouseenter', (e) => {
+    isHovered = true;
+    const rect = dom.landingHero.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+    currentX = mouseX;
+    currentY = mouseY;
+    spotlight.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+    spotlight.style.opacity = '1';
+  }, { passive: true });
+
   dom.landingHero.addEventListener('mousemove', (e) => {
     const rect = dom.landingHero.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    spotlight.style.left = `${x}px`;
-    spotlight.style.top = `${y}px`;
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
     spotlight.style.opacity = '1';
-  });
+
+    if (!rafId) {
+      rafId = requestAnimationFrame(updatePosition);
+    }
+  }, { passive: true });
 
   dom.landingHero.addEventListener('mouseleave', () => {
+    isHovered = false;
     spotlight.style.opacity = '0';
   });
 }
