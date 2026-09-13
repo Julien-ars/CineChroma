@@ -1,5 +1,295 @@
 [
   {
+    "id": 1258181,
+    "est_serie": false,
+    "type_media": "movie",
+    "est_animation": false,
+    "est_anime": false,
+    "titre": "La vie d'une femme",
+    "titre_en": "A Woman's Life",
+    "titre_ja": "La vie d'une femme",
+    "titre_original": "La vie d'une femme",
+    "date_sortie": "2026-09-09",
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
+    "duree_minutes": 98,
+    "realisateur": "Charline Bourgeois-Tacquet",
+    "langue_origine": "fr",
+    "note_moyenne": 5.93,
+    "popularite": 2.72,
+    "resume_fr": "Gabrielle, 55 ans, se consacre corps et âme à son métier. Chirurgienne et cheffe de service dans un hôpital public, elle court et se démultiplie, assaillie de responsabilités. Il lui reste peu de temps pour sa vie privée — un mari qui l’aime et une mère dont elle doit s’occuper. Lorsqu'une romancière vient passer quelques semaines dans son service pour les besoins d’un livre, son équilibre vacille. Dans le quotidien que Gabrielle s’est construit, y a-t-il de la place pour l’inattendu ?",
+    "resume_en": "Gabrielle, a dedicated surgeon and head of a hospital department, is stretched thin by the weight of responsibility. There is little time left for her private life: a loving husband and a mother who depends on her care. Yet this is the life she wanted, the life she chose. When a novelist comes to observe her at work for a book, her balance begins to shift.",
+    "resume_ja": "",
+    "bande_annonce_url_fr": "https://www.youtube.com/watch?v=ir2zVHlOHsw",
+    "bande_annonce_url_en": "",
+    "bande_annonce_url_ja": "",
+    "affiches_globales": [
+      {
+        "categorie": "textless",
+        "type": "textless",
+        "iso_639_1": null,
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/gOV2770kfWtqh3FWk95cWA9rmmT.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/gOV2770kfWtqh3FWk95cWA9rmmT.jpg",
+        "palette": [
+          {
+            "hex": "#2f2c2c",
+            "weight": 42.93
+          },
+          {
+            "hex": "#6d423d",
+            "weight": 22.93
+          },
+          {
+            "hex": "#ac5b44",
+            "weight": 22.35
+          },
+          {
+            "hex": "#fceddd",
+            "weight": 6.17
+          },
+          {
+            "hex": "#d983aa",
+            "weight": 5.63
+          }
+        ],
+        "palette_brute": [
+          {
+            "hex": "#2f2c2c",
+            "weight": 42.93
+          },
+          {
+            "hex": "#6d423d",
+            "weight": 22.93
+          },
+          {
+            "hex": "#ac5b44",
+            "weight": 22.35
+          },
+          {
+            "hex": "#fceddd",
+            "weight": 6.17
+          },
+          {
+            "hex": "#d983aa",
+            "weight": 5.63
+          }
+        ]
+      },
+      {
+        "categorie": "textless",
+        "type": "textless",
+        "iso_639_1": null,
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/a57hFw1XW0VpnEgc0A9ENmbmEE7.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/a57hFw1XW0VpnEgc0A9ENmbmEE7.jpg",
+        "palette": [
+          {
+            "hex": "#110e0e",
+            "weight": 48.07
+          },
+          {
+            "hex": "#3c2a23",
+            "weight": 23.61
+          },
+          {
+            "hex": "#613d2d",
+            "weight": 14.21
+          },
+          {
+            "hex": "#948477",
+            "weight": 8.14
+          },
+          {
+            "hex": "#e9e3d0",
+            "weight": 5.98
+          }
+        ],
+        "palette_brute": [
+          {
+            "hex": "#110e0e",
+            "weight": 48.07
+          },
+          {
+            "hex": "#3c2a23",
+            "weight": 23.61
+          },
+          {
+            "hex": "#613d2d",
+            "weight": 14.21
+          },
+          {
+            "hex": "#948477",
+            "weight": 8.14
+          },
+          {
+            "hex": "#e9e3d0",
+            "weight": 5.98
+          }
+        ]
+      },
+      {
+        "categorie": "textless",
+        "type": "textless",
+        "iso_639_1": null,
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/sgKD1AtyMfTLqbWo9rlqxYIKAY8.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/sgKD1AtyMfTLqbWo9rlqxYIKAY8.jpg",
+        "palette": [
+          {
+            "hex": "#090605",
+            "weight": 64.36
+          },
+          {
+            "hex": "#362017",
+            "weight": 21.46
+          },
+          {
+            "hex": "#715039",
+            "weight": 5.53
+          },
+          {
+            "hex": "#f0ebd2",
+            "weight": 4.73
+          },
+          {
+            "hex": "#b69f80",
+            "weight": 3.92
+          }
+        ],
+        "palette_brute": [
+          {
+            "hex": "#090605",
+            "weight": 64.36
+          },
+          {
+            "hex": "#362017",
+            "weight": 21.46
+          },
+          {
+            "hex": "#715039",
+            "weight": 5.53
+          },
+          {
+            "hex": "#f0ebd2",
+            "weight": 4.73
+          },
+          {
+            "hex": "#b69f80",
+            "weight": 3.92
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "type": "origine",
+        "iso_639_1": "fr",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/hakvR1eAbMI4xGFfElR6LZQyq8P.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/hakvR1eAbMI4xGFfElR6LZQyq8P.jpg",
+        "palette": [
+          {
+            "hex": "#1f130e",
+            "weight": 38.85
+          },
+          {
+            "hex": "#b15f40",
+            "weight": 24.97
+          },
+          {
+            "hex": "#67392b",
+            "weight": 24.28
+          },
+          {
+            "hex": "#fceddc",
+            "weight": 6.15
+          },
+          {
+            "hex": "#d785a5",
+            "weight": 5.75
+          }
+        ],
+        "palette_brute": [
+          {
+            "hex": "#1f130e",
+            "weight": 38.85
+          },
+          {
+            "hex": "#b15f40",
+            "weight": 24.97
+          },
+          {
+            "hex": "#67392b",
+            "weight": 24.28
+          },
+          {
+            "hex": "#fceddc",
+            "weight": 6.15
+          },
+          {
+            "hex": "#d785a5",
+            "weight": 5.75
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "type": "origine",
+        "iso_639_1": "fr",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/9xAYLvWZGASDKJZjt5XgvD7ugsn.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/9xAYLvWZGASDKJZjt5XgvD7ugsn.jpg",
+        "palette": [
+          {
+            "hex": "#1b0f09",
+            "weight": 42.41
+          },
+          {
+            "hex": "#743925",
+            "weight": 23.36
+          },
+          {
+            "hex": "#c0633f",
+            "weight": 22.21
+          },
+          {
+            "hex": "#d481a3",
+            "weight": 6.43
+          },
+          {
+            "hex": "#fdf0e3",
+            "weight": 5.59
+          }
+        ],
+        "palette_brute": [
+          {
+            "hex": "#1b0f09",
+            "weight": 42.41
+          },
+          {
+            "hex": "#743925",
+            "weight": 23.36
+          },
+          {
+            "hex": "#c0633f",
+            "weight": 22.21
+          },
+          {
+            "hex": "#d481a3",
+            "weight": 6.43
+          },
+          {
+            "hex": "#fdf0e3",
+            "weight": 5.59
+          }
+        ]
+      }
+    ],
+    "saisons": [],
+    "v2_complete": true,
+    "revenue": 0,
+    "budget": 0,
+    "affiches_valides": 5,
+    "statut_traitement": "valide"
+  },
+  {
     "id": 1618,
     "est_serie": true,
     "type_media": "tv",
@@ -575100,8 +575390,8 @@
     "nombre_episodes": 87,
     "nb_saisons": 4,
     "nb_episodes": 87,
-    "createur": "Manabu Otsuka, Yuichiro Hayashi, Jun Shishido",
-    "realisateur": "Manabu Otsuka, Yuichiro Hayashi, Jun Shishido",
+    "createur": "Manabu Otsuka, Jun Shishido, Yuichiro Hayashi",
+    "realisateur": "Manabu Otsuka, Jun Shishido, Yuichiro Hayashi",
     "reseaux": [
       "MBS",
       "NHK G",
@@ -575118,8 +575408,8 @@
       "Pony Canyon Enterprise"
     ],
     "langue_origine": "ja",
-    "note_moyenne": 8.69,
-    "popularite": 33.26,
+    "note_moyenne": 8.68,
+    "popularite": 28.33,
     "resume_fr": "Dans un monde ravagé par des titans mangeurs d’homme depuis plus d’un siècle, les rares survivants de l’Humanité n’ont d’autre choix pour survivre que de se barricader dans une cité-forteresse. Le jeune Eren, témoin de la mort de sa mère dévorée par un titan, n’a qu’un rêve : entrer dans le corps d’élite chargé de découvrir l’origine des titans, et les annihiler jusqu’au dernier…",
     "resume_en": "100 years ago, the last remnants of humanity were forced to retreat behind the towering walls of a fortified city to escape the massive, man-eating Titans that roamed the land outside their fortress. Only the members of the Scouting Legion dared to stray beyond the safety of the walls – but even those brave warriors seldom returned alive. Those within the city clung to the illusion of a peaceful existence until the day that dream was shattered, and their slim chance at survival was reduced to one horrifying choice: kill – or be devoured!",
     "resume_ja": "繁栄を築き上げた人類は、突如出現した巨人により滅亡の淵に立たされた。生き残った人類は巨大な三重の城壁の内側に生活圏を確保することで辛うじてその命脈を保っていた。城壁による平和を得てから約100年後。いつしか人類は巨人の脅威を忘れかけていた。",

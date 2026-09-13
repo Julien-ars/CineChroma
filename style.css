@@ -8476,18 +8476,27 @@ body.page-exit {
 .modal-seasons-pills {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 4px;
   overflow-x: auto;
-  padding: 2px 8px;
+  overflow-y: hidden;
+  padding: 2px 4px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  mask-image: linear-gradient(to right, transparent, black 14px, black calc(100% - 14px), transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 14px, black calc(100% - 14px), transparent);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .modal-seasons-pills::-webkit-scrollbar {
   display: none;
+}
+
+.modal-seasons-pills > :first-child {
+  margin-left: auto;
+}
+.modal-seasons-pills > :last-child {
+  margin-right: auto;
 }
 
 .modal-season-pill-btn {
@@ -8540,7 +8549,8 @@ body.page-exit {
   }
   .modal-seasons-bar-mobile {
     display: block;
-    margin: 8px 0 12px;
+    margin: 6px 0 10px;
+    max-width: 100%;
   }
 }
 

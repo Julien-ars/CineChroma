@@ -3120,10 +3120,10 @@ function populateModal(film, startingPosterIndex = 0) {
     $$('.modal-season-pill-btn').forEach(btn => {
       const isGen = btn.dataset.season === 'general';
       const sNum = parseInt(btn.dataset.season, 10);
-      if (selectedSeasonNum === null) {
-        btn.classList.toggle('active', isGen);
-      } else {
-        btn.classList.toggle('active', !isGen && sNum === selectedSeasonNum);
+      const isAct = (selectedSeasonNum === null && isGen) || (selectedSeasonNum !== null && !isGen && sNum === selectedSeasonNum);
+      btn.classList.toggle('active', isAct);
+      if (isAct) {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
     });
   }
@@ -3144,8 +3144,17 @@ function populateModal(film, startingPosterIndex = 0) {
       const wrap = document.createElement('div');
       wrap.className = 'modal-seasons-pills';
 
+      // Support horizontal scrolling with mouse wheel
+      wrap.addEventListener('wheel', (e) => {
+        if (e.deltaY !== 0 && wrap.scrollWidth > wrap.clientWidth) {
+          e.preventDefault();
+          wrap.scrollLeft += (e.deltaY * 0.8);
+        }
+      }, { passive: false });
+
       // Bouton 'Générale'
       const genBtn = document.createElement('button');
+      genBtn.type = 'button';
       genBtn.className = `modal-season-pill-btn${selectedSeasonNum === null ? ' active' : ''}`;
       genBtn.dataset.season = 'general';
       genBtn.innerHTML = `<span>${t('season_general')}</span>`;
@@ -3161,6 +3170,7 @@ function populateModal(film, startingPosterIndex = 0) {
       // Bouton par saison
       validSeasons.forEach(s => {
         const sBtn = document.createElement('button');
+        sBtn.type = 'button';
         const isActive = (selectedSeasonNum === s.numero);
         sBtn.className = `modal-season-pill-btn${isActive ? ' active' : ''}`;
         sBtn.dataset.season = String(s.numero);
