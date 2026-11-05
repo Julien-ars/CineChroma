@@ -1,25 +1,34 @@
 <!DOCTYPE html>
-<html lang="fr" data-lang="fr" data-theme="dark">
+<html lang="fr" data-lang="fr">
 <head>
+  <script>!function(){var t=localStorage.getItem('cinechroma_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CineChroma — Mini-Jeux Chromatiques</title>
-  <meta name="description" content="Jouez aux mini-jeux CineChroma : CouleurQuiz, PalettePure et ChronoChroma. Testez votre œil chromatique sur des centaines de films." />
+  <meta name="description" content="Jouez aux mini-jeux CineChroma : CouleurQuiz, PalettePure, ChronoChroma et AfficheFlou. Testez votre œil chromatique sur des centaines de films." />
   <link rel="icon" type="image/png" href="./favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Shrikhand&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Press+Start+2P&family=Shrikhand&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css?v=2.7.2" />
 </head>
-<body class="game-body game-transparent-header">
+<body class="game-body hub-active">
 
   <!-- HEADER -->
   <header id="app-header">
     <div class="header-inner">
       <a class="brand" href="./index.html" aria-label="CineChroma — Accueil">
         <div class="brand-logo-svg-wrap" title="CineChroma">
-          <svg class="brand-logo-svg" viewBox="0 0 380 70" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="52" class="logo-text-groovy">CINE CHROMA</text>
+          <svg class="brand-logo-svg brand-logo-svg--arcade" viewBox="0 0 380 70" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="arcadeLogoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#00f0ff" />
+                <stop offset="35%" stop-color="#38bdf8" />
+                <stop offset="60%" stop-color="#ff2a85" />
+                <stop offset="100%" stop-color="#ffe600" />
+              </linearGradient>
+            </defs>
+            <text x="0" y="50" class="logo-text-arcade">CINECHROMA</text>
           </svg>
         </div>
       </a>
@@ -65,136 +74,525 @@
   ============================================================ -->
   <main class="game-page-container" id="game-main">
 
-    <!-- ──────────────────────────────────────────
-         HUB SCREEN — Choose mini-game
-    ────────────────────────────────────────── -->
-    <div id="screen-hub" class="gscreen gscreen--hub">
-      
-      <!-- Subtle Cinematic Ambient Glow & Moving Projector Beams -->
-      <div class="hub-ambient-glow" aria-hidden="true">
-        <div class="hub-light-orb hub-light-orb--1"></div>
-        <div class="hub-light-orb hub-light-orb--2"></div>
+    <!-- ══════════════════════════════════════════
+         HUB SCREEN — RETRO ARCADE MATRIX
+    ══════════════════════════════════════════ -->
+    <div id="screen-hub" class="gscreen gscreen--hub arc-hub">
+
+      <!-- ░░ Masterpiece Synthwave 80s Cyber Sunset Background ░░ -->
+      <div class="arc-bg" aria-hidden="true">
+        <!-- Cosmic Sky & Starfield -->
+        <div class="arc-bg-sky"></div>
+        <canvas id="arc-stars-canvas" class="arc-stars-canvas"></canvas>
+
+        <!-- Giant Striped Synthwave Sunset Sun -->
+        <div class="arc-synth-sun-wrap">
+          <div class="arc-synth-sun">
+            <div class="arc-synth-sun-stripes"></div>
+          </div>
+          <div class="arc-synth-sun-glow"></div>
+        </div>
+
+        <!-- Geometric Low-Poly Neon Mountains -->
+        <div class="arc-synth-mountains">
+          <svg class="arc-mountains-svg" viewBox="0 0 1600 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="mtnGradL1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#3d145c" />
+                <stop offset="100%" stop-color="#0b071c" />
+              </linearGradient>
+              <linearGradient id="mtnGradR1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#5a1d8a" />
+                <stop offset="100%" stop-color="#140830" />
+              </linearGradient>
+              <linearGradient id="mtnGradL2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#240c38" />
+                <stop offset="100%" stop-color="#080414" />
+              </linearGradient>
+              <linearGradient id="mtnGradR2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#421463" />
+                <stop offset="100%" stop-color="#0e0621" />
+              </linearGradient>
+            </defs>
+            <!-- Background Mountain Peaks -->
+            <polygon points="80,400 280,180 480,400" fill="url(#mtnGradL2)" />
+            <polygon points="280,180 480,400 620,400" fill="url(#mtnGradR2)" opacity="0.9" />
+
+            <polygon points="1120,400 1320,170 1520,400" fill="url(#mtnGradL2)" />
+            <polygon points="1320,170 1520,400 1580,400" fill="url(#mtnGradR2)" opacity="0.9" />
+
+            <!-- Left Center Pyramid Peak -->
+            <polygon points="460,400 640,160 820,400" fill="url(#mtnGradL1)" />
+            <polygon points="640,160 820,400 820,400" fill="url(#mtnGradR1)" />
+
+            <!-- Main Giant Central Pyramid Peak (Reference Image Style) -->
+            <polygon points="720,400 960,60 1200,400" fill="url(#mtnGradL1)" />
+            <polygon points="960,60 1200,400 1260,400" fill="url(#mtnGradR1)" />
+
+            <!-- Peak Neon Highlight Lines -->
+            <line x1="460" y1="400" x2="640" y2="160" stroke="rgba(255,42,133,0.5)" stroke-width="2.5" />
+            <line x1="720" y1="400" x2="960" y2="60" stroke="rgba(255,42,133,0.6)" stroke-width="3" />
+            <line x1="960" y1="60" x2="1200" y2="400" stroke="rgba(0,240,255,0.6)" stroke-width="3" />
+          </svg>
+        </div>
+
+        <!-- Laser Beam Horizon Glow Line -->
+        <div class="arc-synth-horizon-laser"></div>
+
+        <!-- 3D Moving Synthwave Neon Cyan Grid Floor -->
+        <div class="arc-bg-grid-floor">
+          <div class="arc-bg-grid-mesh"></div>
+          <div class="arc-bg-grid-glow-under"></div>
+        </div>
+
+        <!-- Scanlines & Vignette Overlay -->
+        <div class="arc-scanlines"></div>
+        <div class="arc-vignette"></div>
       </div>
 
-      <div class="hub-header">
-        <span class="hub-kicker" data-i18n="game_hub_kicker">ARCADE CINÉMA</span>
-        <div class="hub-chroma-line" aria-hidden="true"></div>
-        <h1 class="hub-title" data-i18n="game_hub_title">Mini-Jeux</h1>
-        <p class="hub-subtitle" data-i18n="game_hub_subtitle">Choisissez votre défi chromatique</p>
-      </div>
-
-      <div class="hub-cards">
-        <!-- Quick Play / Jeu Rapide -->
-        <button class="hub-card hub-card--quick" id="hub-card-quick" data-quick="true">
-          <div class="hub-card-sheen" aria-hidden="true"></div>
-          <div class="hub-card-icon hub-card-icon--quick">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
-              <polygon points="6 4 19 12 6 20 6 4" fill="currentColor"/>
-            </svg>
-          </div>
-          <div class="hub-card-body">
-            <div class="hub-card-top">
-              <span class="hub-card-name" data-i18n="game_quick_name">Jeu Rapide</span>
-              <span class="hub-card-tag hub-card-tag--quick" data-i18n="game_quick_tag">⚡ Express</span>
-            </div>
-            <p class="hub-card-desc" data-i18n="game_quick_desc">Lancez instantanément une partie de 5 films cultes sans attendre.</p>
-          </div>
-          <div class="hub-card-arrow hub-card-arrow--quick">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-        </button>
-
-        <!-- CouleurQuiz -->
-        <button class="hub-card hub-card--cq" id="hub-card-cq" data-game="couleurquiz">
-          <div class="hub-card-sheen" aria-hidden="true"></div>
-          <div class="hub-card-icon hub-card-icon--cq">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24">
-              <circle cx="7" cy="12" r="3" fill="currentColor" opacity="0.6"/>
-              <circle cx="12" cy="7" r="3" fill="currentColor" opacity="0.8"/>
-              <circle cx="17" cy="12" r="3" fill="currentColor"/>
-              <circle cx="12" cy="17" r="3" fill="currentColor" opacity="0.4"/>
-            </svg>
-          </div>
-          <div class="hub-card-body">
-            <div class="hub-card-top">
-              <span class="hub-card-name" data-i18n="game_cq_name">CouleurQuiz</span>
-              <span class="hub-card-tag hub-card-tag--cq" data-i18n="game_cq_tag">Classique</span>
-            </div>
-            <p class="hub-card-desc" data-i18n="game_cq_desc">Identifiez le film depuis sa palette de 5 couleurs.</p>
-          </div>
-          <div class="hub-card-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-        </button>
-
-        <!-- PalettePure -->
-        <button class="hub-card hub-card--pp" id="hub-card-pp" data-game="palettepure">
-          <div class="hub-card-sheen" aria-hidden="true"></div>
-          <div class="hub-card-icon hub-card-icon--pp">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24">
-              <rect x="3" y="6" width="18" height="4" rx="2" fill="currentColor" opacity="0.75"/>
-              <rect x="3" y="14" width="12" height="4" rx="2" fill="currentColor" opacity="0.45"/>
-              <rect x="17" y="14" width="4" height="4" rx="2" stroke-dasharray="2 2" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="hub-card-body">
-            <div class="hub-card-top">
-              <span class="hub-card-name" data-i18n="game_pp_name">PalettePure</span>
-              <span class="hub-card-tag hub-card-tag--pp" data-i18n="game_pp_tag">Œil Chromatique</span>
-            </div>
-            <p class="hub-card-desc" data-i18n="game_pp_desc">Trouvez la couleur manquante parmi les propositions.</p>
-          </div>
-          <div class="hub-card-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-        </button>
-
-        <!-- ChronoChroma -->
-        <button class="hub-card hub-card--cc" id="hub-card-cc" data-game="chronochroma">
-          <div class="hub-card-sheen" aria-hidden="true"></div>
-          <div class="hub-card-icon hub-card-icon--cc">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="24" height="24">
-              <circle cx="12" cy="13" r="8"/>
-              <path d="M12 9v4l3 3"/>
-              <path d="M9 2h6"/>
-            </svg>
-          </div>
-          <div class="hub-card-body">
-            <div class="hub-card-top">
-              <span class="hub-card-name" data-i18n="game_cc_name">ChronoChroma</span>
-              <span class="hub-card-tag hub-card-tag--speed" data-i18n="game_cc_tag">Vitesse</span>
-            </div>
-            <p class="hub-card-desc" data-i18n="game_cc_desc">Course contre la montre. Maximum de bonnes réponses avant la fin du temps.</p>
-          </div>
-          <div class="hub-card-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
+      <!-- ░░ Top Marquee Arcade HUD ░░ -->
+      <div class="arc-marquee">
+        <div class="arc-marquee-slot arc-1up" id="arc-1up-slot" role="button" tabindex="0" title="Score Joueur 1 (Cliquez pour marquer des points !)">
+          <span class="arc-hud-lbl">1UP</span>
+          <span class="arc-hud-val" id="arc-1up-val">000000</span>
+        </div>
+        <div class="arc-marquee-slot arc-hiscore" id="arc-hiscore-slot" role="button" tabindex="0" title="Meilleur Score Arcade">
+          <span class="arc-hud-lbl arc-lbl--gold">HI-SCORE</span>
+          <span class="arc-hud-val arc-val--gold" id="arc-hiscore-val">999999</span>
+        </div>
+        <div class="arc-marquee-slot arc-credits" id="arc-credits-slot" role="button" tabindex="0" title="Insérer une pièce / Insert Coin (Cliquez !)">
+          <span class="arc-hud-lbl arc-lbl--magenta">CREDITS</span>
+          <span class="arc-hud-val arc-val--magenta" id="arc-credits-val">03</span>
+        </div>
+        <button id="arc-sfx-toggle" class="arc-sfx-btn" title="Activer / Désactiver les sons 8-bit" aria-label="Toggle SFX">
+          <span class="arc-sfx-icon">🔊</span>
+          <span class="arc-sfx-text">SFX: ON</span>
         </button>
       </div>
-    </div>
+
+      <!-- ░░ Arcade Title Section ░░ -->
+      <div class="arc-header">
+        <div class="arc-subline-left">
+          <span class="arc-dot"></span>
+          <span>• ARCADE • CINEMA • COULEUR</span>
+        </div>
+        <div class="arc-title-wrap">
+          <span class="arc-sparkle arc-sparkle--l">✦</span>
+          <h1 class="arc-title-main" data-i18n="game_hub_title">Mini-Jeux</h1>
+          <span class="arc-sparkle arc-sparkle--r">✦</span>
+        </div>
+        <div class="arc-subline-right" data-i18n="game_hub_subtitle">
+          Choisissez votre défi chromatique
+        </div>
+      </div>
+
+      <!-- ░░ Bento Grid — Arcade Pods ░░ -->
+      <div class="arc-grid">
+
+        <!-- 00 · PARTIE RAPIDE (Vintage 8-Bit Cinema Ticket Hero Card) -->
+        <div class="arc-card arc-card--quick arc-card--ticket hub-bento-card"
+             id="hub-card-quick" data-quick="true"
+             role="button" tabindex="0" aria-label="Lancer une Partie Rapide Express">
+          <svg class="arc-pixel-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="ticketLaserGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffe600" />
+                <stop offset="35%" stop-color="#ffb700" />
+                <stop offset="70%" stop-color="#ff9500" />
+                <stop offset="100%" stop-color="#ffe600" />
+              </linearGradient>
+            </defs>
+            <!-- Solid Opaque Ticket Body with Chunky Sharp 8-Bit Pixel Miter Border -->
+            <polygon points="14,2 86,2 86,18 98,18 98,82 86,82 86,98 14,98 14,82 2,82 2,18 14,18" 
+                     fill="#120c04" stroke="url(#ticketLaserGrad)" stroke-width="3.2" stroke-linejoin="miter" stroke-linecap="square" vector-effect="non-scaling-stroke" />
+            <!-- Vertical Perforated Stub Lines for Serial Numbers (Crisp 8-Bit Pixel Dashes) -->
+            <line x1="16" y1="19" x2="16" y2="81" stroke="#ffcc00" stroke-width="2" stroke-dasharray="3 3" stroke-linecap="square" vector-effect="non-scaling-stroke" opacity="0.75" />
+            <line x1="84" y1="19" x2="84" y2="81" stroke="#ffcc00" stroke-width="2" stroke-dasharray="3 3" stroke-linecap="square" vector-effect="non-scaling-stroke" opacity="0.75" />
+            <!-- Golden 8-Bit Pixel Corner Rivets (■) -->
+            <rect x="15" y="3.5" width="2.5" height="2.5" fill="#ffe600" />
+            <rect x="82.5" y="3.5" width="2.5" height="2.5" fill="#ffe600" />
+            <rect x="15" y="94" width="2.5" height="2.5" fill="#ffe600" />
+            <rect x="82.5" y="94" width="2.5" height="2.5" fill="#ffe600" />
+            <!-- Golden 8-Bit Notches Corner Pixel Accents -->
+            <rect x="12" y="16.5" width="2.5" height="2.5" fill="#ffb700" />
+            <rect x="85.5" y="16.5" width="2.5" height="2.5" fill="#ffb700" />
+            <rect x="12" y="81" width="2.5" height="2.5" fill="#ffb700" />
+            <rect x="85.5" y="81" width="2.5" height="2.5" fill="#ffb700" />
+          </svg>
+          <div class="arc-card-content arc-card-content--ticket">
+            <!-- Left Serial Number -->
+            <div class="arc-ticket-serial-side arc-ticket-serial--left">
+              <span>02023</span>
+            </div>
+
+            <!-- Center Ticket Core -->
+            <div class="arc-ticket-center-body">
+              <!-- Top Star Header -->
+              <div class="arc-ticket-stars-row">
+                <span class="arc-ticket-h-line"></span>
+                <span class="arc-star">★</span>
+                <span class="arc-star arc-star--main">★</span>
+                <span class="arc-star">★</span>
+                <span class="arc-ticket-h-line"></span>
+              </div>
+
+              <!-- Main Title -->
+              <h2 class="arc-ticket-title">PARTIE RAPIDE</h2>
+
+              <!-- Subtitle -->
+              <div class="arc-ticket-sub">
+                <span>5 FILMS</span>
+                <span class="arc-ticket-bullet">•</span>
+                <span>SCORE x2</span>
+                <span class="arc-ticket-bullet">•</span>
+                <span>ACTION DIRECTE</span>
+              </div>
+
+              <!-- Bottom Star Footer -->
+              <div class="arc-ticket-stars-row">
+                <span class="arc-ticket-h-line"></span>
+                <span class="arc-star">★</span>
+                <span class="arc-star arc-star--main">★</span>
+                <span class="arc-star">★</span>
+                <span class="arc-ticket-h-line"></span>
+              </div>
+
+              <!-- Big Bold Glowing Arcade Start Button -->
+              <div class="arc-ticket-btn-action">
+                <span class="arc-ticket-btn-arrow">►</span>
+                <span>START</span>
+                <span class="arc-ticket-btn-arrow">◄</span>
+              </div>
+            </div>
+
+            <!-- Right Serial Number -->
+            <div class="arc-ticket-serial-side arc-ticket-serial--right">
+              <span>02023</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 01 · COULEURQUIZ (Top-Left) -->
+        <div class="arc-card arc-card--cq hub-bento-card"
+             id="hub-card-cq" data-game="couleurquiz"
+             role="button" tabindex="0" aria-label="Jouer à CouleurQuiz">
+          <svg class="arc-pixel-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="cqLaserGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f0ff" />
+                <stop offset="60%" stop-color="#00b4d8" />
+                <stop offset="100%" stop-color="#0077fe" />
+              </linearGradient>
+            </defs>
+            <!-- Solid Opaque Card Body with Chunky Sharp 8-Bit Laser Miter Border -->
+            <polygon points="1,1 99,1 99,51 67.5,51 67.5,68 56,68 56,99 1,99" 
+                     fill="#080c1e" stroke="url(#cqLaserGrad)" stroke-width="3.2" stroke-linejoin="miter" stroke-linecap="square" vector-effect="non-scaling-stroke" />
+            <!-- Retro 8-Bit Corner Pixel Brackets (L-corners) & Pixel Studs -->
+            <polygon points="2,2 9,2 9,5 5,5 5,9 2,9" fill="#00f0ff" />
+            <rect x="3" y="3" width="2.5" height="2.5" fill="#ffffff" />
+            <polygon points="2,98 9,98 9,95 5,95 5,91 2,91" fill="#00f0ff" />
+            <rect x="3" y="94.5" width="2.5" height="2.5" fill="#ffffff" />
+            <polygon points="98,2 91,2 91,5 95,5 95,9 98,9" fill="#00f0ff" />
+            <rect x="94.5" y="3" width="2.5" height="2.5" fill="#ffffff" />
+            <!-- Inner Notch Pixel Anchor Stud -->
+            <rect x="64" y="65" width="2.5" height="2.5" fill="#00f0ff" />
+          </svg>
+          <div class="arc-card-content">
+            <div class="arc-card-top">
+              <span class="arc-num">01</span>
+              <div class="arc-color-dots" aria-hidden="true">
+                <span style="background:#e50914"></span>
+                <span style="background:#f59e0b"></span>
+                <span style="background:#10b981"></span>
+                <span style="background:#06b6d4"></span>
+                <span style="background:#8b5cf6"></span>
+              </div>
+              <span class="arc-tag">CLASSIQUE</span>
+            </div>
+
+            <div class="arc-card-body">
+              <h2 class="arc-card-name" data-i18n="game_cq_name">CouleurQuiz</h2>
+              <p class="arc-card-desc">Identifiez le film depuis sa palette signature de 5 teintes.</p>
+
+              <div class="arc-card-mini-preview" aria-hidden="true">
+                <div class="arc-cq-palette-demo">
+                  <span style="background:#e50914" title="#E50914"></span>
+                  <span style="background:#f59e0b" title="#F59E0B"></span>
+                  <span style="background:#10b981" title="#10B981"></span>
+                  <span style="background:#06b6d4" title="#06B6D4"></span>
+                  <span style="background:#8b5cf6" title="#8B5CF6"></span>
+                </div>
+                <span class="arc-mini-tip">4 CHOIX MULTIPLES</span>
+              </div>
+            </div>
+
+            <div class="arc-card-foot">
+              <span class="arc-foot-btn">► FILM BITZ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 · PALETTEPURE (Top-Right) -->
+        <div class="arc-card arc-card--pp hub-bento-card"
+             id="hub-card-pp" data-game="palettepure"
+             role="button" tabindex="0" aria-label="Jouer à PalettePure">
+          <svg class="arc-pixel-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="ppLaserGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f0ff" />
+                <stop offset="60%" stop-color="#00b4d8" />
+                <stop offset="100%" stop-color="#0077fe" />
+              </linearGradient>
+            </defs>
+            <!-- Solid Opaque Card Body with Chunky Sharp 8-Bit Laser Miter Border -->
+            <polygon points="1,1 99,1 99,99 44,99 44,68 32.5,68 32.5,51 1,51" 
+                     fill="#080c1e" stroke="url(#ppLaserGrad)" stroke-width="3.2" stroke-linejoin="miter" stroke-linecap="square" vector-effect="non-scaling-stroke" />
+            <!-- Retro 8-Bit Corner Pixel Brackets (L-corners) & Pixel Studs -->
+            <polygon points="2,2 9,2 9,5 5,5 5,9 2,9" fill="#00f0ff" />
+            <rect x="3" y="3" width="2.5" height="2.5" fill="#ffffff" />
+            <polygon points="98,2 91,2 91,5 95,5 95,9 98,9" fill="#00f0ff" />
+            <rect x="94.5" y="3" width="2.5" height="2.5" fill="#ffffff" />
+            <polygon points="98,98 91,98 91,95 95,95 95,91 98,91" fill="#00f0ff" />
+            <rect x="94.5" y="94.5" width="2.5" height="2.5" fill="#ffffff" />
+            <!-- Inner Notch Pixel Anchor Stud -->
+            <rect x="33.5" y="65" width="2.5" height="2.5" fill="#00f0ff" />
+          </svg>
+          <div class="arc-card-content">
+            <div class="arc-card-top">
+              <span class="arc-num">02</span>
+              <div class="arc-swatch-row" aria-hidden="true">
+                <span style="background:#10b981"></span>
+                <span style="background:#eab308"></span>
+                <span style="background:#06b6d4"></span>
+                <span style="background:#3b82f6"></span>
+                <span style="background:#8b5cf6"></span>
+              </div>
+              <span class="arc-tag">NUANCIER</span>
+              <div class="arc-qblock" id="arc-mario-qblock" role="button" tabindex="0" title="Bloc Mystère Mario (Frappez-moi !)">
+                <span>?</span>
+              </div>
+            </div>
+
+            <div class="arc-card-body">
+              <h2 class="arc-card-name" data-i18n="game_pp_name">PalettePure</h2>
+              <p class="arc-card-desc">Une nuance a disparu. Retrouvez la couleur manquante.</p>
+
+              <div class="arc-card-mini-preview" aria-hidden="true">
+                <div class="arc-pp-palette-demo">
+                  <span style="background:#10b981"></span>
+                  <span style="background:#eab308"></span>
+                  <span class="arc-demo-mystery">?</span>
+                  <span style="background:#3b82f6"></span>
+                  <span style="background:#8b5cf6"></span>
+                </div>
+                <span class="arc-mini-tip">ŒIL CHROMATIQUE</span>
+              </div>
+            </div>
+
+            <div class="arc-card-foot">
+              <span class="arc-foot-btn">► NUANCES</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 · CHRONOCHROMA (Bottom-Left) -->
+        <div class="arc-card arc-card--cc hub-bento-card"
+             id="hub-card-cc" data-game="chronochroma"
+             role="button" tabindex="0" aria-label="Jouer à ChronoChroma">
+          <svg class="arc-pixel-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="ccLaserGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0077fe" />
+                <stop offset="50%" stop-color="#7928ca" />
+                <stop offset="100%" stop-color="#ff2a85" />
+              </linearGradient>
+            </defs>
+            <!-- Solid Opaque Card Body with Chunky Sharp 8-Bit Laser Miter Border -->
+            <polygon points="1,1 56,1 56,32 67.5,32 67.5,49 99,49 99,99 1,99" 
+                     fill="#080c1e" stroke="url(#ccLaserGrad)" stroke-width="3.2" stroke-linejoin="miter" stroke-linecap="square" vector-effect="non-scaling-stroke" />
+            <!-- Retro 8-Bit Corner Pixel Brackets (L-corners) & Pixel Studs -->
+            <polygon points="2,2 9,2 9,5 5,5 5,9 2,9" fill="#7928ca" />
+            <rect x="3" y="3" width="2.5" height="2.5" fill="#ff2a85" />
+            <polygon points="2,98 9,98 9,95 5,95 5,91 2,91" fill="#ff2a85" />
+            <rect x="3" y="94.5" width="2.5" height="2.5" fill="#ffffff" />
+            <polygon points="98,98 91,98 91,95 95,95 95,91 98,91" fill="#ff2a85" />
+            <rect x="94.5" y="94.5" width="2.5" height="2.5" fill="#ffffff" />
+            <!-- Inner Notch Pixel Anchor Stud -->
+            <rect x="64" y="32.5" width="2.5" height="2.5" fill="#ff2a85" />
+          </svg>
+          <div class="arc-card-content">
+            <div class="arc-card-top">
+              <span class="arc-num">03</span>
+              <div class="arc-timer-preview" aria-hidden="true">
+                <span class="arc-tp-label">60 <small>SEC</small></span>
+                <div class="arc-tp-pips">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+              <span class="arc-tag">SPRINT</span>
+              <div class="arc-big-60" aria-hidden="true">60</div>
+            </div>
+
+            <div class="arc-card-body">
+              <h2 class="arc-card-name" data-i18n="game_cc_name">ChronoChroma</h2>
+              <p class="arc-card-desc">60 secondes top chrono. Enchaînez un maximum de palettes.</p>
+
+              <div class="arc-card-mini-preview" aria-hidden="true">
+                <div class="arc-cc-bar-demo">
+                  <div class="arc-cc-bar-fill"></div>
+                </div>
+                <span class="arc-mini-tip">COMBO MULTIPLIER</span>
+              </div>
+            </div>
+
+            <div class="arc-card-foot">
+              <span class="arc-foot-btn">► SPEEDRUN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 · AFFICHEFLOU (Bottom-Right) -->
+        <div class="arc-card arc-card--af hub-bento-card"
+             id="hub-card-af" data-game="afficheflou"
+             role="button" tabindex="0" aria-label="Jouer à AfficheFlou">
+          <svg class="arc-pixel-border-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="afLaserGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0077fe" />
+                <stop offset="50%" stop-color="#7928ca" />
+                <stop offset="100%" stop-color="#ff2a85" />
+              </linearGradient>
+            </defs>
+            <!-- Solid Opaque Card Body with Chunky Sharp 8-Bit Laser Miter Border -->
+            <polygon points="1,49 32.5,49 32.5,32 44,32 44,1 99,1 99,99 1,99" 
+                     fill="#080c1e" stroke="url(#afLaserGrad)" stroke-width="3.2" stroke-linejoin="miter" stroke-linecap="square" vector-effect="non-scaling-stroke" />
+            <!-- Retro 8-Bit Corner Pixel Brackets (L-corners) & Pixel Studs -->
+            <polygon points="98,2 91,2 91,5 95,5 95,9 98,9" fill="#7928ca" />
+            <rect x="94.5" y="3" width="2.5" height="2.5" fill="#ff2a85" />
+            <polygon points="98,98 91,98 91,95 95,95 95,91 98,91" fill="#ff2a85" />
+            <rect x="94.5" y="94.5" width="2.5" height="2.5" fill="#ffffff" />
+            <polygon points="2,98 9,98 9,95 5,95 5,91 2,91" fill="#ff2a85" />
+            <rect x="3" y="94.5" width="2.5" height="2.5" fill="#ffffff" />
+            <!-- Inner Notch Pixel Anchor Stud -->
+            <rect x="33.5" y="32.5" width="2.5" height="2.5" fill="#ff2a85" />
+          </svg>
+          <div class="arc-card-content">
+            <div class="arc-card-top">
+              <span class="arc-num">04</span>
+              <div class="arc-mystery-box" aria-hidden="true">
+                <span>???</span>
+              </div>
+              <span class="arc-tag">VISUEL</span>
+            </div>
+
+            <div class="arc-card-body">
+              <h2 class="arc-card-name" data-i18n="game_af_name">AfficheFlou</h2>
+              <p class="arc-card-desc">L'affiche se dévoile pas à pas. Reconnaissez-vous le film ?</p>
+
+              <div class="arc-card-mini-preview" aria-hidden="true">
+                <div class="arc-af-blur-pips-demo">
+                  <span class="active"></span><span class="active"></span><span></span><span></span>
+                </div>
+                <span class="arc-mini-tip">4 PALIERS FLOU</span>
+              </div>
+            </div>
+
+            <div class="arc-card-foot">
+              <span class="arc-foot-btn">► DÉVOILER</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.arc-grid -->
+
+      <!-- ══════════════════════════════════════════
+           CHROMA BALL SECRET ARCADE OVERLAY & FAB
+      ══════════════════════════════════════════ -->
+      <div id="chroma-ball-overlay" class="chroma-ball-overlay" hidden>
+        <canvas id="chroma-ball-canvas"></canvas>
+        
+        <!-- In-Game HUD — Balade Chill -->
+        <div class="cb-hud">
+          <div class="cb-hud-left">
+            <span class="cb-hud-title">VOYAGE SPATIAL</span>
+            <div class="cb-energy-wrap" title="Niveau d'Harmonie">
+              <span class="cb-energy-lbl">HARMONIE</span>
+              <div class="cb-energy-track">
+                <div id="cb-energy-fill" class="cb-energy-fill" style="width:100%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="cb-hud-center">
+            <div class="cb-hud-score"><span id="cb-score-val">000000</span></div>
+            <span class="cb-hud-hiscore">RECORD : <span id="cb-hiscore-val">000000</span></span>
+            <div id="cb-combo-badge" class="cb-combo-badge" hidden>ÉLAN x<span id="cb-combo-val">1</span></div>
+          </div>
+          <div class="cb-hud-right">
+            <button id="cb-mute-btn" class="cb-mute-btn" type="button" title="Couper / Activer le son (M)" aria-label="Couper ou activer le son">
+              <span id="cb-mute-icon">🔊</span>
+            </button>
+            <button id="cb-quit-btn" class="cb-quit-btn" type="button" title="Quitter le voyage (Échap)" aria-label="Quitter le voyage">
+              <span>✖ QUITTER</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Game Over Card — Voyage Terminé -->
+        <div id="cb-gameover-card" class="cb-gameover-card" hidden>
+          <h2 class="cb-gameover-title">VOYAGE TERMINÉ</h2>
+          <p class="cb-gameover-sub">Votre vaisseau s'est dissipé dans les étoiles.</p>
+          <div class="cb-gameover-score-wrap">
+            <span class="cb-gameover-label">SCORE DU VOYAGE</span>
+            <span class="cb-gameover-val" id="cb-gameover-score">000000</span>
+            <span id="cb-gameover-newrecord" class="cb-newrecord-tag" hidden>★ NOUVEAU RECORD ★</span>
+          </div>
+          <div class="cb-gameover-actions">
+            <button id="cb-retry-btn" class="cb-btn cb-btn--primary">
+              <span>► REPARTIR EN MISSION</span>
+            </button>
+            <button id="cb-exit-btn" class="cb-btn cb-btn--secondary">
+              <span>◄ RETOUR AU HUB</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Action Button (Rocket) -->
+      <button id="chroma-ball-fab" class="chroma-ball-fab" title="Lancer le Voyage Spatial" aria-label="Voyage Spatial Chromatique">
+        <div class="chroma-ball-icon-wrap">
+          <svg class="chroma-rocket-icon" viewBox="0 0 24 24" width="28" height="28" fill="none">
+            <path d="M12 2C9.5 4.5 7.5 9 7.5 14L4 16.5V19L8 18L10 20H14L16 18L20 19V16.5L16.5 14C16.5 9 14.5 4.5 12 2Z" fill="#00f0ff" stroke="#ffffff" stroke-width="1.2"/>
+            <circle cx="12" cy="10" r="2.2" fill="#ff2a85"/>
+            <path d="M10 20L12 23.5L14 20" fill="#ffe600"/>
+          </svg>
+        </div>
+        <span class="chroma-ball-tooltip">VOYAGE SPATIAL 🚀</span>
+      </button>
+
+    </div><!-- /#screen-hub -->
 
     <!-- ──────────────────────────────────────────
          CONFIG SCREEN — Options before game
     ────────────────────────────────────────── -->
     <div id="screen-config" class="gscreen gscreen--config" hidden>
       <div class="config-panel">
+        <div class="cinema-cabinet-header">
+          <div class="cinema-sprockets-row" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
         <div class="config-header">
           <button id="config-back-btn" class="config-back-btn" data-i18n="game_hub_back">← Retour</button>
-          <h2 class="config-game-title" id="config-game-name"></h2>
+          <div class="config-title-wrap">
+            <span class="config-kicker">CONFIGURATION DE LA PARTIE</span>
+            <h2 class="config-game-title" id="config-game-name"></h2>
+          </div>
         </div>
 
         <div class="config-sections">
           <!-- Difficulty -->
           <div class="config-section" id="config-section-difficulty">
-            <label class="config-label" data-i18n="game_config_difficulty">Difficulté</label>
+            <label class="config-label"><span class="cfg-icon">⚡</span> <span data-i18n="game_config_difficulty">Difficulté</span></label>
             <div class="config-btn-group" id="config-difficulty">
               <button class="config-opt-btn config-opt-btn--active" data-val="easy" data-i18n="game_diff_easy">Facile</button>
               <button class="config-opt-btn" data-val="medium" data-i18n="game_diff_medium">Moyen</button>
@@ -205,17 +603,24 @@
 
           <!-- Universe -->
           <div class="config-section">
-            <label class="config-label" data-i18n="game_config_universe">Univers</label>
-            <div class="config-btn-group" id="config-universe">
-              <button class="config-opt-btn config-opt-btn--active" data-val="all" data-i18n="game_universe_all">Tous les films</button>
-              <button class="config-opt-btn" data-val="popular" data-i18n="game_universe_popular">Films populaires</button>
-              <button class="config-opt-btn" data-val="animation" data-i18n="game_universe_animation">Animation</button>
+            <label class="config-label"><span class="cfg-icon">🎬</span> <span data-i18n="game_config_universe">Univers</span></label>
+            <div class="config-btn-group config-btn-group--wrap" id="config-universe">
+              <button class="config-opt-btn config-opt-btn--active" data-val="all" data-i18n="game_universe_all">Tous</button>
+              <button class="config-opt-btn" data-val="popular" data-i18n="game_universe_popular">🔥 Populaires</button>
+              <button class="config-opt-btn" data-val="animation" data-i18n="game_universe_animation">🎨 Animation</button>
+              <button class="config-opt-btn" data-val="disney" data-i18n="game_universe_disney">🏰 Disney</button>
+              <button class="config-opt-btn" data-val="marvel" data-i18n="game_universe_marvel">⚡ Marvel</button>
+              <button class="config-opt-btn" data-val="dc" data-i18n="game_universe_dc">🦇 DC</button>
+              <button class="config-opt-btn" data-val="anime" data-i18n="game_universe_anime">🌸 Anime</button>
+              <button class="config-opt-btn" data-val="horreur" data-i18n="game_universe_horreur">👻 Horreur</button>
+              <button class="config-opt-btn" data-val="scifi" data-i18n="game_universe_scifi">🚀 Sci-Fi</button>
+              <button class="config-opt-btn" data-val="series" data-i18n="game_universe_series">📺 Séries</button>
             </div>
           </div>
 
           <!-- Rounds (hidden for ChronoChroma) -->
           <div class="config-section" id="config-section-rounds">
-            <label class="config-label" data-i18n="game_config_rounds">Manches</label>
+            <label class="config-label"><span class="cfg-icon">🎞️</span> <span data-i18n="game_config_rounds">Manches</span></label>
             <div class="config-btn-group" id="config-rounds">
               <button class="config-opt-btn config-opt-btn--active" data-val="5" data-i18n="game_rounds_5">5 manches</button>
               <button class="config-opt-btn" data-val="10" data-i18n="game_rounds_10">10 manches</button>
@@ -225,7 +630,7 @@
 
           <!-- Time (only for ChronoChroma) -->
           <div class="config-section" id="config-section-time" hidden>
-            <label class="config-label" data-i18n="game_config_time">Durée</label>
+            <label class="config-label"><span class="cfg-icon">⏱️</span> <span data-i18n="game_config_time">Durée</span></label>
             <div class="config-btn-group" id="config-time">
               <button class="config-opt-btn" data-val="30" data-i18n="game_time_30">30 secondes</button>
               <button class="config-opt-btn config-opt-btn--active" data-val="60" data-i18n="game_time_60">60 secondes</button>
@@ -242,33 +647,55 @@
          COULEURQUIZ SCREEN
     ────────────────────────────────────────── -->
     <div id="screen-cq" class="gscreen gscreen--cq" hidden>
-      <div class="game-screen">
+      <div class="game-screen game-screen--cq">
+        <div class="cinema-cabinet-header">
+          <div class="cinema-sprockets-row" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="cinema-screen-badge">
+            <span class="cs-badge-dot"></span>
+            <span class="cs-badge-title">SPECTRE CHROMATIQUE 35MM</span>
+            <span class="cs-badge-code">CQ-SESSION</span>
+          </div>
+        </div>
+
         <h2 class="game-screen-title" data-i18n="game_cq_name">CouleurQuiz</h2>
         <!-- Top bar -->
         <div class="game-top-bar">
           <div class="game-round-info">
-            <span data-i18n="game_round">Manche</span>&nbsp;<span id="cq-round-current">1</span>/<span id="cq-round-total">5</span>
+            <span class="hud-pill-lbl" data-i18n="game_round">Manche</span>
+            <span class="hud-pill-val"><span id="cq-round-current">1</span>/<span id="cq-round-total">5</span></span>
             <span class="game-diff-badge" id="cq-difficulty"></span>
           </div>
-          <div class="game-score-info"><span data-i18n="game_score">Score :</span> <span id="cq-score">0</span></div>
+          <div class="game-score-info">
+            <span class="hud-pill-lbl" data-i18n="game_score">Score :</span>
+            <span class="hud-pill-val hud-score-val" id="cq-score">0</span>
+          </div>
         </div>
         <div class="game-progress-bar-wrap">
-          <div id="cq-progress-bar" class="game-progress-bar" style="width:0%"></div>
+          <div id="cq-progress-bar" class="game-progress-bar" style="width:0%">
+            <span class="progress-glow-head"></span>
+          </div>
         </div>
 
-        <!-- Palette -->
-        <div id="cq-palette" class="game-palette"></div>
+        <!-- Palette Filmstrip -->
+        <div class="cq-palette-holder">
+          <div class="filmstrip-edge filmstrip-edge--top" aria-hidden="true"></div>
+          <div id="cq-palette" class="game-palette"></div>
+          <div class="filmstrip-edge filmstrip-edge--bottom" aria-hidden="true"></div>
+        </div>
 
         <!-- Hints -->
         <div class="game-hints-section" id="cq-hints-section">
           <button id="cq-hint-btn" class="game-hint-btn">
-            💡 <span data-i18n="game_use_hint">Obtenir un indice</span> (<span id="cq-hints-used">0</span>/3)
+            <span class="hint-btn-icon">💡</span> <span data-i18n="game_use_hint">Obtenir un indice</span> (<span id="cq-hints-used">0</span>/3)
           </button>
           <div id="cq-hint-display" class="game-hint-display" hidden></div>
         </div>
 
         <!-- Reveal info -->
         <div id="cq-reveal-info" class="game-reveal-info" hidden>
+          <div class="reveal-badge-tag">RÉSULTAT</div>
           <h3 id="cq-reveal-title"></h3>
           <p id="cq-reveal-meta"></p>
         </div>
@@ -284,17 +711,34 @@
          PALETTEPURE SCREEN
     ────────────────────────────────────────── -->
     <div id="screen-pp" class="gscreen gscreen--pp" hidden>
-      <div class="game-screen">
+      <div class="game-screen game-screen--pp">
+        <div class="cinema-cabinet-header">
+          <div class="cinema-sprockets-row" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="cinema-screen-badge">
+            <span class="cs-badge-dot"></span>
+            <span class="cs-badge-title">ANALYSE COLORIMÉTRIQUE</span>
+            <span class="cs-badge-code">PP-SESSION</span>
+          </div>
+        </div>
+
         <h2 class="game-screen-title" data-i18n="game_pp_name">PalettePure</h2>
         <!-- Top bar -->
         <div class="game-top-bar">
           <div class="game-round-info">
-            <span data-i18n="game_round">Manche</span>&nbsp;<span id="pp-round-current">1</span>/<span id="pp-round-total">5</span>
+            <span class="hud-pill-lbl" data-i18n="game_round">Manche</span>
+            <span class="hud-pill-val"><span id="pp-round-current">1</span>/<span id="pp-round-total">5</span></span>
           </div>
-          <div class="game-score-info"><span data-i18n="game_score">Score :</span> <span id="pp-score">0</span></div>
+          <div class="game-score-info">
+            <span class="hud-pill-lbl" data-i18n="game_score">Score :</span>
+            <span class="hud-pill-val hud-score-val" id="pp-score">0</span>
+          </div>
         </div>
         <div class="game-progress-bar-wrap">
-          <div id="pp-progress-bar" class="game-progress-bar" style="width:0%"></div>
+          <div id="pp-progress-bar" class="game-progress-bar" style="width:0%">
+            <span class="progress-glow-head"></span>
+          </div>
         </div>
 
         <!-- Film name -->
@@ -306,7 +750,9 @@
         <!-- Known swatches + mystery -->
         <div class="pp-palette-section">
           <p class="pp-question" data-i18n="game_pp_question">Quelle est la couleur manquante ?</p>
-          <div id="pp-known-swatches" class="pp-known-swatches"></div>
+          <div class="pp-swatches-holder">
+            <div id="pp-known-swatches" class="pp-known-swatches"></div>
+          </div>
         </div>
 
         <!-- Color choices -->
@@ -323,13 +769,24 @@
          CHRONOCHROMA SCREEN
     ────────────────────────────────────────── -->
     <div id="screen-cc" class="gscreen gscreen--cc" hidden>
-      <div class="game-screen">
+      <div class="game-screen game-screen--cc">
+        <div class="cinema-cabinet-header">
+          <div class="cinema-sprockets-row" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="cinema-screen-badge cc-badge">
+            <span class="cs-badge-dot cc-dot"></span>
+            <span class="cs-badge-title">TIME ATTACK SPEEDRUN</span>
+            <span class="cs-badge-code">60S CLOCK</span>
+          </div>
+        </div>
+
         <h2 class="game-screen-title" data-i18n="game_cc_name">ChronoChroma</h2>
         <!-- Chrono bar -->
         <div class="cc-chrono-section">
           <div class="cc-chrono-label">
-            <span data-i18n="game_cc_time_left">Temps restant</span>
-            <span id="cc-time-display" class="cc-time-display">60</span>
+            <span class="cc-label-text"><span class="cc-pulse-icon">⚡</span> <span data-i18n="game_cc_time_left">Temps restant</span></span>
+            <span class="cc-time-wrap"><span id="cc-time-display" class="cc-time-display">60</span><span class="cc-time-unit">S</span></span>
           </div>
           <div class="cc-chrono-bar-wrap">
             <div id="cc-chrono-bar" class="cc-chrono-bar"></div>
@@ -350,7 +807,9 @@
         </div>
 
         <!-- Palette -->
-        <div id="cc-palette" class="game-palette"></div>
+        <div class="cq-palette-holder cc-palette-holder">
+          <div id="cc-palette" class="game-palette"></div>
+        </div>
 
         <!-- Choices -->
         <div id="cc-choices" class="game-choices"></div>
@@ -361,17 +820,139 @@
     </div>
 
     <!-- ──────────────────────────────────────────
+         AFFICHEFLOU SCREEN
+    ────────────────────────────────────────── -->
+    <div id="screen-af" class="gscreen gscreen--af" hidden>
+      <div class="game-screen game-screen--af">
+        <div class="cinema-cabinet-header">
+          <div class="cinema-sprockets-row" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="cinema-screen-badge">
+            <span class="cs-badge-dot"></span>
+            <span class="cs-badge-title">35MM OPTICAL PROJECTION</span>
+            <span class="cs-badge-code">AF-SESSION</span>
+          </div>
+        </div>
+
+        <h2 class="game-screen-title" data-i18n="game_af_name">AfficheFlou</h2>
+        <!-- Top bar -->
+        <div class="game-top-bar">
+          <div class="game-round-info">
+            <span class="hud-pill-lbl" data-i18n="game_round">Manche</span>
+            <span class="hud-pill-val"><span id="af-round-current">1</span>/<span id="af-round-total">5</span></span>
+            <span class="game-diff-badge" id="af-difficulty"></span>
+          </div>
+          <div class="game-score-info">
+            <span class="hud-pill-lbl" data-i18n="game_score">Score :</span>
+            <span class="hud-pill-val hud-score-val" id="af-score">0</span>
+          </div>
+        </div>
+        <div class="game-progress-bar-wrap">
+          <div id="af-progress-bar" class="game-progress-bar" style="width:0%">
+            <span class="progress-glow-head"></span>
+          </div>
+        </div>
+
+        <!-- 2-Column Responsive Layout (Zero-scroll on Desktop, 1-col on Mobile) -->
+        <div class="af-stage">
+          <!-- Left Column: Poster + Blur indicator + Hint button -->
+          <div class="af-stage-poster">
+            <div class="af-poster-card">
+              <!-- Overhead Spotlight effect -->
+              <div class="af-spotlight-beam" aria-hidden="true"></div>
+
+              <div class="af-poster-container" id="af-poster-container">
+                <!-- Optical Camera Reticles in corners -->
+                <div class="af-focus-corner af-focus-tl" aria-hidden="true"></div>
+                <div class="af-focus-corner af-focus-tr" aria-hidden="true"></div>
+                <div class="af-focus-corner af-focus-bl" aria-hidden="true"></div>
+                <div class="af-focus-corner af-focus-br" aria-hidden="true"></div>
+
+                <!-- Film reel side sprockets on poster -->
+                <div class="af-poster-sprockets af-poster-sprockets--l" aria-hidden="true"></div>
+                <div class="af-poster-sprockets af-poster-sprockets--r" aria-hidden="true"></div>
+
+                <img id="af-poster-img" class="af-poster-img" src="" alt="Affiche floue" />
+                <div class="af-blur-overlay"></div>
+                <div class="af-reveal-badge" id="af-reveal-badge" hidden>
+                  <span id="af-reveal-title"></span>
+                  <span id="af-reveal-meta" class="af-reveal-meta"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optical Focus Gauge Indicator -->
+            <div class="af-blur-bar-wrap">
+              <div class="af-blur-meter-label">
+                <span class="af-blur-meter-title">OBJECTIF FOCUS</span>
+                <span class="af-blur-tip" id="af-blur-tip" data-i18n="game_af_blur_tip">Flou maximum</span>
+              </div>
+              <div class="af-blur-level" id="af-blur-level">
+                <div class="af-blur-pip af-blur-pip--active" data-level="0"><span class="pip-label">F/1.4</span></div>
+                <div class="af-blur-pip" data-level="1"><span class="pip-label">F/2.8</span></div>
+                <div class="af-blur-pip" data-level="2"><span class="pip-label">F/5.6</span></div>
+                <div class="af-blur-pip" data-level="3"><span class="pip-label">F/11</span></div>
+              </div>
+            </div>
+
+            <!-- Hint button & display -->
+            <div class="game-hints-section af-hints-section" id="af-hints-section">
+              <button id="af-hint-btn" class="game-hint-btn af-hint-btn">
+                <span class="hint-btn-icon">⚡</span> <span data-i18n="game_af_reveal_more">Obtenir un indice (- flou)</span>
+              </button>
+              <div id="af-hint-display" class="game-hint-display" hidden></div>
+            </div>
+          </div>
+
+          <!-- Right Column: Question prompt + Choices + Reveal info + Next -->
+          <div class="af-stage-controls">
+            <div class="af-prompt">
+              <div class="af-prompt-header">
+                <span class="af-prompt-badge">🎬 QUEL EST CE FILM ?</span>
+                <span class="af-prompt-pill">MYSTÈRE CHROMATIQUE</span>
+              </div>
+              <p class="af-prompt-sub">Observez les couleurs, silhouettes et contrastes pour deviner le titre.</p>
+            </div>
+
+            <!-- Reveal info box -->
+            <div id="af-reveal-info" class="game-reveal-info af-reveal-info" hidden>
+              <div class="reveal-badge-tag">TITRE DÉVOILÉ</div>
+              <h3 id="af-film-title"></h3>
+              <p id="af-film-meta"></p>
+            </div>
+
+            <!-- Choices Grid -->
+            <div id="af-choices" class="game-choices af-choices"></div>
+
+            <button id="af-next-btn" class="game-next-btn af-next-btn" hidden>Suivant ➔</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ──────────────────────────────────────────
          END SCREEN — Results (all games)
     ────────────────────────────────────────── -->
     <div id="screen-end" class="gscreen gscreen--end" hidden>
       <div class="game-screen game-end-content">
-        <div class="end-game-badge" id="end-game-badge"></div>
+        <div class="end-laurel-badge">
+          <span class="end-laurel-icon">🏆</span>
+          <div class="end-game-badge" id="end-game-badge"></div>
+        </div>
         <h1 class="game-end-title" id="end-title"></h1>
         <div class="end-stats-grid" id="end-stats-grid"></div>
-        <div class="game-recap-list" id="end-recap-list"></div>
+        <div class="game-recap-section">
+          <div class="recap-header-bar">
+            <span class="recap-header-title">BILAN DE LA SÉANCE</span>
+            <span class="recap-header-subtitle">HISTORIQUE DES TITRES</span>
+          </div>
+          <div class="game-recap-list" id="end-recap-list"></div>
+        </div>
         <div class="game-end-actions">
           <button id="end-replay-btn" class="config-start-btn" data-i18n="game_play_again">Rejouer</button>
-          <button id="end-hub-btn" class="game-next-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.25);font-size:14px;padding:12px 24px;" data-i18n="game_change_game">Changer de jeu</button>
+          <button id="end-hub-btn" class="game-next-btn end-hub-action-btn" data-i18n="game_change_game">Changer de jeu</button>
         </div>
       </div>
     </div>
@@ -446,7 +1027,7 @@
     </div>
   </div>
 
-  <script src="./pages.js"></script>
-  <script src="./game.js"></script>
+  <script src="./pages.js?v=2.2"></script>
+  <script src="./game.js?v=2.6"></script>
 </body>
 </html>
