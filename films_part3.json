@@ -1,5 +1,846 @@
 [
   {
+    "id": 897087,
+    "est_serie": false,
+    "type_media": "movie",
+    "est_animation": false,
+    "est_anime": false,
+    "titre": "Freelance",
+    "titre_en": "Freelance",
+    "titre_ja": "ザ・ボディガード ローグ・ミッション",
+    "titre_original": "Freelance",
+    "date_sortie": "2023-10-05",
+    "genres": [
+      "Action",
+      "Comédie"
+    ],
+    "duree_minutes": 109,
+    "realisateur": "Pierre Morel",
+    "langue_origine": "en",
+    "note_moyenne": 6.395,
+    "popularite": 6.5813,
+    "resume_fr": "Un agent des forces spéciales décide de prendre sa retraite de l’armée et de fonder une famille aux États-Unis. Après plusieurs années d’efforts pour se conformer à la vie en banlieue, il décide de sortir de sa retraite et d’accepter un contrat pour assurer la sécurité d’une journaliste alors qu’elle interviewe un dictateur sud-américain. Lorsqu’un coup d’État militaire éclate en plein milieu de l’interview, les voici tous trois contraints de s‘enfuir dans la jungle où ils doivent survivre aux éléments, aux militaires et les uns aux autres.",
+    "resume_en": "An ex-special forces operative takes a job to provide security for a journalist as she interviews a dictator, but a military coup breaks out in the middle of the interview, they are forced to escape into the jungle where they must survive.",
+    "resume_ja": "ピエール・モレル監督、ジョン・シナ主演による痛快アクション・コメディ。南米のジャングルで女性ジャーナリストを守るという任務を引き受けた元特殊部隊員。命懸けのサバイバルの中で、惹かれ合っていくが……。",
+    "bande_annonce_url_fr": "https://www.youtube.com/watch?v=wTA1su_FbCc",
+    "bande_annonce_url_en": "https://www.youtube.com/watch?v=W0k2XerT8Nw",
+    "bande_annonce_url_ja": null,
+    "affiches_globales": [
+      {
+        "categorie": "textless",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/acB0GpkpS0GHOjdvuVizYT7GlE7.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/acB0GpkpS0GHOjdvuVizYT7GlE7.jpg",
+        "palette": [
+          {
+            "hex": "#162136",
+            "weight": 27.65
+          },
+          {
+            "hex": "#444947",
+            "weight": 21.04
+          },
+          {
+            "hex": "#376b99",
+            "weight": 17.85
+          },
+          {
+            "hex": "#8a846b",
+            "weight": 17.57
+          },
+          {
+            "hex": "#96c8da",
+            "weight": 15.89
+          }
+        ]
+      },
+      {
+        "categorie": "textless",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/i7J3EnweilX5YpSzU42NxLeXv2z.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/i7J3EnweilX5YpSzU42NxLeXv2z.jpg",
+        "palette": [
+          {
+            "hex": "#737d65",
+            "weight": 27.03
+          },
+          {
+            "hex": "#2b2c3a",
+            "weight": 23.99
+          },
+          {
+            "hex": "#e5ecef",
+            "weight": 21.41
+          },
+          {
+            "hex": "#265983",
+            "weight": 13.92
+          },
+          {
+            "hex": "#64b4ca",
+            "weight": 13.65
+          }
+        ]
+      },
+      {
+        "categorie": "textless",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/cKubgqwaDIafAfTJkDqs4Au3OS3.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/cKubgqwaDIafAfTJkDqs4Au3OS3.jpg",
+        "palette": [
+          {
+            "hex": "#13150f",
+            "weight": 38.31
+          },
+          {
+            "hex": "#1c3f19",
+            "weight": 25.47
+          },
+          {
+            "hex": "#614e3a",
+            "weight": 13.7
+          },
+          {
+            "hex": "#b09a8e",
+            "weight": 11.55
+          },
+          {
+            "hex": "#363b3e",
+            "weight": 10.97
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/7Bd4EUOqQDKZXA6Od5gkfzRNb0.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/7Bd4EUOqQDKZXA6Od5gkfzRNb0.jpg",
+        "palette": [
+          {
+            "hex": "#eaf0f3",
+            "weight": 30.36
+          },
+          {
+            "hex": "#1e2e45",
+            "weight": 24.79
+          },
+          {
+            "hex": "#756f61",
+            "weight": 18.39
+          },
+          {
+            "hex": "#88b7b2",
+            "weight": 13.81
+          },
+          {
+            "hex": "#3488b3",
+            "weight": 12.65
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/eXo4NlyT3oXoRgVWS5J4rgR6gt1.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/eXo4NlyT3oXoRgVWS5J4rgR6gt1.jpg",
+        "palette": [
+          {
+            "hex": "#1b2437",
+            "weight": 26.85
+          },
+          {
+            "hex": "#50534f",
+            "weight": 22.87
+          },
+          {
+            "hex": "#5a95ba",
+            "weight": 19.79
+          },
+          {
+            "hex": "#d8e8ec",
+            "weight": 16.96
+          },
+          {
+            "hex": "#938c6e",
+            "weight": 13.53
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/jxO6JOgcYCaCWBjP9mj4nEtB7cX.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/jxO6JOgcYCaCWBjP9mj4nEtB7cX.jpg",
+        "palette": [
+          {
+            "hex": "#6c7058",
+            "weight": 26.8
+          },
+          {
+            "hex": "#182134",
+            "weight": 26.54
+          },
+          {
+            "hex": "#e7ebed",
+            "weight": 21.44
+          },
+          {
+            "hex": "#64b9ca",
+            "weight": 14.12
+          },
+          {
+            "hex": "#3273a9",
+            "weight": 11.1
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/41rqc5t1Ye3k9iNey1pxYJQuooF.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/41rqc5t1Ye3k9iNey1pxYJQuooF.jpg",
+        "palette": [
+          {
+            "hex": "#223147",
+            "weight": 29.16
+          },
+          {
+            "hex": "#deeaee",
+            "weight": 27.51
+          },
+          {
+            "hex": "#687f68",
+            "weight": 19.65
+          },
+          {
+            "hex": "#4697bb",
+            "weight": 16.28
+          },
+          {
+            "hex": "#a77166",
+            "weight": 7.4
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/nYknJ4zmIzIfrMEnWF5pcttmEMT.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/nYknJ4zmIzIfrMEnWF5pcttmEMT.jpg",
+        "palette": [
+          {
+            "hex": "#e4e8ed",
+            "weight": 31.48
+          },
+          {
+            "hex": "#707061",
+            "weight": 24.15
+          },
+          {
+            "hex": "#1b202f",
+            "weight": 20.87
+          },
+          {
+            "hex": "#6aa1bd",
+            "weight": 13.13
+          },
+          {
+            "hex": "#244978",
+            "weight": 10.37
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/wRTKRKfXxf19eDEoxUYG6fPc1ob.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/wRTKRKfXxf19eDEoxUYG6fPc1ob.jpg",
+        "palette": [
+          {
+            "hex": "#121113",
+            "weight": 39.09
+          },
+          {
+            "hex": "#766e53",
+            "weight": 22.51
+          },
+          {
+            "hex": "#e2e8e7",
+            "weight": 16.09
+          },
+          {
+            "hex": "#224d76",
+            "weight": 11.25
+          },
+          {
+            "hex": "#61a8ba",
+            "weight": 11.05
+          }
+        ]
+      }
+    ],
+    "saisons": [],
+    "v2_complete": true,
+    "revenue": 9112817,
+    "budget": 40000000,
+    "affiches_valides": true,
+    "statut_traitement": "v2_mis_a_jour"
+  },
+  {
+    "id": 1301994,
+    "est_serie": false,
+    "type_media": "movie",
+    "est_animation": false,
+    "est_anime": false,
+    "titre": "Nurse Abi",
+    "titre_en": "Nurse Abi",
+    "titre_ja": "Nurse Abi",
+    "titre_original": "Nurse Abi",
+    "date_sortie": "2024-06-21",
+    "genres": [
+      "Drame"
+    ],
+    "duree_minutes": 46,
+    "realisateur": "Dustin Celestino",
+    "langue_origine": "tl",
+    "note_moyenne": 3.5,
+    "popularite": 6.8567,
+    "resume_fr": "",
+    "resume_en": "When overworked graphic designer Roy faints, he wakes up to the beautiful Nurse Abi taking care of him. This starts Roy’s fantasy of going out and sleeping with Nurse Abi. But can he turn this fantasy into a reality?",
+    "resume_ja": "",
+    "bande_annonce_url_fr": null,
+    "bande_annonce_url_en": "https://www.youtube.com/watch?v=6DrIyfHWUq4",
+    "bande_annonce_url_ja": null,
+    "affiches_globales": [
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/7GOGhfoNrlJVzBazT4Rpob0ldU9.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/7GOGhfoNrlJVzBazT4Rpob0ldU9.jpg",
+        "palette": [
+          {
+            "hex": "#b2dcf0",
+            "weight": 28.82
+          },
+          {
+            "hex": "#68818f",
+            "weight": 22.67
+          },
+          {
+            "hex": "#2b2b28",
+            "weight": 19.17
+          },
+          {
+            "hex": "#ddcabc",
+            "weight": 15.9
+          },
+          {
+            "hex": "#ae6c56",
+            "weight": 13.43
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/4ZdtEUML3afyk1eE1hSh286jPtf.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/4ZdtEUML3afyk1eE1hSh286jPtf.jpg",
+        "palette": [
+          {
+            "hex": "#b6d1e0",
+            "weight": 23.43
+          },
+          {
+            "hex": "#647d8c",
+            "weight": 22.77
+          },
+          {
+            "hex": "#c9b09e",
+            "weight": 21.86
+          },
+          {
+            "hex": "#292825",
+            "weight": 17.83
+          },
+          {
+            "hex": "#9f644f",
+            "weight": 14.11
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/oszbqZ7TYkCIwY6WMwJC22gRqrq.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/oszbqZ7TYkCIwY6WMwJC22gRqrq.jpg",
+        "palette": [
+          {
+            "hex": "#b2d6ec",
+            "weight": 36.47
+          },
+          {
+            "hex": "#677f8d",
+            "weight": 23.19
+          },
+          {
+            "hex": "#312d2a",
+            "weight": 21.59
+          },
+          {
+            "hex": "#b68872",
+            "weight": 15.61
+          },
+          {
+            "hex": "#e6244f",
+            "weight": 3.13
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/4c7A4CZwMmYgwYL7lDmcA8Ygnsn.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/4c7A4CZwMmYgwYL7lDmcA8Ygnsn.jpg",
+        "palette": [
+          {
+            "hex": "#110c09",
+            "weight": 36.02
+          },
+          {
+            "hex": "#513225",
+            "weight": 31.31
+          },
+          {
+            "hex": "#9c6d5b",
+            "weight": 26.39
+          },
+          {
+            "hex": "#dbd1cd",
+            "weight": 4.44
+          },
+          {
+            "hex": "#c30b0b",
+            "weight": 1.84
+          }
+        ]
+      }
+    ],
+    "saisons": [],
+    "v2_complete": true,
+    "revenue": 0,
+    "budget": 0,
+    "affiches_valides": true,
+    "statut_traitement": "v2_mis_a_jour"
+  },
+  {
+    "id": 915523,
+    "est_serie": false,
+    "type_media": "movie",
+    "est_animation": false,
+    "est_anime": false,
+    "titre": "Wildflower",
+    "titre_en": "Wildflower",
+    "titre_ja": "Wildflower",
+    "titre_original": "Wildflower",
+    "date_sortie": "2023-03-17",
+    "genres": [
+      "Comédie",
+      "Drame"
+    ],
+    "duree_minutes": 105,
+    "realisateur": "Matt Smukler",
+    "langue_origine": "en",
+    "note_moyenne": 7.403,
+    "popularite": 9.0943,
+    "resume_fr": "Une célébration hilarante et touchante de la famille sous toutes ses formes, doublée d'un récit initiatique sur le fait de grandir trop vite, puis de ralentir juste assez pour prendre conscience de la chance qu'on a.",
+    "resume_en": "The story of Bea Johnson from birth to graduation as she navigates life with an intellectually disabled parent and an extended family who can't quite agree on the best way to help.",
+    "resume_ja": "",
+    "bande_annonce_url_fr": null,
+    "bande_annonce_url_en": "https://www.youtube.com/watch?v=Ug3FVmA7yuk",
+    "bande_annonce_url_ja": null,
+    "affiches_globales": [
+      {
+        "categorie": "textless",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/xltff2pF6ljJFoQ83gX3PgOqtMx.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/xltff2pF6ljJFoQ83gX3PgOqtMx.jpg",
+        "palette": [
+          {
+            "hex": "#a8bcb6",
+            "weight": 48.67
+          },
+          {
+            "hex": "#627281",
+            "weight": 14.27
+          },
+          {
+            "hex": "#76634a",
+            "weight": 14.01
+          },
+          {
+            "hex": "#222123",
+            "weight": 11.97
+          },
+          {
+            "hex": "#caaa85",
+            "weight": 11.08
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/8zNOqdjcdYojs7M3WgwtVgFhFsW.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/8zNOqdjcdYojs7M3WgwtVgFhFsW.jpg",
+        "palette": [
+          {
+            "hex": "#0c0c0e",
+            "weight": 54.69
+          },
+          {
+            "hex": "#0c192a",
+            "weight": 20.57
+          },
+          {
+            "hex": "#37413d",
+            "weight": 13.39
+          },
+          {
+            "hex": "#d6d8d7",
+            "weight": 6.57
+          },
+          {
+            "hex": "#889b84",
+            "weight": 4.79
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/jsNulf9CgHSSRSCgdhNsLynUTvm.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/jsNulf9CgHSSRSCgdhNsLynUTvm.jpg",
+        "palette": [
+          {
+            "hex": "#9eb5b3",
+            "weight": 58.08
+          },
+          {
+            "hex": "#726858",
+            "weight": 15.63
+          },
+          {
+            "hex": "#26282b",
+            "weight": 11.04
+          },
+          {
+            "hex": "#c5b78f",
+            "weight": 10.37
+          },
+          {
+            "hex": "#eced2a",
+            "weight": 4.88
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/ilQAelP061WlgL9oSROetd5PfpA.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/ilQAelP061WlgL9oSROetd5PfpA.jpg",
+        "palette": [
+          {
+            "hex": "#9bb4b1",
+            "weight": 70.74
+          },
+          {
+            "hex": "#655f55",
+            "weight": 11.29
+          },
+          {
+            "hex": "#b6a280",
+            "weight": 7.61
+          },
+          {
+            "hex": "#212224",
+            "weight": 6.39
+          },
+          {
+            "hex": "#e5e838",
+            "weight": 3.97
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/hCMO9YmvRxw78IEPubyCNZ6NVoP.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/hCMO9YmvRxw78IEPubyCNZ6NVoP.jpg",
+        "palette": [
+          {
+            "hex": "#a0b6b2",
+            "weight": 62.05
+          },
+          {
+            "hex": "#a89a74",
+            "weight": 12.67
+          },
+          {
+            "hex": "#5e6769",
+            "weight": 11.61
+          },
+          {
+            "hex": "#272321",
+            "weight": 8.44
+          },
+          {
+            "hex": "#e9e930",
+            "weight": 5.23
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/u1OSHdQLcRVwE8Mls3rQuahivFS.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/u1OSHdQLcRVwE8Mls3rQuahivFS.jpg",
+        "palette": [
+          {
+            "hex": "#95b5b8",
+            "weight": 67.39
+          },
+          {
+            "hex": "#6a6151",
+            "weight": 11.35
+          },
+          {
+            "hex": "#242932",
+            "weight": 8.04
+          },
+          {
+            "hex": "#beac83",
+            "weight": 7.59
+          },
+          {
+            "hex": "#dce33b",
+            "weight": 5.63
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/yClvK7KMODp3aDKVZsK6TTrIiQg.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/yClvK7KMODp3aDKVZsK6TTrIiQg.jpg",
+        "palette": [
+          {
+            "hex": "#9bb3b1",
+            "weight": 70.18
+          },
+          {
+            "hex": "#6b6356",
+            "weight": 11.21
+          },
+          {
+            "hex": "#bfad89",
+            "weight": 7.17
+          },
+          {
+            "hex": "#242527",
+            "weight": 6.93
+          },
+          {
+            "hex": "#e7e732",
+            "weight": 4.52
+          }
+        ]
+      }
+    ],
+    "saisons": [],
+    "v2_complete": true,
+    "revenue": 0,
+    "budget": 0,
+    "affiches_valides": true,
+    "statut_traitement": "v2_mis_a_jour"
+  },
+  {
+    "id": 363111,
+    "est_serie": false,
+    "type_media": "movie",
+    "est_animation": false,
+    "est_anime": false,
+    "titre": "Wolves at the Door",
+    "titre_en": "Wolves at the Door",
+    "titre_ja": "ウルフ・アット・ザ・ドア",
+    "titre_original": "Wolves at the Door",
+    "date_sortie": "2016-10-21",
+    "genres": [
+      "Horreur",
+      "Thriller"
+    ],
+    "duree_minutes": 73,
+    "realisateur": "John R. Leonetti",
+    "langue_origine": "en",
+    "note_moyenne": 4.892,
+    "popularite": 6.8533,
+    "resume_fr": "Quatre amis se réunissent dans une élégante maison pendant l'été 1969. À leur insu, des visiteurs dangereux attendent à l'extérieur. Ce qui a débuté comme une simple fête d'adieu tourne à la nuit de terreur primitive que les intrus traquent viennent tourmenter les quatre amis qui luttent pour leur vie contre ce qui semble être une attaque insensée.",
+    "resume_en": "Four friends gather at an elegant home during the Summer of Love, 1969. Unbeknownst to them, deadly visitors are waiting outside. What begins as a simple farewell party turns to a night of primal terror as the intruders stalk and torment the four, who struggle for their lives against what appears to be a senseless attack.",
+    "resume_ja": "",
+    "bande_annonce_url_fr": null,
+    "bande_annonce_url_en": "https://www.youtube.com/watch?v=ENznX3rF6kY",
+    "bande_annonce_url_ja": "https://www.youtube.com/watch?v=vYbsa4oLGkM",
+    "affiches_globales": [
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/kizBwSEfvJFEOuYfwbOGtWZit3v.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/kizBwSEfvJFEOuYfwbOGtWZit3v.jpg",
+        "palette": [
+          {
+            "hex": "#301c1c",
+            "weight": 42.83
+          },
+          {
+            "hex": "#5e1d1a",
+            "weight": 23.35
+          },
+          {
+            "hex": "#da241d",
+            "weight": 17.12
+          },
+          {
+            "hex": "#9a221e",
+            "weight": 13.2
+          },
+          {
+            "hex": "#b5a7a7",
+            "weight": 3.51
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/e8Gp2GvSOIK7PcdRGnELCFoJ2MJ.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/e8Gp2GvSOIK7PcdRGnELCFoJ2MJ.jpg",
+        "palette": [
+          {
+            "hex": "#1d292e",
+            "weight": 39.5
+          },
+          {
+            "hex": "#27373f",
+            "weight": 29.79
+          },
+          {
+            "hex": "#374d58",
+            "weight": 16.15
+          },
+          {
+            "hex": "#4a6571",
+            "weight": 11.87
+          },
+          {
+            "hex": "#a5b2b8",
+            "weight": 2.69
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/kHaKN53WV6Jeo6Nb0hLpqUTfD9t.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/kHaKN53WV6Jeo6Nb0hLpqUTfD9t.jpg",
+        "palette": [
+          {
+            "hex": "#422a2b",
+            "weight": 37.2
+          },
+          {
+            "hex": "#642a29",
+            "weight": 27.74
+          },
+          {
+            "hex": "#922c2a",
+            "weight": 16.99
+          },
+          {
+            "hex": "#c92e2b",
+            "weight": 14.85
+          },
+          {
+            "hex": "#bca8a5",
+            "weight": 3.21
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/dEEl0phrkIgWCbkS0fVuszsJWQF.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/dEEl0phrkIgWCbkS0fVuszsJWQF.jpg",
+        "palette": [
+          {
+            "hex": "#592725",
+            "weight": 26.73
+          },
+          {
+            "hex": "#872724",
+            "weight": 26.09
+          },
+          {
+            "hex": "#3e2626",
+            "weight": 23.2
+          },
+          {
+            "hex": "#d72926",
+            "weight": 20.96
+          },
+          {
+            "hex": "#c4aca9",
+            "weight": 3.01
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/dHW1SUPtyWAEKkWloK60Zkn5xmS.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/dHW1SUPtyWAEKkWloK60Zkn5xmS.jpg",
+        "palette": [
+          {
+            "hex": "#301c1c",
+            "weight": 32.68
+          },
+          {
+            "hex": "#d8241e",
+            "weight": 21.86
+          },
+          {
+            "hex": "#581e1c",
+            "weight": 21.14
+          },
+          {
+            "hex": "#92231f",
+            "weight": 16.68
+          },
+          {
+            "hex": "#e6dcdb",
+            "weight": 7.64
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/2xYrHgNCCIZuDmL6tB8bcYMvibq.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/2xYrHgNCCIZuDmL6tB8bcYMvibq.jpg",
+        "palette": [
+          {
+            "hex": "#432626",
+            "weight": 29.97
+          },
+          {
+            "hex": "#632624",
+            "weight": 23.65
+          },
+          {
+            "hex": "#8e2725",
+            "weight": 21.95
+          },
+          {
+            "hex": "#d62926",
+            "weight": 19.73
+          },
+          {
+            "hex": "#ccb7b4",
+            "weight": 4.69
+          }
+        ]
+      }
+    ],
+    "saisons": [],
+    "v2_complete": true,
+    "revenue": 4382,
+    "budget": 0,
+    "affiches_valides": true,
+    "statut_traitement": "v2_mis_a_jour"
+  },
+  {
     "id": 1035048,
     "est_serie": false,
     "type_media": "movie",
@@ -4270,8 +5111,8 @@
     "duree_minutes": 164,
     "realisateur": "Lee Chang-dong",
     "langue_origine": "ko",
-    "note_moyenne": 0.0,
-    "popularite": 6.6589,
+    "note_moyenne": 7.7,
+    "popularite": 10.43,
     "resume_fr": "",
     "resume_en": "A story of two married couples — a laid-off worker and his spouse, and a documentary filmmaker and her spouse — crossing paths to film a documentary and facing their different lives and hidden desires.",
     "resume_ja": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
@@ -4339,7 +5180,8 @@
     "revenue": 0,
     "budget": 0,
     "affiches_valides": true,
-    "statut_traitement": "v2_mis_a_jour"
+    "statut_traitement": "v2_mis_a_jour",
+    "vote_count": 13
   },
   {
     "id": 438864,
@@ -6413,8 +7255,8 @@
     "duree_minutes": 0,
     "realisateur": "Travis Knight",
     "langue_origine": "en",
-    "note_moyenne": 0.0,
-    "popularite": 6.6174,
+    "note_moyenne": 8.47,
+    "popularite": 752.14,
     "resume_fr": "Au-delà des limites de la ville de Portland, il y a le féerique Wildwood. Un lieu où vous n'êtes pas censé y aller, que vous n'êtes même pas censé connaître. Pour retrouver son petit frère venant d'être enlevé, Mac, Prue McKeel et son camarade, Curtis, sont sur le point d'entrer dans ce pays des merveilles...",
     "resume_en": "Prue and her classmate Curtis are drawn into a forbidden magical forest filled with enchanted creatures, loyal allies, and formidable adversaries as they embark on a desperate quest to save Prue’s kidnapped baby brother, Mac, from the crows led by a mysterious woman named Alexandra.",
     "resume_ja": "",
@@ -6671,7 +7513,8 @@
     "revenue": 0,
     "budget": 0,
     "affiches_valides": true,
-    "statut_traitement": "v2_mis_a_jour"
+    "statut_traitement": "v2_mis_a_jour",
+    "vote_count": 199
   },
   {
     "id": 10026,
@@ -84716,8 +85559,8 @@
     "duree_minutes": 0,
     "realisateur": "Guy Moshe",
     "langue_origine": "en",
-    "note_moyenne": 0.0,
-    "popularite": 4.6124,
+    "note_moyenne": 5.92,
+    "popularite": 105.56,
     "resume_fr": "",
     "resume_en": "Disillusioned by the end of the war in Afghanistan, a group of disgraced, war-torn ex-CIA operatives set out to Tehran to take down a life-changing score.",
     "resume_ja": "",
@@ -84839,7 +85682,8 @@
     "revenue": 0,
     "budget": 32000000,
     "affiches_valides": true,
-    "statut_traitement": "v2_mis_a_jour"
+    "statut_traitement": "v2_mis_a_jour",
+    "vote_count": 92
   },
   {
     "id": 12093,
@@ -124701,8 +125545,8 @@
     "duree_minutes": 119,
     "realisateur": "Takashi Yamazaki",
     "langue_origine": "ja",
-    "note_moyenne": 0.0,
-    "popularite": 4.9702,
+    "note_moyenne": 8.0,
+    "popularite": 106.15,
     "resume_fr": "Japon après la Seconde Guerre mondiale, Shikishima Koichi, un ancien pilote kamikaze survit à une rencontre avec Godzilla et souffre de symptômes de stress post-traumatique. Lorsque la créature réapparaît des années plus tard, un groupe de soldats et de vétérans doit s'unir pour vaincre le monstre avant qu'il ne puisse détruire le Japon.",
     "resume_en": "War reduced Japan to zero, and Godzilla plunged it into minus. Two years have passed since then, and the country has faced agonizing struggles to achieve recovery and finally reclaim its daily life. Just as humanity managed to cling to a hard-won peace, a new threat strikes, crushing hope in an instant.",
     "resume_ja": "",
@@ -124959,7 +125803,8 @@
     "revenue": 0,
     "budget": 0,
     "affiches_valides": true,
-    "statut_traitement": "v2_mis_a_jour"
+    "statut_traitement": "v2_mis_a_jour",
+    "vote_count": 42
   },
   {
     "id": 988716,
@@ -167363,8 +168208,8 @@
     "duree_minutes": 118,
     "realisateur": "Martin McDonagh",
     "langue_origine": "en",
-    "note_moyenne": 0.0,
-    "popularite": 4.4159,
+    "note_moyenne": 8.5,
+    "popularite": 46.96,
     "resume_fr": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…",
     "resume_en": "Shortly before the 1973 Chilean coup, CIA agents Chris and Lee are dispatched from Santiago to Easter Island by their bureau chief, MJ. Amongst the Island's iconic statues, and as the longtime partners wrestle with their dark pasts and present conspiracies, Chris's newfound bond with a pair of rebellious students threatens to send everyone’s trip to this remote paradise sideways.",
     "resume_ja": "",
@@ -167621,7 +168466,8 @@
     "revenue": 0,
     "budget": 5000000,
     "affiches_valides": true,
-    "statut_traitement": "v2_mis_a_jour"
+    "statut_traitement": "v2_mis_a_jour",
+    "vote_count": 34
   },
   {
     "id": 505283,
@@ -306593,8 +307439,8 @@
     "duree_minutes": 155,
     "realisateur": "Javier Ambrossi",
     "langue_origine": "es",
-    "note_moyenne": 0.0,
-    "popularite": 4.0342,
+    "note_moyenne": 8.09,
+    "popularite": 131.64,
     "resume_fr": "",
     "resume_en": "Set across three timelines — Republican Spain in 1932, the Civil War in 1937, and contemporary Spain in 2017 — the film follows a constellation of interconnected lives centered on three young men, whose emotional and political echoes gradually reveal themselves.",
     "resume_ja": "",
@@ -306797,7 +307643,8 @@
     "revenue": 0,
     "budget": 0,
     "affiches_valides": true,
-    "statut_traitement": "v2_mis_a_jour"
+    "statut_traitement": "v2_mis_a_jour",
+    "vote_count": 183
   },
   {
     "id": 1560520,
@@ -407611,8 +408458,8 @@
     "duree_minutes": 95,
     "realisateur": "Casper Kelly",
     "langue_origine": "en",
-    "note_moyenne": 0.0,
-    "popularite": 3.0386,
+    "note_moyenne": 6.96,
+    "popularite": 150.73,
     "resume_fr": "Une fille et ses amis doivent s’échapper d’une émission de télévision pour enfants.",
     "resume_en": "Remember BUDDY—the bright orange unicorn and star of that classic childrens' television show who brought joy and life lessons into your living room?  Inside the colorful world of \"It's Buddy!\", a group of children spend their days singing, dancing, and helping Buddy spread happiness. But when one child refuses to play along, Buddy is not pleased and cracks begin to appear in this seemingly perfect world.",
     "resume_ja": "",
@@ -407734,7 +408581,8 @@
     "revenue": 0,
     "budget": 0,
     "affiches_valides": true,
-    "statut_traitement": "v2_mis_a_jour"
+    "statut_traitement": "v2_mis_a_jour",
+    "vote_count": 249
   },
   {
     "id": 1475803,
@@ -552788,7 +553636,7 @@
     "realisateur": "Topel Lee",
     "langue_origine": "tl",
     "note_moyenne": 3.0,
-    "popularite": 45.7805,
+    "popularite": 6.74,
     "resume_fr": "Deux reines de VMX, Aliya Raymundo et Margaret Diaz, incarnent deux amies d'enfance qui se retrouvent et partagent un passé mémorable et un présent compliqué : l'une est une citadine libérée, l'autre une jeune fille de la campagne, vierge et protégée, et toutes deux sont entourées d'hommes désireux de goûter à leur jeunesse.",
     "resume_en": "Two VMX queens, Aliya Raymundo and Margaret Diaz, play reunited childhood friends who share a memorable past and a complicated present: one is a liberated city girl, the other a sheltered country virgin, and both are surrounded by men eager to get a taste of their youth.",
     "resume_ja": "",
@@ -552828,7 +553676,8 @@
     "revenue": 0,
     "budget": 0,
     "affiches_valides": true,
-    "statut_traitement": "v2_mis_a_jour"
+    "statut_traitement": "v2_mis_a_jour",
+    "vote_count": 1
   },
   {
     "id": 432279,

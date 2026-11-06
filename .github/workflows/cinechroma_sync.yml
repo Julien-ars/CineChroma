@@ -29,6 +29,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🐍 Setup Python 3.11
         uses: actions/setup-python@v5
@@ -58,6 +59,6 @@ jobs:
             echo "✨ Aucune modification à enregistrer."
           else
             git commit -m "chore(sync): automated weekly popular movies & posters update [skip ci]"
-            git push
+            git push origin main
             echo "🚀 Données mises à jour et publiées sur le dépôt."
           fi

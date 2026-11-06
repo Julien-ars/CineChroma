@@ -13,6 +13,7 @@ import datetime
 import json
 import os
 import sys
+from concurrent.futures import ThreadPoolExecutor
 
 # Support UTF-8 sur Windows
 if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
@@ -60,18 +61,20 @@ def is_film_in_window_for_poster_refresh(film: dict, today: datetime.date, max_d
 
 
 def get_trending_movie_ids(session, limit: int = 40) -> list:
-    """Récupère les IDs des films les plus populaires et tendances du moment sur TMDb."""
-    print("🌐 Récupération des tendances et sorties cinéma depuis TMDb...")
+    """Récupère les IDs des films et séries les plus populaires et tendances du moment sur TMDb."""
+    print("🌐 Récupération des tendances et sorties cinéma/séries depuis TMDb...")
     collected_ids = []
     seen = set()
 
     endpoints = [
-        "https://api.themoviedb.org/3/trending/movie/week?language=fr-FR",
-        "https://api.themoviedb.org/3/movie/now_playing?language=fr-FR&page=1",
-        "https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1"
+        ("https://api.themoviedb.org/3/trending/movie/week?language=fr-FR", "movie"),
+        ("https://api.themoviedb.org/3/movie/now_playing?language=fr-FR&page=1", "movie"),
+        ("https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1", "movie"),
+        ("https://api.themoviedb.org/3/trending/tv/week?language=fr-FR", "tv"),
+        ("https://api.themoviedb.org/3/tv/popular?language=fr-FR&page=1", "tv"),
     ]
 
-    for ep in endpoints:
+    for ep, media_type in endpoints:
         try:
             resp = session.get(ep, timeout=10, verify=False)
             if resp.status_code == 200:
@@ -83,10 +86,12 @@ def get_trending_movie_ids(session, limit: int = 40) -> list:
                         seen.add(mid)
                         collected_ids.append({
                             "id": mid,
-                            "title": m.get("title") or m.get("original_title"),
-                            "release_date": m.get("release_date", ""),
+                            "title": m.get("title") or m.get("name") or m.get("original_title") or m.get("original_name"),
+                            "release_date": m.get("release_date") or m.get("first_air_date", ""),
                             "popularity": m.get("popularity", 0),
-                            "vote_count": m.get("vote_count", 0)
+                            "vote_count": m.get("vote_count", 0),
+                            "vote_average": m.get("vote_average", 0),
+                            "media_type": media_type
                         })
         except Exception as err:
             print(f"  ⚠️ Erreur endpoint {ep} : {err}")
@@ -94,6 +99,64 @@ def get_trending_movie_ids(session, limit: int = 40) -> list:
     # Tri par popularité décroissante
     collected_ids.sort(key=lambda x: x.get("popularity", 0), reverse=True)
     return collected_ids
+
+
+def refresh_catalog_popularities(session, all_films: list, min_pop_threshold: float = 35.0, max_workers: int = 10) -> int:
+    """
+    Réactualise la popularité réelle, le nombre de votes et la note des œuvres
+    du catalogue dont la popularité enregistrée est élevée (ou obsolète), évitant
+    que d'anciens buzz temporaires restent figés en tête du site pendant des mois.
+    """
+    candidates = [
+        f for f in all_films
+        if float(f.get("popularite") or f.get("popularity") or 0) >= min_pop_threshold
+    ]
+    if not candidates:
+        return 0
+
+    print(f"  🔄 Réactualisation de {len(candidates)} œuvres à forte popularité du catalogue...")
+
+    def update_one(film):
+        mid = film.get("id")
+        if not mid:
+            return False
+        is_tv = bool(film.get("est_serie") or film.get("est_anime") or film.get("type_media") == "tv")
+        primary = "tv" if is_tv else "movie"
+        fallback = "movie" if is_tv else "tv"
+
+        url = f"https://api.themoviedb.org/3/{primary}/{mid}?language=fr-FR"
+        try:
+            resp = session.get(url, timeout=6, verify=False)
+            if resp.status_code == 404:
+                resp = session.get(f"https://api.themoviedb.org/3/{fallback}/{mid}?language=fr-FR", timeout=6, verify=False)
+            if resp.status_code == 200:
+                data = resp.json()
+                new_pop = round(data.get("popularity", 0), 2)
+                new_votes = data.get("vote_count", 0)
+                new_note = round(data.get("vote_average", 0), 2)
+
+                changed = False
+                if new_pop > 0 and film.get("popularite") != new_pop:
+                    film["popularite"] = new_pop
+                    changed = True
+                if new_votes > 0 and film.get("vote_count") != new_votes:
+                    film["vote_count"] = new_votes
+                    changed = True
+                if new_note > 0 and film.get("note_moyenne") != new_note:
+                    film["note_moyenne"] = new_note
+                    changed = True
+                return changed
+        except Exception:
+            pass
+        return False
+
+    updated_count = 0
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        for res in executor.map(update_one, candidates):
+            if res:
+                updated_count += 1
+
+    return updated_count
 
 
 def refresh_single_film_posters(session, film: dict) -> bool:
@@ -200,19 +263,26 @@ def run_weekly_sync(max_new_films: int = 10, days_window: int = 7, dry_run: bool
             film = film_id_map[mid]
             new_pop = round(m.get("popularity", 0), 2)
             new_votes = m.get("vote_count", 0)
+            new_note = round(m.get("vote_average", 0), 2)
             if new_pop > 0:
                 film["popularite"] = new_pop
-                if new_votes:
+                if new_votes > 0:
                     film["vote_count"] = new_votes
+                if new_note > 0:
+                    film["note_moyenne"] = new_note
                 updated_pop_count += 1
 
-    if updated_pop_count > 0:
-        print(f"  📈 Scores de popularité actualisés pour {updated_pop_count} film(s) du catalogue.")
+    # 2b. Réactualisation des œuvres ayant une popularité élevée obsolète dans la base
+    catalog_updated = refresh_catalog_popularities(session, all_films, min_pop_threshold=35.0)
+    updated_pop_count += catalog_updated
 
-    # 2b. Ajout des nouveaux films populaires (avec filtre de qualité strict)
+    if updated_pop_count > 0:
+        print(f"  📈 Scores de popularité actualisés au total pour {updated_pop_count} œuvre(s) du catalogue.")
+
+    # 2c. Ajout des nouveaux films populaires (avec filtre de qualité strict)
     if not skip_new:
         from import_community_films import evaluate_quality_gate
-        candidates = [m for m in trending if m["id"] not in existing_ids]
+        candidates = [m for m in trending if m["id"] not in existing_ids and m.get("media_type") == "movie"]
         print(f"  📌 {len(candidates)} nouveau(x) film(s) potentiel(s) trouvé(s) (limite: {max_new_films}).")
 
         for m in candidates:
@@ -249,7 +319,7 @@ def run_weekly_sync(max_new_films: int = 10, days_window: int = 7, dry_run: bool
     print(f"  • Total films dans la base : {len(all_films)}")
     print("=" * 65)
 
-    if (added_films_count > 0 or refreshed_posters_count > 0) and not dry_run:
+    if (added_films_count > 0 or refreshed_posters_count > 0 or updated_pop_count > 0) and not dry_run:
         save_database(all_films)
         print("\n🎉 Base de données mise à jour avec succès !")
     elif dry_run:

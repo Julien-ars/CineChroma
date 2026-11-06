@@ -28,9 +28,9 @@ if sys.stderr and hasattr(sys.stderr, 'reconfigure'):
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Configuration TMDb
-TMDB_BEARER_TOKEN = os.environ.get(
-    "TMDB_BEARER_TOKEN",
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZDY4ZDgwMDBlMjNjY2E1Mzc4NDAxYmY5MDA0ZTg4NCIsIm5iZiI6MTc4NDU3ODY2MS45ODg5OTk4LCJzdWIiOiI2YTVlODI2NTFhODNiZTIyYWM0ZjYyN2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.fxMEYiohV7Ot3AuR1R5GxoMMROYjZmAUp1RMUJN_1Sg"
+TMDB_BEARER_TOKEN = (
+    os.environ.get("TMDB_BEARER_TOKEN")
+    or "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZDY4ZDgwMDBlMjNjY2E1Mzc4NDAxYmY5MDA0ZTg4NCIsIm5iZiI6MTc4NDU3ODY2MS45ODg5OTk4LCJzdWIiOiI2YTVlODI2NTFhODNiZTIyYWM0ZjYyN2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.fxMEYiohV7Ot3AuR1R5GxoMMROYjZmAUp1RMUJN_1Sg"
 )
 
 # Chemins des fichiers de base de données
