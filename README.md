@@ -40,7 +40,7 @@ L'affiche d'un film constitue sa première signature esthétique et émotionnell
 
 ### 🎨 1. Moteur de Recherche & Filtrage Chromatique
 - **Espace colorimétrique CIELAB :** Contrairement au RGB, l'espace LAB modélise la perception visuelle humaine. Le calcul des proximités repose sur la distance euclidienne perceptuelle ($\Delta E$).
-- **Sélecteur 2D « Cosmos » & Pipette :** Choisissez n'importe quelle nuance avec précision (teinte, saturation, luminosité) ou prélevez une couleur directement depuis une affiche.
+- **Sélecteur 2D « Cosmos » :** Choisissez n'importe quelle nuance avec précision (teinte, saturation, luminosité) grâce à un nuancier 2D interactif et fluide.
 - **Recherche multichromatique (Mode ET / OU) :** Combinez jusqu'à 5 teintes simultanées avec un seuil de tolérance ajustable en temps réel.
 - **Filtres croisés & Tri dynamique :** Filtrez par type de média (films, séries télévisées, animés), genres, décennies, langues et styles d'affiches, avec tri en temps réel par popularité réelle TMDb, note critique ou date de sortie.
 
@@ -146,3 +146,4 @@ Le projet répond aux critères d'évaluation d'un **Produit Minimum Viable (MVP
 - GitHub : [@Julien-ars](https://github.com/Julien-ars)
 - Projet : [CineChroma](https://github.com/Julien-ars/CineChroma)
 - Déploiement : [https://cinechroma.vercel.app/](https://cinechroma.vercel.app/)
+
