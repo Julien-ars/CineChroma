@@ -37,7 +37,7 @@ const I18N = {
     about_hero_subtitle: 'CineChroma est une expérience interactive de Data Science et de Design Web qui décompose les affiches du cinéma mondial sous le spectre de la couleur.',
     
     // Metrics
-    stat_posters_val:    '20 000+',
+    stat_posters_val:    '99 252',
     stat_posters_lbl:    'Affiches HD',
     stat_space_val:      'LAB',
     stat_space_lbl:      'Espace Perceptuel',
@@ -363,7 +363,7 @@ const I18N = {
     about_hero_subtitle: 'CineChroma is an interactive Web Design and Data Science experience that decomposes movie posters through the spectrum of color.',
     
     // Metrics
-    stat_posters_val:    '20,000+',
+    stat_posters_val:    '99,252',
     stat_posters_lbl:    'HD Posters',
     stat_space_val:      'LAB',
     stat_space_lbl:      'Perceptual Space',
@@ -691,7 +691,7 @@ const I18N = {
       about_hero_subtitle: 'CineChromaは、世界の映画ポスターを色彩スペクトルを通じて分解する、インタラクティブなウェブデザインとデータサイエンスの実験です。',
       
       // Metrics
-      stat_posters_val:    '20,000+',
+      stat_posters_val:    '99,252',
       stat_posters_lbl:    'HDポスター',
       stat_space_val:      'LAB',
       stat_space_lbl:      '知覚空間',

@@ -6,7 +6,7 @@
 [![Version en ligne](https://img.shields.io/badge/Live_Demo-cinechroma.vercel.app-E50914?style=for-the-badge&logo=vercel&logoColor=white)](https://cinechroma.vercel.app/)
 [![GitHub Actions CI](https://img.shields.io/badge/CI%2FCD-Automated_Sync-10B981?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/Julien-ars/CineChroma/actions)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Catalogue](https://img.shields.io/badge/Catalogue-16%2C200%2B_%C5%93uvres-8B5CF6?style=for-the-badge)](https://cinechroma.vercel.app/)
+[![Catalogue](https://img.shields.io/badge/Catalogue-16%2C234_%C5%93uvres-8B5CF6?style=for-the-badge)](https://cinechroma.vercel.app/)
 [![License](https://img.shields.io/badge/Licence-MIT-blue?style=for-the-badge)](LICENSE)
 
 <br/>
@@ -84,7 +84,7 @@ cinechroma/
 │
 ├── films_part1.json             # Base de données partitionnée (œuvres 1 à 5 411)
 ├── films_part2.json             # Base de données partitionnée (œuvres 5 412 à 10 822)
-├── films_part3.json             # Base de données partitionnée (œuvres 10 823 à 16 233)
+├── films_part3.json             # Base de données partitionnée (œuvres 10 823 à 16 234)
 │
 ├── scripts/
 │   ├── pipeline_core.py         # Moteur central d'extraction de palettes LAB & liaison TMDb
@@ -133,7 +133,7 @@ python scripts/sync_weekly.py --max-new-films 10
 
 Le projet répond aux critères d'évaluation d'un **Produit Minimum Viable (MVP)** :
 1. **Opérationnel en conditions réelles :** L'application est en ligne, accessible à n'importe quel utilisateur sur desktop et mobile sans installation préalable.
-2. **Rapidité d'exploration :** Un utilisateur découvre en moins de 30 secondes un ensemble d'œuvres partageant un accord colorimétrique cible sur plus de 16 000 entrées.
+2. **Rapidité d'exploration :** Un utilisateur découvre en moins de 30 secondes un ensemble d'œuvres partageant un accord colorimétrique cible sur 16 234 entrées (99 252 affiches).
 3. **Fidélité perceptuelle :** Les palettes extraites via MiniBatchKMeans en espace LAB correspondent à la dominante perçue de l'affiche dans plus de 85 % des évaluations visuelles.
 
 ---
