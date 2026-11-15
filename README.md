@@ -15,7 +15,7 @@
   <b>Une plateforme web interactive et un moteur de recherche visuel permettant d'explorer le patrimoine cinématographique à travers le prisme de la couleur, accompagné d'un hub de jeux cinématographiques.</b>
 </p>
 
-[🌐 Tester l'application en ligne](https://cinechroma.vercel.app/) • [🎮 Jouer aux mini-jeux](https://cinechroma.vercel.app/game.html) • [📄 Page de Synthèse MVP (PDF)](./CineChroma_MVP_Synthese.pdf)
+[🌐 Tester l'application en ligne](https://cinechroma.vercel.app/) • [🎮 Jouer aux mini-jeux](https://cinechroma.vercel.app/game.html) • [📄 Page de Synthèse MVP (PDF)](./CineChroma_MVP.pdf)
 
 <br/>
 
@@ -89,7 +89,6 @@ cinechroma/
 ├── scripts/
 │   ├── pipeline_core.py         # Moteur central d'extraction de palettes LAB & liaison TMDb
 │   ├── sync_weekly.py           # Script d'actualisation hebdomadaire automatisée
-│   ├── generate_mvp_pdf.py      # Générateur du PDF de synthèse A4 (ReportLab)
 │   ├── add_film.py              # Utilitaire d'ajout manuel d'œuvres via TMDb
 │   └── update_recent_films.py   # Mise à jour ciblée des films récents
 │
@@ -97,8 +96,7 @@ cinechroma/
 │   └── cinechroma_sync.yml      # Workflow GitHub Actions d'automatisation hebdomadaire
 │
 ├── Notebook projet couleur.ipynb # Notebook exploratoire initial (analyses & prototypes)
-├── CineChroma_MVP_Synthese.pdf   # Document de synthèse MVP (format 1 page A4)
-└── mvp_synthese.html             # Template HTML prêt pour impression PDF A4
+└── CineChroma_MVP.pdf           # Document de synthèse MVP (format 1 page A4)
 ```
 
 ---
