@@ -142,7 +142,7 @@ Le projet répond aux critères d'évaluation d'un **Produit Minimum Viable (MVP
 
 ## 👤 Auteur
 
-**Julien Arsène**
+**Julien Arsena**
 - GitHub : [@Julien-ars](https://github.com/Julien-ars)
 - Projet : [CineChroma](https://github.com/Julien-ars/CineChroma)
 - Déploiement : [https://cinechroma.vercel.app/](https://cinechroma.vercel.app/)
