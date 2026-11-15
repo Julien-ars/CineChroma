@@ -712,7 +712,7 @@ const state = {
   activeLanguages: new Set(),
   activePosterStyles: new Set(['textless']),
   activeColors:    [],
-  filterMode:      'or',
+  filterMode:      'and',
   colorThreshold:  CONFIG.DEFAULT_THRESHOLD,
   sort:            CONFIG.DEFAULT_SORT,
   lang:            localStorage.getItem('cinechroma_lang') || 'fr',
@@ -2125,10 +2125,7 @@ function closeSortPopover() {
    FILTERING & SORTING
 ============================================================ */
 function applyFiltersAndRender() {
-  if (state.activeColors.length > 1) {
-    state.filterMode = 'and';
-    syncDrawerModeButtons();
-  }
+  syncDrawerModeButtons();
   let films = state.allFilms;
 
   // Media Type Filter (all / movie / tv / anime)
@@ -4067,7 +4064,7 @@ function updateURL() {
   if (state.activeColors.length)                p.set('colors', state.activeColors.map(c => c.replace('#', '')).join(','));
   if (state.sort !== CONFIG.DEFAULT_SORT)       p.set('sort', state.sort);
   if (state.colorThreshold !== CONFIG.DEFAULT_THRESHOLD) p.set('tol', state.colorThreshold);
-  if (state.filterMode !== 'or')                p.set('mode', state.filterMode);
+  if (state.filterMode !== 'and')               p.set('mode', state.filterMode);
   history.replaceState(null, '', p.toString() ? `?${p}` : location.pathname);
 }
 
@@ -4085,7 +4082,8 @@ function readURL() {
   }
   if (p.has('sort'))   state.sort = p.get('sort');
   if (p.has('tol'))    state.colorThreshold = parseInt(p.get('tol'),10) || CONFIG.DEFAULT_THRESHOLD;
-  if (p.has('mode'))   state.filterMode = p.get('mode') === 'and' ? 'and' : 'or';
+  if (p.has('mode'))   state.filterMode = p.get('mode') === 'or' ? 'or' : 'and';
+  else                 state.filterMode = 'and';
 }
 
 /* ============================================================
@@ -4370,8 +4368,10 @@ function bindEvents() {
 
   $$('.drawer-toggle-btn, .drawer-mode-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      state.filterMode = btn.getAttribute('data-mode');
+      state.filterMode = btn.getAttribute('data-mode') || 'and';
       syncDrawerModeButtons();
+      applyFiltersAndRender();
+      updateURL();
     });
   });
 
@@ -4383,7 +4383,7 @@ function bindEvents() {
     state.activeImageSrc = null;
     state.sort = CONFIG.DEFAULT_SORT;
     state.colorThreshold = CONFIG.DEFAULT_THRESHOLD;
-    state.filterMode = 'or';
+    state.filterMode = 'and';
     // Reset poster styles to default (textless only)
     state.activePosterStyles = new Set(['textless']);
     buildPosterStyleChips();
