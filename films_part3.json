@@ -1,5 +1,283 @@
 [
   {
+    "id": 897087,
+    "est_serie": false,
+    "type_media": "movie",
+    "est_animation": false,
+    "est_anime": false,
+    "titre": "Freelance",
+    "titre_en": "Freelance",
+    "titre_ja": "ザ・ボディガード ローグ・ミッション",
+    "titre_original": "Freelance",
+    "date_sortie": "2023-10-05",
+    "genres": [
+      "Action",
+      "Comédie"
+    ],
+    "duree_minutes": 109,
+    "realisateur": "Pierre Morel",
+    "langue_origine": "en",
+    "note_moyenne": 6.395,
+    "popularite": 6.5813,
+    "resume_fr": "Un agent des forces spéciales décide de prendre sa retraite de l’armée et de fonder une famille aux États-Unis. Après plusieurs années d’efforts pour se conformer à la vie en banlieue, il décide de sortir de sa retraite et d’accepter un contrat pour assurer la sécurité d’une journaliste alors qu’elle interviewe un dictateur sud-américain. Lorsqu’un coup d’État militaire éclate en plein milieu de l’interview, les voici tous trois contraints de s‘enfuir dans la jungle où ils doivent survivre aux éléments, aux militaires et les uns aux autres.",
+    "resume_en": "An ex-special forces operative takes a job to provide security for a journalist as she interviews a dictator, but a military coup breaks out in the middle of the interview, they are forced to escape into the jungle where they must survive.",
+    "resume_ja": "ピエール・モレル監督、ジョン・シナ主演による痛快アクション・コメディ。南米のジャングルで女性ジャーナリストを守るという任務を引き受けた元特殊部隊員。命懸けのサバイバルの中で、惹かれ合っていくが……。",
+    "bande_annonce_url_fr": "https://www.youtube.com/watch?v=wTA1su_FbCc",
+    "bande_annonce_url_en": "https://www.youtube.com/watch?v=W0k2XerT8Nw",
+    "bande_annonce_url_ja": null,
+    "affiches_globales": [
+      {
+        "categorie": "textless",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/acB0GpkpS0GHOjdvuVizYT7GlE7.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/acB0GpkpS0GHOjdvuVizYT7GlE7.jpg",
+        "palette": [
+          {
+            "hex": "#162136",
+            "weight": 27.65
+          },
+          {
+            "hex": "#444947",
+            "weight": 21.04
+          },
+          {
+            "hex": "#376b99",
+            "weight": 17.85
+          },
+          {
+            "hex": "#8a846b",
+            "weight": 17.57
+          },
+          {
+            "hex": "#96c8da",
+            "weight": 15.89
+          }
+        ]
+      },
+      {
+        "categorie": "textless",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/i7J3EnweilX5YpSzU42NxLeXv2z.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/i7J3EnweilX5YpSzU42NxLeXv2z.jpg",
+        "palette": [
+          {
+            "hex": "#737d65",
+            "weight": 27.03
+          },
+          {
+            "hex": "#2b2c3a",
+            "weight": 23.99
+          },
+          {
+            "hex": "#e5ecef",
+            "weight": 21.41
+          },
+          {
+            "hex": "#265983",
+            "weight": 13.92
+          },
+          {
+            "hex": "#64b4ca",
+            "weight": 13.65
+          }
+        ]
+      },
+      {
+        "categorie": "textless",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/cKubgqwaDIafAfTJkDqs4Au3OS3.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/cKubgqwaDIafAfTJkDqs4Au3OS3.jpg",
+        "palette": [
+          {
+            "hex": "#13150f",
+            "weight": 38.31
+          },
+          {
+            "hex": "#1c3f19",
+            "weight": 25.47
+          },
+          {
+            "hex": "#614e3a",
+            "weight": 13.7
+          },
+          {
+            "hex": "#b09a8e",
+            "weight": 11.55
+          },
+          {
+            "hex": "#363b3e",
+            "weight": 10.97
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/7Bd4EUOqQDKZXA6Od5gkfzRNb0.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/7Bd4EUOqQDKZXA6Od5gkfzRNb0.jpg",
+        "palette": [
+          {
+            "hex": "#eaf0f3",
+            "weight": 30.36
+          },
+          {
+            "hex": "#1e2e45",
+            "weight": 24.79
+          },
+          {
+            "hex": "#756f61",
+            "weight": 18.39
+          },
+          {
+            "hex": "#88b7b2",
+            "weight": 13.81
+          },
+          {
+            "hex": "#3488b3",
+            "weight": 12.65
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/eXo4NlyT3oXoRgVWS5J4rgR6gt1.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/eXo4NlyT3oXoRgVWS5J4rgR6gt1.jpg",
+        "palette": [
+          {
+            "hex": "#1b2437",
+            "weight": 26.85
+          },
+          {
+            "hex": "#50534f",
+            "weight": 22.87
+          },
+          {
+            "hex": "#5a95ba",
+            "weight": 19.79
+          },
+          {
+            "hex": "#d8e8ec",
+            "weight": 16.96
+          },
+          {
+            "hex": "#938c6e",
+            "weight": 13.53
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/jxO6JOgcYCaCWBjP9mj4nEtB7cX.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/jxO6JOgcYCaCWBjP9mj4nEtB7cX.jpg",
+        "palette": [
+          {
+            "hex": "#6c7058",
+            "weight": 26.8
+          },
+          {
+            "hex": "#182134",
+            "weight": 26.54
+          },
+          {
+            "hex": "#e7ebed",
+            "weight": 21.44
+          },
+          {
+            "hex": "#64b9ca",
+            "weight": 14.12
+          },
+          {
+            "hex": "#3273a9",
+            "weight": 11.1
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/41rqc5t1Ye3k9iNey1pxYJQuooF.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/41rqc5t1Ye3k9iNey1pxYJQuooF.jpg",
+        "palette": [
+          {
+            "hex": "#223147",
+            "weight": 29.16
+          },
+          {
+            "hex": "#deeaee",
+            "weight": 27.51
+          },
+          {
+            "hex": "#687f68",
+            "weight": 19.65
+          },
+          {
+            "hex": "#4697bb",
+            "weight": 16.28
+          },
+          {
+            "hex": "#a77166",
+            "weight": 7.4
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/nYknJ4zmIzIfrMEnWF5pcttmEMT.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/nYknJ4zmIzIfrMEnWF5pcttmEMT.jpg",
+        "palette": [
+          {
+            "hex": "#e4e8ed",
+            "weight": 31.48
+          },
+          {
+            "hex": "#707061",
+            "weight": 24.15
+          },
+          {
+            "hex": "#1b202f",
+            "weight": 20.87
+          },
+          {
+            "hex": "#6aa1bd",
+            "weight": 13.13
+          },
+          {
+            "hex": "#244978",
+            "weight": 10.37
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/wRTKRKfXxf19eDEoxUYG6fPc1ob.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/wRTKRKfXxf19eDEoxUYG6fPc1ob.jpg",
+        "palette": [
+          {
+            "hex": "#121113",
+            "weight": 39.09
+          },
+          {
+            "hex": "#766e53",
+            "weight": 22.51
+          },
+          {
+            "hex": "#e2e8e7",
+            "weight": 16.09
+          },
+          {
+            "hex": "#224d76",
+            "weight": 11.25
+          },
+          {
+            "hex": "#61a8ba",
+            "weight": 11.05
+          }
+        ]
+      }
+    ],
+    "saisons": [],
+    "v2_complete": true,
+    "revenue": 9112817,
+    "budget": 40000000,
+    "affiches_valides": true,
+    "statut_traitement": "v2_mis_a_jour"
+  },
+  {
     "id": 1301994,
     "est_serie": false,
     "type_media": "movie",
@@ -4833,8 +5111,8 @@
     "duree_minutes": 164,
     "realisateur": "Lee Chang-dong",
     "langue_origine": "ko",
-    "note_moyenne": 7.6,
-    "popularite": 59.64,
+    "note_moyenne": 7.31,
+    "popularite": 35.12,
     "resume_fr": "",
     "resume_en": "A story of two married couples — a laid-off worker and his spouse, and a documentary filmmaker and her spouse — crossing paths to film a documentary and facing their different lives and hidden desires.",
     "resume_ja": "まったく異なる人生を歩む2 組の夫婦の交錯する日常を捉え、平穏に見えた日々に少しずつ亀裂が生まれていく様子を描き出す。",
@@ -4903,7 +5181,7 @@
     "budget": 0,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 42
+    "vote_count": 84
   },
   {
     "id": 438864,
@@ -6977,8 +7255,8 @@
     "duree_minutes": 0,
     "realisateur": "Travis Knight",
     "langue_origine": "en",
-    "note_moyenne": 8.51,
-    "popularite": 164.4,
+    "note_moyenne": 8.5,
+    "popularite": 81.21,
     "resume_fr": "Au-delà des limites de la ville de Portland, il y a le féerique Wildwood. Un lieu où vous n'êtes pas censé y aller, que vous n'êtes même pas censé connaître. Pour retrouver son petit frère venant d'être enlevé, Mac, Prue McKeel et son camarade, Curtis, sont sur le point d'entrer dans ce pays des merveilles...",
     "resume_en": "Prue and her classmate Curtis are drawn into a forbidden magical forest filled with enchanted creatures, loyal allies, and formidable adversaries as they embark on a desperate quest to save Prue’s kidnapped baby brother, Mac, from the crows led by a mysterious woman named Alexandra.",
     "resume_ja": "",
@@ -7236,7 +7514,7 @@
     "budget": 0,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 235
+    "vote_count": 284
   },
   {
     "id": 10026,
@@ -12330,7 +12608,7 @@
     "realisateur": "Inconnu",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 0.63,
+    "popularite": 0.61,
     "resume_fr": "",
     "resume_en": "",
     "resume_ja": "",
@@ -15106,7 +15384,7 @@
     "realisateur": "Bob Persichetti",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 6.01,
+    "popularite": 6.06,
     "resume_fr": "",
     "resume_en": "Hunted by Miguel O'Hara's Spider Society and betrayed by his friends, Miles finds himself in the darkest corners of the Spider-Verse in search of a way home. Knowing that his family has been not only fractured but endangered by his calling, it's a race against the clock for Miles to travel across the wildest reaches of time and space to fight for and reunite everything he holds most dear.",
     "resume_ja": "",
@@ -40813,7 +41091,7 @@
     "realisateur": "Matt Reeves",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 5.52,
+    "popularite": 5.49,
     "resume_fr": "La suite du film The Batman de 2022.",
     "resume_en": "Sequel to the 2022 film The Batman.",
     "resume_ja": "",
@@ -85281,8 +85559,8 @@
     "duree_minutes": 0,
     "realisateur": "Guy Moshe",
     "langue_origine": "en",
-    "note_moyenne": 5.9,
-    "popularite": 114.48,
+    "note_moyenne": 5.8,
+    "popularite": 118.51,
     "resume_fr": "",
     "resume_en": "Disillusioned by the end of the war in Afghanistan, a group of disgraced, war-torn ex-CIA operatives set out to Tehran to take down a life-changing score.",
     "resume_ja": "",
@@ -85405,7 +85683,7 @@
     "budget": 32000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 94
+    "vote_count": 96
   },
   {
     "id": 12093,
@@ -114491,7 +114769,7 @@
     "realisateur": "Robert Eggers",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 4.89,
+    "popularite": 7.01,
     "resume_fr": "",
     "resume_en": "A harrowing tale of devotion, damnation and the devil within.",
     "resume_ja": "",
@@ -125267,8 +125545,8 @@
     "duree_minutes": 119,
     "realisateur": "Takashi Yamazaki",
     "langue_origine": "ja",
-    "note_moyenne": 8.0,
-    "popularite": 200.29,
+    "note_moyenne": 7.72,
+    "popularite": 150.0,
     "resume_fr": "Japon après la Seconde Guerre mondiale, Shikishima Koichi, un ancien pilote kamikaze survit à une rencontre avec Godzilla et souffre de symptômes de stress post-traumatique. Lorsque la créature réapparaît des années plus tard, un groupe de soldats et de vétérans doit s'unir pour vaincre le monstre avant qu'il ne puisse détruire le Japon.",
     "resume_en": "War reduced Japan to zero, and Godzilla plunged it into minus. Two years have passed since then, and the country has faced agonizing struggles to achieve recovery and finally reclaim its daily life. Just as humanity managed to cling to a hard-won peace, a new threat strikes, crushing hope in an instant.",
     "resume_ja": "",
@@ -125526,7 +125804,7 @@
     "budget": 15000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 109
+    "vote_count": 220
   },
   {
     "id": 988716,
@@ -128334,7 +128612,7 @@
     "realisateur": "Grant Sputore",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 4.11,
+    "popularite": 3.73,
     "resume_fr": "",
     "resume_en": "As the sixth installment in the MonsterVerse film series, this movie will delve deeper into the delicate relationship of coexistence and trust between humans and prehistoric behemoths. Meanwhile, the earth-shaking monster storm triggered by the epic clash between Godzilla and Kong, the two guardians of Earth’s ecological balance, will once again sweep across the big screen!",
     "resume_ja": "",
@@ -134865,7 +135143,7 @@
     "realisateur": "James Cameron",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 2.86,
+    "popularite": 2.73,
     "resume_fr": "Le quatrième volet de la saga Avatar.",
     "resume_en": "The fourth installment of the franchise. Plot TBA.",
     "resume_ja": "",
@@ -139135,7 +139413,7 @@
     "realisateur": "Matt Bettinelli-Olpin",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 3.56,
+    "popularite": 4.66,
     "resume_fr": "Universal Pictures vient enfin d’officialiser La Momie 4, avec le retour très attendu de Brendan Fraser et Rachel Weisz.",
     "resume_en": "The fourth installment in franchise. Plot TBA.",
     "resume_ja": "",
@@ -167931,8 +168209,8 @@
     "duree_minutes": 118,
     "realisateur": "Martin McDonagh",
     "langue_origine": "en",
-    "note_moyenne": 8.12,
-    "popularite": 65.07,
+    "note_moyenne": 7.9,
+    "popularite": 67.15,
     "resume_fr": "Peu avant le coup d'État chilien de 1973, deux agents de la CIA, Chris et Lee, sont envoyés de Santiago vers l'île de Pâques par leur supérieur, MJ. Au milieu des statues emblématiques de l'île, tandis que ces partenaires de longue date sont confrontés à leur sombre passé et aux complots en cours, Chris noue une relation avec deux étudiantes rebelles qui menace de faire basculer dans le chaos leur séjour dans ce paradis isolé…",
     "resume_en": "Shortly before the 1973 Chilean coup, CIA agents Chris and Lee are dispatched from Santiago to Easter Island by their bureau chief, MJ. Amongst the Island's iconic statues, and as the longtime partners wrestle with their dark pasts and present conspiracies, Chris's newfound bond with a pair of rebellious students threatens to send everyone’s trip to this remote paradise sideways.",
     "resume_ja": "",
@@ -168190,7 +168468,7 @@
     "budget": 5000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 93
+    "vote_count": 214
   },
   {
     "id": 505283,
@@ -180091,7 +180369,7 @@
     "realisateur": "Jora Kryjovnikov",
     "langue_origine": "ru",
     "note_moyenne": 0.0,
-    "popularite": 0.93,
+    "popularite": 0.95,
     "resume_fr": "",
     "resume_en": "",
     "resume_ja": "",
@@ -204681,8 +204959,8 @@
     "duree_minutes": 0,
     "realisateur": "Peter Farrelly",
     "langue_origine": "en",
-    "note_moyenne": 8.8,
-    "popularite": 15.68,
+    "note_moyenne": 8.61,
+    "popularite": 29.08,
     "resume_fr": "Un acteur en difficulté avec un visage partiellement paralysé et un trouble de l’élocution écrit un scénario qu’un grand studio de cinéma veut acheter. Mais l’acteur refuse de le vendre à moins de pouvoir jouer le rôle principal. Refusant une offre d’argent qui pourrait changer sa vie, il travaille pour des centimes afin que le film soit réalisé avec lui dans le rôle principal.",
     "resume_en": "The electrifying true story about an unknown actor with an unshakable belief that he wasn't just meant to write Rocky—he was meant to be Rocky Balboa. Told \"no\" at every turn, Sylvester Stallone bets everything on himself, holding the line on playing the lead against seemingly impossible odds.",
     "resume_ja": "",
@@ -204723,7 +205001,8 @@
     "revenue": 0,
     "budget": 0,
     "affiches_valides": true,
-    "statut_traitement": "v2_mis_a_jour"
+    "statut_traitement": "v2_mis_a_jour",
+    "vote_count": 31
   },
   {
     "id": 604822,
@@ -269813,7 +270092,7 @@
     "realisateur": "Никита Власов",
     "langue_origine": "ru",
     "note_moyenne": 0.0,
-    "popularite": 0.93,
+    "popularite": 1.17,
     "resume_fr": "",
     "resume_en": "Moscow schoolboy Volodya accidentally fishes out of the Moscow River a mysterious lamp, from which the genie Khottabych appears. He promises to fulfill any of his wishes, but each of them turns into unexpected consequences. Magic multiplies, rather than solves Volodya's problems. Nevertheless, the schoolboy is imbued with the genie's problems and, as a result, finds himself in the past, where Khottabych's daughter marries an unloved man. Trying to destroy this marriage and free Khottabych, Volodya and his friends go to an ancient Eastern wedding.",
     "resume_ja": "",
@@ -280445,7 +280724,7 @@
     "realisateur": "Timo Tjahjanto",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 7.52,
+    "popularite": 8.46,
     "resume_fr": "Un ancien agent de l’organisation secrète des apiculteurs se lance dans une mission de vengeance impitoyable, déployant ses compétences létales contre ceux qui lui ont fait du tort.",
     "resume_en": "The second installment in the franchise. Plot TBA.",
     "resume_ja": "",
@@ -307162,8 +307441,8 @@
     "duree_minutes": 155,
     "realisateur": "Javier Ambrossi",
     "langue_origine": "es",
-    "note_moyenne": 8.1,
-    "popularite": 152.43,
+    "note_moyenne": 8.0,
+    "popularite": 132.96,
     "resume_fr": "",
     "resume_en": "Set across three timelines — Republican Spain in 1932, the Civil War in 1937, and contemporary Spain in 2017 — the film follows a constellation of interconnected lives centered on three young men, whose emotional and political echoes gradually reveal themselves.",
     "resume_ja": "",
@@ -307367,7 +307646,7 @@
     "budget": 0,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 195
+    "vote_count": 224
   },
   {
     "id": 1560520,
@@ -374945,7 +375224,7 @@
     "realisateur": "Josh Greenbaum",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 2.69,
+    "popularite": 2.98,
     "resume_fr": "",
     "resume_en": "Forty years after the events of the first Spaceballs, the galaxy is once again under threat. A threat so evil, so unstoppable, so completely lacking in any original ideas, that it has vowed to bring back the past... every last bit of it. With Lone Starr in hiding, Queen Vespa on the throne, and the Schwartz stretched thinner than a franchise releasing TV episodes theatrically, the only hope for the galaxy is Vespa's undisciplined son, Prince Starburst, and a mysterious Palace advisor named Destiny. Together, they must find Lone Starr, Yogurt, and any other iconic legacy characters fans are demanding before they discover the hard way that, while some threats you can fight, the reboot is not one of them.",
     "resume_ja": "",
@@ -394532,8 +394811,8 @@
     "duree_minutes": 62,
     "realisateur": "Albert Band",
     "langue_origine": "en",
-    "note_moyenne": 5.2,
-    "popularite": 1.05,
+    "note_moyenne": 5.14,
+    "popularite": 1.29,
     "resume_fr": "Un mal indicible est venu dans notre dimension et veut régner sur la Terre, et seul un mystérieux sorcier connu sous le nom de docteur Mordrid peut l'arrêter.",
     "resume_en": "Bound by hate and a mystical amulet that holds the powers of life and death, two immortal wizards meet for the last time in an ancient struggle of good versus evil.",
     "resume_ja": "",
@@ -394791,7 +395070,7 @@
     "budget": 2000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 71
+    "vote_count": 72
   },
   {
     "id": 962945,
@@ -408182,8 +408461,8 @@
     "duree_minutes": 95,
     "realisateur": "Casper Kelly",
     "langue_origine": "en",
-    "note_moyenne": 6.89,
-    "popularite": 141.94,
+    "note_moyenne": 6.8,
+    "popularite": 109.74,
     "resume_fr": "Une fille et ses amis doivent s’échapper d’une émission de télévision pour enfants.",
     "resume_en": "Remember BUDDY—the bright orange unicorn and star of that classic childrens' television show who brought joy and life lessons into your living room?  Inside the colorful world of \"It's Buddy!\", a group of children spend their days singing, dancing, and helping Buddy spread happiness. But when one child refuses to play along, Buddy is not pleased and cracks begin to appear in this seemingly perfect world.",
     "resume_ja": "",
@@ -408306,7 +408585,7 @@
     "budget": 0,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 260
+    "vote_count": 282
   },
   {
     "id": 1475803,
@@ -568623,7 +568902,7 @@
     "realisateur": "James Gunn",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 4.04,
+    "popularite": 5.25,
     "resume_fr": "",
     "resume_en": "Superman and Lex Luthor team up to face a larger threat.",
     "resume_ja": "",
@@ -578502,7 +578781,7 @@
     "realisateur": "Dakota Roth",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 1.99,
+    "popularite": 0.91,
     "revenue": 0,
     "budget": 4000,
     "resume_fr": "",
@@ -585386,7 +585665,7 @@
     "realisateur": "Andy Serkis",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 2.65,
+    "popularite": 3.69,
     "revenue": 0,
     "budget": 0,
     "resume_fr": "",
@@ -604478,7 +604757,7 @@
     "realisateur": "Abhijeet Deshpande",
     "langue_origine": "hi",
     "note_moyenne": 0.0,
-    "popularite": 0.94,
+    "popularite": 0.76,
     "revenue": 0,
     "budget": 0,
     "resume_fr": "",
@@ -613012,7 +613291,7 @@
     "realisateur": "Greta Gerwig",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 5.85,
+    "popularite": 6.45,
     "revenue": 0,
     "budget": 250000000,
     "resume_fr": "",

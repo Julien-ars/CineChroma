@@ -1,5 +1,282 @@
 [
   {
+    "id": 590,
+    "est_serie": false,
+    "type_media": "movie",
+    "est_animation": false,
+    "est_anime": false,
+    "titre": "The Hours",
+    "titre_en": "The Hours",
+    "titre_ja": "めぐりあう時間たち",
+    "titre_original": "The Hours",
+    "date_sortie": "2002-12-27",
+    "genres": [
+      "Drame"
+    ],
+    "duree_minutes": 114,
+    "realisateur": "Stephen Daldry",
+    "langue_origine": "en",
+    "note_moyenne": 7.253,
+    "popularite": 4.722,
+    "resume_fr": "Dans la banlieue de Londres, au début des années vingt, Virginia Woolf lutte contre la folie qui la guette. Elle entame l'écriture de son grand roman, Mrs Dalloway. Plus de vingt ans après, à Los Angeles, Laura Brown lit cet ouvrage : une expérience si forte qu'elle songe à changer radicalement de vie. À New York, aujourd'hui, Clarissa Vaughn, version moderne de Mrs Dalloway, soutient Richard, un ami poète atteint du sida. Comment ces histoires vont-elles se rejoindre, comment ces trois femmes vont-elles former une seule et même chaîne ? La littérature est si puissante qu'un chef-d’œuvre peut, par-delà les époques, modifier irrévocablement l'existence de celles qui le côtoient.",
+    "resume_en": "The story of three women searching for more potent, meaningful lives. Each is alive at a different time and place, all are linked by their yearnings and their fears. Their stories intertwine, and finally come together in a surprising, transcendent moment of shared recognition.",
+    "resume_ja": "イギリスの女性小説家バージニア・ウルフの「ダロウェイ夫人」をモチーフに、3つの時代、3つの場所で暮らす女性たちの1日を繊細に描いた人間ドラマ。1923年、ロンドン郊外。作家ヴァージニア・ウルフは病気療養のためこの地に移り住み、『ダロウェイ夫人』を執筆していた。午後にはティー・パーティが控えている…。1951年、ロサンジェルス。『ダロウェイ夫人』を愛読する妊娠中の主婦ローラ・ブラウンは、夫の望む理想の妻を演じることに疲れながらも、夫の誕生パーティを開くためケーキを作り始める…。2001年、ニューヨーク。『ダロウェイ夫人』と同じ名前の編集者クラリッサ・ヴォーンは、親しい友人でエイズ患者の作家リチャードが栄えある賞を受賞したことを祝うパーティの準備に取りかかっていた…。",
+    "bande_annonce_url_fr": null,
+    "bande_annonce_url_en": "https://www.youtube.com/watch?v=CkPWXUxIiXs",
+    "bande_annonce_url_ja": null,
+    "affiches_globales": [
+      {
+        "categorie": "textless",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/iNGfkIaLXFM7PTQgPNjM7kiCdcr.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/iNGfkIaLXFM7PTQgPNjM7kiCdcr.jpg",
+        "palette": [
+          {
+            "hex": "#0c0504",
+            "weight": 34.7
+          },
+          {
+            "hex": "#f6e4d9",
+            "weight": 27.48
+          },
+          {
+            "hex": "#ba907a",
+            "weight": 16.71
+          },
+          {
+            "hex": "#4a291d",
+            "weight": 12.17
+          },
+          {
+            "hex": "#57524d",
+            "weight": 8.93
+          }
+        ]
+      },
+      {
+        "categorie": "textless",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/6oUMjC21h1mJ7a27IK2OWOFFdZ0.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/6oUMjC21h1mJ7a27IK2OWOFFdZ0.jpg",
+        "palette": [
+          {
+            "hex": "#0a0706",
+            "weight": 46.17
+          },
+          {
+            "hex": "#f9f8f6",
+            "weight": 16.43
+          },
+          {
+            "hex": "#e0c6b6",
+            "weight": 14.93
+          },
+          {
+            "hex": "#453127",
+            "weight": 12.5
+          },
+          {
+            "hex": "#907668",
+            "weight": 9.98
+          }
+        ]
+      },
+      {
+        "categorie": "textless",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/uaBZUUAAflbFjo0XF629ujrKzd0.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/uaBZUUAAflbFjo0XF629ujrKzd0.jpg",
+        "palette": [
+          {
+            "hex": "#bcbcbc",
+            "weight": 29.94
+          },
+          {
+            "hex": "#898889",
+            "weight": 29.8
+          },
+          {
+            "hex": "#575757",
+            "weight": 22.56
+          },
+          {
+            "hex": "#262626",
+            "weight": 12.51
+          },
+          {
+            "hex": "#f2bee1",
+            "weight": 5.19
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/4myDtowDJQPQnkEDB1IWGtJR1Fo.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/4myDtowDJQPQnkEDB1IWGtJR1Fo.jpg",
+        "palette": [
+          {
+            "hex": "#b29d83",
+            "weight": 31.11
+          },
+          {
+            "hex": "#211a17",
+            "weight": 24.27
+          },
+          {
+            "hex": "#70553f",
+            "weight": 20.31
+          },
+          {
+            "hex": "#f3f1eb",
+            "weight": 15.23
+          },
+          {
+            "hex": "#6a6867",
+            "weight": 9.09
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/xdzndc5TXjwWt1MGuf8g4iZnq2W.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/xdzndc5TXjwWt1MGuf8g4iZnq2W.jpg",
+        "palette": [
+          {
+            "hex": "#19171b",
+            "weight": 24.99
+          },
+          {
+            "hex": "#b59a8c",
+            "weight": 24.6
+          },
+          {
+            "hex": "#7f6d6a",
+            "weight": 22.07
+          },
+          {
+            "hex": "#5e3e3c",
+            "weight": 16.37
+          },
+          {
+            "hex": "#efebe6",
+            "weight": 11.97
+          }
+        ]
+      },
+      {
+        "categorie": "origine",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/5U4DakXBGp9lc37Tryvg0n33R7N.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/5U4DakXBGp9lc37Tryvg0n33R7N.jpg",
+        "palette": [
+          {
+            "hex": "#fdfcfb",
+            "weight": 38.31
+          },
+          {
+            "hex": "#4d3c2f",
+            "weight": 26.65
+          },
+          {
+            "hex": "#a38672",
+            "weight": 13.13
+          },
+          {
+            "hex": "#b2a8c6",
+            "weight": 11.08
+          },
+          {
+            "hex": "#e0cabd",
+            "weight": 10.83
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/ymLabBChcX8hSsTP6ZsJZ7LFqrv.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/ymLabBChcX8hSsTP6ZsJZ7LFqrv.jpg",
+        "palette": [
+          {
+            "hex": "#1b110d",
+            "weight": 28.37
+          },
+          {
+            "hex": "#614b3f",
+            "weight": 20.95
+          },
+          {
+            "hex": "#deccbb",
+            "weight": 19.82
+          },
+          {
+            "hex": "#a79180",
+            "weight": 16.25
+          },
+          {
+            "hex": "#f8f6f3",
+            "weight": 14.61
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/4xQMLYvYJjrffWsynMitD1Lbned.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/4xQMLYvYJjrffWsynMitD1Lbned.jpg",
+        "palette": [
+          {
+            "hex": "#fbfaf9",
+            "weight": 31.37
+          },
+          {
+            "hex": "#ddc1b1",
+            "weight": 18.46
+          },
+          {
+            "hex": "#4d4340",
+            "weight": 17.69
+          },
+          {
+            "hex": "#0f0f14",
+            "weight": 17.25
+          },
+          {
+            "hex": "#928380",
+            "weight": 15.23
+          }
+        ]
+      },
+      {
+        "categorie": "monde",
+        "affiche_w500": "https://image.tmdb.org/t/p/w500/hSdAMWk1lbrINMOVlfAP1gt4xHW.jpg",
+        "affiche_original": "https://image.tmdb.org/t/p/original/hSdAMWk1lbrINMOVlfAP1gt4xHW.jpg",
+        "palette": [
+          {
+            "hex": "#d79e6d",
+            "weight": 30.09
+          },
+          {
+            "hex": "#2d2321",
+            "weight": 26.48
+          },
+          {
+            "hex": "#84452a",
+            "weight": 17.87
+          },
+          {
+            "hex": "#f0eadf",
+            "weight": 15.11
+          },
+          {
+            "hex": "#767272",
+            "weight": 10.45
+          }
+        ]
+      }
+    ],
+    "saisons": [],
+    "v2_complete": true,
+    "revenue": 108846217,
+    "budget": 25000000,
+    "affiches_valides": true,
+    "statut_traitement": "v2_mis_a_jour"
+  },
+  {
     "id": 768744,
     "est_serie": false,
     "type_media": "movie",
@@ -238500,7 +238777,7 @@
     "realisateur": "Jon Watts",
     "langue_origine": "en",
     "note_moyenne": 7.95,
-    "popularite": 36.48,
+    "popularite": 41.76,
     "resume_fr": "Après les événements liés à l'affrontement avec Mysterio, l'identité secrète de Spider-Man a été révélée. Il est poursuivi par le gouvernement américain, qui l'accuse du meurtre de Mysterio, et traqué par les médias. Cet événement a également des conséquences terribles sur la vie de sa petite-amie M.J. et de son meilleur ami Ned. Désemparé, Peter Parker demande alors de l'aide au docteur Strange. Ce dernier lance un sort pour que tout le monde oublie que Peter est Spider-Man. Mais les choses ne se passent pas comme prévu, et cette action altère la stabilité de l'espace-temps. Cela ouvre le « multivers », un concept terrifiant dont ils ne savent quasiment rien...",
     "resume_en": "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
     "resume_ja": "倒した敵の暴露により、世間から悪評を受けるスパイダーマン。自分の正体が知られていない世界に戻りたいと思うようになった彼は、友人のドクター・ストレンジに助けを求める。やがて魔法の力で、彼は違う世界線で2つの人生を同時に歩み始める",
@@ -238758,7 +239035,7 @@
     "budget": 200000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 23535
+    "vote_count": 23577
   },
   {
     "id": 1368166,
@@ -272623,7 +272900,7 @@
     "realisateur": "Renny Harlin",
     "langue_origine": "en",
     "note_moyenne": 5.8,
-    "popularite": 3.43,
+    "popularite": 3.12,
     "resume_fr": "Morgan Adams, flibustière de son état, est aussi intrépide que séduisante. Après l'assassinat de son père, le redouté pirate Harry le Noir, Morgan hérite du bateau paternel et du tiers de la carte d'un fabuleux trésor. Les deux autres morceaux sont détenus par ses oncles, pirates eux aussi, dont l'un, Dawg, n'est autre que le meurtrier de son père",
     "resume_en": "Morgan Adams and her slave, William Shaw, are on a quest to recover the three portions of a treasure map. Unfortunately, the final portion is held by her murderous uncle, Dawg. Her crew is skeptical of her leadership abilities, so she must complete her quest before they mutiny against her. This is made yet more difficult by the efforts of the British crown to end her pirate raids.",
     "resume_ja": "巨大帆船モーニング・スターの船長の娘・モーガン(デイヴィス)。美しさと猛々しさの同居する男勝りの女性だ。ある日、父が何者かに襲われ、駆けつけた彼女に自分の皮膚に書かれた地図を託して死ぬ。それは宝の眠る島カットスロート・アイランドへのものだった......。",
@@ -272854,7 +273131,7 @@
     "budget": 102000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 661
+    "vote_count": 663
   },
   {
     "id": 221732,
@@ -1043759,8 +1044036,8 @@
     "duree_minutes": 106,
     "realisateur": "Philippe Le Guay",
     "langue_origine": "fr",
-    "note_moyenne": 6.8,
-    "popularite": 1.16,
+    "note_moyenne": 6.76,
+    "popularite": 1.48,
     "revenue": 0,
     "budget": 0,
     "resume_fr": "Paris, années 60. Depuis des générations, la famille Joubert vit dans un grand appartement du 16ème arrondissement. Jean-Louis est marié à Suzanne et exerce sans grande conviction le métier d'agent de change. Il ne sait pas que tout au dessus de sa tête, au sixième étage, vit une colonie d'Espagnoles, venues travailler dans le quartier comme femmes de ménage. L'arrivée de Maria, qui vient d'être engagée chez les Joubert, va permettre à Jean-Louis de découvrir la présence de ces Espagnoles. Grâce à leur bonne humeur et leur énergie, Jean-Louis va se laisser aller et goûter les plaisirs simples de la vie. Il n'en faut pas davantage pour que son univers bascule pour de bon…",
@@ -1043936,7 +1044213,7 @@
     "saisons": [],
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 425
+    "vote_count": 426
   },
   {
     "id": 24192,
@@ -1157066,7 +1157343,7 @@
     "realisateur": "Mikhail Vaynberg",
     "langue_origine": "ru",
     "note_moyenne": 7.83,
-    "popularite": 55.11,
+    "popularite": 43.45,
     "resume_fr": "Polina, une lycéenne, est sauvée du harcèlement dans son nouveau lycée et conclut un pacte avec Bars, le principal harceleur : il doit faire semblant d'être son petit ami et la protéger, et elle doit obéir à tout ce qu'il lui dit. Au fil de ce jeu, le couple développe de véritables sentiments, mais sa famille et ses camarades de classe ont de bonnes raisons de vouloir séparer les amoureux.",
     "resume_en": "High school student Polina is saved from bullying at her new school and makes a deal with the main bully Bars: he must pretend to be her boyfriend and protect her, and she must do everything he says. During this game, the couple develops real feelings, but her family and classmates have reasons to separate the lovers.",
     "resume_ja": "",
@@ -1157270,7 +1157547,7 @@
     "budget": 3716000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 229
+    "vote_count": 234
   },
   {
     "id": 1127384,
@@ -1166683,8 +1166960,8 @@
     "duree_minutes": 160,
     "realisateur": "Na Hong-jin",
     "langue_origine": "ko",
-    "note_moyenne": 6.72,
-    "popularite": 396.05,
+    "note_moyenne": 6.82,
+    "popularite": 288.81,
     "resume_fr": "Alors que les secours sont mobilisés ailleurs et que toute communication est interrompue, les habitants de Hope doivent faire face seuls à une menace grandissante. Tandis que certains tentent de protéger le village, d’autres s’aventurent dans la montagne… mais deviennent à leur tour des proies. L’ignorance et la peur déclenchent une spirale incontrôlable aux conséquences dévastatrices.",
     "resume_en": "In the remote South Korean village of Hope Harbor, police chief Bum-seok and officer Sung-ae are called to investigate a mysterious creature wreaking havoc on the community. But all is not as it seems, and perceptions can be misleading. What begins as ignorance plants the seed of disaster, escalating through human conflict into a tragedy of cosmic proportions.",
     "resume_ja": "",
@@ -1166915,7 +1167192,7 @@
     "budget": 40000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 534
+    "vote_count": 679
   },
   {
     "id": 1367220,
@@ -1170774,8 +1171051,8 @@
     "duree_minutes": 82,
     "realisateur": "Rhys Frake-Waterfield",
     "langue_origine": "en",
-    "note_moyenne": 6.42,
-    "popularite": 118.9,
+    "note_moyenne": 6.32,
+    "popularite": 66.81,
     "resume_fr": "Cette sombre réimagination de Pinocchio explore la nature inquiétante de la marionnette emblématique, brouillant les frontières entre réalité et fantaisie.",
     "resume_en": "Influenced by a sinister Cricket and created by Geppetto, Pinocchio launches a violent crusade to carve himself into a real boy like his brother James, one piece at a time.",
     "resume_ja": "",
@@ -1171033,7 +1171310,7 @@
     "budget": 500000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 166
+    "vote_count": 172
   },
   {
     "id": 1397485,
@@ -1174937,8 +1175214,8 @@
     "duree_minutes": 0,
     "realisateur": "Nitesh Tiwari",
     "langue_origine": "hi",
-    "note_moyenne": 7.5,
-    "popularite": 153.54,
+    "note_moyenne": 7.4,
+    "popularite": 131.92,
     "resume_fr": "",
     "resume_en": "An ancient epic follows a young prince and princess whose marriage and subsequent exile mark the beginning of a legendary journey. Their story of love, duty and destiny sets the stage for greater challenges ahead.",
     "resume_ja": "",
@@ -1175034,7 +1175311,7 @@
     "budget": 260000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 22
+    "vote_count": 51
   },
   {
     "id": 1469342,
@@ -1175308,7 +1175585,7 @@
     "realisateur": "Louis Leterrier",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 4.07,
+    "popularite": 4.72,
     "resume_fr": "Onzième et dernier volet de la saga Fast & Furious.",
     "resume_en": "The eleventh and final installment in The Fast Saga. Plot TBA.",
     "resume_ja": "",
@@ -1183489,7 +1183766,7 @@
     "realisateur": "Zach Cregger",
     "langue_origine": "en",
     "note_moyenne": 7.5,
-    "popularite": 695.12,
+    "popularite": 500.6,
     "resume_fr": "Bryan, un coursier médical, est en train d'effectuer une livraison lorsqu'une épidémie soudaine se déclare, le forçant à lutter pour sa survie.",
     "resume_en": "Bryan, a medical courier, is in the process of making a delivery when a sudden outbreak occurs, forcing him to fight for survival.",
     "resume_ja": "ある医療品の配送を請け負った男を襲う、地獄の一夜。\r 男は、己の命運を懸けた壮絶なサバイバルを余儀なくされる…",
@@ -1183720,7 +1183997,7 @@
     "budget": 80000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 1865
+    "vote_count": 2256
   },
   {
     "id": 1398655,
@@ -1183938,7 +1184215,7 @@
     "realisateur": "Anthony Russo",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 8.94,
+    "popularite": 10.11,
     "resume_fr": "Adaptation de Secret Wars de Jim Shooter et un prochain film de la phase 6 du Marvel Cinematic Universe qui conclura la saga du multivers.",
     "resume_en": "An upcoming film in Phase Six of the Marvel Cinematic Universe (MCU) and the finale of The Multiverse Saga. Plot TBA.",
     "resume_ja": "",
@@ -1196754,7 +1197031,7 @@
     "realisateur": "Jeremy Wiles",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 1.5,
+    "popularite": 1.59,
     "resume_fr": "Une femme est emprisonnée pour le crime de son mari et sa seule issue est de résoudre les énigmes de son passé mystérieux.",
     "resume_en": "Jailed for her husband's crime, a woman discovers that her only way out is to solve riddles from her mysterious past.",
     "resume_ja": "",
@@ -1198614,8 +1198891,8 @@
     "duree_minutes": 100,
     "realisateur": "Peter Spierig",
     "langue_origine": "en",
-    "note_moyenne": 7.29,
-    "popularite": 165.19,
+    "note_moyenne": 7.22,
+    "popularite": 130.29,
     "resume_fr": "Submergée par la mort de sa sœur Hunter, Jax se connecte avec Luce, l'amie intrépide de Hunter. Pour guérir, ils tentent la tristement célèbre promenade en planches du mont Kwan en Thaïlande. Après qu'un éboulement soudain les ait laissés bloqués sur une planche fragile à 3 000 pieds dans les airs, Jax doit affronter ses peurs les plus profondes et se battre pour survivre afin de trouver une solution.",
     "resume_en": "On a perilous climb across Thailand's Mount Kwan, two climbers become trapped thousands of feet above the ground, where vertigo-inducing heights, sheer exposure, and impossible odds turn every moment into a fight for survival.",
     "resume_ja": "",
@@ -1198765,7 +1199042,7 @@
     "budget": 0,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 758
+    "vote_count": 818
   },
   {
     "id": 1278162,
@@ -1198983,8 +1199260,8 @@
     "duree_minutes": 0,
     "realisateur": "Ti West",
     "langue_origine": "en",
-    "note_moyenne": 4.0,
-    "popularite": 28.92,
+    "note_moyenne": 7.7,
+    "popularite": 127.93,
     "resume_fr": "Ebenezer Scrooge est un vieil homme avare, pingre et solitaire. Bien évidemment, il déteste et méprise Noël et tout ce qui engendre le bonheur. C'est alors qu'il reçoit la visite du fantôme d'un ancien associé ainsi que par les esprits de Noëls du passé, du présent et du futur.",
     "resume_en": "Tale of an elderly miser, Ebenezer Scrooge, who embarks on a supernatural journey after being visited by the ghost of his former business partner and the Spirits of Christmas Past, Present, and Yet to Come, forcing him to confront his past and fight for a second chance at happiness.",
     "resume_ja": "",
@@ -1199211,11 +1199488,11 @@
     ],
     "saisons": [],
     "v2_complete": true,
-    "revenue": 0,
+    "revenue": 42000000,
     "budget": 38000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 1
+    "vote_count": 75
   },
   {
     "id": 579974,
@@ -1207337,7 +1207614,7 @@
     "realisateur": "Ryan Coogler",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 1.82,
+    "popularite": 2.48,
     "resume_fr": "",
     "resume_en": "T'Challa's son, T'Challa, comes of age with eyes on the crown of Wakanda.",
     "resume_ja": "",
@@ -1216214,7 +1216491,7 @@
     "realisateur": "Walt Dohrn",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 6.97,
+    "popularite": 6.81,
     "resume_fr": "La suite de Shrek 4 : Il était une fin...",
     "resume_en": "Shrek and Donkey team up for another whirlwind, big-city adventure.",
     "resume_ja": "",
@@ -1221610,8 +1221887,8 @@
     "duree_minutes": 0,
     "realisateur": "David Ayer",
     "langue_origine": "en",
-    "note_moyenne": 7.29,
-    "popularite": 410.92,
+    "note_moyenne": 7.61,
+    "popularite": 598.64,
     "resume_fr": "Un ancien membre des forces spéciales de la marine de guerre des États-Unis, les SEAL, se perd avec son berger allemand de combat au milieu de l'Alaska. Marqué par un trouble de stress post-traumatique, il va devoir survivre avec l'aide de son chien et d’un guide local qui le prévient des dangers mortels de cette zone désertique.",
     "resume_en": "After a harrowing plane crash, Special Forces officer James Belmont and his combat dog, Odin, find themselves stranded deep in the Alaskan wilderness. Together, they are forced into a brutal fight for survival against the elements.",
     "resume_ja": "",
@@ -1221761,7 +1222038,7 @@
     "budget": 0,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour",
-    "vote_count": 517
+    "vote_count": 889
   },
   {
     "id": 1300926,
@@ -1221783,7 +1222060,7 @@
     "realisateur": "John Rice",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 10.7,
+    "popularite": 8.83,
     "resume_fr": "",
     "resume_en": "Red faces his greatest challenge yet… surviving fatherhood while saving the world.",
     "resume_ja": "",
@@ -1231267,7 +1231544,7 @@
     "realisateur": "Jeff Fowler",
     "langue_origine": "en",
     "note_moyenne": 0.0,
-    "popularite": 9.68,
+    "popularite": 9.79,
     "resume_fr": "",
     "resume_en": "Sonic the Hedgehog, joined by a new hero named Amy, faces a new technological nemesis known as Metal Sonic.",
     "resume_ja": "",
@@ -1246554,284 +1246831,6 @@
     "v2_complete": true,
     "revenue": 0,
     "budget": 0,
-    "affiches_valides": true,
-    "statut_traitement": "v2_mis_a_jour"
-  },
-  {
-    "id": 897087,
-    "est_serie": false,
-    "type_media": "movie",
-    "est_animation": false,
-    "est_anime": false,
-    "titre": "Freelance",
-    "titre_en": "Freelance",
-    "titre_ja": "ザ・ボディガード ローグ・ミッション",
-    "titre_original": "Freelance",
-    "date_sortie": "2023-10-05",
-    "genres": [
-      "Action",
-      "Comédie"
-    ],
-    "duree_minutes": 109,
-    "realisateur": "Pierre Morel",
-    "langue_origine": "en",
-    "note_moyenne": 6.395,
-    "popularite": 6.5813,
-    "resume_fr": "Un agent des forces spéciales décide de prendre sa retraite de l’armée et de fonder une famille aux États-Unis. Après plusieurs années d’efforts pour se conformer à la vie en banlieue, il décide de sortir de sa retraite et d’accepter un contrat pour assurer la sécurité d’une journaliste alors qu’elle interviewe un dictateur sud-américain. Lorsqu’un coup d’État militaire éclate en plein milieu de l’interview, les voici tous trois contraints de s‘enfuir dans la jungle où ils doivent survivre aux éléments, aux militaires et les uns aux autres.",
-    "resume_en": "An ex-special forces operative takes a job to provide security for a journalist as she interviews a dictator, but a military coup breaks out in the middle of the interview, they are forced to escape into the jungle where they must survive.",
-    "resume_ja": "ピエール・モレル監督、ジョン・シナ主演による痛快アクション・コメディ。南米のジャングルで女性ジャーナリストを守るという任務を引き受けた元特殊部隊員。命懸けのサバイバルの中で、惹かれ合っていくが……。",
-    "bande_annonce_url_fr": "https://www.youtube.com/watch?v=wTA1su_FbCc",
-    "bande_annonce_url_en": "https://www.youtube.com/watch?v=W0k2XerT8Nw",
-    "bande_annonce_url_ja": null,
-    "affiches_globales": [
-      {
-        "categorie": "textless",
-        "affiche_w500": "https://image.tmdb.org/t/p/w500/acB0GpkpS0GHOjdvuVizYT7GlE7.jpg",
-        "affiche_original": "https://image.tmdb.org/t/p/original/acB0GpkpS0GHOjdvuVizYT7GlE7.jpg",
-        "palette": [
-          {
-            "hex": "#162136",
-            "weight": 27.65
-          },
-          {
-            "hex": "#444947",
-            "weight": 21.04
-          },
-          {
-            "hex": "#376b99",
-            "weight": 17.85
-          },
-          {
-            "hex": "#8a846b",
-            "weight": 17.57
-          },
-          {
-            "hex": "#96c8da",
-            "weight": 15.89
-          }
-        ]
-      },
-      {
-        "categorie": "textless",
-        "affiche_w500": "https://image.tmdb.org/t/p/w500/i7J3EnweilX5YpSzU42NxLeXv2z.jpg",
-        "affiche_original": "https://image.tmdb.org/t/p/original/i7J3EnweilX5YpSzU42NxLeXv2z.jpg",
-        "palette": [
-          {
-            "hex": "#737d65",
-            "weight": 27.03
-          },
-          {
-            "hex": "#2b2c3a",
-            "weight": 23.99
-          },
-          {
-            "hex": "#e5ecef",
-            "weight": 21.41
-          },
-          {
-            "hex": "#265983",
-            "weight": 13.92
-          },
-          {
-            "hex": "#64b4ca",
-            "weight": 13.65
-          }
-        ]
-      },
-      {
-        "categorie": "textless",
-        "affiche_w500": "https://image.tmdb.org/t/p/w500/cKubgqwaDIafAfTJkDqs4Au3OS3.jpg",
-        "affiche_original": "https://image.tmdb.org/t/p/original/cKubgqwaDIafAfTJkDqs4Au3OS3.jpg",
-        "palette": [
-          {
-            "hex": "#13150f",
-            "weight": 38.31
-          },
-          {
-            "hex": "#1c3f19",
-            "weight": 25.47
-          },
-          {
-            "hex": "#614e3a",
-            "weight": 13.7
-          },
-          {
-            "hex": "#b09a8e",
-            "weight": 11.55
-          },
-          {
-            "hex": "#363b3e",
-            "weight": 10.97
-          }
-        ]
-      },
-      {
-        "categorie": "origine",
-        "affiche_w500": "https://image.tmdb.org/t/p/w500/7Bd4EUOqQDKZXA6Od5gkfzRNb0.jpg",
-        "affiche_original": "https://image.tmdb.org/t/p/original/7Bd4EUOqQDKZXA6Od5gkfzRNb0.jpg",
-        "palette": [
-          {
-            "hex": "#eaf0f3",
-            "weight": 30.36
-          },
-          {
-            "hex": "#1e2e45",
-            "weight": 24.79
-          },
-          {
-            "hex": "#756f61",
-            "weight": 18.39
-          },
-          {
-            "hex": "#88b7b2",
-            "weight": 13.81
-          },
-          {
-            "hex": "#3488b3",
-            "weight": 12.65
-          }
-        ]
-      },
-      {
-        "categorie": "origine",
-        "affiche_w500": "https://image.tmdb.org/t/p/w500/eXo4NlyT3oXoRgVWS5J4rgR6gt1.jpg",
-        "affiche_original": "https://image.tmdb.org/t/p/original/eXo4NlyT3oXoRgVWS5J4rgR6gt1.jpg",
-        "palette": [
-          {
-            "hex": "#1b2437",
-            "weight": 26.85
-          },
-          {
-            "hex": "#50534f",
-            "weight": 22.87
-          },
-          {
-            "hex": "#5a95ba",
-            "weight": 19.79
-          },
-          {
-            "hex": "#d8e8ec",
-            "weight": 16.96
-          },
-          {
-            "hex": "#938c6e",
-            "weight": 13.53
-          }
-        ]
-      },
-      {
-        "categorie": "origine",
-        "affiche_w500": "https://image.tmdb.org/t/p/w500/jxO6JOgcYCaCWBjP9mj4nEtB7cX.jpg",
-        "affiche_original": "https://image.tmdb.org/t/p/original/jxO6JOgcYCaCWBjP9mj4nEtB7cX.jpg",
-        "palette": [
-          {
-            "hex": "#6c7058",
-            "weight": 26.8
-          },
-          {
-            "hex": "#182134",
-            "weight": 26.54
-          },
-          {
-            "hex": "#e7ebed",
-            "weight": 21.44
-          },
-          {
-            "hex": "#64b9ca",
-            "weight": 14.12
-          },
-          {
-            "hex": "#3273a9",
-            "weight": 11.1
-          }
-        ]
-      },
-      {
-        "categorie": "monde",
-        "affiche_w500": "https://image.tmdb.org/t/p/w500/41rqc5t1Ye3k9iNey1pxYJQuooF.jpg",
-        "affiche_original": "https://image.tmdb.org/t/p/original/41rqc5t1Ye3k9iNey1pxYJQuooF.jpg",
-        "palette": [
-          {
-            "hex": "#223147",
-            "weight": 29.16
-          },
-          {
-            "hex": "#deeaee",
-            "weight": 27.51
-          },
-          {
-            "hex": "#687f68",
-            "weight": 19.65
-          },
-          {
-            "hex": "#4697bb",
-            "weight": 16.28
-          },
-          {
-            "hex": "#a77166",
-            "weight": 7.4
-          }
-        ]
-      },
-      {
-        "categorie": "monde",
-        "affiche_w500": "https://image.tmdb.org/t/p/w500/nYknJ4zmIzIfrMEnWF5pcttmEMT.jpg",
-        "affiche_original": "https://image.tmdb.org/t/p/original/nYknJ4zmIzIfrMEnWF5pcttmEMT.jpg",
-        "palette": [
-          {
-            "hex": "#e4e8ed",
-            "weight": 31.48
-          },
-          {
-            "hex": "#707061",
-            "weight": 24.15
-          },
-          {
-            "hex": "#1b202f",
-            "weight": 20.87
-          },
-          {
-            "hex": "#6aa1bd",
-            "weight": 13.13
-          },
-          {
-            "hex": "#244978",
-            "weight": 10.37
-          }
-        ]
-      },
-      {
-        "categorie": "monde",
-        "affiche_w500": "https://image.tmdb.org/t/p/w500/wRTKRKfXxf19eDEoxUYG6fPc1ob.jpg",
-        "affiche_original": "https://image.tmdb.org/t/p/original/wRTKRKfXxf19eDEoxUYG6fPc1ob.jpg",
-        "palette": [
-          {
-            "hex": "#121113",
-            "weight": 39.09
-          },
-          {
-            "hex": "#766e53",
-            "weight": 22.51
-          },
-          {
-            "hex": "#e2e8e7",
-            "weight": 16.09
-          },
-          {
-            "hex": "#224d76",
-            "weight": 11.25
-          },
-          {
-            "hex": "#61a8ba",
-            "weight": 11.05
-          }
-        ]
-      }
-    ],
-    "saisons": [],
-    "v2_complete": true,
-    "revenue": 9112817,
-    "budget": 40000000,
     "affiches_valides": true,
     "statut_traitement": "v2_mis_a_jour"
   }
